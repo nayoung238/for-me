@@ -5,8 +5,8 @@
 
 ### 3주 3회차 (실습)
 
-- [chap2_code 실행](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
+- [chap2_code 실행결과](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
 
 ### 3주 4회차
 
-- [blocking vs non-blocking 파일](https://github.com/evelyn82/network/blob/master/socket/blocking-vs-non-blocking.md)
+- [blocking vs non-blocking](https://github.com/evelyn82/network/blob/master/socket/blocking-vs-non-blocking.md)

@@ -62,7 +62,8 @@ int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 ### TCP (SOCK_STREAM)
 
 - 중간에 데이터가 소멸되지 않고, 전송 순서가 보장된다.
-- 데이터의 경계가 존재하지 않아 receiver 입장에선 받는 단위 지정이 가능하다. -> 자세한 내용 [https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
+- 데이터의 경계가 존재하지 않아 receiver 입장에선 받는 단위 지정이 가능하다. 
+  - 자세한 내용 : [https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
 - 소켓끼리의 연결은 1 대 1 구조이다.
 - 주로 FTP(File Transfer Protocol)에 사용된다.
 
