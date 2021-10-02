@@ -1,4 +1,4 @@
-## TCP가 전송하는 데이터는 경계가 존재하지 않는다.
+# TCP가 전송하는 데이터는 경계가 존재하지 않는다.
 
 TCP로 전달되는 데이터의 특징은 경계가 존재하지 않는다.<br>
 하지만 UDP로 전달되는 데이터는 경계가 존재한다.<br>
@@ -19,7 +19,7 @@ tcp_client.c 의 일부코드이다.<br>해당 client는 전달받은 데이터�
 ![png](/_img/chap2_tcp_result.png)<br>
 몇번 읽었는지 확인하기 위해 strlen을 출력한 결과 13이 출력되었다.<br>
 ![png](/_img/helloworld.png)<br>
-null까지 읽고 ```EOF(End Of File)``에 접근한 순간 return 0 하기 때문에 13이 출력되었다.<br><br>
+null까지 읽고 ```EOF(End Of File)```에 접근한 순간 return 0 하기 때문에 13이 출력되었다.<br><br>
 ```c
 char message[30];
 
