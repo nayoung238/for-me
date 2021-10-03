@@ -2,7 +2,7 @@
 
 공유기 외부에서 공유기 내부로 접속하기 위해 네트워크 주소를 변환해주는 것을 port forwarding 또는 port mapping이라고 한다.<br><br>
 ![png](/_img/ubuntu_ip.png)<br>
-**ifconfig**명령어로 Host IP가 ```127.0.0.1```임을 알 수 있고, mac os에서 검색해도 당연히 동일한 결과를 보여준다.<br><br>
+**ifconfig**명령어로 Host IP가 ```127.0.0.1```임을 알 수 있다.<br><br>
 ![png](/_img/chap1_hello_result.png)<br>
 서버를 가상머신에서 돌리기 때문에 port forwarding 설정을 해야한다.<br>
 9190 port로 설정했으며 외부에서 Host PC로 들어오는 socket 중 port 번호가 9190 인 것은 Host에서 처리하지 않고 Guest로 넘겨준다.<br>
