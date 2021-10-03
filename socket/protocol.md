@@ -5,7 +5,7 @@
 하지만 현재 Application 레벨의 protocol인 HTTP, SMTP 같은 프로토콜은 문자 기반이다.<br>
 문자로 헤더, 데이터 등을 표현하고 text 파일과 같은 데이터가 전달되지 때문에 효율성은 비트 기반 프로토콜 보다 떨어지지만 확장성이 높다.<br>
 
-TCP는 transport 계층에서 IP는 Network(Internet) 계층에서 별도로 동작하지만 함께 사용되는데 이를 ```프로토콜 스택```이라고 한다.<br>
+TCP는 transport 계층에서, IP는 Network(Internet) 계층에서 별도로 동작하지만 함께 사용되는데 이를 ```프로토콜 스택```이라고 한다.<br>
 프로토콜 스택은 4개의 부분으로 나누어 진다.<br>
 
 - physical 계층 : Ethernet 이더넷
@@ -61,7 +61,7 @@ int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
 ### TCP (SOCK_STREAM)
 
-- 중간에 데이터가 소멸되지 않고, 전송 순서가 보장된다.
+- 중간에 데이터 소멸을 막고 전송 순서가 보장된다.
 - 데이터의 경계가 존재하지 않아 receiver 입장에선 받는 단위 지정이 가능하다. 
   - 자세한 내용 : [https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
 - 소켓끼리의 연결은 1 대 1 구조이다.

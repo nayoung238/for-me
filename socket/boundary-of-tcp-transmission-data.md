@@ -1,18 +1,16 @@
-# TCP가 전송하는 데이터는 경계가 존재하지 않는다.
+# TCP가 전송하는 데이터는 경계가 존재하지 않는다. (chap2_code 실행결과)
 
 TCP로 전달되는 데이터의 특징은 경계가 존재하지 않는다.<br>
 하지만 UDP로 전달되는 데이터는 경계가 존재한다.<br>
 즉, TCP로 전달되는 데이터는 읽고 싶은 만큼 나눠서 받아도 되고, UDP로 전달되는 데이터는 무조건 주는 만큼 다 받아야 한다.<br>
 ```c
-while(read_len=read(sock, &message[idx++], 1))
-	{
-		if(read_len==-1)
-		{
-			error_handling("read() error!");
-			break;
-		}
-		str_len+=read_len;
+while(read_len=read(sock, &message[idx++], 1)){
+    if(read_len==-1){
+		error_handling("read() error!");
+		break;
 	}
+	str_len+=read_len;
+}
 ```
 
 tcp_client.c 의 일부코드이다.<br>해당 client는 전달받은 데이터를 1byte씩 읽는 방식이다.<br><br>
