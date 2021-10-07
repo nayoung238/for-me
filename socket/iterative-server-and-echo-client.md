@@ -8,8 +8,7 @@
 6. close(client)
 7. close(server)
 
-과정6에서 클라이언트가 close()를 호출하면 서버도 close()를 호출하는 것이 아니고 다시 과정3과 과정4 사이에서 머무르다가 클라이언트의 연결 요청이 들어오면 accept()하여 데이터를 주고 받는다.<br>
-이것을 Iterative server고 한다.<br>
+과정6에서 클라이언트가 close()를 호출하면 서버도 close()를 호출하는 것이 아니고 다시 과정3과 과정4 사이에서 머무르다가 클라이언트의 연결 요청이 들어오면 accept()하여 데이터를 주고 받는다. 이것을 Iterative server고 한다.<br>
 
 ## Iterative server 코드
 
