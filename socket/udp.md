@@ -45,7 +45,7 @@ ssize_t recvfrom(int sock, void *buff, size_t nbytes, int flags,
 - from : 발신지 정보를 채워 넣을 sockaddr 구조체 변수의 주소 값
 - addrlen : (pointer) // 수정예정
 
-from에 비어있는 sockaddr 구조체를 넘겨주면 커넛에서 발신자 주소를 알아서 채워준다.<br>
+from에 비어있는 sockaddr 구조체를 넘겨주면 커널에서 발신자 주소를 알아서 채워준다.<br>
 
 ### TCP / UDP 포트번호 관리
 
