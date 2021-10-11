@@ -103,6 +103,19 @@ echo server와 마찬가지로 UDP는 데이터의 경계가 존재해 모든 �
 
 ## connected UDP socket
 
+```c
+1  sock = socket(PF_INET, SOCK_DGRAM, 0);
+2  if(sock == -1)
+3       error_handling("sock() error");
+4  
+5  memset(&serv_adr, 0, sizeof(serv_adr));  
+6  serv_adr.sin_family = AF_INET;
+7  serv_adr.sin_addr.s_addr = inet_addr(argv[1]);
+8  serv_adr.sin_port = htons(atoi(argv[2]));
+9 
+10 connect(sock, (struct sockaddr*)&serv_adr, sizeof(serv_adr));
+```
+
 UDP 소켓은 여러 UDP 소켓과 통신이 가능하므로 sendto()를 호출할 때마다 상대방의 주소를 작성해야한다. 하지만 connect()를 사용하면 sendto()가 아닌 read()/write()로 데이터 송수신이 가능하다.<br>
 즉, sendto()를 사용하지 않으니 데이터를 보낼 때마다 상대방 주소를 작성할 필요가 없다. 이와 같은 소켓을 connected UDP 소켓이라 한다.<br>
 
