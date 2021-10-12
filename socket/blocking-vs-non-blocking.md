@@ -1,13 +1,14 @@
 # Blocking mode 파일의 read()
 
 - 읽을 데이터가 없는 경우 읽을 데이터를 받을때까지 block 된다.
-- 읽은 데이터의 크기를 return 한다.
+- 읽은 데이터의 크기를 return 한다. (BUF_SIZE)
 - 에러가 발생된 경우 return -1
 
 ## 일반 파일
 
-- 읽을 데이터에 EOF가 포함된 경우 EOF까지 읽은 데이터 수를 return 한다.
+- 읽을 데이터에 EOF가 포함된 경우 EOF까지 읽은 데이터 수를 return 한다. (BUF_SIZE 보다 작은 값이 return 될 수 있음.)
 - 읽을 데이터가 EOF밖에 없는 경우 0을 return하며 해당 경우는 ```error가 아니다.```
+- read buffer에 있는 데이터가 BUF_SIZE보다 작은 경우 일단 기다린다.(block)
 
 예를 들면 영어 147글자인 일반 파일을 receiver가 10byte씩 읽는 경우 return 되는 과정은 다음과 같다.(영어는 1글자당 1byte)<br>
 
@@ -20,13 +21,14 @@
 
 소켓, 파이프 같은 느린 파일은 읽도록 지정한 byte보다 작은 값이 return될 수 있다.<br>
 
-- 실제 버퍼에 있는 데이터만 읽는데 일반 파일에서는 이런 일이 발생하지 않는다.
+- 실제 버퍼에 있는 데이터만 읽는데 일반 파일에서는 이런 일이 발생하지 않는다. (BUF_SIZE 보다 작은 값이 return 될 수 있음.)
 - 읽을 데이터에 EOF가 포함된 경우 EOF까지 읽은 데이터 수를 return 한다.
 - 읽을 데이터가 EOF밖에 없는 경우 0을 return하며 해당 경우는 ```error가 아니다.```
 
 일반 파일과 느린 파일의 차이는 버퍼에 읽을 수 있는 데이터의 크기 뿐이다.<br>
 느린 파일도 EOF를 읽어야 끝나는데 상대가 close(socket) 하면 EOF가 날라온다.<br>
 
+즉, 느린파일은 read buffer에 있는 만큼 읽고, 없으면 기다린다.<br>
 
 # Non-blocking mode 파일의 read()
 
