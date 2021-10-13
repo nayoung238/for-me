@@ -92,10 +92,8 @@ struct in_addr{
 - uint16_t : unsigned 16bit int(unsigned short)
 - int32_t : signed 32bit int
 - uint32_t : unsigned 32bit int(unsigned long)
-
 - sa_family_t : 주소 체계(address family)
 - socklen_t : 길이 정보(length of struct)
-
 - in_addr_t : IP 주소, uint32_t로 정의
 - in_port_t : Port 번호, uint16_t로 정의
 
