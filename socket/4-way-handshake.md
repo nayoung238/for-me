@@ -24,13 +24,14 @@ write buffer에 쌓인 데이터는 상대방의 read buffer에 쌓이는 방식
 
 ## 4-way handshake
 
-![png](/_img/4-way-handshake.png) <br>
-> 출처 : https://sjlim5092.tistory.com/37 <br>
+![png](/_img/4way_handshake.png) <br>
 
-- host A가 close()를 호출해 소켓을 닫겠다라는 의미가 담긴 패킷을 host B에게 보냈다.
-- 소켓을 닫겠다라는 패킷을 받은 host B는 **'연결을 종료하겠다는 것을 일단 알고있겠다...'** 라는 의미로 해당 패킷에 대한 응답을 보낸다.
-- host B는 출력 버퍼에 남은 데이터를 일단 host A에게 보내고 close()를 호출해 **'나도 연결을 종료하겠다.'** 라는 패킷을 한번더 보낸다.
-- host A는 이에 대한 응답을 보낸다.
+- FIN : host A가 close()를 호출하면 연결을 끊겠다라는 신호를 보내기 위해 FIN flag를 1로 설정한 패킷을 host B에게 보낸다.
+- ACK : FIN flag가 1로 설정된 패킷을 받은 host B는 **'연결을 종료하겠다는 것을 일단 알고있겠다.'** 라는 의미로 해당 패킷에 대한 응답을 보낸다.
+  - 응답을 받은 host A는 상대방이 FIN flag가 1인 패킷을 보낼 때까지 기다린다.
+- FIN : host B는 출력 버퍼에 남은 데이터를 일단 host A에게 보내고 close()를 호출해 **'나도 연결을 종료하겠다.'** 라는 의미로 FIN flag를 1로 설정해 패킷을 한번더 보낸다.
+- ACK : host A는 이에 대한 응답을 보내고 서로의 연결이 종료된다.
+
 
 이렇게 4번의 패킷 전송으로 인해 연결이 종료되므로 이를 ```4-way handshake```라고 한다.<br><br>
 
