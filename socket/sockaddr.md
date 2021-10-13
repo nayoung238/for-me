@@ -121,7 +121,7 @@ sockaddr 구조체는 IPv4, IPv6, local 프로토콜을 모두 처리하기 때�
 어떤 프로토콜인지 구분했다면 IP 주소와 Port 번호를 작성해야 하는데 sockaddr 구조체는 14바이트에 한번에 담는다.<br>
 IPv4의 주소 정보를 담기 불편해서 동일한 바이트 열을 구성하는 sockaddr_in 구조체가 생긴 것이다.<br>
 
-![png](/_img/sockaddr_sa_data_14.png) <br>
+![png](/_img/sockaddr_sa_data14.png) <br>
 
 14 바이트로 구성되어 있으며 앞 2바이트는 Port 번호를 담고, 그 다음 4바이트에는 IP 주소를 담는다.<br>
 IPv4를 표현하기 위한 sockaddr_in 구조체의 sin_zero[8]를 모두 0으로 채운 이유는 sa_data의 나머지 8바이트를 0으로 채우기 위해서 였다.<br><br>
