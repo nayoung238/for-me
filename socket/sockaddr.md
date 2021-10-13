@@ -85,6 +85,7 @@ struct in_addr{
 - in_addr_t 은 unsigned_int 32비트로 정의되어 있다.
 
 굳이 **in_addr_t** 로 작성하는 이유는 직관적으로 보이게 하고, 시스템 확장성을 위해서 이다.<br>
+그럼 in_addr_t 하나를 처리하기 위해 in_addr 구조체로 만든 이유가 궁금해지는데 **4byte를 가져오면 1byte씩 해석**하라고 정의하기 위함이라고 한다.<br>
 
 - int8_t : signed 8bit int
 - uint8_t : unsigned 8bit int(unsigned char)
