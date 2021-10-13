@@ -10,7 +10,7 @@ IPv4, IPv6, UNIX 프로토콜 등 통신하기 위해 사용되는 방식들이 
 - 소켓을 생성하고 IPv4 프로토콜을 사용할 것인지, IPv6 프로토콜을 사용할 것인지 지정해야 한다.
 - IP 주소는 네트워크 주소와 호스트 주소로 나뉘고, 네트워크 주소로 네트워크를 찾은 다음 호스트 주소로 호스트를 찾는다.
   - 현재는 완전한 class 체계 사용보다 classless 개념인 서브넷 마스크로 네트워크, 호스트 주소를 나눈다.
-  - 자세한 내 : [https://github.com/evelyn82/network/blob/master/theory/ip.md](https://github.com/evelyn82/network/blob/master/theory/ip.md)
+  - 자세한 내용 : [https://github.com/evelyn82/network/blob/master/theory/ip.md](https://github.com/evelyn82/network/blob/master/theory/ip.md)
 
 책을 보면 현재는 Class 체계를 사용하지 않는다고 하는데 Classless 체계는 Class 체계를 기반으로 만들어졌기 때문에 아예 사용하지 않는다고 말하는게 조금은 이상하지 않나 생각든다.<br>
 
@@ -66,11 +66,11 @@ IPv4, IPv6 등 어떤 프로토콜을 사용하는지에 대한 주소체계를 
 - AF_INET6 : IPv6 인터넷 프로토콜에 적용하는 주소체계
 - AF_LOCAL : 로컬 통신을 위한 유닉스 프로토콜 주소체계
 
-### sin_port 포트 번호
+### sin_port : 포트 번호
 
 16비트로 port 번호를 저장하고 네트워크 바이트 순서인 **Big Endian**을 기준으로 저장한다.<br>
 
-### sin_addr  IP 주소
+### sin_addr :  IP 주소
 
 32비트 IP 주소를 저장하고 네트워크 바이트 순서인 **Big Endian**을 기준으로 저장한다.<br>
 
@@ -137,8 +137,3 @@ if(bind(serv_addr, (struct sockaddr*) &serv_addr, sizeof(serv_addr)) == -1)
 
 소켓을 생성했다면 주소까지 할당하기 위해 bind()를 호출한다.<br>
 위 코드를 보면 여러 기반의 주소체계를 처리하기 위해 sockaddr 구조체로 casting 한 다음 소켓에 sockaddr 구조체의 시작 주소를 연결해준다.<br>
-
-
-
-
-
