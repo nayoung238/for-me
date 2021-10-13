@@ -4,7 +4,7 @@
 - [TCP의 데이터 경계](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
 - [blocking vs non-blocking](https://github.com/evelyn82/network/blob/master/socket/blocking-vs-non-blocking.md)
 - [IPv4 기반의 주소표현 sockaddr_in 구조체](https://github.com/evelyn82/network/blob/master/socket/sockaddr.md)
-- [인터넷 주소 할당하기](https://github.com/evelyn82/network/blob/master/socket/network-byte-order.md)
+- [인터넷 주소 할당하기](https://github.com/evelyn82/network/blob/master/socket/allocate-ip.md)
 - [TCP 함수호출 과정](https://github.com/evelyn82/network/blob/master/socket/tcp-process.md)
 - [Iterative server & Echo client](https://github.com/evelyn82/network/blob/master/socket/iterative-server-and-echo-client.md)
 - [4-way handshake & half close](https://github.com/evelyn82/network/blob/master/socket/4-way-handshake.md)
