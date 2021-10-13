@@ -1,3 +1,15 @@
+## Socket programming
+
+- [프로토콜이란](https://github.com/evelyn82/network/blob/master/socket/protocol.md)
+- [TCP의 데이터 경계](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
+- [blocking vs non-blocking](https://github.com/evelyn82/network/blob/master/socket/blocking-vs-non-blocking.md)
+- [IPv4 기반의 주소표현 sockaddr_in 구조체](https://github.com/evelyn82/network/blob/master/socket/sockaddr-in.md)
+- [인터넷 주소 할당하기](https://github.com/evelyn82/network/blob/master/socket/network-byte-order.md)
+- [TCP 함수호출 과정](https://github.com/evelyn82/network/blob/master/socket/tcp-process.md)
+- [Iterative server & Echo client](https://github.com/evelyn82/network/blob/master/socket/iterative-server-and-echo-client.md)
+- [4-way handshake + half close](https://github.com/evelyn82/network/blob/master/socket/4-way-handshake.md)
+- [UDP는 연결이라는 개념이 존재하지 않는다.](https://github.com/evelyn82/network/blob/master/socket/udp.md)
+
 ## Network
 
 > 'IT 엔지니어를 위한 네트워크 입문' 정리본
@@ -9,17 +21,6 @@
 - [IP 주소](https://github.com/evelyn82/network/blob/master/theory/ip.md)
 - [TCP와 UDP]
 - [ARP]
-
-## Socket programming
-
-- [프로토콜이란](https://github.com/evelyn82/network/blob/master/socket/protocol.md)
-- [TCP의 데이터 경계](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
-- [blocking vs non-blocking](https://github.com/evelyn82/network/blob/master/socket/blocking-vs-non-blocking.md)
-- [TCP 함수호출 과정](https://github.com/evelyn82/network/blob/master/socket/tcp-process.md)
-- [Iterative server & Echo client](https://github.com/evelyn82/network/blob/master/socket/iterative-server-and-echo-client.md)
-- [4-way handshake + half close](https://github.com/evelyn82/network/blob/master/socket/4-way-handshake.md)
-- [UDP는 연결이라는 개념이 존재하지 않는다.](https://github.com/evelyn82/network/blob/master/socket/udp.md)
-
 
 # 참고 링크
 
