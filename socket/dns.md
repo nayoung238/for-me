@@ -1,8 +1,8 @@
 # DNS (Domain Name System)
 
-도메인 이름이란 ```www.google.com``` 같이 IP 주소를 대신하는 서버의의 주소이다.<br>
+도메인 이름이란 ```www.google.com``` 같이 IP 주소를 대신하는 서버의 주소이다.<br>
 IP 주소는 변경할 수 있어 도메인 이름에 비해 상대적으로 변동이 심하다. 만약 웹페이지에 접속하기 위해 IP 주소를 입력해야 한다면, 서버의 IP 변경을 먼저 감지해야하는 번거로움이 생긴다.<br>
-그러므로 사용자는 상대적으로 변동이 덜한 도메인 이름으로 해당 페이지를 요청한다.<br>
+그러므로 사용자는 상대적으로 변동이 덜한 도메인 이름을 이용하는데 도메인 이름이 실제 접속에 사용되지는 않고, IP 주소로 변환해서 사용한다.<br>
 
 ## DNS server
 
@@ -46,10 +46,16 @@ IPv4이면 4byte로 해석하고, IPv6은 16바이트로 해석하는 등 여러
 
 ## 도메인 이름으로 IP 주소 얻어오기
 
+```c
+#include <netdb.h>
+
+struct hostent* gethostbyname(const char* hostname);
+```
 도메인 이름으로 IP 주소를 얻어오려면 gethostbyname() 을 사용하면 된다.<br>
+정상적으로 채워졌을 경우 **hostent 구조체의 주소 값**이 리턴되고, 그렇지 않을 경우 NULL을 반환한다.<br>
 
 ```c
-1  hostent host;
+1  struct hostent *host;
 2  host = gethostbyname(argv[1]);
 3  if(!host) error_handling("gethost... error\n");
 4    
@@ -77,8 +83,7 @@ line 13 에서 IP 주소를 출력하기 위해 in_addr 구조체로 casting 하
 ```gethostbyname.c``` 를 ```hostname``` 으로 컴파일한 후 네이버와 구글에 대한 도메인 이름을 입력한 결과이다.<br>
 ![png](/_img/gethostbyname.png) <br>
 
-네이버와 구글 둘다 IPv4 기반의 주소 체계를 사용하고 있으며 네이버는 IP 주소가 2개임을 알 수 있다.<br>
-<br><br>
+네이버와 구글 둘다 IPv4 기반의 주소 체계를 사용하고 있으며 네이버는 IP 주소가 2개임을 알 수 있다.<br><br>
 
 ## IP 주소로 도메인 정보 얻어오기
 
@@ -89,4 +94,44 @@ line 13 에서 IP 주소를 출력하기 위해 in_addr 구조체로 casting 하
 
 struct hostent* gethostbyaddr(const char* addr, socklen_t len, int family);
 ```
+
+- addr : in_addr 구조체 변수의 포인터를 전달한다. IPv4 이외의 다양한 정보를 일반화하기 위해 char* 로 선언됨
+- len : IPv4는 4바이트이므로 4를, IPv6는 16바이트이므로 16을 전달
+- family : 주소쳬계 정보 전달. IPv4는 AF_INET, IPv6는 AF_INET6을 전달
+
+IP 주소에 대한 도메인 정보 얻어오기에 성공한다면 hostent 구조체를 반환하고, 실패하면 NULL 을 반환한다.<br>
+
+```c
+1  struct hostent *host;
+2  struct sockaddr_in addr;
+3  memset(&addr, 0, sizeof(addr));
+4  addr.sin_addr.s_addr = inet_addr(argv[1])'   
+5  
+6  host = gethostbyaddr((char*)&addr.sin_addr, 4, AF_INET);
+7  if(!host) error_handling("gethost... error\n");
+8  printf("Official name : %s\n", host->h_name);
+9      
+10 for(i = 0; host->h_aliases[i]; i++)
+11      printf("Aliases %d : %s\n", i + 1, host -> h_aliases[i]);
+12 
+13 printf("Address type : %s\n", (host->h_addrtype == AF_INET)?"AF_INET":"AF_INET6");
+14 for(i = 0; host->h_addr_list[i]; i++)
+15      printf("IP addr %d : %s\n", i + 1, inet_ntoa(*(struct in_addr*)host->h_addr_list[i]));
+```
+> 실제 코드 : [https://github.com/evelyn82/network/blob/master/dns/gethostbyaddr.c](https://github.com/evelyn82/network/blob/master/dns/gethostbyaddr.c) <br>
+
+![png](/_img/gethostbyaddr.png) <br>
+
+```gethostbyname.c``` 를 ```hostname``` 으로 컴파일하고, ```gethostbyaddr.c``` 를 ```hostaddr``` 으로 컴파일했다.<br>
+
+- ./hostname www.google.com : 도메인 이름을 입력하면 gethostbyname()을 사용해 구글 서버 주소를 가져온다.
+- ./hostaddr 142.250.196.100 : gethostbyname()으로 얻은 IP 주소로 다시 한번 구글 서버 주소를 얻고자 gethostbyaddr()를 호출했다.
+
+그 결과 같은 주소 체계와 같은 IP 주소 목록이 출력되었고, 네이버 도메인 이름으로 한번 더 해봤다.<br> 
+
+- ./hostname www.naver.com : 도메인 이름을 입력하면 gethostbyname()을 사용해 네이버 서버 주소를 가져온다.
+- ./hostaddr 222.130.195.200 : gethostbyname()으로 얻은 IP 주소로 다시 한번 네이버 서버 주소를 얻고자 gethostbyaddr()를 호출했지만 얻지 못했다.
+
+두 번째 IP 주소로 도메인 정보를 얻고자 시도했지만 실패했다.<br>
+알아보니 해당 사이트가 IP정보로 서버 정보를 얻는 것을 막으면 해당 사이트에 대한 서버 정보를 가져올 수 없다고 한다.
 
