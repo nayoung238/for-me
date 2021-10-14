@@ -64,6 +64,7 @@ IPv4이면 4byte로 해석하고, IPv6은 16바이트로 해석하는 등 여러
 13     printf("IP addr %d : %s\n", i + 1, inet_ntoa(*(struct in_addr*)host -> h_addr_list[i]));
 14 }
 ```
+> 실제 코드 : [https://github.com/evelyn82/network/blob/master/dns/gethostbyname.c](https://github.com/evelyn82/network/blob/master/dns/gethostbyname.c) <br>
 
 line 13 을 보면 string으로 저장된 IP 주소를 **in_addr 구조체로 casting**한 다음 in_addr_t 타입으로 저장된 값을 inet_ntoa() 를 통해 string 으로 변환해 출력한다.<br>
 hostent 구조체에 IP 주소를 저장하고 있는 h_addr_list 도 char** 타입으로 지정되어있기 때문에 결국 string인데 왜 casting 하는 과정을 거치고 inet_ntoa() 함수를 호출해 다시 string 으로 바꾸는 번거로움을 거쳤을까?<br>
@@ -71,7 +72,13 @@ hostent 구조체에 IP 주소를 저장하고 있는 h_addr_list 도 char** 타
 h_addr_list 에는 IPv4, IPv6 등 여러 주소 체계가 모두 string으로 처리되어있기 때문에 이를 구분해야 한다.<br>
 in_addr 구조체는 32비트 unsigned int 인 in_addr_t 타입 하나만을 가지고 있음에도 구조체로 만들어졌다. 굳이 구조체로 왜 만들었을까 생각들지만 이는 **4바이트를 가져오면 1바이트씩 해석**하라고 정의하기 위함이다.<br>
 line 13 에서 IP 주소를 출력하기 위해 in_addr 구조체로 casting 하고 inet_ntoa()을 이용해 string으로 변환하는 번거로운 과정 또한 같은 이유이다.<br>
-즉, 가져온 string을 IPv4 기반으로 해석하겠다는 의미를 명시하는 것이다.<br><br>
+즉, 가져온 string을 IPv4 기반으로 해석하겠다는 의미를 명시하는 것이다.<br>
+
+```gethostbyname.c``` 를 ```hostname``` 으로 컴파일한 후 네이버와 구글에 대한 도메인 이름을 입력한 결과이다.<br>
+![png](/_img/gethostbyname.png) <br>
+
+네이버와 구글 둘다 IPv4 기반의 주소 체계를 사용하고 있으며 네이버는 IP 주소가 2개임을 알 수 있다.<br>
+<br><br>
 
 ## IP 주소로 도메인 정보 얻어오기
 
