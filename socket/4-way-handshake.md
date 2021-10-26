@@ -24,16 +24,31 @@ write buffer에 쌓인 데이터는 상대방의 read buffer에 쌓이는 방식
 
 ## 4-way handshake
 
-![png](/_img/4way_handshake.png) <br>
+![png](/assets/images/network/4way_handshake.png){: .align-center}{: width="100%" height="100%"}<br>
 
-- FIN : host A가 close()를 호출하면 연결을 끊겠다라는 신호를 보내기 위해 FIN flag를 1로 설정한 패킷을 host B에게 보낸다.
-- ACK : FIN flag가 1로 설정된 패킷을 받은 host B는 **'연결을 종료하겠다는 것을 일단 알고있겠다.'** 라는 의미로 해당 패킷에 대한 응답을 보낸다.
-  - 응답을 받은 host A는 상대방이 FIN flag가 1인 패킷을 보낼 때까지 기다린다.
-- FIN : host B는 출력 버퍼에 남은 데이터를 일단 host A에게 보내고 close()를 호출해 **'나도 연결을 종료하겠다.'** 라는 의미로 FIN flag를 1로 설정해 패킷을 한번더 보낸다.
-- ACK : host A는 이에 대한 응답을 보내고 서로의 연결이 종료된다.
-
+- 먼저 연결을 끊고자 하는 쪽을 **Active close**라 하고, 상대를 **Passive close**라고 한다.
+- FIN_WAIT_1 (host A) : close()를 호출하면 '연결을 끊겠다'라는 신호를 보내기 위해 FIN flag를 1로 설정한 패킷을 상대에게 보내면서 ```FIN_WAIT_1``` 상태가 된다.
+- CLOSE_WAIT (host B) : 상대에게 FIN flag가 1인 패킷을 받았다면 **'연결을 종료하겠다는 것을 일단 알고있겠다.'** 라는 의미로 해당 패킷에 대한 응답 ACK을 보내고 ```CLOSE_WAIT``` 상태가 된다. 출력 버퍼에 있는 데이터를 모두 보낸 다음 서로간의 연결을 끊어야 하므로 ACK 만 보낸다.
+- FIN_WAIT_2 (host A) : 상대방이 FIN flag가 1인 패킷을 보낼 때까지 기다리는데 이를 ```FIN_WAIT_2``` 상태라고 한다.
+- LAST_ACK (host B) : 상대에게 모든 데이터를 보냈다면 close()를 호출해 FIN flag가 1인 패킷을 보낸다.
+- TIME_WAIT (host A) : 상대에게 FIN flag가 1인 패킷을 받았다면 서로가 연결을 끊을 준비가 된 것이므로 이에 대한 응답 ACK을 보낸다.
+- CLOSED : ACK을 받으면 소켓을 닫아 연결을 종료한다.
 
 이렇게 4번의 패킷 전송으로 인해 연결이 종료되므로 이를 ```4-way handshake```라고 한다.<br><br>
+
+## TIME_WAIT
+
+![png](/assets/images/network/time_wait.png){: .align-center}{: width="95%" height="95%"}<br>
+연결을 먼저 끊겠다고 한 Active close의 소켓은 TIME_WAIT 상태를 거친다. TIME_WAIT 상태를 거치는 이유는 **TIME_WAIT 상태 동안에는 해당 소켓의 주소를 다른 소켓에게 할당하는 것을 막기 위함**이다.<br>
+서로가 FIN flag가 1인 소켓을 주고 받았다면 Active close는 마지막 ACK을 상대에게 보낸다. 하지만 상대가 ACK을 받지 못하면 LAST_ACK 상태에서 FIN flag가 1인 소켓을 다시 보낸다.<br>
+FIN flag가 1인 소켓을 다시 받은 Active close는 '상대가 ACK을 받지 못했구나.' 라고 알아 차린 뒤 다시 ACK을 보낸다. 일정 기간 동안 상대방에게 소켓이 오지 않으면 '상대가 소켓을 닫았구나.' 라고 인식해 자신도 소켓을 닫는다.<br>
+
+TIME_WAIT 시간은 커널에 default 값으로 정해져 있지만 수정가능하다. passive close 에게 ACK을 보내면 시간이 측정되는데 상대가 ACK을 받지 못해 다시 ACK을 보내는 경우 시간을 다시 측정한다.<br>
+
+![png](/assets/images/network/time_wait2.png){: .align-center}{: width="80%" height="80%"}<br>
+TIME_WAIT 상태를 거치는 이유는 **TIME_WAIT 상태 동안에는 해당 소켓의 주소를 다른 소켓에게 할당하는 것을 막기 위함**이다. 마지막 ACk이 제대로 전달되지 않을 경우 상대는 FIN flag가 1인 소켓을 다시 보내는데 이 과정에서 기존 포트번호를 다른 소켓에게 할당했다면 제대로된 전송이 이루어지지 않기 때문이다.<br>
+TIME_WAIT 상태는 클라이언트에겐 중요하지 않고 서버에게 중요한 개념이다. 클라이언트 소켓을 생성할 땐 우리가 주소를 직접 지정해주지 않고 connect() 호출시 커널에 자동으로 해준다. 즉, 우리가 클라이언트 소켓의 포트번호를 알 필요도 없고 close() 직후 새로운 클라이언트 소켓을 생성해도 커널이 알아서 적절한 포트번호를 지정해준다.<br>
+하지만 서버 소켓을 생성할 떄는 어떤 주소를 쓰고 있는지 명시하기 위해 bind()를 호출한다. 즉, 우리가 원하는 포트번호를 지정할 수 있기 때문에 완전히 연결이 끝나지 않는 포트 번호를 사용하면 안된다. 그러므로 TIME_WAIT 상태는 서버에게 중요한 개념이며, TIME_WAIT 동안 기존 소켓 주소를 다른 소켓에게 할당하면 안된다.<br><br>
 
 ## Half-close
 
