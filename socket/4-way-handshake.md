@@ -38,7 +38,7 @@ write buffer에 쌓인 데이터는 상대방의 read buffer에 쌓이는 방식
 
 ## TIME_WAIT
 
-![png](/_img/network/time_wait.png){: .align-center}{: width="95%" height="95%"}<br>
+![png](/_img/time_wait.png){: .align-center}{: width="95%" height="95%"}<br>
 연결을 먼저 끊겠다고 한 Active close의 소켓은 TIME_WAIT 상태를 거친다. TIME_WAIT 상태를 거치는 이유는 **TIME_WAIT 상태 동안에는 해당 소켓의 주소를 다른 소켓에게 할당하는 것을 막기 위함**이다.<br>
 서로가 FIN flag가 1인 소켓을 주고 받았다면 Active close는 마지막 ACK을 상대에게 보낸다. 하지만 상대가 ACK을 받지 못하면 LAST_ACK 상태에서 FIN flag가 1인 소켓을 다시 보낸다.<br>
 FIN flag가 1인 소켓을 다시 받은 Active close는 '상대가 ACK을 받지 못했구나.' 라고 알아 차린 뒤 다시 ACK을 보낸다. 일정 기간 동안 상대방에게 소켓이 오지 않으면 '상대가 소켓을 닫았구나.' 라고 인식해 자신도 소켓을 닫는다.<br>
