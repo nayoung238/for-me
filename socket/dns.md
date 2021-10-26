@@ -70,7 +70,7 @@ struct hostent* gethostbyname(const char* hostname);
 13     printf("IP addr %d : %s\n", i + 1, inet_ntoa(*(struct in_addr*)host -> h_addr_list[i]));
 14 }
 ```
-> 실제 코드 : [https://github.com/evelyn82/network/blob/master/dns/gethostbyname.c](https://github.com/evelyn82/network/blob/master/dns/gethostbyname.c) <br>
+> 실제 코드 : [https://github.com/evelyn82/network/blob/master/code/dns/gethostbyname.c](https://github.com/evelyn82/network/blob/master/code/dns/gethostbyname.c) <br>
 
 line 13 을 보면 string으로 저장된 IP 주소를 **in_addr 구조체로 casting**한 다음 in_addr_t 타입으로 저장된 값을 inet_ntoa() 를 통해 string 으로 변환해 출력한다.<br>
 hostent 구조체에 IP 주소를 저장하고 있는 h_addr_list 도 char** 타입으로 지정되어있기 때문에 결국 string인데 왜 casting 하는 과정을 거치고 inet_ntoa() 함수를 호출해 다시 string 으로 바꾸는 번거로움을 거쳤을까?<br>
@@ -118,7 +118,7 @@ IP 주소에 대한 도메인 정보 얻어오기에 성공한다면 hostent 구
 14 for(i = 0; host->h_addr_list[i]; i++)
 15      printf("IP addr %d : %s\n", i + 1, inet_ntoa(*(struct in_addr*)host->h_addr_list[i]));
 ```
-> 실제 코드 : [https://github.com/evelyn82/network/blob/master/dns/gethostbyaddr.c](https://github.com/evelyn82/network/blob/master/dns/gethostbyaddr.c) <br>
+> 실제 코드 : [https://github.com/evelyn82/network/blob/master/code/dns/gethostbyaddr.c](https://github.com/evelyn82/network/blob/master/code/dns/gethostbyaddr.c) <br>
 
 ![png](/_img/gethostbyaddr.png) <br>
 
