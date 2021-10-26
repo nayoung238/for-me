@@ -24,7 +24,7 @@ write buffer에 쌓인 데이터는 상대방의 read buffer에 쌓이는 방식
 
 ## 4-way handshake
 
-![png](/assets/images/network/4way_handshake.png){: .align-center}{: width="100%" height="100%"}<br>
+![png](/_img/4way_handshake.png){: .align-center}{: width="100%" height="100%"}<br>
 
 - 먼저 연결을 끊고자 하는 쪽을 **Active close**라 하고, 상대를 **Passive close**라고 한다.
 - FIN_WAIT_1 (host A) : close()를 호출하면 '연결을 끊겠다'라는 신호를 보내기 위해 FIN flag를 1로 설정한 패킷을 상대에게 보내면서 ```FIN_WAIT_1``` 상태가 된다.
@@ -38,14 +38,14 @@ write buffer에 쌓인 데이터는 상대방의 read buffer에 쌓이는 방식
 
 ## TIME_WAIT
 
-![png](/assets/images/network/time_wait.png){: .align-center}{: width="95%" height="95%"}<br>
+![png](/_img/network/time_wait.png){: .align-center}{: width="95%" height="95%"}<br>
 연결을 먼저 끊겠다고 한 Active close의 소켓은 TIME_WAIT 상태를 거친다. TIME_WAIT 상태를 거치는 이유는 **TIME_WAIT 상태 동안에는 해당 소켓의 주소를 다른 소켓에게 할당하는 것을 막기 위함**이다.<br>
 서로가 FIN flag가 1인 소켓을 주고 받았다면 Active close는 마지막 ACK을 상대에게 보낸다. 하지만 상대가 ACK을 받지 못하면 LAST_ACK 상태에서 FIN flag가 1인 소켓을 다시 보낸다.<br>
 FIN flag가 1인 소켓을 다시 받은 Active close는 '상대가 ACK을 받지 못했구나.' 라고 알아 차린 뒤 다시 ACK을 보낸다. 일정 기간 동안 상대방에게 소켓이 오지 않으면 '상대가 소켓을 닫았구나.' 라고 인식해 자신도 소켓을 닫는다.<br>
 
 TIME_WAIT 시간은 커널에 default 값으로 정해져 있지만 수정가능하다. passive close 에게 ACK을 보내면 시간이 측정되는데 상대가 ACK을 받지 못해 다시 ACK을 보내는 경우 시간을 다시 측정한다.<br>
 
-![png](/assets/images/network/time_wait2.png){: .align-center}{: width="80%" height="80%"}<br>
+![png](/_img/time_wait2.png){: .align-center}{: width="80%" height="80%"}<br>
 TIME_WAIT 상태를 거치는 이유는 **TIME_WAIT 상태 동안에는 해당 소켓의 주소를 다른 소켓에게 할당하는 것을 막기 위함**이다. 마지막 ACk이 제대로 전달되지 않을 경우 상대는 FIN flag가 1인 소켓을 다시 보내는데 이 과정에서 기존 포트번호를 다른 소켓에게 할당했다면 제대로된 전송이 이루어지지 않기 때문이다.<br>
 TIME_WAIT 상태는 클라이언트에겐 중요하지 않고 서버에게 중요한 개념이다. 클라이언트 소켓을 생성할 땐 우리가 주소를 직접 지정해주지 않고 connect() 호출시 커널에 자동으로 해준다. 즉, 우리가 클라이언트 소켓의 포트번호를 알 필요도 없고 close() 직후 새로운 클라이언트 소켓을 생성해도 커널이 알아서 적절한 포트번호를 지정해준다.<br>
 하지만 서버 소켓을 생성할 떄는 어떤 주소를 쓰고 있는지 명시하기 위해 bind()를 호출한다. 즉, 우리가 원하는 포트번호를 지정할 수 있기 때문에 완전히 연결이 끝나지 않는 포트 번호를 사용하면 안된다. 그러므로 TIME_WAIT 상태는 서버에게 중요한 개념이며, TIME_WAIT 동안 기존 소켓 주소를 다른 소켓에게 할당하면 안된다.<br><br>
