@@ -12,7 +12,7 @@ while(read_len=read(sock, &message[idx++], 1)){
 	str_len+=read_len;
 }
 ```
-> tcp_client.c 전체 코드 : [https://github.com/evelyn82/network/blob/master/tcp/tcp_client.c](https://github.com/evelyn82/network/blob/master/tcp/tcp_client.c) <br>
+> tcp_client.c 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/tcp/tcp_client.c](https://github.com/evelyn82/network/blob/master/code/tcp/tcp_client.c) <br>
 
 tcp_client.c 의 일부코드이다. 해당 client는 전달받은 데이터를 1byte씩 읽는 방식이다.<br><br>
 ![png](/_img/chap2_tcp_result.png)<br>
@@ -24,7 +24,7 @@ char message[30];
 
 str_len=read(sock, message, sizeof(message)-1);
 ```
-> tcp_server.c 전체 코드 : [https://github.com/evelyn82/network/blob/master/tcp/tcp_server.c](https://github.com/evelyn82/network/blob/master/tcp/tcp_server.c) <br>
+> tcp_server.c 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/tcp/tcp_server.c](https://github.com/evelyn82/network/blob/master/code/tcp/tcp_server.c) <br>
 
 hello_client.c 의 일부코드이다.<br>해당 client는 전달받고자 하는 크기인 30보다 1개 적은 29만큼만 읽는 방식이다.<br>
 여기서 1을 제외한 이유는 null을 처리해야 되기 떄문이며, 해당 방식은 1번에 모두 읽는다.<br>tcp_client는 13번동안 데이터를 읽었다면, hello_client는 1번에 데이터를 읽었다.<br>
