@@ -10,6 +10,7 @@
 - [4-way handshake & half close](https://github.com/evelyn82/network/blob/master/socket/4-way-handshake.md)
 - [UDP는 연결이라는 개념이 존재하지 않는다.](https://github.com/evelyn82/network/blob/master/socket/udp.md)
 - [gethostbyname()으로 서버 정보 요청하기](https://github.com/evelyn82/network/blob/master/socket/dns.md)
+- [Nagle algorithm](https://github.com/evelyn82/network/blob/master/socket/nagle-algorithm.md)
 
 ## Network
 
