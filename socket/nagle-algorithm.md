@@ -26,7 +26,7 @@ Nagle algorithm ON 설정은 보낸 데이터에 대한 ACK을 받으면 그다�
 Nagle 설정을 OFF 하면 앞서 전송한 데이터에 대한 ACK을 기다리지 않고 버퍼에 쌓이는 즉시 데이터를 전송한다. 그렇기 때문에 빠른 속도로 데이터를 주고 받을 수 있다.<br>
 하지만 통신과정에선 데이터만 주고 받는 것이 아니고 각 계층의 헤더파일까지 포함해 주고 받기 때문에 비효율적인 방식이다. 또한 이런 방식이 많이 사용되면 과도한 트래픽으로 전체적인 전송속도가 느려지게 된다.<br>
 
-빠른 통신도 좋지만 네트워크 통신은 적은 세그먼트를 선호한다. 즉, Nagle algorithm을 ON 설정한 방법이 많이 사용된다.<br>
+빠른 통신도 좋지만 네트워크 통신에서 같은 용량을 적은 세그먼트로 보내는 것을 선호한다. 즉, Nagle algorithm을 ON 설정한 방법이 많이 사용된다.<br>
 
 ## 소켓 옵션 설정/확인
 
@@ -39,9 +39,9 @@ int getsockopt(int sock, int level, int optname, void *optval, socklen_t *optlen
 ```
 - sock : 소켓의 파일 디스크립터
 - level : 확인할 옵션의 protocol level
-- optname : 확인할 옵셕의 이름
-- optval : 확인 결과를 저장하기 위한 버퍼 주소값. 타입은 void인 이유는 여러 타입이 저장될 수 있기 때문이다.
-- optlen : optval 매개변수로 전달된 버퍼 주소 값의 버퍼 크기를 담고 있는 변수의 주소값 전달. optval 매개변수가 void 타입이기 때문에 얼마큼 읽어야하는지 알려주기 위해 pointer
+- optname : 확인할 옵션의 이름
+- optval : 확인 결과를 저장하기 위한 버퍼 주소값. 여러 타입이 저장될 수 있기 때문에 void 타입
+- optlen : optval 매개변수로 전달된 버퍼 주소 값의 버퍼 크기를 담고 있는 변수의 주소값 전달. void 타입인 optval 매개변수를 얼마큼 읽어야하는지 알려주기 위해 pointer 타입
 
 
 소켓에 대한 옵션을 설정하려면 **setsockopt** 함수를 사용한다.<br>

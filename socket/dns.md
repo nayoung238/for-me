@@ -42,7 +42,7 @@ struct hostent {
 - h_addr_list : IP 주소 list
 
 IPv4이면 4byte로 해석하고, IPv6은 16바이트로 해석하는 등 여러 형태의 주소 방식이 사용되기 때문에 string 으로 처리한다.<br>
-하지 해석하는 방법이 주소 체계에 따라 다르기 때문에 ```char``` 가 아닌 ```void``` 타입을 가져야 하는데 hostent 구조체가 만들어질 당시 void 타입이 표준화되지 않아 char를 적용했다.<br><br>
+하지만 해석하는 방법이 주소 체계에 따라 다르기 때문에 ```char``` 가 아닌 ```void``` 타입을 가져야 하는데 hostent 구조체가 만들어질 당시 void 타입이 표준화되지 않아 char를 적용했다.<br><br>
 
 ## 도메인 이름으로 IP 주소 얻어오기
 
@@ -105,7 +105,7 @@ IP 주소에 대한 도메인 정보 얻어오기에 성공한다면 hostent 구
 1  struct hostent *host;
 2  struct sockaddr_in addr;
 3  memset(&addr, 0, sizeof(addr));
-4  addr.sin_addr.s_addr = inet_addr(argv[1])'   
+4  addr.sin_addr.s_addr = inet_addr(argv[1]);  
 5  
 6  host = gethostbyaddr((char*)&addr.sin_addr, 4, AF_INET);
 7  if(!host) error_handling("gethost... error\n");
