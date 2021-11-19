@@ -12,6 +12,7 @@
 - [gethostbyname()으로 서버 정보 요청하기](https://github.com/evelyn82/network/blob/master/socket/dns.md)
 - [Nagle algorithm](https://github.com/evelyn82/network/blob/master/socket/nagle-algorithm.md)
 - [pipe](https://github.com/evelyn82/network/blob/master/socket/pipe.md)
+- [multiplexing](https://github.com/evelyn82/network/blob/master/socket/multiplexing.md)
 
 ## Network
 
