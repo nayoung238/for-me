@@ -46,6 +46,7 @@ int tcp_socket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 
 <br>
 IPv4 인터넷 프로토콜 체계에서 동작하는 비 연결지향형 데이터 전송 소켓을 생성하려면 아래와 같이 작성한다.<br>
+
 ```c
 int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 ```
