@@ -1,4 +1,4 @@
-# Protocol 프로토콜
+## Protocol 프로토콜
 
 컴퓨터 상호간의 데이터 송수신에 필요한 통신규약으로 socket 끼리 같은 규약을 가지고 있어야 통신이 가능하다.<br>
 과거 한정된 자원으로 효율적인 통신을 하기 위해 2진수 비트 기반으로 프로토콜이 만들어졌다. 현재는 Application 레벨의 protocol인 HTTP, SMTP 같은 프로토콜은 문자 기반이다. 문자로 헤더, 데이터 등을 표현하고 text 파일과 같은 데이터가 전달되기 때문에 효율성은 비트 기반 프로토콜 보다 떨어지지만 확장성이 높다.<br>
@@ -33,8 +33,8 @@ TCP는 transport 계층에서, IP는 Network(Internet) 계층에서 별도로 �
 int socket(int domain, int type, int protocol);
 // 성공 시 파일 디스크립터를, 실패 시 -1 리턴
 ```
-- domain : socket이 사용할 프로토콜의 체계(protocol family)정보
-- type : socket의 데이터 전송방식으로 tcp, udp인지 작성
+- domain : socket이 사용할 프로토콜의 체계(protocol family) 정보
+- type : socket의 데이터 전송방식으로 tcp, udp 인지 작성
 - protocol : 컴퓨터간 통신에 사용되는 프로토콜 정보
 <br>
 
@@ -66,8 +66,9 @@ int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
 - 전송순서 상관없고 빠른 속도를 지향
 - 데이터 파손 및 손실 가능
-- 데이터의 경계가 존재해 read에 대한 write를 반드시 호출해야 함 (한번에 다 받아야함)
+- 데이터의 경계가 존재해 read에 대한 write를 반드시 호출해야 함 -> 한번에 다 받아야함
 - 소켓끼리의 1 대 1 구조가 아님
+  - 1개의 소켓이 여러 소켓과 데이터 송수신 가능
 - 한 번에 전송할 수 있는 데이터의 크기가 제한됨
 - 주로 media 전송에 사용
 <br>
@@ -98,8 +99,9 @@ int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
 ```
 
 - 연결 요청이 가능함을 설정하는 라이브러리
-- 서버만 호출 -> 클라이언트는 필요없음
-<br>
+- 서버만 호출
+  - 즉, 클라이언트는 호출할 필요없음
+  <br>
 
 ## accept(): 연결 요청 수락 -> server
 
