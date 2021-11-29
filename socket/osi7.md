@@ -1,8 +1,10 @@
 # OSI 7계층
 
+![png](/_img/osi7.png)
+
 - Application 계층인 5, 6, 7 계층은 개발자가 구현
 - Data flow 계층인 1 ~ 4 계층은 OS에서 설정
-
+<br>
 
 ## 1계층 : Physical layer
 
@@ -12,7 +14,8 @@
   - 공기 중에서의 통신에는 외부적인 요소로 인해 많은 에러가 발생해 데이터 전송을 보장할 수 없음
   - 공기 매체로 전송 시 ```A -> B``` , ```C -> D``` 의 전송이 서로 간접되지 않아야 함 -> Data link 계층에서 MAC (Media Access Control) 으로 설정
   - 즉, 신뢰성 있는 데이터 전송을 위해 상위계층이 필요하다.
-
+<br>
+  
 ## 2계층 : Data link layer
 
 - P2P 통신으로 **다이렉트로 연결된 인접한** 스테이션간의 신뢰성 있는 통신을 보장
@@ -28,11 +31,13 @@
 - error control(correction) : 오지 않는 데이터를 다시 요구
 - MAC : 공기 중 통신에서 여러 P2P 간의 통신이 서로 간섭되는 것을 방지하며 이를 media access control 라고함
   - 이 마저도 외부요인으로 실패한다면 error control
-
+<br>
+  
 ## 3계층 : Network layer
 
 - 네트워크를 거쳐 원하는 목적지까지의 연결성 제공 
 - 수많은 경로 중 라우터가 최적의 경로를 선택해 목적지까지의 전송을 제공
+<br>
 
 ## 4계층 : Transport layer
 
