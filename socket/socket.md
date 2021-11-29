@@ -113,7 +113,7 @@ int accept(int sockfd, struct sockaddr *clnt_addr, socklen_t *addrlen);
 ```
 
 - 클라이언트가 연결을 요청하면 수락
-- accept()는 파일 디스크립터 리런
+- accept()는 파일 디스크립터 리턴
   - 즉, 새로운 소켓을 생성
 - 클라이언트와 서버 소켓이 직접적인 데이터 송수신을 하는 것이 아니고
 - accept() 에서 생성한 새로운 소켓이 데이터 송수신용 소켓
