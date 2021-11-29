@@ -45,6 +45,7 @@ int tcp_socket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 ```
 
 <br>
+
 IPv4 인터넷 프로토콜 체계에서 동작하는 비 연결지향형 데이터 전송 소켓을 생성하려면 아래와 같이 작성한다.<br>
 
 ```c
@@ -65,7 +66,7 @@ int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 ## UDP (SOCK_DGRAM)
 
 - 전송순서 상관없고 빠른 속도를 지향
-- 데이터 파손 및 손실 우려가 있암
+- 데이터 파손 및 손실 가능
 - 데이터의 경계가 존재해 read에 대한 write를 반드시 호출해야 함 (한번에 다 받아야함)
 - 소켓끼리의 1 대 1 구조가 아님
 - 한 번에 전송할 수 있는 데이터의 크기가 제한됨
