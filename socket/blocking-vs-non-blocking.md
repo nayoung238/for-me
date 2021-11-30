@@ -39,3 +39,9 @@
   - return -1 : EOF까지 읽은 상태이거나 어떠한 이유로 읽을 수 없는 경우 -> ```error !!```
   - 0 또는 -1을 return 하고 댜른 일을 수행
 - non-blocking mode는 일반 파일에서 거의 사용되지 않고 소켓, 파이프 같은 느린 파일에서 사용
+
+## Non-blocking mode 설정
+
+- open()에 O_NONBLOCK 옵션을 설정하면 non-blocking 모드로 열림
+- 일반적으로 아무런 설정이 없을 경우 blocking 모드로 열림
+- 추후에 fctl()에 O_NONBLOCK 옵션으로 모드를 변경할 수 있음
