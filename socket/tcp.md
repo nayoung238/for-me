@@ -61,6 +61,7 @@ int accpet(int sock, struct sockaddr *addr, socklen_t *addrlen);
 
 - sock : 서버 소켓의 파일 디스크립터 전달
 - addr : 연결 요청한 클라이언트의 주소정보를 저장할 sockaddr 구조체의 주소 값 전달
+  - client 정보가 필요없는 경우 null 작성
 - addrlen : addr이 가리키는 구조체의 크기를 저장하고 있는 변수 주소 값 전달 
 
 
@@ -111,6 +112,11 @@ connect()은 2가지 return 이 존재한다.<br>
 
 ## close() 호출 시 TCP 소켓의 입출력 버퍼
 
+```c
+int close(int sockfd);
+// 성공 시 0, 실패 시 -1 return
+```
+
 소켓을 생성하면 입력버퍼와 출력버퍼가 생기고 이를 통해 데이터를 송수신한다.<br>
 그럼 입력버퍼나 출력버퍼에 데이터가 있는 상태에서 close()하게 되면 남은 데이터는 어떻게 될까?<br>
 
@@ -118,4 +124,3 @@ connect()은 2가지 return 이 존재한다.<br>
 - 출력버퍼에 데이터가 있는데 소켓을 close() 한 경우 : 출력버퍼에 있는 데이터를 상대방의 입력버퍼에 모두 전달한 다음 close()를 수행한다.
 
 TCP는 데이터의 전송을 보장해 주기 때문에 출력 버퍼에 있는 데이터를 모두 처리하고 close()를 수행한다.<br>
-더 자세한 내용 : [4-way handshake](https://github.com/evelyn82/network/blob/master/socket/4-way-handshake.md)
