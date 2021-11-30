@@ -216,5 +216,29 @@ addr.sin_port = htons(atoi(serv_port));
 ```
 
 **INADDR_ANY** 는 IP 주소를 4바이트 unsigned int로 변환한 상수를 의미한다.<br>
-현재 실행중인 컴퓨터의 IP를 소켓에 할당할 때 **INADDR_ANY** 을 사용하는데 주로 서버 프로그램 구현에 사용된다.<br>
+현재 실행중인 컴퓨터의 IP를 소켓에 할당할 때 **INADDR_ANY** 을 사용하는데 주로 서버 프로그램 구현에 사용된다.<br><br>
+
+## 소켓에서 주소 추출하기
+
+1개의 소켓에는 나와 상대방의 주소가 존재한다.
+
+### 나의 주소 추출
+
+```c
+int getsockname(int s, struct sockaddr *addr, socklen_t *addrlen);
+// 성공 시 0, 실패 시 -1 return
+```
+
+- s : sock descriptor
+- addr : 주소를 받아서 저장할 구조체 주소
+- addrlen : sockaddr 구조체의 크기
+  - return 시 addrlen 에 실제 크기가 저장됨 call by reference
+  - 이만큼을 읽어야 함을 의미
+
+### 상대방 주소 추출
+
+```c
+int getpeername(int s, struct sockaddr *name, socklen_t *namelen);
+// 성공 시 0, 실패 시 -1 return
+```
 
