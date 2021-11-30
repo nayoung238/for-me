@@ -4,6 +4,7 @@
   - 경계가 존재하지 않아 receiver 는 원하는 크기만큼 끊어서 받을 수 있다.
   - read() 여러번 호출가능
 <br>
+
 - UDP로 전달되는 데이터는 경계가 존재한다.
   - 데이터 경계가 존재하기 때문에 주는 만큼 다 받아야 한다.
   - write() 1번 호출
@@ -27,7 +28,7 @@ tcp_client.c 의 일부코드이다. 해당 client 는 전달받은 데이터를
 
 ![png](/_img/helloworld_length.png)<br>
 
-- 1byte 씩 몇번 읽었는지 확인한 결과: 13
+- 1byte 씩 몇번 읽었는지 확인한 결과 13
 - null 까지 읽고 ```EOF(End Of File)```에 접근한 순간 return 0 하기 때문에 13
 <br>
 
