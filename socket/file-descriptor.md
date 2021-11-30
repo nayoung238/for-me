@@ -79,3 +79,8 @@ ssize_t read(int fd, void *buf, size_t nbytes);
 - fd : 데이터 수신 대상을 나타내는 파일 디스크립터
 - buf : 수신한 데이터를 저장할 버퍼의 주소 값
 - nbytes : 수신할 최대 바이트 수
+<br>
+
+## 실습
+
+코드 : [https://github.com/evelyn82/network/tree/master/code/fileopen/fileopen.c](https://github.com/evelyn82/network/tree/master/code/fileopen/fileopen.c)
