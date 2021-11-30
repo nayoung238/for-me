@@ -1,8 +1,9 @@
 # 인터넷 주소 할당하기
 
 인터넷 주소를 할당하기 위해선 빅 엔디안, 리틀 엔디안이라는 개념을 알아야 한다.<br>
-CPU의 데이터 저장방식이 빅 엔디안, 리틀 엔디안 에 따라 호스트는 데이터를 표현하고 해석하는 방식이 모두 다르다.<br>
-하지만 네트워크 바이트 순서는 빅 엔디안을 기준으로 한다.<br>
+
+- CPU의 데이터 저장방식이 빅 엔디안, 리틀 엔디안 에 따라 호스트는 데이터를 표현하고 해석하는 방식이 모두 다르다.
+- network 바이트 순서는 빅 엔디안이 기준이다.
 
 ## Big Endian & Little Endian
 
@@ -20,21 +21,24 @@ CPU의 데이터 저장방식이 빅 엔디안, 리틀 엔디안 에 따라 호�
 - 2진수 4개를 16진수 1개로 표현가능하다. 즉, 16진수 1자리당 4bit
 - 빅 엔디안, 리틀 엔디안은 1byte 단위로 데이터를 처리한다.
 - 즉, 16진수 표기에서 1byte는 4bit가 2개인 2글자씩 처리됨으로 이해하면 된다. 
-
+<br>
 
 ## 바이트 변환 라이브러리
+
+- header : arpa/inet.h
 
 ### host 바이트 순서를 네트워크 바이트 순서로 바꾸기
 
 - unsigned short htons(unsigned short); 
 - unsigned long htonl(unsigned long);
- 
 
-### network 바이트 순서를  host cpu 기준으로 바꾸기
+### network 바이트 순서를 host cpu 기준으로 바꾸기
 
 - unsigned short ntohs(unsigned short);
 - unsigned long ntohl(unsigned long);
+<br>
 
+- host cpu 기준으로 변환하는 코드 : [https://github.com/evelyn82/network/blob/master/code/addr-conv/cpu_conv.c](https://github.com/evelyn82/network/blob/master/code/addr-conv/cpu_conv.c)
 
 ```c
 unsigned short host_port = 0x1234;
@@ -46,7 +50,7 @@ printf("Host ordered port : %#x\n", host_port);
 printf("Network ordered port : %#x\n", net_port);
 ```
 
-위 코드를 실행하면 다음과 같은 결과를 출력할 것이며 host pc가 리틀 엔디안임을 알 수 있다.<br>
+위 코드를 실행하면 다음과 같은 결과를 출력하며, host pc가 리틀 엔디안임을 알 수 있다.<br>
 
 ```c
 Host ordered port : 0x1234
@@ -62,27 +66,27 @@ IP 주소를 ```211.214.107.99``` 의 형태인 10진수로 표현한 문자열�
 #include <arpa/inet.h>
 
 in_addr_t inet_addr(const char* string);
+// 성공 시 big-endian으로 변환한 32비트 정수 값, 실패 시 INADDR_NONE return 
 ```
 
 string으로 넘져준 IP 주소를 제대로 변환했다면 32비트 정수 값을 리턴하고, 변환에 실패했다면 ```INADDR_NONE``` 을 반환한다.<br>
+정상적인 32비트를 받았다면 in_addr 구조체에 s_addr 에 저장한다.
 
 - IPv4 기반 주소체계를 표현하는 sockaddr_in 구조체에서 IP 주소를 명시하는 sin_addr를 채워야 한다.
 - sin_addr 의 타입은 in_addr 구조체 타입이다.
 - in_addr 구조체의 s_addr 에 32비트 IPv4 인터넷 주소를 저장하는데 s_addr 의 타입은 in_addr_t 이다.
-- in_addr_t 는 unsigned_int 32비트로 정의되어있다.
+- in_addr_t 는 unsigned_int 32비트이다.
 
-> 해당 내용 : [https://github.com/evelyn82/network/blob/master/socket/sockaddr.md](https://github.com/evelyn82/network/blob/master/socket/sockaddr.md) <br>
+> sockaddr_in 에 대한 내용 : [https://github.com/evelyn82/network/blob/master/socket/sockaddr.md](https://github.com/evelyn82/network/blob/master/socket/sockaddr.md) <br>
 
-string으로 IP 주소를 넘겨주면 inet_addr() 은 in_addr_t 타입인 unsigned_int 32비트로 반환하며, 이를 in_addr 구조체의 s_addr 에 저장한다.<br>
+
+주소를 입력하고 네트워크 주소로 제대로 변환되는지 확인해봤다.<br>
+
+- 네트워크 주소로 변환하는 코드 : [https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_addr.c](https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_addr.c)
 
 ```c
 char *addr = "1.2.3.4";
 unsigned long conv_addr = inet_addr(addr);
-
-if(conv_addr == INADDR_NONE)
-    printf("Error occured!\n");
-else 
-    printf("Network ordered integer addr : %#lx\n", conv_addr);
 ```
 
 위 코드의 결과는 다음과 같다.<br>
@@ -90,22 +94,17 @@ else
 Network ordered integer addr : 0x4030201  // 04에서 0 생략 가능
 ```
 
-네트워크 바이트 순서는 빅 엔디안이므로 0x4030201 결과가 출력된다.<br>
+네트워크 바이트 순서는 빅 엔디안이므로 0x4030201 결과가 출력된다.<br><br>
 
 ```c
 char *addr = "1.2.3.256";
-unsigned long conv_addr = inet_addr(addr);
-
-if(conv_addr == INADDR_NONE)
-    printf("Error occured!\n");
-else 
-    printf("Network ordered integer addr : %#lx\n", conv_addr);
+unsigned long conv_addr = inet_addr(addr);  -> INADDR_NONE return
 ```
 
-```1.2.3.256```를 변환하도록 전달했다면 **Error occured!** 으로 출력된다.<br>
+```1.2.3.256```를 변환하도록 전달했다면 **네트워크 주소로 변환할 수 없다.**<br>
 IP는 32비트이므로 . 을 기준으로 1바이트로 변환된다. 즉, 1바이트가 표현할 수 있는 **0부터 255까지** 범위 내에서 작성해야 한다.<br>
 
-inet_addr() 은 in_addr_t 타입인 32비트 정수를 반환한다.<br>
+inet_addr() 은 in_addr_t 타입인 32비트 정수를 반환만 해준다.<br>
 즉, in_addr 구조체를 생성해 반환된 32비트 정수를 저장해야 하는 과정을 거쳐야 한다.<br><br>
 
 ## inet_aton()
@@ -116,14 +115,16 @@ aton에서 a는 ASCII를 의미한다.<br>
 ```c
 #include <arpa/inet.h>
 
-int inet_aton(const char* string, struct in_addr* addr);
+int inet_aton(const char *string, struct in_addr *addr);
+// 성공 시 1, 실패 시 0 return
 ```
 
 - string : 변환할 IP 주소를 담고 있는 문자열의 주소 값
 - addr : 변환된 주소를 저장할 in_addr 구조체 변수의 주소 값
 
-in_addr 구조체 변수의 주소 값을 전달하기 때문에 변환한 32비트 정수 IP 주소를 바로 저장하면 된다.<br>
-저장에 성공하면 1을 리턴하고, 실패하면 0을 리턴한다.<br>
+in_addr 구조체 변수의 주소 값을 전달하기 때문에 변환한 32비트 정수 IP 주소를 바로 저장된다.<br>
+
+- inet_aton()으로 변환하는 코드 : [https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_aton.c](https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_aton.c)
 
 ```c
 char *addr = "127.232.124.79";
@@ -136,7 +137,7 @@ else
                        addr_inet.sin_addr.s_addr);
 ```
 
-IPv4 기반의 주소체계 구조체인 sockaddr_in을 만들고 inet_aton()을 호출할 때 sockaddr_in의 IP 주소를 저장하는 sin_addr의 주소를 전달한다.<br>
+IPv4 기반의 주소체계 구조체인 sockaddr_in을 만들고 inet_aton()을 호출할 때 sockaddr_in의 IP 주소를 저장하는 sin_addr에 변환한 주소를 저장한다.<br>
 위 코드의 결과는 **Network ordered integer addr : 0x4f7ce87f** 이다.<br><br>
 
 ## inet_ntoa()
@@ -145,9 +146,12 @@ IPv4 기반의 주소체계 구조체인 sockaddr_in을 만들고 inet_aton()을
 #include <arpa/inet.h>
 
 char* inet_ntoa(struct in_addr adr);
+// 성공 시 변환된 문자열의 주소값, 실패 시 -1 반환
 ```
 
-inet_aton() 와 반대 기능으로 네트워크 바이트 순서로 정렬된 IP 주소를 우리가 보기 편한 문자열의 형태로 변환한다.<br>
+inet_aton()의 반대 기능으로 네트워크 바이트 순서로 정렬된 IP 주소를 **우리가 보기 편한 문자열의 형태로 변환**한다.<br>
+
+- inet_ntoa() 에 대한 코드 : [https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_ntoa.c](https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_ntoa.c)
 
 ```c
 struct sockaddr_int addr;
@@ -169,7 +173,7 @@ memset(&addr, 0, sizeof(addr));
 
 addr.sin_family = AF_INET;   // IPv4
 addr.sin_addr.s_addr = inet_addr(serv_ip); // string인 IP 주소 변환해 초기화
-addr.sin_port = htons(atoi(serv_port));    // string인 Port 번호 변환해 초기화
+addr.sin_port = htons(atoi(serv_port));    // string인 Port 번호 변환해 초기화, atoi: 문자를 정수로 변환
 ```
 
 ### 서버가 주소를 설정하는 의미
