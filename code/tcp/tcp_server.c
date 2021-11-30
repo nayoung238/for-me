@@ -1,13 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> // exit
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 
-void error_handling(char *message);
-
+void error_handling(const char *message);
 int main(int argc, char *argv[])
 {
 	int serv_sock;
@@ -20,7 +19,7 @@ int main(int argc, char *argv[])
 	char message[] = "Hello World!";
 	
 	if(argc != 2){
-		printf("Usage : %s <port>\n", argv[0]);
+		printf("Usage: %s <port>\n", argv[0]);
 		exit(1);
 	}
 	
@@ -40,7 +39,7 @@ int main(int argc, char *argv[])
 		error_handling("listen() error");
 	
 	clnt_addr_size = sizeof(clnt_addr);
-	clnt_sock=accept(serv_sock, (struct sockaddr*)&clnt_addr, &clnt_addr_size);
+	clnt_sock = accept(serv_sock, (struct sockaddr*)&clnt_addr, &clnt_addr_size);
 	if(clnt_sock == -1)
 		error_handling("accept() error");  
 	
@@ -50,7 +49,7 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void error_handling(char *message)
+void error_handling(const char *message)
 {
 	fputs(message, stderr);
 	fputc('\n', stderr);
