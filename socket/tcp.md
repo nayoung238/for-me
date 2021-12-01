@@ -113,6 +113,8 @@ connect()은 2가지 return 이 존재한다.<br>
 ## close() 호출 시 TCP 소켓의 입출력 버퍼
 
 ```c
+#include <unistd.h>
+
 int close(int sockfd);
 // 성공 시 0, 실패 시 -1 return
 ```

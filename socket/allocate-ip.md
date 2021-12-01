@@ -205,6 +205,8 @@ bind(serv_sock, (struct sockaddr*) &serv_addr, sizeof(serv_addr));
 
 ### INADDR_ANY
 
+- header : netinet/in.h
+
 ```c
 struct sockaddr_in addr;
 char* serv_port = "9190"; 
@@ -225,6 +227,8 @@ addr.sin_port = htons(atoi(serv_port));
 ### 나의 주소 추출
 
 ```c
+#include <sys/socket.h>
+
 int getsockname(int s, struct sockaddr *addr, socklen_t *addrlen);
 // 성공 시 0, 실패 시 -1 return
 ```
@@ -238,6 +242,8 @@ int getsockname(int s, struct sockaddr *addr, socklen_t *addrlen);
 ### 상대방 주소 추출
 
 ```c
+#include <sys/socket.h>
+
 int getpeername(int s, struct sockaddr *name, socklen_t *namelen);
 // 성공 시 0, 실패 시 -1 return
 ```
