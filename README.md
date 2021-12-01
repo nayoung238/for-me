@@ -1,21 +1,28 @@
 ## Socket programming
 
-
 - [OSI 7계층](https://github.com/evelyn82/network/blob/master/socket/osi7.md)
 - [socket, bind, listen, accept, connect](https://github.com/evelyn82/network/blob/master/socket/socket.md)
 - [file descriptor, open, close, read, write](https://github.com/evelyn82/network/blob/master/socket/file-descriptor.md)
-- [blocking vs non-blocking](https://github.com/evelyn82/network/blob/master/socket/blocking-vs-non-blocking.md)
-- [4-way handshake & half close](https://github.com/evelyn82/network/blob/master/socket/4-way-handshake.md)
-- [Nagle algorithm](https://github.com/evelyn82/network/blob/master/socket/nagle-algorithm.md)
 - [TCP의 데이터 경계](https://github.com/evelyn82/network/blob/master/socket/boundary-of-tcp-transmission-data.md)
+- [127.0.0.1](https://github.com/evelyn82/network/blob/master/socket/loopback-address.md)
+<br>
+
+- [IP 주소](https://github.com/evelyn82/network/blob/master/socket/ip.md)
 - [IPv4 기반의 주소표현 sockaddr_in 구조체](https://github.com/evelyn82/network/blob/master/socket/sockaddr.md)
-- [인터넷 주소 할당하기](https://github.com/evelyn82/network/blob/master/socket/allocate-ip.md)
+- [IP 주소 할당하기](https://github.com/evelyn82/network/blob/master/socket/allocate-ip.md)
 - [TCP 함수호출 과정](https://github.com/evelyn82/network/blob/master/socket/tcp.md)
 - [Iterative server & Echo client](https://github.com/evelyn82/network/blob/master/socket/iterative-server-and-echo-client.md)
 - [UDP는 연결이라는 개념이 존재하지 않는다.](https://github.com/evelyn82/network/blob/master/socket/udp.md)
-- [gethostbyname()으로 서버 정보 요청하기](https://github.com/evelyn82/network/blob/master/socket/dns.md)
+- [DNS - gethostbyname()으로 서버 정보 요청하기](https://github.com/evelyn82/network/blob/master/socket/dns.md)
+<br>
+
 - [pipe](https://github.com/evelyn82/network/blob/master/socket/pipe.md)
 - [multiplexing](https://github.com/evelyn82/network/blob/master/socket/multiplexing.md)
+<br>
+
+- [blocking vs non-blocking](https://github.com/evelyn82/network/blob/master/socket/blocking-vs-non-blocking.md)
+- [4-way handshake & half close](https://github.com/evelyn82/network/blob/master/socket/4-way-handshake.md)
+- [Nagle algorithm](https://github.com/evelyn82/network/blob/master/socket/nagle-algorithm.md)
 
 ## Network
 
@@ -26,8 +33,6 @@
 - [4가지 통신방식](https://github.com/evelyn82/network/blob/master/theory/cast.md)
 - [MAC 주소](https://github.com/evelyn82/network/blob/master/theory/mac.md)
 - [IP 주소](https://github.com/evelyn82/network/blob/master/theory/ip.md)
-- [TCP와 UDP]
-- [ARP]
 
 # 참고 링크
 
