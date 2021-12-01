@@ -29,7 +29,7 @@ Nagle 설정을 OFF 하면 앞서 전송한 데이터에 대한 ACK을 기다리
 
 빠른 통신도 좋지만 네트워크 통신에서 **같은 용량을 적은 세그먼트로 보내는 것을 선호**한다. 즉, Nagle algorithm을 ON 설정한 방법이 많이 사용된다.<br><br>
 
-## 소켓 옵션 설정/확인
+## Nagle algorithm 설정하기
 
 소켓에 대한 옵션 정보를 확인하려면 **getsockopt** 함수를 사용한다.<br>
 ```c
@@ -58,8 +58,17 @@ int setsockopt(int sock, int level, int optname, const void *optval, socklen_t o
 - optval : 변경할 옵션정보를 저장한 버퍼의 주소. 여러 옵션을 처리하기 위해 void 타입
 - optlen : optval 매개변수는 void 타입이므로 optval에서 읽어야할 크기를 전달
 
+nagle algorithm ON 설정시 다음과 같이 작성한다.<br>
 
-nagle 설정 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/sock-option/nagle_check.c](https://github.com/evelyn82/network/blob/master/code/sock-option/nagle_check.c) <br>
+```c
+#include <arpa/inet.h>   // IPPROTO_TCP
+#include <netinet/tcp.h> // TCP_NODELAY
+
+int opt = 양수 (0 작성 시 nagle OFF)
+setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (void*)&opt, sizeof(opt));
+```
+
+- nagle 설정 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/sock-option/nagle_check.c](https://github.com/evelyn82/network/blob/master/code/sock-option/nagle_check.c)
 
 ![png](/_img/nagle_result.png) <br>
 
