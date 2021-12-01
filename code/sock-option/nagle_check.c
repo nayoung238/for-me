@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h> // exit
-#include <unistd.h>
-#include <arpa/inet.h>
 #include <sys/socket.h>
-#include <netinet/tcp.h>
+#include <arpa/inet.h>   // IPPROTO_TCP
+#include <netinet/tcp.h> // TCP_NODELAY
 
 void error_handling(char *message);
 
