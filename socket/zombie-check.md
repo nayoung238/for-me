@@ -122,5 +122,7 @@ struct sigaction{
 - sa_handler : 시그널 발생시 실행할 핸들러
 - sa_mask : sa_handler 가 수행될 때는 sa_mask 에 등록한 signal 을 막는다. -> block 
 
+> sigaction.c 에 대한 코드 : [https://github.com/evelyn82/network/blob/master/code/signal/sigaction.c](https://github.com/evelyn82/network/blob/master/code/signal/sigaction.c) <br>
+
 sa_mask, sa_flags 시그널 관련 정보의 추가 전달에 사용된다.<br>
 좀비 소멸 목적으로 사용되지 않기 때문에 모두 0으로 초기화한다.<br>
