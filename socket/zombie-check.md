@@ -78,6 +78,7 @@ wait() 은 blocking 상태에 빠질 수 있지만, waitpid() 에 WNOHANG 옵션
 ## signal()
 
 OS가 프로세스에게 특정 상황이 발생했음을 비동기적으로 알리는 일종의 메시지를 시그널이라고 한다.<br>
+signal() 보단 sigcation() 사용을 권장한다.<br>
 
 ![png](/_img/signal.jpeg)<br>
 

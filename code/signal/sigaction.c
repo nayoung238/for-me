@@ -24,6 +24,7 @@ int main(){
         return 9;
     }
     else {
+        wait(&state); // child1 보다 부모가 먼저 종료되는 것을 방지
         pid = fork();
         if(pid == 0) { // child2
             return 15;
@@ -35,7 +36,7 @@ int main(){
 void read_childproc(int sig) {
     int state;
     pid_t child_id;
-    
+   
     child_id = waitpid(-1, &state, WNOHANG);
     
     // waitpid()는 while문으로 계속 체크해야 한다고 배웠는데
@@ -45,8 +46,7 @@ void read_childproc(int sig) {
     while(child_id = waitpid(-1, &state, WNOHANG)) {
         sleep(3);
         puts("sleep 3sec");
-    }
-    */
+    }*/
 
     if(WIFEXITED(state)){
         printf("child id : %d\n", child_id);
