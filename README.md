@@ -16,8 +16,9 @@
 - [DNS - gethostbyname()으로 서버 정보 요청하기](https://github.com/evelyn82/network/blob/master/socket/dns.md)
 <br>
 
-- [pipe](https://github.com/evelyn82/network/blob/master/socket/pipe.md)
+- [자식 프로세스의 종료를 체크하는 wait, signal](https://github.com/evelyn82/network/blob/master/socket/zombie-check.md)
 - [multiplexing](https://github.com/evelyn82/network/blob/master/socket/multiplexing.md)
+- [pipe](https://github.com/evelyn82/network/blob/master/socket/pipe.md)
 <br>
 
 - [blocking vs non-blocking](https://github.com/evelyn82/network/blob/master/socket/blocking-vs-non-blocking.md)
