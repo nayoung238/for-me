@@ -65,8 +65,14 @@ wait() 은 blocking 상태에 빠질 수 있지만, waitpid() 에 WNOHANG 옵션
 
 > zombie_waitpid.c 코드 : [https://github.com/evelyn82/network/blob/master/code/signal/zombie_waitpid.c](https://github.com/evelyn82/network/blob/master/code/signal/zombie_waitpid.c) <br>
 
-- WIFEXITED(statloc) : 자식 프로세스가 정상 종료한 경우 return true
-- WEXITSTATUS(statloc) : 자식 프로세스의 전달 값(어떤 값을 기록하고 죽었는지) return
+### process 종료 상태 확인 매크로 
+
+- WIFEXITED(statloc) : 자식 프로세스가 정상 종료한 경우 return non-zero
+- WEXITSTATUS(statloc) : return 이나 exit()에서 전달된 종료 코드 return
+  - WIFEXITED()의 return non-zero 일 때만 사용
+- WIFSIGNALED(statloc) : 시그널에 의해 종료 시 return non-zero
+- WTERMSIG(statloc) : 프로세스를 종료시킨 시그널 번호 return
+  - WIFSIGNALED() return non-zero 일 때만 사용
 <br>
 
 ## signal()
