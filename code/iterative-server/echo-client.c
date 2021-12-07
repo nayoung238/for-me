@@ -49,7 +49,7 @@ int main(int argc, char *argv[]){
     }
     
     read_total_len = read_len = 0;
-    while(read_len < write_len) { // read() != 0
+정    while(read_len < write_len) {
         read_len = read(clnt_sock, &buf2[read_total_len], BUF_SIZE - 1);
         if(read_len == -1)
             error_handling("read() error");
