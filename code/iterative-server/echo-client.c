@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
     int clnt_sock;
     struct sockaddr_in serv_addr;
     
-    char buf1[BUF_SIZE], buf2[BUF_SIZE];
+    char buf[BUF_SIZE];
     int write_len, read_len, read_total_len;
     
     if(argc != 3) {
@@ -37,26 +37,26 @@ int main(int argc, char *argv[]){
     write_len = 0;
     while(1) {
         fputs("Input message(Q(q) to quit): ", stdout);
-        fgets(buf1, BUF_SIZE, stdin);
+        fgets(buf, BUF_SIZE, stdin);
         
-        if(!strcmp(buf1, "q\n") || !strcmp(buf1, "Q\n")) {
+        if(!strcmp(buf, "q\n") || !strcmp(buf, "Q\n")) {
             shutdown(clnt_sock, SHUT_WR);
             break;
         }
-        write_len = write(clnt_sock, buf1, strlen(buf1));
+        write_len = write(clnt_sock, buf, strlen(buf));
         if(write_len == -1)
             error_handling("write() error");
     }
     
     read_total_len = read_len = 0;
     while(read_len < write_len) {
-        read_len = read(clnt_sock, &buf2[read_total_len], BUF_SIZE - 1);
+        read_len = read(clnt_sock, &buf[read_total_len], BUF_SIZE - 1);
         if(read_len == -1)
             error_handling("read() error");
         read_total_len += read_len;
     }
     
-    printf("Received message content: %s\n", buf2);
+    printf("Received message content: %s\n", buf);
     close(clnt_sock);
     return 0;
 }
