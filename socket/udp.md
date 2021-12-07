@@ -106,7 +106,7 @@ TCP는 데이터의 경계가 없어 받고 싶은 만큼만 받아도 되지만
 
 > 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/udp/from_client.c](https://github.com/evelyn82/network/blob/master/code/udp/from_client.c)<br>
 
-UDP는 소켓끼리 1대 1 연결이 아니므로 데이터를 전송하기 위해 sendto()를 호출할 때마다 상대방 주소를 작성해야하지만, 자신의 IP, Port 주소는 sendto() 첫 호출때만 할당된다. 즉, sendto()를 호출했는데 클라이언트의 IP,Port 번호가 이미 할당된 상태라면 넘어간다.<br>
+UDP는 소켓끼리 1대 1 연결이 아니므로 데이터를 전송하기 위해 sendto()를 호출할 때마다 상대방 주소를 작성해야하지만, 자신의 IP, Port 주소는 **sendto() 첫 호출 때 OS가 알아서 할당**해준다. 즉, sendto()를 호출했는데 클라이언트의 IP,Port 번호가 이미 할당된 상태라면 넘어간다.<br>
 echo server와 마찬가지로 UDP는 데이터의 경계가 존재해 모든 데이터를 한번에 읽기 위해 recvfrom()를 1번 호출한다.<br>
 
 이렇게 UDP는 여러 소켓과 통신이 가능하므로 sendto()를 호출할 때마다 UDP 소켓에 목적지의 IP, Port번호를 등록하고 전송이 끝나면 목적지 주소를 삭제한다. 이를 **unconnected UDP**라고 한다.<br><br>
