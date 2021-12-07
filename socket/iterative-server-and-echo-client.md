@@ -9,12 +9,12 @@
 7. close(server)
 
 과정6에서 클라이언트가 close()를 호출하면 서버도 close()를 호출하는 것이 아니고 다시 과정3과 과정4 사이에서 머무르다가 클라이언트의 연결 요청이 들어오면 accept()하여 데이터를 주고 받는다.<br>
-동시에 둘 이상의 클라이언트 요청을 받진 못하고 하나씩 처리하는데 이것을 Iterative server고 한다.<br>
+동시에 둘 이상의 클라이언트 요청을 받진 못하고 하나씩 처리하는데 이것을 Iterative server 라고 한다.<br>
 
-## Iterative server 코드
+## Iterative server
 
 ```c
-1 for(int i = 0; i < 3; i++) {
+1  for(int i = 0; i < 3; i++) {
 2    
 3    clnt_sock = accept(serv_sock, (struct sockaddr*) &clnt_adr, &clnt_adr_sz);
 4    if(clnt_sock == -1)
@@ -24,24 +24,24 @@
 8        if(read_len == -1)     
 9           error_handling("read() error");
 10       write(clnt_sock, &buf, read_len);
-11   }
-12   close(clnt_sock);
+11  }
+12  close(clnt_sock);
 13 }
 ```
 
 > 전체 코드 : [https://github.com/evelyn82/network/tree/master/code/iterative-server/iterative-server.c](https://github.com/evelyn82/network/tree/master/code/iterative-server/iterative-server.c)
 
-위 코드는 TCP Iterative server 코드의 일부로 3번의 서비스(line1)를 제공한다.<br>
+위 코드는 TCP Iterative server 코드의 일부로 3번의 서비스를 제공한다. (line 1)<br>
 클라이언트가 보낸 데이터가 서버의 입력버퍼에 계속 쌓이고, 서버는 입력버퍼를 일정 크기로 읽으며 출력버퍼에 쌓는다.<br>
 
 - line 7 : read가 0을 리턴할 때까지 read buffer를 BUF_SIZE 만큼 읽는다.
-- line 10 : read가 읽은만큼 서버의 출력버퍼에 보낸다.
+- line 10 : 읽은 만큼 서버의 출력버퍼에 저장한다.
 
 TCP의 데이터는 경계가 없기 때문에 read buffer에 있는 데이터를 읽고 싶은 만큼만 읽어도 된다.<br>
 또한, 서버는 데이터의 경계를 구분하지 않고 수신한 데이터를 그대로 전송할 의무만 갖는다.<br>
 blocking mode에서 read()가 0을 리턴하는 경우는 클라이언트에서 close()를 호출해 EOF를 보냈을 때이다.<br><br>
 
-### Echo client 코드
+## Echo client
 
 echo client란 클라이언트에서 write 한 것을 server에 보내고, server는 해당 데이터를 다시 클라이언트에게 보내 그대로 출력하는 것을 말한다.<br>
 
