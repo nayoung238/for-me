@@ -16,7 +16,7 @@ int main(int argc, char *argv[]){
     socklen_t addr_len;
     
     char buf[BUF_SIZE];
-    int read_len, idx;
+    int read_len;
     
     if(argc != 2) {
         exit(1);
@@ -41,8 +41,7 @@ int main(int argc, char *argv[]){
         if(clnt_sock == -1)
             error_handling("accept() error");
         
-        idx = 0;
-        while(read_len = read(clnt_sock, &buf, sizeof(buf))) {
+        while(read_len = read(clnt_sock, &buf, BUF_SIZE)) {
             if(read_len == -1)
                 error_handling("read() error");
             write(clnt_sock, &buf, read_len);

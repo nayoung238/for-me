@@ -15,7 +15,7 @@ int main(int argc, char *argv[]){
     struct sockaddr_in serv_addr;
     
     char buf1[BUF_SIZE], buf2[BUF_SIZE];
-    int idx, len, write_len, read_len;
+    int write_len, read_len, read_total_len;
     
     if(argc != 3) {
         printf("Usage : %s <IP> <port>\n", argv[0]);
@@ -34,8 +34,7 @@ int main(int argc, char *argv[]){
     if(connect(clnt_sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) == -1)
         error_handling("connect() error");
     
-    read_len = write_len = 0;
-    int read_idx = 0, target = 0;
+    write_len = 0;
     while(1) {
         fputs("Input message(Q(q) to quit): ", stdout);
         fgets(buf1, BUF_SIZE, stdin);
@@ -45,27 +44,16 @@ int main(int argc, char *argv[]){
             break;
         }
         write_len = write(clnt_sock, buf1, strlen(buf1));
-        if(len == -1)
+        if(write_len == -1)
             error_handling("write() error");
-        /*
-        target = 0;
-        while(target < write_len) {
-            read_len = read(clnt_sock, &buf2[read_idx], BUF_SIZE);
-            if(read_len == -1) break;
-            printf("client : %s", buf2);
-            printf("store: %d %d\n", read_idx, read_len);
-            read_idx += read_len;
-            target += read_len;
-            printf("%d, %d\n", target, write_len);
-        }*/
     }
     
-    read_len = idx = 0;
+    read_total_len = read_len = 0;
     while(read_len < write_len) { // read() != 0
-        len = read(clnt_sock, &buf2[read_len], BUF_SIZE - 1);
-        if(len == -1)
+        read_len = read(clnt_sock, &buf2[read_total_len], BUF_SIZE - 1);
+        if(read_len == -1)
             error_handling("read() error");
-        read_len += len;
+        read_total_len += read_len;
     }
     
     printf("Received message content: %s\n", buf2);
