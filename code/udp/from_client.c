@@ -25,13 +25,15 @@ int main(int argc, char *argv[]) {
     
     from_sock = socket(AF_INET, SOCK_DGRAM, 0);
     memset(&from_addr, 0, sizeof(from_addr));
+    // UDP 통신에서도 sendto()를 먼저 호출하는 쪽은 주소를 직접 bind 할 필요없음
+    /*
     from_addr.sin_family = AF_INET;
     from_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     from_addr.sin_port = htons(9190);
     
     if(bind(from_sock, (struct sockaddr*) &from_addr, sizeof(from_addr)) == -1)
         error_handling("bind() error");
-    
+    */
     memset(&to_addr, 0, sizeof(to_addr));
     to_addr.sin_family = AF_INET;
     to_addr.sin_addr.s_addr = htonl(atoi(argv[1])); // 0.0.0.0
