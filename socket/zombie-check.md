@@ -58,7 +58,7 @@ pid_t waitpid(pid_t pid, int* statloc, int options);
 
 - pid : 종료를 확인하고자 하는 자식 프로세스 PID
   - ```-1``` 을 전달하면 모든 프로세스의 상태를 확인 (임의의 프로세스가 죽으면 return)
-- statloc : wait() 와 같은 기능
+- statloc : wait()의 statloc 과 같은 기능
 - options : sys/wait.h 에 선언된 WNOHANG 을 전달하면 종료된 자식 프로세스가 존재하지 않으면 block 되지 않고 0을 리턴하며 함수를 빠져나옴
 
 wait() 은 blocking 상태에 빠질 수 있지만, waitpid() 에 WNOHANG 옵션을 주면 blocking 상태에 놓이지 않게 된다는 차이점이 있다.
@@ -113,7 +113,7 @@ int sigaction(int signo, const struct sigaction* act, struct sigaction* oldact);
 ```
 
 - signo : 시그널 번호
-- act : 첫번쨰 매개변수인 시그널 발생시 호출될 함수(시그널 핸들러)
+- act : 첫번째 매개변수인 시그널 발생시 호출될 함수(시그널 핸들러)
 - oldact : 이전에 등록되었던 시그널 핸들러의 함수 포인터를 얻는데 사용되는 인자로 필요없으면 0
 
 sigcation()의 두번째 매개변수 타입은 sigaction 구조체이다.<br>
@@ -128,8 +128,6 @@ struct sigaction{
 
 - sa_handler : 시그널 발생시 실행할 핸들러
 - sa_mask : sa_handler 가 수행될 때는 sa_mask 에 등록한 signal 을 막는다. -> block 
+- sa_flags : sa_mask, sa_flags 시그널 관련 정보의 추가 전달에 사용
 
 > sigaction.c 에 대한 코드 : [https://github.com/evelyn82/network/blob/master/code/signal/sigaction.c](https://github.com/evelyn82/network/blob/master/code/signal/sigaction.c) <br>
-
-sa_mask, sa_flags 시그널 관련 정보의 추가 전달에 사용된다.<br>
-좀비 소멸 목적으로 사용되지 않기 때문에 모두 0으로 초기화한다.<br>

@@ -13,7 +13,8 @@ int main(){
     
     act.sa_handler = read_childproc;
     
-    // 시그널 집합 변수의 모든 내용 삭재 <-> sigfillset (모든 시그널 추가)
+    // 시그널 집합 변수의 모든 내용 삭제 <-> sigfillset (모든 시그널 추가)
+    // sa_mask, sa_flags 는 좀비 소멸 목적으로 사용되지 않기 때문에 모두 0으로 초기화한다.
     sigemptyset(&act.sa_mask);
     act.sa_flags = 0;
     
