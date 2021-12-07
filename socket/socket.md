@@ -80,10 +80,13 @@ int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 ```c
 #include <sys/socket.h>
 
-int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
+int bind(int sockfd, (struct sockaddr*) &myaddr, socklen_t addrlen);
 // 성공 시 0, 실패 시 -1 리턴
 ```
-
+- sockfd : 소켓의 파일 디스크립터
+- myaddr : 설정할 주소가 담긴 구조체를 sockaddr 구조체로 casting 
+<br>
+ 
 - 소켓에 주소를 할당해야 소켓끼리의 통신이 가능
 - 소켓 주소정보는 IP, port 번호로 구성
 - 서버만 bind() 호출: 클라이언트가 접근해야 하므로 bind() 호출로 명시
@@ -94,11 +97,14 @@ int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
 ## listen(): 연결요청이 가능함을 설정 -> server
 
 ```c
-#include <sys/socket.h>
+#include <sys/type.h>
 
-int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
+int listen(int sock, int backlog);
 // 성공 시 0, 실패 시 -1 리턴
 ```
+- scok : listen 소켓으로 설정할 소켓의 파일 디스크립터
+- backlog : 연결요청 대기 큐의 크기 정보 전달 -> 5 작성시 클라이언트 연결 요청을 5개까지 대기시킬 수 있음
+<br>
 
 - 연결 요청이 가능함을 설정하는 라이브러리
 - 서버만 호출
@@ -110,7 +116,7 @@ int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
 ```c
 #include <sys/socket.h>
 
-int accept(int sockfd, struct sockaddr *clnt_addr, socklen_t *addrlen);
+int accept(int sockfd, (struct sockaddr*) &clnt_addr, socklen_t *addrlen);
 // 성공 시 파일 디스크립터, 실패 시 -1 리턴
 ```
 
