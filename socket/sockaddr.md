@@ -9,6 +9,8 @@ sockaddr_in 구조체는 소켓은 네트워크 주소와 호스트 주소를 �
 IP 주소, Port 번호는 데이터 송수신을 위해 상대방의 것도 필요하지만, 상대방이 나를 찾아야 하므로 나의 주소도 설정해야 한다.<br>
 
 ```c
+#include <netinet/in.h>
+
 struct sockaddr_in {
     sa_family_t     sin_family;    // 주소체계
     uint16_t        sin_port;      // Port 번호, 2byte
