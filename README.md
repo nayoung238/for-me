@@ -17,6 +17,7 @@
 <br>
 
 - [자식 프로세스의 종료를 체크하는 wait, signal](https://github.com/evelyn82/network/blob/master/socket/zombie-check.md)
+- [multiprocess](https://github.com/evelyn82/network/blob/master/socket/multiprocess.md)
 - [multiplexing](https://github.com/evelyn82/network/blob/master/socket/multiplexing.md)
 - [pipe](https://github.com/evelyn82/network/blob/master/socket/pipe.md)
 <br>
