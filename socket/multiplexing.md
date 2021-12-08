@@ -41,13 +41,14 @@ struct timeval{
     long tv_usec; // microseconds
 }
 ```
-
+<br>
 파일 디스크립터를 설정하는 방법은 다음과 같다.<br>
 
 - void FD_ZERO(fd_set *set); -> set의 모든 비트를 0으로 초기화
 - void FD_SET(int fd, fd_set *set); -> fd 번 비트를 1로 초기화
 - void FD_CLR(int fd, fd_set *set); -> fd 번 비트를 0으로 초기화
 - void FD_ISSET(int fd, fd_set *set); -> fd 번 비트가 1인지 검사. 1인 경우 양수 리턴
+<br>
 
 ## 소켓 이벤트 발생
 
@@ -86,7 +87,7 @@ struct timeval{
 8     timeout.tv_usec = 5000;
 9     result = select(1, &temps, NULL, NULL, &timeout);
 10
-11     if(result == -1) {
+11    if(result == -1) {
 12           puts("select() error");
 13           break;
 14    }
@@ -107,8 +108,8 @@ struct timeval{
 
 - line 3 : 키보드 입력을 관심 대상으로 설정한다.
 - line 6 : select() 의 readset은 reference를 전달하므로 값이 계속 바뀐다. 이를 방지하기 위해 temps에 copy해 전달한다.
-- line 7 ~ 8 : select() 호출 후에는 타임아웃 발생직전의 시간이 담기므로 초기화한다고 하는데 -> 아무런 변동 없고 해결못함
+- line 7 ~ 8 : select() 호출 후에는 타임아웃 발생직전의 시간이 담기므로 초기화한다고 하는데 -> 아무런 변동 없음 (해결 못함)
 - line 9 : 지금은 수신된 데이터의 존재 유무만 확인할 것이므로 readset만 설정하고 writeset과 exceptset은 NULL로 설정한다.
-- line 15 : 지정된 시간만큼 아무런 변화가 없으면 0이 리턴된다.
-- line 20 : 관심 대상 범위내이고 파일 디스크립터 0에서 변화가 일어났다면 read해 출력한다.
+- line 15 : 지정된 시간만큼 아무런 변화가 없으면 0 이 리턴된다.
+- line 20 : 관심 대상 범위내이고 파일 디스크립터 0 에서 변화가 일어났다면 read해 출력한다.
 
