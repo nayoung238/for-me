@@ -72,7 +72,7 @@ struct timeval{
 - Out of band data 
 
 
-## 실습 
+## stdin 에 대한 select() 
 
 키보드의 입력만 관심대상으로 설정해 select() 호출로 인한 변화를 확인해봤다.<br>
 
@@ -112,4 +112,8 @@ struct timeval{
 - line 9 : 지금은 수신된 데이터의 존재 유무만 확인할 것이므로 readset만 설정하고 writeset과 exceptset은 NULL로 설정한다.
 - line 15 : 지정된 시간만큼 아무런 변화가 없으면 0 이 리턴된다.
 - line 20 : 관심 대상 범위내이고 파일 디스크립터 0 에서 변화가 일어났다면 read해 출력한다.
+<br>
 
+## multiplexing 기반 echo server
+
+- 전체 코드 : [https://github.com/evelyn82/network/tree/master/code/multiplexing/multiplexing_server.c](https://github.com/evelyn82/network/tree/master/code/multiplexing/multiplexing_server.c)
