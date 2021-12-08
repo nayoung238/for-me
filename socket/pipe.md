@@ -118,5 +118,11 @@ return 0;
 파이프 1개로 양방향 통신을 구현할 땐 wait(NULL), sleep() 으로 CPU 권한을 어느 정도 조절했지만 이는 사실상 정확한 컨트롤이 불가능했다.<br>
 하지만 파이프 2개로 양방향 통신을 하면 데이터의 입출력의 타이밍에 따라서 데이터의 흐름이 영향 받지 않는다.<br><br>
 
+## pipe 사용하는 echo server 구현
+
 - pipe 사용하는 echo server 코드 : [https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_serv.c](https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_serv.c)
 - pipe 사용하는 echo client 코드 : [https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_client.c](https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_client.c)
+
+echo server 는 10개의 메시지만 받도록 설정했다. 여러 client 가 10개 이상의 메시지를 보내도 10개의 메시지만 저장한다.<br>
+만약 여러 client 가 총 10개의 메시지를 보내기 전에 모두 종료했다면 해당 파일에는 메시지가 **아직 저장되지 않는 상태**이다.<br>
+lose()가 호출될 때 파일에 메시지가 저장되므로 10개 이상을 보내야 파일에 저장할 수 있다.<br>
