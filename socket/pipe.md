@@ -18,7 +18,7 @@ int pipe(int filedes[2]);
 - filedes[0] : 데이터를 수신하는데 사용되는 파일 디스크립터가 저장 (파이프의 출구)
 - filedes[1] : 데이터를 전송하는데 사용되는 파일 디스크립터가 저장 (파이프의 입구)
 
-pipe 함수를 호출하면 os는 서로 다른 프로세스가 함께 접근할 수 있는 메모리 공간을 만든다.<br>
+pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근할 수 있는 메모리 공간을 만든다.**<br><br>
 
 ## 파이프 1개로 통신
 
@@ -35,17 +35,18 @@ pipe 함수를 호출하면 os는 서로 다른 프로세스가 함께 접근할
 6      pipe(fds);
 7      pid_t pid = fork();
 8
-9      if(pid == 0) write(fds[1], str, sizeof(str));
-10     else {
-11        wait(NULL);
-12        read(fds[0], buf, BUF_SIZE);
-13        puts(buf);
-14     }return 0;
-15 }
+9      if(pid == 0) 
+10        write(fds[1], str, sizeof(str));
+11     else {
+12        wait(NULL);
+13        read(fds[0], buf, BUF_SIZE);
+14        puts(buf);
+15     }return 0;
+16 }
 ```
 > 전제 코드 : [https://github.com/evelyn82/network/tree/master/code/pipe/single_pipe.c](https://github.com/evelyn82/network/tree/master/code/pipe/single_pipe.c)
 
-자식 프로세스가 먼저 실행된다는 보장이 없으니 line 11에 ```wait(NULL)``` 코드를 추가해 자식 프로세스가 죽으면 부모 프로세스가 실행되도록 작성했다.<br>
+자식 프로세스가 먼저 실행된다는 보장이 없으니 line 12에 ```wait(NULL)``` 코드를 추가해 자식 프로세스가 죽으면 부모 프로세스가 실행되도록 작성했다.<br>
 만약 의도와 다르게 부모 프로세스가 먼저 실행되면 읽을 데이터가 없어 block 상태로 변한다. 즉, read()에서 block 된 상태이므로 부모 프로세스는 새로운 write()를 시도할 수 없어 문제가 된다.<br>
 
 
@@ -72,14 +73,13 @@ pipe 함수를 호출하면 os는 서로 다른 프로세스가 함께 접근할
 ```
 
 - line 6 : 자식 프로세스가 먼저 데이터를 보내고
-- line 7 : CPU 권환이 부모 프로세스에게 넘어가도록 2초간 sleep
+- line 7 : CPU 권한이 부모 프로세스에게 넘어가도록 2초간 sleep
 - line 12 : 자식 프로세스가 sleep 되어 CPU 권한이 부모 프로세스에게 넘어왔다면 버퍼를 읽는다.
 - line 14 : 자식 프로세스에게 보낼 데이터를 작성한다.
 - line 15 : CPU 권한이 자식 프로세스에게 넘어가도록 3초간 sleep
 - line 8 : 부모 프로세스가 작성한 데이터를 읽는다.
 
-위와 같은 순서로 실행되면 서로간의 통신에 문제 없다. 하지만 실제로는 context switching 이 어느 시점에 일어나는지 예상할 수 없어 위와 같은 순서를 보장할 수 없다.<br>
-즉, 1개의 파이프로 양방향 통신하는 것은 적절한 방법이 아니다.<br><br>
+위와 같은 순서로 실행되면 서로간의 통신에 문제 없다. 하지만 실제로는 context switching 이 어느 시점에 일어나는지 예상할 수 없어 위와 같은 순서를 보장할 수 없다. 즉, 1개의 파이프로 양방향 통신하는 것은 적절한 방법이 아니다.<br><br>
 
 ## 파이프 2개로 통신
 
@@ -116,4 +116,7 @@ return 0;
 - fds2는 부모가 전송하고 자식이 수신하는 파이프이다. 그러므로 자식은 발신 역할인 fds2[1] 를 닫고 부모는 수신 역할인 fds2[0] 을 닫는다.
 
 파이프 1개로 양방향 통신을 구현할 땐 wait(NULL), sleep() 으로 CPU 권한을 어느 정도 조절했지만 이는 사실상 정확한 컨트롤이 불가능했다.<br>
-하지만 파이프 2개로 양방향 통신을 하면 데이터의 입출력의 타이밍에 따라서 데이터의 흐름이 영향 받지 않는다.<br>
+하지만 파이프 2개로 양방향 통신을 하면 데이터의 입출력의 타이밍에 따라서 데이터의 흐름이 영향 받지 않는다.<br><br>
+
+- pipe 사용하는 echo server 코드 : [https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_serv.c](https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_serv.c)
+- pipe 사용하는 echo client 코드 : [https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_client.c](https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_client.c)
