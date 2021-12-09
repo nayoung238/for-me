@@ -6,7 +6,7 @@
 
 ```c
 #include <unistd.h>
-pid fork();
+pid_t fork();
 
 // 성공 시 PID, 실패 시 -1 return
 // 더 정확하게는 부모 프로세스에겐 자식의 PID, 자식에겐 0 return
