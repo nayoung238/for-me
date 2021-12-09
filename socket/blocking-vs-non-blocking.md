@@ -34,10 +34,10 @@
 # Non-blocking mode 파일의 read()
 
 - 읽을 데이터가 있는 경우 읽은 데이터의 크기를 return
-- 읽을 데이터가 없는 경우 block 되는 blocking 모드와 다르게 ```0 또는 1```을 return
+- 읽을 데이터가 없는 경우 block 되는 blocking 모드와 다르게 ```0 또는 -1```을 return
   - return 0 : read pointer가 EOF에 있는 경우 -> ```error 아님!!```
   - return -1 : EOF까지 읽은 상태이거나 어떠한 이유로 읽을 수 없는 경우 -> ```error !!```
-  - 0 또는 -1을 return 하고 댜른 일을 수행
+  - 0 또는 -1을 return 하고 다른 일을 수행
 - non-blocking mode는 일반 파일에서 거의 사용되지 않고 소켓, 파이프 같은 느린 파일에서 사용
 
 ## Non-blocking mode 설정
