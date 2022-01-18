@@ -28,10 +28,8 @@
 
 ## Network
 
-### 3장 네트워크 통신하기
-
 - [unicast, broadcast, multicast, anycast](https://github.com/evelyn82/network/blob/master/theory/cast.md)
-- [MAC address](https://github.com/evelyn82/network/blob/master/theory/mac.md)
+- [MAC address](https://github.com/evelyn82/network/blob/master/theory/mac-address.md)
 - [IP address](https://github.com/evelyn82/network/blob/master/theory/ip.md)
 
 # 참고 링크
