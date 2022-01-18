@@ -28,8 +28,6 @@
 
 ## Network
 
-> 'IT 엔지니어를 위한 네트워크 입문' 정리본
-
 ### 3장 네트워크 통신하기
 
 - [4가지 통신방식](https://github.com/evelyn82/network/blob/master/theory/cast.md)
