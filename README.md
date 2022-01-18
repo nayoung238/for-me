@@ -30,9 +30,9 @@
 
 ### 3장 네트워크 통신하기
 
-- [4가지 통신방식](https://github.com/evelyn82/network/blob/master/theory/cast.md)
-- [MAC 주소](https://github.com/evelyn82/network/blob/master/theory/mac.md)
-- [IP 주소](https://github.com/evelyn82/network/blob/master/theory/ip.md)
+- [unicast, broadcast, multicast, anycast](https://github.com/evelyn82/network/blob/master/theory/cast.md)
+- [MAC address](https://github.com/evelyn82/network/blob/master/theory/mac.md)
+- [IP address](https://github.com/evelyn82/network/blob/master/theory/ip.md)
 
 # 참고 링크
 
