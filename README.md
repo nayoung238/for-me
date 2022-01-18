@@ -29,8 +29,8 @@
 ## Network
 
 - [unicast, broadcast, multicast, anycast](https://github.com/evelyn82/network/blob/master/theory/cast.md)
-- [MAC address](https://github.com/evelyn82/network/blob/master/theory/mac-address.md)
-- [IP address](https://github.com/evelyn82/network/blob/master/theory/ip.md)
+- [MAC address](https://github.com/evelyn82/network/blob/master/theory/MAC-address.md)
+- [IP address](https://github.com/evelyn82/network/blob/master/theory/IP-address.md)
 
 # 참고 링크
 
