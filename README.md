@@ -1,6 +1,13 @@
-## Socket programming
+## Network
 
 - [OSI 7계층](https://github.com/evelyn82ny/network/blob/master/theory/osi7.md)
+- review [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/network/blob/master/theory/cast.md)
+- review [MAC address](https://github.com/evelyn82ny/network/blob/master/theory/MAC-address.md)
+- review [IP address](https://github.com/evelyn82ny/network/blob/master/theory/IP-address.md)
+<br>
+
+## Socket programming
+
 - [socket, bind, listen, accept, connect](https://github.com/evelyn82ny/network/blob/master/theory/socket.md)
 - [file descriptor, open, close, read, write](https://github.com/evelyn82ny/network/blob/master/theory/file-descriptor.md)
 - [TCP의 데이터 경계](https://github.com/evelyn82ny/network/blob/master/theory/boundary-of-tcp-transmission-data.md)
@@ -25,12 +32,6 @@
 - [blocking vs non-blocking](https://github.com/evelyn82ny/network/blob/master/theory/blocking-vs-non-blocking.md)
 - [4-way handshake & half close](https://github.com/evelyn82ny/network/blob/master/theory/4-way-handshake.md)
 - [Nagle algorithm](https://github.com/evelyn82ny/network/blob/master/theory/nagle-algorithm.md)
-
-## Network
-
-- [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/network/blob/master/theory/cast.md)
-- [MAC address](https://github.com/evelyn82ny/network/blob/master/theory/MAC-address.md)
-- [IP address](https://github.com/evelyn82ny/network/blob/master/theory/IP-address.md)
 
 # 참고 링크
 

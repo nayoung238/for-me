@@ -1,3 +1,5 @@
+> 'IT 엔지니어를 위한 네트워크 입문' 내용을 정리한 글 입니다.
+
 # MAC 주소
 
 MAC (Media Access Control) 주소는 data link layer (2계층) 에서 통신을 위해 NIC (Network Interface Controller(card)) 에 할당된 고유 식별자이다.<br>

@@ -1,3 +1,5 @@
+> 'IT 엔지니어를 위한 네트워크 입문' 내용을 정리한 글 입니다.
+
 # IP 주소
 
 IP (Internet Protocol) 주소는 Network 계층인 3계층에서 사용된다.<br>
@@ -26,6 +28,7 @@ IP 주소체계는 필요한 **host IP 개수에 따라** 네트워크의 크기
 고정된 체계가 아니므로 주소를 절약할 수 있다는 장점이 있고, class 기반 IP 주소 체계를 classful 이라고 한다.<br>
 
 ![png](/_img/ip_class.png) <br>
+
 > 출처 : https://goodmilktea.tistory.com/96 <br>
 
 <br>
