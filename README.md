@@ -8,7 +8,7 @@
 
 - [4-way handshake & half close](https://github.com/evelyn82ny/network/blob/master/theory/4-way-handshake.md)
 - [TCP 와 UDP](https://github.com/evelyn82ny/network/blob/master/theory/TCP-VS-UDP.md)
-- [TCP/IP](https://github.com/evelyn82ny/network/blob/master/theory/TCP-IP-protocol.md)
+- [TCP / IP protocol](https://github.com/evelyn82ny/network/blob/master/theory/TCP-IP-protocol.md)
 <br>
 
 - [blocking vs non-blocking](https://github.com/evelyn82ny/network/blob/master/theory/blocking-vs-non-blocking.md)

@@ -21,6 +21,8 @@ OSI 7계층에서 상위 3개의 계층을 Application 계층이라하고 나머
 
 데이터 송수신을 위해 네트워크 상태도 중요하다. 여러 방법이 존재하는데 아래 링크를 참고하자.
 
+<br>
+
 ### reference
 
 - TCP/IP 란: https://aws-hyoh.tistory.com/entry/TCPIP-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0
