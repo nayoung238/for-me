@@ -1,4 +1,4 @@
-# OSI 7계층
+# OSI 7 계층 (Open Systems Interconnection Reference Model)
 
 ![png](/_img/osi7.png)
 

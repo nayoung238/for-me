@@ -1,24 +1,6 @@
-# TCP 와 UDP
+# TCP (Transmission Control Protocol) 서버의 함수 호출
 
-TCP/IP 프로토콜 스택이란 **인터넷 기반의 데이터 송수신을 목적으로 설계된 스택**이다.<br>
-OSI 7계층에서 상위 3개의 계층을 Application 계층이라하고 나머지 하위 4계층을 Data flow 계층이라고 한다.<br>
-Data flow 계층인 하위 4개의 계층에서 데이터 송수신 과정을 전문적으로 나눈다.<br>
-
-- 4계층 : TCP/UDP 프로토콜로 end to end (출발지와 최종 도착지)
-- 3계층 : IP(Internet Protocol)로 소켓이 전송되는 **최적의 라우터 경로**를 제공
-- 2계층 : Link 계층으로 P2P (출발지와 라우터, 라우터와 라우터, 라우터와 도착지처럼 근접한 사이)
-
-Data link 계층과 Transport 계층은 소켓 흐름과 오류를 제어한다.<br>
-개발자는 파일 전송이면 TCP, 영상 전송이면 UDP 를 선택하는 것처럼 Application 에 따른 4계층의 프로토콜을 선택하고 2계층와 3계층은 표준으로 운영된다.<br><br>
-
-## TCP / UDP 계층
-
-출발지와 최종 목적지까지(end to end)의 데이터 송수신 계층인 **Transport** 계층이다.<br>
-TCP는 데이터의 전송을 보장하는 신뢰성있는 프로토콜이고, UDP는 데이터의 전송을 보장하지 않는 프로토콜이다.<br>
-
-TCP는 데이터의 전송을 보장하기 때문에 UDP보다 복잡한 프로토콜이며 receiver 에게 패킷을 전송했을 때 receiver 로부터 전송한 패킷에 대한 응답을 받지 못하면 time out 으로 처리해 다시 보낸다.<br><br>
-
-## TCP 서버의 기본적인 함수호출 순서
+## 함수 호출 순서
 
 1. socket() : 소켓 생성
 2. bind() : 소켓 주소할당
