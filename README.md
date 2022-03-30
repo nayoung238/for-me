@@ -1,7 +1,7 @@
 ## Network
 
 - [OSI 7계층](https://github.com/evelyn82ny/network/blob/master/theory/OSI-7-layer.md)
-- review [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/network/blob/master/theory/cast.md)
+- review [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/network/blob/master/theory/unicast_BUM_traffic.md)
 - review [MAC address](https://github.com/evelyn82ny/network/blob/master/theory/MAC-address.md)
 - review [IP address](https://github.com/evelyn82ny/network/blob/master/theory/IP-address.md)
 <br>
@@ -23,7 +23,6 @@
 - [127.0.0.1](https://github.com/evelyn82ny/network/blob/master/theory/loopback-address.md)
 <br>
 
-- [IP 주소](https://github.com/evelyn82ny/network/blob/master/theory/ip.md)
 - [IPv4 기반의 주소표현 sockaddr_in 구조체](https://github.com/evelyn82ny/network/blob/master/theory/sockaddr.md)
 - [IP 주소 할당하기](https://github.com/evelyn82ny/network/blob/master/theory/allocate-ip.md)
 <br>
