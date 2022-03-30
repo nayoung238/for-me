@@ -34,7 +34,7 @@ IPv4로 anycast 의 일부 기능만 구현하고, 브로드캐스트에선 IPv6
 
 ## BUM 트래픽
 
-BUM 은 Broadcast, Unknown unicast, Multicast 를 지징한다. 3개의 트래픽은 네트워크에서 동작 방식이 비슷하다.<br>
+BUM 은 Broadcast, Unknown unicast, Multicast 를 지칭한다. 3개의 트래픽은 네트워크에서 동작 방식이 비슷하다.<br>
 
 ### Unknown unicast
 
