@@ -20,7 +20,7 @@
 - [socket, bind, listen, accept, connect](https://github.com/evelyn82ny/network/blob/master/theory/socket.md)
 - [file descriptor, open, close, read, write](https://github.com/evelyn82ny/network/blob/master/theory/file-descriptor.md)
 - [TCP의 데이터 경계](https://github.com/evelyn82ny/network/blob/master/theory/boundary-of-tcp-transmission-data.md)
-- [127.0.0.1](https://github.com/evelyn82ny/network/blob/master/theory/loopback-address.md)
+- [127.0.0.1](https://github.com/evelyn82ny/network/blob/master/theory/localhost.md)
 <br>
 
 - [IPv4 기반의 주소표현 sockaddr_in 구조체](https://github.com/evelyn82ny/network/blob/master/theory/sockaddr.md)
