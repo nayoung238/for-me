@@ -39,9 +39,10 @@
 - [multiprocess](https://github.com/evelyn82ny/network/blob/master/theory/multiprocess.md)
 - [multiplexing](https://github.com/evelyn82ny/network/blob/master/theory/multiplexing.md)
 - [pipe](https://github.com/evelyn82ny/network/blob/master/theory/pipe.md)
+
 <br>
 
-# 참고 링크
+## reference
 
 - [TCP에 우아한 종료란 없다?](https://sunyzero.tistory.com/269)
 - [ssize_t](https://lacti.github.io/2011/01/08/different-between-size-t-ssize-t/)
