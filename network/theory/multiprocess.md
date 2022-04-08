@@ -10,9 +10,9 @@
 
 ## echo server
 
-- multiprocess 기반 echo server : [https://github.com/evelyn82/network/blob/master/code/multiprocess/mp_echo_serv.c](https://github.com/evelyn82/network/blob/master/code/multiprocess/mp_echo_serv.c)
+- multiprocess 기반 echo server : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/multiprocess/mp_echo_serv.c
 
 
 ## echo client
 
-- echo client : [https://github.com/evelyn82/network/blob/master/code/multiprocess/mp_echo_client.c](https://github.com/evelyn82/network/blob/master/code/multiprocess/mp_echo_client.c)
+- echo client : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/multiprocess/mp_echo_client.c

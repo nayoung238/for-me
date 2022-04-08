@@ -7,7 +7,7 @@
 
 ## Big Endian & Little Endian
 
-![png](/_img/big_endian.png) <br>
+![png](/network/_img/big_endian.png) <br>
 
 - 빅 엔디안 : 상위 바이트의 값을 작은 번지수에 저장
 - 리틀 엔디안 : 상위 바이트의 값을 큰 번지수에 저장
@@ -77,12 +77,12 @@ string으로 넘져준 IP 주소를 제대로 변환했다면 32비트 정수 �
 - in_addr 구조체의 s_addr 에 32비트 IPv4 인터넷 주소를 저장하는데 s_addr 의 타입은 in_addr_t 이다.
 - in_addr_t 는 unsigned_int 32비트이다.
 
-> sockaddr_in 에 대한 내용 : [https://github.com/evelyn82/network/blob/master/socket/sockaddr.md](https://github.com/evelyn82/network/blob/master/socket/sockaddr.md) <br>
+> sockaddr_in 에 대한 내용 : https://github.com/evelyn82ny/Computer-science/network/blob/master/socket/sockaddr.md
 
 
 주소를 입력하고 네트워크 주소로 제대로 변환되는지 확인해봤다.<br>
 
-- 네트워크 주소로 변환하는 코드 : [https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_addr.c](https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_addr.c)
+- 네트워크 주소로 변환하는 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/addr-conv/inet_addr.c
 
 ```c
 char *addr = "1.2.3.4";
@@ -124,7 +124,7 @@ int inet_aton(const char *string, struct in_addr *addr);
 
 in_addr 구조체 변수의 주소 값을 전달하기 때문에 변환한 32비트 정수 IP 주소를 바로 저장된다.<br>
 
-- inet_aton()으로 변환하는 코드 : [https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_aton.c](https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_aton.c)
+- inet_aton()으로 변환하는 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/addr-conv/inet_aton.c
 
 ```c
 char *addr = "127.232.124.79";
@@ -151,7 +151,7 @@ char* inet_ntoa(struct in_addr adr);
 
 inet_aton()의 반대 기능으로 네트워크 바이트 순서로 정렬된 IP 주소를 **우리가 보기 편한 문자열의 형태로 변환**한다.<br>
 
-- inet_ntoa() 에 대한 코드 : [https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_ntoa.c](https://github.com/evelyn82/network/blob/master/code/addr-conv/inet_ntoa.c)
+- inet_ntoa() 에 대한 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/addr-conv/inet_ntoa.c
 
 ```c
 struct sockaddr_int addr;

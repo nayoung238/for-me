@@ -29,7 +29,7 @@
 13 }
 ```
 
-> 전체 코드 : [https://github.com/evelyn82/network/tree/master/code/iterative-server/iterative-server.c](https://github.com/evelyn82/network/tree/master/code/iterative-server/iterative-server.c)
+> 전체 코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/iterative-server/iterative-server.c
 
 위 코드는 TCP Iterative server 코드의 일부로 3번의 서비스를 제공한다. (line 1)<br>
 클라이언트가 보낸 데이터가 서버의 입력버퍼에 계속 쌓이고, 서버는 입력버퍼를 일정 크기로 읽으며 출력버퍼에 쌓는다.<br>
@@ -63,7 +63,7 @@ echo client란 클라이언트에서 write 한 것을 server에 보내고, serve
 15 }
 ```
 
-> 전체 코드 : [https://github.com/evelyn82/network/tree/master/code/iterative-server/echo-client.c](https://github.com/evelyn82/network/tree/master/code/iterative-server/echo-client.c)
+> 전체 코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/iterative-server/echo-client.c
 
 위 코드는 TCP echo client 코드의 일부로 **q** 나 **Q**가 입력을 들어올 때까지 읽는다.<br>
 

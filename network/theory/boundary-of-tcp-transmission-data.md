@@ -19,14 +19,14 @@ while(read_len = read(sock, &message[idx++], 1)){
 }
 ```
 
-- tcp_client.c 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/tcp/tcp_client.c](https://github.com/evelyn82/network/blob/master/code/tcp/tcp_client.c)
-- tcp_server.c 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/tcp/tcp_server.c](https://github.com/evelyn82/network/blob/master/code/tcp/tcp_server.c)
+- tcp_client.c 전체 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/tcp/tcp_client.c
+- tcp_server.c 전체 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/tcp/tcp_server.c
 
 tcp_client.c 의 일부코드이다. 해당 client 는 전달받은 데이터를 1byte 씩 읽는 방식이다.<br>
 
-![png](/_img/tcp_result.png)<br>
+![png](/network/_img/tcp_result.png)<br>
 
-![png](/_img/helloworld_length.png)<br>
+![png](/network/_img/helloworld_length.png)<br>
 
 - 1byte 씩 몇번 읽었는지 확인한 결과 13
 - null 까지 읽고 ```EOF(End Of File)```에 접근한 순간 return 0 하기 때문에 13
@@ -38,8 +38,8 @@ char message[30];
 str_len = read(sock, message, sizeof(message) - 1);
 ```
 
-- tcp_client2.c 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/tcp/tcp_client2.c](https://github.com/evelyn82/network/blob/master/code/tcp/tcp_client.c)
-- tcp_server2.c 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/tcp/tcp_server2.c](https://github.com/evelyn82/network/blob/master/code/tcp/tcp_server2.c)
+- tcp_client2.c 전체 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/tcp/tcp_client.c
+- tcp_server2.c 전체 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/tcp/tcp_server2.c
 
 tcp_client2.c 의 일부코드이다. 해당 client는 전달받고자 하는 크기인 30보다 1개 적은 29만큼만 1번 읽는다.<br>
 여기서 1을 제외한 이유는 null 을 처리해야 되기 때문이다.<br>

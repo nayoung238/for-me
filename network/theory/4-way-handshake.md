@@ -9,7 +9,7 @@ TCP 통신에서 데이터 송수신 전에 서로 데이터를 주고 받을 �
 
 TCP 소켓마다 입출력 버퍼가 존재하는데 이는 소켓 생성시 자동으로 생성된다.
 
-![png](/_img/tcp_buffer.png) 
+![png](/network/_img/tcp_buffer.png) 
 
 - read(입력) buffer 에 있는 데이터를 read()로 읽고, write()하면 write(출력) buffer 에 쌓인다.
 - write buffer 에 쌓인 데이터가 상대방의 read buffer 에 쌓이는 방식이다.
@@ -29,7 +29,7 @@ TCP 소켓마다 입출력 버퍼가 존재하는데 이는 소켓 생성시 자
 
 ## 4-way handshake
 
-![png](/_img/4way_handshake.png) 
+![png](/network/_img/4way_handshake.png) 
 
 먼저 연결을 끊고자 하는 쪽을 **Active close**라 하고, 상대를 **Passive close**라고 한다.
 
@@ -46,7 +46,7 @@ TCP 소켓마다 입출력 버퍼가 존재하는데 이는 소켓 생성시 자
 
 ## TIME_WAIT
 
-![png](/_img/time_wait.png)
+![png](/network/_img/time_wait.png)
 
 연결을 먼저 끊겠다고 한 **Active close의 소켓은 TIME_WAIT 상태**를 거친다. TIME_WAIT 상태를 거치는 이유는 **TIME_WAIT 상태 동안에는 해당 소켓의 주소를 다른 소켓에게 할당하는 것을 막기 위함**이다.
 
@@ -58,7 +58,7 @@ TCP 소켓마다 입출력 버퍼가 존재하는데 이는 소켓 생성시 자
 TIME_WAIT 시간은 커널에 default 값으로 정해져 있지만 수정가능하다. passive close 에게 ACK 을 보내면 시간이 측정되는데 상대가 ACK 을 받지 못해 다시 ACK 을 보내는 경우 시간을 다시 측정한다.
 <br>
 
-![png](/_img/time_wait2.png) 
+![png](/network/_img/time_wait2.png) 
 
 다시 강조하지만 TIME_WAIT 상태를 거치는 이유는 **TIME_WAIT 상태 동안에는 해당 소켓의 주소를 다른 소켓에게 할당하는 것을 막기 위함**이다. 마지막 ACk이 제대로 전달되지 않을 경우 상대는 FIN flag 가 1인 소켓을 다시 보내는데 이 과정에서 기존 포트번호를 다른 소켓에게 할당했다면 제대로된 전송이 이루어지지 않기 때문이다.
 
@@ -76,7 +76,7 @@ close()를 호출하면 입출력 버퍼가 둘다 닫지만, shutdown()을 호�
 
 host A가 먼저 소켓을 닫겠다는 의지를 보인다면 아래와 같은 과정이 일어난다.
 
-![png](/_img/half-close.png) <br>
+![png](/network/_img/half-close.png) <br>
 
 1. host A는 일단 출력 버퍼만 닫기 위해 shutdown()를 호출하면 출력버퍼에 있는 데이터와 **EOF** 를 상대방에게 보낸 다음 출력 버퍼를 닫는다. (half-close)
 2. host B는 입력 버퍼에서 데이터를 읽고 출력 버퍼에 데이터를 쌓은 뒤 close()를 호출해 입출력 버퍼 둘다 닫는다. close() 호출 또한 출력 버퍼에 있는 데이터와 EOF 까지 전송하면 출력 버퍼를 닫는다.

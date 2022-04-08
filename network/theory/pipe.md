@@ -22,7 +22,7 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 
 ## 파이프 1개로 통신
 
-![png](/_img/single_pipe.png) <br>
+![png](/network/_img/single_pipe.png) <br>
 
 1개의 파이프를 부모와 자식 프로세스가 함께 사용하며, 자식 프로세스가 파이프에 데이터를 작성하면 부모 프로세스가 읽고 출력하는 코드이다.<br>
 
@@ -44,14 +44,14 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 15     }return 0;
 16 }
 ```
-> 전제 코드 : [https://github.com/evelyn82/network/tree/master/code/pipe/single_pipe.c](https://github.com/evelyn82/network/tree/master/code/pipe/single_pipe.c)
+> 전제 코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/pipe/single_pipe.c
 
 자식 프로세스가 먼저 실행된다는 보장이 없으니 line 12에 ```wait(NULL)``` 코드를 추가해 자식 프로세스가 죽으면 부모 프로세스가 실행되도록 작성했다.<br>
 만약 의도와 다르게 부모 프로세스가 먼저 실행되면 읽을 데이터가 없어 block 상태로 변한다. 즉, read()에서 block 된 상태이므로 부모 프로세스는 새로운 write()를 시도할 수 없어 문제가 된다.<br>
 
 
 이번엔 1개의 파이프로 ```자식 -> 부모``` -> ```부모 -> 자식``` 와 같이 서로가 대화를 주고 받는 것처럼 구현해봤다.<br>
-![png](/_img/single_pipe_issue.png) <br>
+![png](/network/_img/single_pipe_issue.png) <br>
 ```c
 1  int fds[2];
 2  pipe(fds);
@@ -83,7 +83,7 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 
 ## 파이프 2개로 통신
 
-![png](/_img/double_pipe.png)<br>
+![png](/network/_img/double_pipe.png)<br>
 
 ```c
 int fds1[2], fds2[2];
@@ -110,7 +110,7 @@ else {
 }
 return 0;
 ```
-> 전제 코드 : [https://github.com/evelyn82/network/tree/master/code/pipe/double_pipe.c](https://github.com/evelyn82/network/tree/master/code/pipe/double_pipe.c)
+> 전제 코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/pipe/double_pipe.c
 
 - fds1는 자식이 전송하고 부모가 수신하는 파이프이다. 그러므로 자식은 수신 역할인 fds1[0] 를 닫고 부모는 발신 역할인 fds1[1] 를 닫는다.
 - fds2는 부모가 전송하고 자식이 수신하는 파이프이다. 그러므로 자식은 발신 역할인 fds2[1] 를 닫고 부모는 수신 역할인 fds2[0] 을 닫는다.
@@ -120,8 +120,8 @@ return 0;
 
 ## pipe 사용하는 echo server 구현
 
-- pipe 사용하는 echo server 코드 : [https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_serv.c](https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_serv.c)
-- pipe 사용하는 echo client 코드 : [https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_client.c](https://github.com/evelyn82/network/blob/master/code/pipe/pipe_echo_client.c)
+- pipe 사용하는 echo server 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/pipe/pipe_echo_serv.c
+- pipe 사용하는 echo client 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/pipe/pipe_echo_client.c
 
 echo server 는 10개의 메시지만 받도록 설정했다. 여러 client 가 10개 이상의 메시지를 보내도 10개의 메시지만 저장한다.<br>
 만약 여러 client 가 총 10개의 메시지를 보내기 전에 모두 종료했다면 해당 파일에는 메시지가 **아직 저장되지 않는 상태**이다.<br>

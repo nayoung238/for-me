@@ -68,7 +68,7 @@ struct hostent* gethostbyname(const char* hostname);
 13     printf("IP addr %d : %s\n", i + 1, inet_ntoa(*(struct in_addr*)host -> h_addr_list[i]));
 14 }
 ```
-> 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/dns/gethostbyname.c](https://github.com/evelyn82/network/blob/master/code/dns/gethostbyname.c) <br>
+> 전체 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/dns/gethostbyname.c
 
 line 13 을 보면 string으로 저장된 IP 주소를 **in_addr 구조체로 casting**한 다음 in_addr_t 타입으로 저장된 값을 inet_ntoa() 를 통해 string 으로 변환해 출력한다. hostent 구조체에 IP 주소를 저장하고 있는 h_addr_list 도 char** 타입으로 지정되어있기 때문에 결국 string인데 왜 casting 하는 과정을 거치고 inet_ntoa() 함수를 호출해 다시 string 으로 바꾸는 번거로움을 거쳤을까?<br>
 
@@ -79,7 +79,7 @@ line 13 에서 IP 주소를 출력하기 위해 in_addr 구조체로 casting 하
 
 ```gethostbyname.c``` 를 ```hostname``` 으로 컴파일한 후 네이버와 구글에 대한 도메인 이름을 입력한 결과이다.<br>
 
-![png](/_img/gethostbyname.png) <br>
+![png](/network/_img/gethostbyname.png) <br>
 
 네이버와 구글 둘다 IPv4 기반의 주소 체계를 사용하고 있으며 네이버는 IP 주소가 2개임을 알 수 있다.<br><br>
 
@@ -115,9 +115,9 @@ struct hostent* gethostbyaddr(const char* addr, socklen_t len, int family);
 14 for(i = 0; host->h_addr_list[i]; i++)
 15      printf("IP addr %d : %s\n", i + 1, inet_ntoa(*(struct in_addr*)host->h_addr_list[i]));
 ```
-> 전체 코드 : [https://github.com/evelyn82/network/blob/master/code/dns/gethostbyaddr.c](https://github.com/evelyn82/network/blob/master/code/dns/gethostbyaddr.c) <br>
+> 전체 코드: https://github.com/evelyn82ny/Computer-science/network/blob/master/code/dns/gethostbyaddr.c <br>
 
-![png](/_img/gethostbyaddr.png) <br>
+![png](/network/_img/gethostbyaddr.png) <br>
 
 ```gethostbyname.c``` 를 ```hostname``` 으로 컴파일하고, ```gethostbyaddr.c``` 를 ```hostaddr``` 으로 컴파일했다.<br>
 

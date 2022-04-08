@@ -52,7 +52,7 @@ struct timeval{
 
 ## 소켓 이벤트 발생
 
-> water-mark 설명 : [https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ablax&logNo=100021152758](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ablax&logNo=100021152758)
+> water-mark 설명 : https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ablax&logNo=100021152758
 
 ### Readable
 
@@ -104,7 +104,7 @@ struct timeval{
 25    }
 26 }return 0;
 ```
-> 전제 코드 : [https://github.com/evelyn82/network/tree/master/code/multiplexing/select_stdin.c](https://github.com/evelyn82/network/tree/master/code/multiplexing/select_stdin.c)
+> 전제 코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/multiplexing/select_stdin.c
 
 - line 3 : 키보드 입력을 관심 대상으로 설정한다.
 - line 6 : select() 의 readset은 reference를 전달하므로 값이 계속 바뀐다. 이를 방지하기 위해 temps에 copy해 전달한다.
@@ -116,4 +116,4 @@ struct timeval{
 
 ## multiplexing 기반 echo server
 
-- 전체 코드 : [https://github.com/evelyn82/network/tree/master/code/multiplexing/multiplexing_server.c](https://github.com/evelyn82/network/tree/master/code/multiplexing/multiplexing_server.c)
+- 전체 코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/multiplexing/multiplexing_server.c

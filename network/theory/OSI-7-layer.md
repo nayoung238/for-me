@@ -1,6 +1,6 @@
 # OSI 7 계층 (Open Systems Interconnection Reference Model)
 
-![png](/_img/osi7.png)
+![png](/network/_img/osi7.png)
 
 - Application 계층인 5, 6, 7 계층은 개발자가 구현
   - 소켓 기반으로 응용프로그램의 프로토콜을 구성하는 계층

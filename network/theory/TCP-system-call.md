@@ -89,7 +89,7 @@ connect()은 2가지 return 이 존재한다.<br>
 
 ## TCP 기반 서버, 클라이언트의 함수호출 관계
 
-![png](/_img/tcp_server_client_process.png)
+![png](/network/_img/tcp_server_client_process.png)
 <br><br>
 
 ## close() 호출 시 TCP 소켓의 입출력 버퍼

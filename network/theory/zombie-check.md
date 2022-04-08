@@ -32,7 +32,7 @@ pid_t wait(int *statloc);
 // 정상적인 경우 종료한 자식 프로세스 PID, 오류 시 -1 return
 ```
 
-> zombie_wait.c 코드 : [https://github.com/evelyn82/network/blob/master/code/signal/zombie_wait.c](https://github.com/evelyn82/network/blob/master/code/signal/zombie_wait.c) <br>
+> zombie_wait.c 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/signal/zombie_wait.c
 
 pointer로 넘겨준 매개변수에 자식이 종료한 상태를 2byte 로 저장한다.
 
@@ -55,7 +55,7 @@ pid_t waitpid(pid_t pid, int* statloc, int options);
 
 wait() 은 blocking 상태에 빠질 수 있지만, waitpid() 에 WNOHANG 옵션을 주면 blocking 상태에 놓이지 않게 된다는 차이점이 있다.
 
-> zombie_waitpid.c 코드 : [https://github.com/evelyn82/network/blob/master/code/signal/zombie_waitpid.c](https://github.com/evelyn82/network/blob/master/code/signal/zombie_waitpid.c) <br>
+> zombie_waitpid.c 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/signal/zombie_waitpid.c
 
 ### process 종료 상태 확인 매크로 
 
@@ -72,7 +72,7 @@ wait() 은 blocking 상태에 빠질 수 있지만, waitpid() 에 WNOHANG 옵션
 OS가 프로세스에게 특정 상황이 발생했음을 비동기적으로 알리는 일종의 메시지를 시그널이라고 한다.<br>
 signal() 보단 sigcation() 사용을 권장한다.<br>
 
-![png](/_img/signal.jpeg)<br>
+![png](/network/_img/signal.jpeg)<br>
 
 > 출처 : https://blockdmask.tistory.com/23 <br>
 
@@ -85,7 +85,7 @@ void (* signal(int signo, void(*func)(int))) (int);
 - signo : 시그널 번호
 - void (*func)(int) : 시그널을 처리할 핸들러
 
-> signal.c 코드 : [https://github.com/evelyn82/network/blob/master/code/signal/signal.c](https://github.com/evelyn82/network/blob/master/code/signal/signal.c) <br>
+> signal.c 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/signal/signal.c
 
 signal.c 코드를 보면 for문 안에서 ```sleep(20)``` 을 수행하도록 작성했다.<br>
 하지만 for문 전 ```alarm(2)``` 에 의해 시그널이 발생해 시그널 처리로 인해 20초를 기다리지 못하고 끊긴다.<br>
@@ -122,4 +122,4 @@ struct sigaction{
 - sa_mask : sa_handler 가 수행될 때는 sa_mask 에 등록한 signal 을 막는다. -> block 
 - sa_flags : sa_mask, sa_flags 시그널 관련 정보의 추가 전달에 사용
 
-> sigaction.c 에 대한 코드 : [https://github.com/evelyn82/network/blob/master/code/signal/sigaction.c](https://github.com/evelyn82/network/blob/master/code/signal/sigaction.c) <br>
+> sigaction.c 에 대한 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/signal/sigaction.c

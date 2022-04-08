@@ -8,7 +8,7 @@
 
 TCP 통신에선 NAGLE-ON 이 기본설정이며, ```NAGLE``` 문자열을 보내는 과정은 다음과 같다.<br>
 
-![png](/_img/nagle_algorithm.png)
+![png](/network/_img/nagle_algorithm.png)
 
 Nagle algorithm ON 설정은 보낸 데이터에 대한 ACK 을 받으면 그다음 데이터를 전송하는 방식이다.<br>
 
@@ -23,7 +23,7 @@ Nagle algorithm ON 설정은 보낸 데이터에 대한 ACK 을 받으면 그다
 
 ## Nagle OFF
 
-![png](/_img/nagle_on_off.png)
+![png](/network/_img/nagle_on_off.png)
 
 Nagle 설정을 OFF 하면 앞서 전송한 데이터에 대한 ACK을 기다리지 않고 버퍼에 쌓이는 즉시 데이터를 전송한다. 그렇기 때문에 빠른 속도로 데이터를 주고 받을 수 있다. 하지만 통신과정에선 데이터만 주고 받는 것이 아니고 각 계층의 헤더파일까지 포함해 주고 받기 때문에 비효율적인 방식이다. 또한 이런 방식이 많이 사용되면 과도한 트래픽으로 전체적인 전송속도가 느려지게 된다.<br>
 
@@ -78,6 +78,6 @@ printf("Nagle status: %d\n", opt_val);
 ```
 - nagle 설정 전체 코드: https://github.com/evelyn82/network/blob/master/code/sock-option/nagle_check.c
 
-![png](/_img/nagle_result.png)
+![png](/network/_img/nagle_result.png)
 
 기본 설정은 nagle-algorithm ON 이므로 0이 출력되었고, OFF 로 설정하니 4가 출력되었다.

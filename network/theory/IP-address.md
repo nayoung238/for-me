@@ -28,7 +28,7 @@ IP 주소는 32비트 안에서 **네트워크 주소**와 **호스트 주소**�
 IP 주소체계는 필요한 **host IP 개수에 따라** 네트워크의 크기를 다르게 할당할 수 있는 **class** 개념이 있다.<br>
 고정된 체계가 아니므로 주소를 절약할 수 있다는 장점이 있고, class 기반 IP 주소 체계를 classful 이라고 한다.<br>
 
-![png](/_img/ip_class.png) <br>
+![png](/network/_img/ip_class.png) <br>
 
 > 출처 : https://goodmilktea.tistory.com/96 <br>
 
@@ -95,7 +95,7 @@ classless network 는 class 개념을 버렸기 때문에 이를 구분하는 �
 1 은 네트워크 주소, 0 은 호스트 주소를 표시해 & 연산으로 네트워크 주소를 알아낸다.<br>
 보통 10진수로 ```255.0.0.0```, ```255.255.0.0```, ```255.255.255.0``` 와 같이 표현한다.<br>
 
-![png](/_img/subnet_mask.png) <br>
+![png](/network/_img/subnet_mask.png) <br>
 > 출처 : IT 엔지니어를 위한 네트워크 입문 <br>
 
 ```103.9.32.146``` 주소에 서브넷 마스크가 ```255.255.255.0```을 사용하는 IP는 네트워크 주소가 ```103.9.32.0```이고, 호스트 주소는 ```0.0.0.146``` 이다.<br>
@@ -113,7 +113,7 @@ classless network 는 class 개념을 버렸기 때문에 이를 구분하는 �
 
 네트워크 범위 내에서 IP를 할당해야하고, 서브넷 마스크를 제대로 입력해야 로컬 네트워크의 특정 범위에 속해있는 단말과 문제되지 않으며 외부 네트워크 전체와 정상적인 통신이 가능하다.<br>
 
-![png](/_img/subnetting1.png) 
+![png](/network/_img/subnetting1.png) 
 
 > 출처 : IT 엔지니어를 위한 네트워크 입문 <br>
 
@@ -125,7 +125,7 @@ IP 주소와 서브넷 마스크를 AND 연산해 subnetting 한 네트워크 �
 네트워크 주소와 브로드캐스트 주소사이의 주소를 IP 주소로 사용하면 된다.
 <br>
 
-![png](/_img/subnetting2.png)
+![png](/network/_img/subnetting2.png)
 
 > 출처 : IT 엔지니어를 위한 네트워크 입문 <br>
 
@@ -146,7 +146,7 @@ IP 주소와 서브넷 마스크를 AND 연산해 subnetting 한 네트워크 �
 
 현재 가진 네트워크가 103.9.32.0/24 일때 아래과 같이 16개짜리 네트워크 중 12개를 확보한다.<br>
 
-![png](/_img/subnetting_admin.png) 
+![png](/network/_img/subnetting_admin.png) 
 
 > 출처 : IT 엔지니어를 위한 네트워크 입문 <br>
 
@@ -161,7 +161,7 @@ IP 주소와 서브넷 마스크를 AND 연산해 subnetting 한 네트워크 �
 
 회사 내부에서 사설 네트워크를 구축해 NAT 를 이용해 인터넷에 연결한다 하더라도 **다른 사용자에게 할당된 IP를 사용하면 안된다**. 다른 인터넷 연결에는 문제가 없지만 내부 네트워크에 할당된 IP 를 공식으로 사용하는 네트워크로 접속할 수 없기 때문이다.<br>
 
-![png](/_img/private_ip.png) <br>
+![png](/network/_img/private_ip.png) <br>
 > 출처 : IT 엔지니어를 위한 네트워크 입문 <br>
 
 A 회사는 ```20.0.0.0/24``` 네트워크를 실제 인터넷 구간에서 사용하고, C 회사는 ```20.0.0.0/24``` 네트워크로 회사 내부의 사설 IP를 할당했다.<br>
@@ -170,7 +170,7 @@ C 회사는 ```20.0.0.10``` 서버에서 인터넷에서 서비스하는 A 회�
 
 <br>
 
-![png](/_img/ip_address.png) 
+![png](/network/_img/ip_address.png) 
 
 > 출처 : IT 엔지니어를 위한 네트워크 입문 <br>
 
