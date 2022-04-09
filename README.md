@@ -1,3 +1,8 @@
+# Computer science
+
+- [Network](#network)
+- [Web](#web)
+
 # Network
 
 - [OSI 7계층](https://github.com/evelyn82ny/Computer-science/blob/master/network/theory/OSI-7-layer.md)
@@ -52,3 +57,5 @@
 # Web
 
 - [쿠키와 세션](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/cookie_and_session.md)
+- [httpServletRequest](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/httpServletRequest.md)
+- [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/httpServletResponse.md)
