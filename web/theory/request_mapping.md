@@ -11,6 +11,8 @@ handlerMapping 에서 Handler (실제로는 Controller) 를 찾는다. 우선순
 0. RequestMappingHandlerMapping : annotation 기반의 controller 인 @RequestMapping 에서 사용
 1. BeanNameUrlHandlerMapping : spring Bean 의 이름으로 handler 를 찾는다.
 
+<br>
+
 ## HandlerAdapter
 
 HandlerMapping 을 통해 찾은 Handler 를 실행할 수 있는 Handler Adapter 가 필요하다. 우선순위는 다음과 같다.
@@ -25,14 +27,14 @@ HandlerMapping 과 HandlerAdapter 에서 가장 우선순위가 높은 것은 **
 <br>
 
 - @RequestMapping 기반의 controller
-- Interface Controller 를 상속하는 controller
-- Interface HttpRequestHandler 를 상속하는 controller
+- Interface Controller 를 구현한 controller
+- Interface HttpRequestHandler 를 구현한 controller
 
 3가지 controller 에 대해 알아볼 것이며 @RequestMapping 기반의 controller 을 주로 사용한다.
 
 <br>
 
-# @RequestMapping
+# @RequestMapping 기반 Controller
 
 Controller 로 등록하기 위해 @Controller 와 @RequestMapping annotation 을 추가한다.
 
@@ -183,7 +185,7 @@ public String updateUser(@PathVarialbe String userId, @PathVariable Long orderId
 
 <br>
 
-## Interface Controller
+# Controller Interface 구현한 controller
 
 > 여기서 설명하는 Controller 는 controller annotation 이 아니라 web.servlet.mvc 에 정의된 interface controller 이다.<br>
 @Controller 와 interface Controller 는 다르다.
@@ -226,7 +228,7 @@ interface Controller 를 처리하는 HandlerAdapter 는 **SimpleControllerHandl
 
 <br>
 
-## HttpRequestHandler
+# HttpRequestHandler Interface 구현한 controller
 
 ```java
 @FunctionalInterface
