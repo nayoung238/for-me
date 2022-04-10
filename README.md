@@ -57,5 +57,6 @@
 # Web
 
 - [쿠키와 세션](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/cookie_and_session.md)
+- [request mapping](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/request_mapping.md)
 - [httpServletRequest](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/httpServletRequest.md)
 - [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/httpServletResponse.md)
