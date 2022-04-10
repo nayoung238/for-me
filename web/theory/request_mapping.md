@@ -183,7 +183,7 @@ public String updateUser(@PathVarialbe String userId, @PathVariable Long orderId
 
 <br>
 
-# Interface Controller
+## Interface Controller
 
 > 여기서 설명하는 Controller 는 controller annotation 이 아니라 web.servlet.mvc 에 정의된 interface controller 이다.<br>
 @Controller 와 interface Controller 는 다르다.
@@ -226,7 +226,7 @@ interface Controller 를 처리하는 HandlerAdapter 는 **SimpleControllerHandl
 
 <br>
 
-# HttpRequestHandler
+## HttpRequestHandler
 
 ```java
 @FunctionalInterface
