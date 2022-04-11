@@ -61,3 +61,5 @@
 - [view resolver](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/view_resolver.md)
 - [httpServletRequest](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/httpServletRequest.md)
 - [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/httpServletResponse.md)
+- [http request: query](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/http_request_query.md)
+- [http request: JSON](https://github.com/evelyn82ny/Computer-science/blob/master/web/theory/http_request_json.md)
