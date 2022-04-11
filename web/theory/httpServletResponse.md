@@ -10,7 +10,7 @@ HTTP response message 의 구조는 다음과 같다.
 
 <br>
 
-## HttpServletRequest
+## HttpServletResponse
 
 HttpServletRequest, HttpServletResponse 는 HTTP request message, HTTP response message 를 편리하게 사용하도록 도와주는 객체이다.
 
