@@ -24,9 +24,9 @@ while(read_len = read(sock, &message[idx++], 1)){
 
 tcp_client.c 의 일부코드이다. 해당 client 는 전달받은 데이터를 1byte 씩 읽는 방식이다.<br>
 
-![png](/network/_img/tcp_result.png)<br>
+![png](/Network/_img/tcp_result.png)<br>
 
-![png](/network/_img/helloworld_length.png)<br>
+![png](/Network/_img/helloworld_length.png)<br>
 
 - 1byte 씩 몇번 읽었는지 확인한 결과 13
 - null 까지 읽고 ```EOF(End Of File)```에 접근한 순간 return 0 하기 때문에 13

@@ -79,7 +79,7 @@ line 13 에서 IP 주소를 출력하기 위해 in_addr 구조체로 casting 하
 
 ```gethostbyname.c``` 를 ```hostname``` 으로 컴파일한 후 네이버와 구글에 대한 도메인 이름을 입력한 결과이다.<br>
 
-![png](/network/_img/gethostbyname.png) <br>
+![png](/Network/_img/gethostbyname.png) <br>
 
 네이버와 구글 둘다 IPv4 기반의 주소 체계를 사용하고 있으며 네이버는 IP 주소가 2개임을 알 수 있다.<br><br>
 
@@ -117,7 +117,7 @@ struct hostent* gethostbyaddr(const char* addr, socklen_t len, int family);
 ```
 > 전체 코드: https://github.com/evelyn82ny/Computer-science/network/blob/master/code/dns/gethostbyaddr.c <br>
 
-![png](/network/_img/gethostbyaddr.png) <br>
+![png](/Network/_img/gethostbyaddr.png) <br>
 
 ```gethostbyname.c``` 를 ```hostname``` 으로 컴파일하고, ```gethostbyaddr.c``` 를 ```hostaddr``` 으로 컴파일했다.<br>
 

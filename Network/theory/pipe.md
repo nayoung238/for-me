@@ -22,7 +22,7 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 
 ## 파이프 1개로 통신
 
-![png](/network/_img/single_pipe.png) <br>
+![png](/Network/_img/single_pipe.png) <br>
 
 1개의 파이프를 부모와 자식 프로세스가 함께 사용하며, 자식 프로세스가 파이프에 데이터를 작성하면 부모 프로세스가 읽고 출력하는 코드이다.<br>
 
@@ -51,7 +51,7 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 
 
 이번엔 1개의 파이프로 ```자식 -> 부모``` -> ```부모 -> 자식``` 와 같이 서로가 대화를 주고 받는 것처럼 구현해봤다.<br>
-![png](/network/_img/single_pipe_issue.png) <br>
+![png](/Network/_img/single_pipe_issue.png) <br>
 ```c
 1  int fds[2];
 2  pipe(fds);
@@ -83,7 +83,7 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 
 ## 파이프 2개로 통신
 
-![png](/network/_img/double_pipe.png)<br>
+![png](/Network/_img/double_pipe.png)<br>
 
 ```c
 int fds1[2], fds2[2];

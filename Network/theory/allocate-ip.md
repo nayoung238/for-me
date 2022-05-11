@@ -7,7 +7,7 @@
 
 ## Big Endian & Little Endian
 
-![png](/network/_img/big_endian.png) <br>
+![png](/Network/_img/big_endian.png) <br>
 
 - 빅 엔디안 : 상위 바이트의 값을 작은 번지수에 저장
 - 리틀 엔디안 : 상위 바이트의 값을 큰 번지수에 저장
