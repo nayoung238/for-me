@@ -34,8 +34,9 @@ int get(void *arg) {
 void *producer(void *arg) {
     for(int i = 0; i < loops; i++) {
         Mutex_lock(&mutex);
-        while(buffer_full == max)
+        while(buffer_full == max) {
             Cond_wait(&cond, &mutex);
+        }
         fill(i);
         Cond_signal(&cond);
         Mutex_unlock(&mutex);
