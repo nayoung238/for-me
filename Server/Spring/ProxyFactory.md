@@ -316,6 +316,7 @@ Advice를 적용하기 위한 Pointcut의 방법은 여러가지이다.
 - ```AspectJExpressionPointcut```: aspectJ 표현식으로 매칭
 
 Spring이 제공하는 여러 Pointcut 중 ```AspectJExpressionPointcut```을 주로 사용한다.
+
 <br>
 
 ## N개 Advisor -> N개 Proxy
