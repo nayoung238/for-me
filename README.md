@@ -1,7 +1,18 @@
 # Computer science
 
 - [Network](#network)
-- [Web](#web)
+- [Server](#server)
+
+# Operating system
+
+- [Operating system](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/introduction_to_os.md)
+- [process status](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process_state.md)
+- [virtual address space](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/virtual_address_space.md)
+  - velog: https://velog.io/@evelyn82ny/virtual-address-space
+
+## Scheduling
+
+- [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/MLFQ.md)
 
 # Network
 
@@ -54,7 +65,9 @@
 
 <br>
 
-# Web
+# Server
+
+## web
 
 - [쿠키와 세션](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/cookie_and_session.md)
 - [request mapping](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/request_mapping.md)
@@ -63,3 +76,9 @@
 - [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/httpServletResponse.md)
 - [http request: query](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/http_request_query.md)
 - [http request: JSON](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/http_request_json.md)
+<br>
+
+## Spring
+
+- ProxyFactory
+- BeanPostProcessor
