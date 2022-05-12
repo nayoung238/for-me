@@ -2,7 +2,7 @@
 
 HTTP response message 의 구조는 다음과 같다.
 
-![png](/Web/_img/http_response_message.png)
+![png](/Server/_img/http_response_message.png)
 
 - start line : HTTP method, protocol 등
 - header : host, content type 등
@@ -40,7 +40,7 @@ HttpServletResponse 에 여러 상태가 정의되어있다.
 - SC_OK = 200 (요청 성공)
 - SC_NOT_FOUND = 404 (요청된 리소스에 접근불가)
 
-![png](/Web/_img/http_servlet_response_result.png)
+![png](/Server/_img/http_servlet_response_result.png)
 
 <br>
 

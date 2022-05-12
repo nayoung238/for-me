@@ -1,5 +1,6 @@
 # Computer science
 
+- [Operating system](#operating-system)
 - [Network](#network)
 - [Server](#server)
 
@@ -9,10 +10,12 @@
 - [process status](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process_state.md)
 - [virtual address space](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/virtual_address_space.md)
   - velog: https://velog.io/@evelyn82ny/virtual-address-space
-
+<br>
+  - 
 ## Scheduling
 
 - [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/MLFQ.md)
+<br>
 
 # Network
 
@@ -69,13 +72,13 @@
 
 ## web
 
-- [쿠키와 세션](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/cookie_and_session.md)
-- [request mapping](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/request_mapping.md)
-- [view resolver](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/view_resolver.md)
-- [httpServletRequest](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/httpServletRequest.md)
-- [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/httpServletResponse.md)
-- [http request: query](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/http_request_query.md)
-- [http request: JSON](https://github.com/evelyn82ny/Computer-science/blob/master/Web/theory/http_request_json.md)
+- [쿠키와 세션](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/cookie_and_session.md)
+- [request mapping](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/request_mapping.md)
+- [view resolver](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/view_resolver.md)
+- [httpServletRequest](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/httpServletRequest.md)
+- [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/httpServletResponse.md)
+- [http request: query](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/http_request_query.md)
+- [http request: JSON](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/http_request_json.md)
 <br>
 
 ## Spring

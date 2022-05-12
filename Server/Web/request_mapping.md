@@ -2,7 +2,7 @@
 
 Handler(Controller)가 호출되기 위해선 HandlerMapping 과 HandlerAdapter 가 필요하다.
 
-![png](/Web/_img/mvc_architecture.png)
+![png](/Server/_img/mvc_architecture.png)
 
 ## HandlerMapping
 

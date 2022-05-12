@@ -15,7 +15,7 @@
 
 ## 처음 접근하는 경우
 
-![png](/Web/_img/cookie_and_session_flow.png)
+![png](/Server/_img/cookie_and_session_flow.png)
 
 1. 클라이언트가 로그인하겠다는 요청을 보내면
 2. 서버는 DB 에서 해당 사용자를 찾는다.
@@ -36,7 +36,7 @@
 
 해당 사이트에 대해 **JSESSIONID 를 가지고 있는 경우** 서버에게 요청을 보내는 과정은 다음과 같다.
 
-![png](/Web/_img/cookie_and_session_flow2.png)
+![png](/Server/_img/cookie_and_session_flow2.png)
 
 1. 서버에게 요청을 보낼 때 쿠키 보관소에 있는 JSESSIONID 쿠키를 함께 보낸다.
 2. 서버는 전달받은 JSESSIONID 쿠키의 session-id 와 **세션 저장소에 있는 세션을 매칭**해 object 를 찾는다.
@@ -103,7 +103,7 @@ public String homeLogin(@CookieValue(name = "memberId", required = false)Long me
 - 영속 쿠키 : 만료 날짜를 입력하면 해당 날짜까지 유지
 - 세션 쿠키 : 만료 날짜를 생략하면 브라우저를 종료하기 전까지만 유지
 
-![png](/Web/_img/use_of_cookie.png)
+![png](/Server/_img/use_of_cookie.png)
 
 광고창 밑에 **오늘 그만 보기** 버튼을 누르면 '해당 사용자는 오늘까지 광고를 노출하지 않는다.' 라는 데이터가 있기 때문에 하루 동안 해당 사이트에 다시 접근해도 광고창이 뜨지 않는 영속 쿠키이다. 이렇게 사용자의 상태를 파악하고 있는 데이터가 쿠키이며 **text 형식으로 클라이언트에 저장**된다.<br>
 
@@ -120,11 +120,11 @@ private void expireCookie(HttpServletResponse httpServletResponse, String cookie
 ```
 cookie 의 MaxAge 를 ```0``` 으로 설정하면 쿠키가 즉시 종료된다.
 
-![png](/Web/_img/not_apply_uuid_id.png)
+![png](/Server/_img/not_apply_uuid_id.png)
 
 member2 가 로그인하면 웹 브라우저에 멤버 아이디가 노출된다. 개인 정보가 노출되는 것도 문제지만 더 큰 문제는 value 에 ```3``` 을 입력하면 아래와 같이 아이디가 ```3``` 인 멤버로 로그인된 상태로 바뀐다.<br>
 
-![png](/Web/_img/not_apply_uuid_id2.png)
+![png](/Server/_img/not_apply_uuid_id2.png)
 
 쿠키 정보는 웹 브라우저에 보관되고 네트워크 요청마다 계속해서 클라이언트와 서버 사이에서 전달된다.<br>
 지금은 아이디만 노출되지만 주민번호나 신용카드 같은 중요한 정보가 계속해서 노출된다면 해커는 분명 해당 정보를 훔쳐갈 것이다. 이러한 문제를 해결하기 위해 Session 개념을 적용한다.
@@ -172,7 +172,7 @@ public Object getSession(HttpServletRequest httpServletRequest){
 
 > commit: https://github.com/evelyn82/session/commit/caf20d58690e1408c35ad2e9b013e33faa8de509
 
-![png](/Web/_img/apply_random_uuid.png)
+![png](/Server/_img/apply_random_uuid.png)
 
 controller 에 Session 을 적용하면 로그인 시 Value 에 회원 정보가 아닌 식별자만 노출된다.
 
@@ -216,7 +216,7 @@ Session 의 LastAccessedTime 최근 세션 접근 시간을 기준으로 timeout
 위에서 직접 구현해 본 SessionManager 의 모든 기능들을 서블릿에서 ```HttpSession``` 으로 제공한다.<br>
 서블릿으로 HttpSession 을 생성하면 JSESSIONID 쿠키를 생성하고 UUID 와 같은 추청 불가능한 랜덤 값을 session-id로 설정한다.<br>
 
-![png](/Web/_img/http_session_provided_by_servlet.png)
+![png](/Server/_img/http_session_provided_by_servlet.png)
 
 ```java
 public String homeLogin(HttpServletRequest httpServletRequest, Model model){
@@ -259,7 +259,7 @@ public String homeLogin(
 
 쿠키와 세션의 가장 중요한 차이점은 저장위치와 **라이프 사이클이 다르다**는 것이다.<br>
 
-![png](/Web/_img/diff_between_cookie_and_session.png)
+![png](/Server/_img/diff_between_cookie_and_session.png)
 
 ### 라이프 사이클
 
