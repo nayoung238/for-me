@@ -22,10 +22,11 @@ void fill(int value) {
     buffer[fill_ptr] = value;
     fill_ptr = (fill_ptr + 1) % max;
     buffer_full++;
-    printf("fill: %d\n", value);
+    printf("PUT -> [0x%lx]: %d\n", (unsigned long)pthread_self(), value);
 }
 int get(void *arg) {
     int tmp = buffer[get_ptr];
+    printf("GET -> [0x%lx]: %d\n", (unsigned long)pthread_self(), tmp);
     get_ptr = (get_ptr + 1) % max;
     buffer_full--;
     return tmp;
@@ -42,8 +43,9 @@ void *producer(void *arg) {
 
     for(int i = 0; i < consumers; i++) {
         Mutex_lock(&mutex);
-        while(buffer_full == max)
+        while(buffer_full == max) {
             Cond_wait(&cond, &mutex);
+        }
         fill(-1);
         Cond_signal(&cond);
         Mutex_unlock(&mutex);
@@ -54,10 +56,10 @@ void *consumer(void *arg) {
     int tmp = 0;
     while(tmp != -1) {
         Mutex_lock(&mutex);
-        while(buffer_full == 0)
+        while(buffer_full == 0) {
             Cond_wait(&cond, &mutex);
+        }
         tmp = get(NULL);
-        printf("[0x%lx]: %d\n", (unsigned long)pthread_self(), tmp);
         Cond_signal(&cond);
         Mutex_unlock(&mutex);
     }
@@ -83,8 +85,8 @@ int main(int argc, char *argv[]) {
 
     pthread_t tp; // thread_producer
     pthread_t tc[consumers]; // thread_consumer
-    Pthread_create(&tp, NULL, producer, NULL);
 
+    Pthread_create(&tp, NULL, producer, NULL);
     for(int i = 0; i < consumers; i++) {
         Pthread_create(&tc[i], NULL, consumer, NULL);
     }
