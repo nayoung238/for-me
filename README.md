@@ -11,7 +11,7 @@
 - [virtual address space](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/virtual_address_space.md)
   - velog: https://velog.io/@evelyn82ny/virtual-address-space
 <br>
-  - 
+
 ## Scheduling
 
 - [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/MLFQ.md)
