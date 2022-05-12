@@ -305,3 +305,81 @@ save method에만 Advice를 적용하려고 한다면 ```NameMatchMethodPointcut
 [Test worker] INFO nayoung...advice.TimeAdvice - Time Proxy 종료: result time = 1ms
 ```
 find와 save method를 호출하면 find method에는 Advice가 적용되지 않고 save method에만 Advice가 적용됨을 알 수 있다.
+<br>
+
+Advice를 적용하기 위한 Pointcut의 방법은 여러가지이다.
+
+- ```NameMatchMethodPointcut```: method 이름 기반으로 매칭하며 내부에서 ```PatternMatchUtils```를 사용
+- ```JdkRegexMethodPointcut```: JDK 정규 표현식 기반으로 매칭
+- ```TruePointcut```: 항상 True 반환
+- ```AnnotationMatchingPointcut```: Annotation 매칭
+- ```AspectJExpressionPointcut```: aspectJ 표현식으로 매칭
+
+Spring이 제공하는 여러 Pointcut 중 ```AspectJExpressionPointcut```을 주로 사용한다.
+<br>
+
+## N개 Advisor -> N개 Proxy
+
+target을 실행하기 전에 2개의 Advice를 수행하려고 한다.<br>
+```client``` -> ```proxy2(Advisor2)``` -> ```proxy1(Advisor1)``` -> ```target``` 구조가 되도록 구현했다.
+
+> MultiAdvisor test 커밋: https://github.com/evelyn82ny/design-pattern/commit/0ac54c4e2ee1eb6a79004e271cd52b807cbb7d51
+
+```java
+// proxy1(Advisor1) -> target
+ServiceInterface target = new ServiceImpl();
+ProxyFactory proxyFactory1 = new ProxyFactory(target);
+DefaultPointcutAdvisor advisor1 = new DefaultPointcutAdvisor(Pointcut.TRUE, new Advice1());
+proxyFactory1.addAdvisor(advisor1);
+ServiceInterface proxy1 = (ServiceInterface) proxyFactory1.getProxy();
+
+// client -> proxy2(Advisor2)
+ProxyFactory proxyFactory2 = new ProxyFactory(proxy1);
+DefaultPointcutAdvisor advisor2 = new DefaultPointcutAdvisor(Pointcut.TRUE, new Advice2());
+proxyFactory2.addAdvisor(advisor2);
+ServiceInterface proxy2 = (ServiceInterface) proxyFactory2.getProxy();
+
+proxy2.save();
+```
+
+```text
+[Test worker] INFO nayoung...MultiAdvisorTest$Advice2 - advice2 호출
+[Test worker] INFO nayoung...MultiAdvisorTest$Advice1 - advice1 호출
+[Test worker] INFO nayoung...service.ServiceImpl - save 호출
+```
+
+2개의 Advice 모두 Pointcut이 ```Pointcut.TRUE``` 이므로 둘다 적용된다.
+하지만 2개의 Advice를 적용하기 위해 각 Advice에 대한 Proxy를 생성헀기 때문에 총 2개의 Proxy가 생성되었다.
+이 방식은 N개의 Advice를 적용려면 N개의 Proxy를 만들어야 한다.
+<br>
+
+Spring은 이 문제를 해결해 1개의 Proxy로 여러 Advisor를 적용할 수 있는 기능을 제공한다.
+
+<br>
+
+## N개 Advisor -> 1개 Proxy
+
+> 여러 Advisor를 1개의 Proxy가 처리하는 test 커밋: https://github.com/evelyn82ny/design-pattern/commit/dda93dee011e04ff1cdd4f94110a79b7ba8612e6
+
+```java
+DefaultPointcutAdvisor advisor2 = new DefaultPointcutAdvisor(Pointcut.TRUE, new Advice2());
+DefaultPointcutAdvisor advisor1 = new DefaultPointcutAdvisor(Pointcut.TRUE, new Advice1());
+
+ServiceInterface target = new ServiceImpl();
+ProxyFactory proxyFactory = new ProxyFactory(target);
+proxyFactory.addAdvisor(advisor2);
+proxyFactory.addAdvisor(advisor1);
+
+ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();
+```
+여러 Advisor를 ProxyFactory에 추가하고 1개의 Proxy만 생성한다.
+
+```text
+[Test worker] INFO nayoung...MultiAdvisorTest$Advice2 - advice2 호출
+[Test worker] INFO nayoung...MultiAdvisorTest$Advice1 - advice1 호출
+[Test worker] INFO nayoung...service.ServiceImpl - find 호출
+```
+추가한 순서대로 Advice가 실행된다.
+<br>
+
+Spring AOP로 1개의 target에 여러 Adivce를 적용해도 **1개의 Proxy만 만들어지는 것이 핵심**이다.
