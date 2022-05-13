@@ -85,3 +85,4 @@
 
 - [ProxyFactory](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/ProxyFactory.md)
 - [BeanPostProcessor 기본 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/BeanPostProcessor_basic.md)
+- [BeanPostProcessor-Pointcut 적용 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/BeanPostProcessor_pointcut.md)
