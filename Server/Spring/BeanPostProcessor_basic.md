@@ -3,7 +3,7 @@
 Spring이 빈 저장소에 등록하기 위해 생성한 객체를 빈 저장소에 등록하기 전에 조작하고 싶다면 BeanPostProcessor를 사용하면 된다.
 BeanPostProcessor로 객체를 조작할수도 있고, 다른 객체로 변경할수도 있다.
 
-![](https://velog.velcdn.com/images/evelyn82ny/post/57a9f052-c47d-4cbe-900d-da6c037e25a6/image.png)
+![png](/Server/_img/BeanPostProcessor/BeanPostProcessor(1).png)
 
 > 출처: 스프링 핵심 원리 -고급편(김영한)
 
@@ -106,7 +106,7 @@ BeanPostProcessorTest$B - class B
 
 이렇게 생성한 객체를 빈 저장소에 저장하기 전에 완전히 다른 객체로 바꿀 수 있다. 즉, 아래와 같이 프록시 객체로 변경할 수 있다는 의미이다.
 
-![](https://velog.velcdn.com/images/evelyn82ny/post/9df0a539-a9ff-4c17-bc61-74d00067dd94/image.png)
+![png](/Server/_img/BeanPostProcessor/BeanPostProcessor(2).png)
 
 > 출처: 스프링 핵심 원리 -고급편(김영한)
 
@@ -205,6 +205,7 @@ create proxy: target = class nayoung.designpattern.app.proxy.componentscan.ItemR
 nayoung.designpattern.app.proxy.componentscan.ItemRepositoryV3$$EnhancerBySpringCGLIB$$b869ee59
 ```
 ```@Component```를 사용하면 Runtime 시 Spring이 ComponentScan하여 Bean으로 등록한다. 그렇기 때문에 PackageLogTraceProxyPostProcessor를 사용하는 BeanPostProcessorConfig에 직접 Bean으로 등록되지 않는 Interface 기반 클래스(V1)와 Concrete 클래스(V2)를 ```@Import```를 사용해 수동으로 Bean 등록한다.
+<br>
 
 ```java
 @Import({AppV1Config.class, AppV2Config.class})
