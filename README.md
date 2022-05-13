@@ -84,4 +84,4 @@
 ## Spring
 
 - [ProxyFactory](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/ProxyFactory.md)
-- BeanPostProcessor
+- [BeanPostProcessor 기본 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/BeanPostProcessor_basic.md)
