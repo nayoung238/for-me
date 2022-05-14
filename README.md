@@ -26,6 +26,11 @@
 - [Semaphore](https://velog.io/@evelyn82ny/synchronization-semaphore)
 <br>
 
+### reference
+
+- [operating systems: three easy pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+<br>
+
 # Network
 
 - [OSI 7계층](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/OSI-7-layer.md)
@@ -70,7 +75,7 @@
 
 <br>
 
-## reference
+### reference
 
 - [TCP에 우아한 종료란 없다?](https://sunyzero.tistory.com/269)
 - [ssize_t](https://lacti.github.io/2011/01/08/different-between-size-t-ssize-t/)
