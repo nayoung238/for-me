@@ -4,6 +4,8 @@
 - [Network](#network)
 - [Server](#server)
 
+<br>
+
 # Operating system
 
 - [Operating system](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/introduction_to_os.md)
@@ -11,10 +13,17 @@
 - [virtual address space](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/virtual_address_space.md)
   - velog: https://velog.io/@evelyn82ny/virtual-address-space
 <br>
-
+  
 ## Scheduling
 
 - [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/MLFQ.md)
+<br>
+
+## Concurrency & Synchronization
+
+- [Thread](https://velog.io/@evelyn82ny/concurrency-thread)
+- [Lock](https://velog.io/@evelyn82ny/concurrency-lock)
+- [Semaphore](https://velog.io/@evelyn82ny/synchronization-semaphore)
 <br>
 
 # Network
@@ -81,8 +90,15 @@
 - [http request: JSON](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/http_request_json.md)
 <br>
 
-## Spring
+## Spring: SQL
+
+- [PK mapping](https://velog.io/@evelyn82ny/primary-key-mapping)
+<br>
+
+## Spring: Proxy
 
 - [ProxyFactory](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/ProxyFactory.md)
 - [BeanPostProcessor 기본 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/BeanPostProcessor_basic.md)
 - [BeanPostProcessor - Pointcut 적용 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/BeanPostProcessor_pointcut.md)
+- [@Aspect](https://velog.io/@evelyn82ny/Spring-AOP-Aspect)
+<br>
