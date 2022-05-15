@@ -43,7 +43,9 @@ void *producer(void *arg) {
         while(buffer_full == max) {
             Cond_wait(&cond, &mutex);
         }
-        if(fill_ptr < max) fill(fill_ptr);
+        if(fill_ptr < max) {
+            fill(fill_ptr);
+        }
         Cond_signal(&cond);
         Mutex_unlock(&mutex);
     }
