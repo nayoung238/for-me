@@ -12,9 +12,9 @@ HTTP response message 의 구조는 다음과 같다.
 
 ## HttpServletResponse
 
-HttpServletRequest, HttpServletResponse 는 HTTP request message, HTTP response message 를 편리하게 사용하도록 도와주는 객체이다.
+HttpServletRequest, HttpServletResponse는 HTTP request message, HTTP response message를 편리하게 사용하도록 도와주는 객체이다.
 
-HttpServletResponse 는 HTTP response message 에 HTTP 응답코드 지정, header 와 body 를 생성하고 쿠키나 Redirect 기능을 제공한다.
+HttpServletResponse는 HTTP response message에 HTTP 응답코드 지정, header와 body를 생성하고 쿠키나 Redirect 기능을 제공한다.
 
 ```java
 @WebServlet(name="responseHeaderServlet", urlPatterns = "/response-header")
@@ -22,7 +22,8 @@ public class ResponseHeaderServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // [status-line]
-        response.setStatus(HttpServletResponse.SC_OK);
+        // Status code (200) indicating the request succeeded normally.
+        response.setStatus(HttpServletResponse.SC_OK);  
 
         // [response-headers]
         response.setHeader("Content-Type", "text/plain;charset=utf-8");
@@ -37,8 +38,9 @@ public class ResponseHeaderServlet extends HttpServlet {
 response.setStatus(HttpServletResponse.SC_OK) 로 원하는 응답코드를 설정하고 response.setHeader()로 원하는 header 를 추가한다. 
 HttpServletResponse 에 여러 상태가 정의되어있다.
 
-- SC_OK = 200 (요청 성공)
-- SC_NOT_FOUND = 404 (요청된 리소스에 접근불가)
+- SC_OK = 200 (the request succeeded normally)
+- SC_FOUND = 302 (the resource reside temporarily under a different URI)
+- SC_NOT_FOUND = 404 (he requested resource is not available)
 
 ![png](/Server/_img/http_servlet_response_result.png)
 
@@ -53,6 +55,8 @@ PrintWriter writer = response.getWriter();
 writer.println("response ok");  // 원하는 message body 를 적는다.
 ```
 
+<br>
+
 HTTP 응답으로 HTML 을 반환하려면 content-type 을 "text/html" 으로 지정한다.
 
 ```java
@@ -65,7 +69,7 @@ response.setContentType("text/html");
 HTTP 응답을 JSON 으로 반환하려면 content-type 을 "application/json" 으로 지정한다.
 
 ```java
-private ObjectMapper objectMapper=new ObjectMapper();
+private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -83,5 +87,5 @@ private ObjectMapper objectMapper=new ObjectMapper();
     }
 }
 ```
-**application/json** 은 **utf-8** 형식을 사용하도록 정의되어 있다. 
-그러므로 response.setCharacterEncoding("utf-8"); 작성을 하지 않아도 된다.
+**application/json** 은 **utf-8** 형식을 사용하도록 정의되어 있다.<br>
+그러므로 ```response.setCharacterEncoding("utf-8");```을 작성하지 않아도 된다.
