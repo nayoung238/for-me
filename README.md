@@ -2,8 +2,12 @@
 
 - [Operating system](#operating-system)
 - [Network](#network)
+  - [Socket](#socket-programming)
 - [Server](#server)
-
+  - [Web](#web)
+  - [SQL](#spring-sql)
+  - [Proxy](#spring-proxy)
+  - [Pattern](#pattern)
 <br>
 
 # Operating system
@@ -102,8 +106,16 @@
 
 ## Spring: Proxy
 
-- [ProxyFactory](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/ProxyFactory.md)
-- [BeanPostProcessor 기본 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/BeanPostProcessor_basic.md)
-- [BeanPostProcessor - Pointcut 적용 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Spring/BeanPostProcessor_pointcut.md)
+- [ProxyFactory](https://github.com/evelyn82ny/Computer-science/blob/master/Server/proxy/ProxyFactory.md)
+- [BeanPostProcessor 기본 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/proxy/BeanPostProcessor_basic.md)
+- [BeanPostProcessor - Pointcut 적용 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/proxy/BeanPostProcessor_pointcut.md)
 - [@Aspect](https://velog.io/@evelyn82ny/Spring-AOP-Aspect)
 <br>
+
+## Pattern
+
+- [Singleton pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/singleton_pattern.md)
+- [Template method pattern](https://velog.io/@evelyn82ny/template-method-pattern)
+- [Strategy pattern](https://velog.io/@evelyn82ny/strategy-pattern)
+- [Template callback pattern](https://velog.io/@evelyn82ny/template-callback-pattern)
+- [Proxy & Decorator pattern](https://velog.io/@evelyn82ny/proxy-pattern-decorator-pattern)
