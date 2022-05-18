@@ -6,6 +6,10 @@
 
 <br>
 
+- [DispatcherServlet](#dispatcherservlet)
+- [ViewResolver](#viewresolver)
+<br>
+
 # DispatcherServlet
 
 ![png](/Server/_img/Spring_MVC/springmvc_architecture_dispatcher_servlet.png)
@@ -139,3 +143,39 @@ public abstract class HttpServlet extends GenericServlet {
 <br>
 
 - FrameworkServlet의 ```service()```가 호출되면 HttpMethod에 따 doMethod를 호출
+
+<br>
+
+# ViewResolver
+
+![png](/Server/_img/Spring_MVC/springmvc_architecture_ViewResolver.png)
+
+```java
+package org.springframework.web.servlet;
+
+public interface ViewResolver {
+    
+    @Nullable
+    View resolveViewName(String viewName, Locale locale) throws Exception;
+}
+```
+- Resolve the given view by name
+- resolve 할 view 이름을 파라미터로 받는다.
+- resolve 에 성공하면 ```View``` object를, 실패하면 null 을 return
+<br>
+
+```java
+package org.springframework.web.servlet;
+
+public interface View {
+    @Nullable
+    default String getContentType() { 
+        return null;
+    }
+    
+    void render(@Nullable Map<String, ?> model, HttpServletRequest request, HttpServletResponse response)
+            throws Exception;
+}
+```
+- 해당되는 model의 주어진 view를 render 한다.
+- Rendering: 서버로부터 HTML 파일을 받아 브라우저에 뿌려주는 과정
