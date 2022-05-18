@@ -93,6 +93,7 @@
 - [쿠키와 세션](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/cookie_and_session.md)
 - [request mapping](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/request_mapping.md)
 - [view resolver](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/view_resolver.md)
+- [Redirect 와 Forward 차이](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/redirect_forward.md)
 - [httpServletRequest](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/httpServletRequest.md)
 - [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/httpServletResponse.md)
 - [http request: query](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/http_request_query.md)
