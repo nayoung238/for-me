@@ -1,11 +1,19 @@
 # Spring MVC
 
+![png](/Server/_img/Spring_MVC/springmvc_architecture.png)
+
+> 출처: https://gmlwjd9405.github.io/2018/12/20/spring-mvc-framework.html
+
+<br>
+
 # DispatcherServlet
+
+![png](/Server/_img/Spring_MVC/springmvc_architecture_dispatcher_servlet.png)
 
 ![png](/Server/_img/Spring_MVC/DispatcherServlet_diagram.png)
 
 - HTTP request handlers/controllers 를 위한 central dispatcher
-- web request 를 처리하기 위해 등록된 handler 를 보
+- web request 를 처리하기 위해 등록된 handler 를 보냄
 - JavaBeans configuration mechanism 을 기반
 - ```@RequestMapping``` 은 HandlerMapping 에 해당되거나 Dispatcher 에 HandlerAdapter 가 있는 경우 처리됨
 <br>
@@ -86,6 +94,8 @@ protected void doService(HttpServletRequest request, HttpServletResponse respons
 
 ## HandlerMapping
 
+![png](/Server/_img/Spring_MVC/springmvc_architecture_handler_mapping.png)
+
 ```java
 package org.springframework.web.servlet;
 
@@ -128,4 +138,4 @@ public abstract class HttpServlet extends GenericServlet {
 - ```doPost()```: Servlet이 ```HTTP POST``` 요청을 지원하는 경우 ```doPost()```을 재구현
 <br>
 
-- FrameworkServlet의 ```service()```가 호출되면 HttpMethod에 따하 doMethod를 호출
+- FrameworkServlet의 ```service()```가 호출되면 HttpMethod에 따 doMethod를 호출
