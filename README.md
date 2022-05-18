@@ -115,6 +115,7 @@
 ## Pattern
 
 - [Singleton pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/singleton_pattern.md)
+- [MVC pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/spring_mvc.md)
 - [Template method pattern](https://velog.io/@evelyn82ny/template-method-pattern)
 - [Strategy pattern](https://velog.io/@evelyn82ny/strategy-pattern)
 - [Template callback pattern](https://velog.io/@evelyn82ny/template-callback-pattern)
