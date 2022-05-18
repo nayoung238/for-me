@@ -123,3 +123,11 @@
 - [Strategy pattern](https://velog.io/@evelyn82ny/strategy-pattern)
 - [Template callback pattern](https://velog.io/@evelyn82ny/template-callback-pattern)
 - [Proxy & Decorator pattern](https://velog.io/@evelyn82ny/proxy-pattern-decorator-pattern)
+
+<br>
+
+# Language
+
+## Java
+
+- [CallByValue](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/CallByValue.md)

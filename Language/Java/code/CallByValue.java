@@ -1,9 +1,7 @@
 public class CallByValue {
 
     public static void main(String[] args) throws Exception {
-        //checkPrimitiveType();
-        checkString();
-        //checkObjectChange();
+        // checkString();
     }
 
     private static void checkPrimitiveType() {
