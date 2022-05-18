@@ -1,4 +1,20 @@
-> https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/code/CallByValue.java
+> 실행코드: https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/code/CallByValue.java
+
+## Constant pool
+
+![png](/Language/_img/java_string_literal_vs_string_object.png)
+
+> 출처: https://madplay.github.io/post/java-string-literal-vs-string-object
+
+<br>
+
+- ```Constant pool```에 literal 상수 값을 저장한다.
+- String, 숫자 식별자 이름, Class 및 Method에 대한 참조 같은 값도 literal 상수이다.
+<br>
+
+- ```Constant pool```에 같은 값이 존재한다면 해당 값을 참조하도록 하고
+- 그렇지 않을 경우 ```Constant pool```에 새로운 값을 생성
+<br>
 
 ## Primitive type
 
@@ -23,7 +39,7 @@ private static void checkPrimitiveType() {
     System.out.println("c = " + System.identityHashCode(c)); // 1057941451
 }
 ```
-- b 가 a 와 같은 ```10```인 값을 참조하면 identityHashCode 값이 동일
+- b 가 a 와 같은 ```10```인 값을 참조하면 identityHashCode 값이 동일 -> 10이 literal 이기 때문
 - b가 ```11```인 값을 참조하면 identityHashCode 이 변경
 - b가 다시 a 와 같은 ```10```인 값을 참조하면 identityHashCode 값이 동일
 <br>
@@ -66,7 +82,7 @@ private static void checkObjectNew() {
 
 ## String
 
-Java에는 문자열을 **리터럴 생성** 또는 **new 연산자로 생성**하는 방식으로 나뉜다.
+Java에는 문자열을 **literal 생성** 또는 **new 연산자로 생성**하는 방식으로 나뉜다.
 
 ```java
 private static void checkString() {
@@ -84,18 +100,11 @@ private static void checkString() {
 }
 ```
 
-![png](/Language/_img/java_string_literal_vs_string_object.png)
+### 문자열 literal 생성 방식 -> a, b
 
-> 출처: https://madplay.github.io/post/java-string-literal-vs-string-object
-
-<br>
-
-### 문자열 리터럴 생성 방식 -> a, b
-
-- 리터럴를 이용하면 ```String Constant Pool```에 할당
+- literal 생성 방식은 ```Constant Pool```에 할당
 - ```Constant Pool```에 생성되면 같은 문자열일 경우 1개만 생성
 - 위 코드에서 a 와 b 는 "apple" 이라는 같은 값을 가지고 있으므로 ```Constant Pool```의 같은 곳을 참조
-
 
 ### new 연산자를 이용한 문자열 생성 방식 -> c
 
@@ -126,7 +135,7 @@ public final class String implements java.io.Serializable, Comparable<String>, C
 }
 ```
 
-같은 문자열 값을 리터럴 방식으로 생성하면 같은 참조를 하게 되는 이유는 ```intern()``` 때문이다.
+같은 문자열 값을 literal 방식으로 생성하면 같은 참조를 하게 되는 이유는 ```intern()``` 때문이다.
 
 - ```equal()``` 로 비교해 ```Constant pool```에 있는 값과 같다면 해당 String 을 return
-- 그렇지 않을 경우 ``Constant pool```에 String 객체 생성 후 해당 객체의 reference 를 return
+- 그렇지 않을 경우 ```Constant pool```에 String 객체 생성 후 해당 객체의 reference 를 return
