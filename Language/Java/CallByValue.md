@@ -86,6 +86,10 @@ private static void checkString() {
 
 ![png](/Language/_img/java_string_literal_vs_string_object.png)
 
+> 출처: https://madplay.github.io/post/java-string-literal-vs-string-object
+
+<br>
+
 ### 문자열 리터럴 생성 방식 -> a, b
 
 - 리터럴를 이용하면 ```String Constant Pool```에 할당
