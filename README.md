@@ -134,4 +134,5 @@
 
 - [Inheritance](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/Inheritance.md)
 - [Abstract class](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/AbstractClass.md)
+- [Data type](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/DataType.md)
 - [CallByValue](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/CallByValue.md)
