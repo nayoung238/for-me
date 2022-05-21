@@ -1,58 +1,116 @@
-## issue
+## OS가 뭔데?
 
-producer_consumers_buffer_size_one.c
+- 다양한 Applicattion의 실행을 위해 **컴퓨터를 실행**하고 **Hardware를 관리**하는 소프트웨어가 Operating system 
+- Computer Hardware를 Software로 abstract(추상화)하여 관리
+- ```CPU```를 ```Process```로 관리
+- ```RAM```을 ```Memeory management```로 관리
+- ```Disk```를 ```File System```으로 관리
 
-- Producer: buffer 사이즈가 1로 두고 데이터를 생산한다.
-- Consumer: 여러 소비자가 사이즈가 1인 buffer 에서 데이터를 얻는다.
+## Kernel
 
-```text
-nayoung@nayoungui-MacBookPro concurrency % ./pc 5 2
-PUT -> [0x16b01b000]: 0
-GET -> [0x16b0a7000]: 0
-PUT -> [0x16b01b000]: 1
-GET -> [0x16b133000]: 1
-PUT -> [0x16b01b000]: 2
-GET -> [0x16b133000]: 2
-^C
+- 기본적으로 메모리에 상주하는 Core가 되는 Software
+- Hardware를 Software적으로 Abstraction 하여 개발자가 programming 또는 HW에 쉽게 접근하도록 도와줌
 
-nayoung@nayoungui-MacBookPro concurrency % ./pc 5 2
-PUT -> [0x16bae3000]: 0
-GET -> [0x16bb6f000]: 0
-PUT -> [0x16bae3000]: 1
-GET -> [0x16bbfb000]: 1
-PUT -> [0x16bae3000]: 2
-GET -> [0x16bb6f000]: 2
-PUT -> [0x16bae3000]: 3
-GET -> [0x16bb6f000]: 3
-PUT -> [0x16bae3000]: 4
-GET -> [0x16bb6f000]: 4
-^C
+## Abstraction? Virtualization?
 
-nayoung@nayoungui-MacBookPro concurrency % ./pc 5 2
-PUT -> [0x16fa1f000]: 0
-GET -> [0x16faab000]: 0
-PUT -> [0x16fa1f000]: 1
-GET -> [0x16faab000]: 1
-PUT -> [0x16fa1f000]: 2
-GET -> [0x16faab000]: 2
-PUT -> [0x16fa1f000]: 3
-GET -> [0x16faab000]: 3
-PUT -> [0x16fa1f000]: 4
-GET -> [0x16faab000]: 4
-PUT -> [0x16fa1f000]: -1
-GET -> [0x16faab000]: -1
-PUT -> [0x16fa1f000]: -1
-GET -> [0x16fb37000]: -1
-```
-- 정상적으로 처리될 때도 있고 강제 종료 해야될 때도 생기는 문제가 발생 (해결 못함)
-- 문제가 되는 이유를 다음과 같이 생각해봄
-  - 2명의 소비자: tc1, tc2
-  - 2명의 소비자가 먼저 실행되었지만 자원이 없어 둘다 SLEEP 상태
-  - 생산자가 데이터를 1개 생산하고 tc1(소비자)를 꺠우고 생산자는 다시 SLEEP 상태
-  - tc1(소비자)가 데이터를 소비하고 tc2(소비자)를 깨우고 tc1(소비자)는 다시 SLEEP 상태
-  - tc2(소비자)는 소비할 데이터가 없어 다시 SLEEP 상태가됨
-  - 그럼 SLEEP 상태인 생산자를 깨워줄 소비자가 없음
-- 이런 원리로 생기는 문제라고 추측
-- one_producer_and_multi_consumer.c 도 버퍼 사이즈만 다르기 때문에 위와 같은 상황이 빌셍해 모두가 SLEEP 상태인 상황이 발생할 수 있지 않나라고 생각
-- 하지만 아무리 돌려도 모두가 SLEEP 상태인 상황이 발생하지 않음
-- 그래서 무엇이 문제인지 파악하지 못함
+- Computer Hardware(CPU, RAM, Disk)를 Software로 **abstract**하여 ```Process```, ```Memeory management``` 그리고 ```File System```으로 관리
+- ```CPU```와 ```RAM```에 Virtualization(가상화)를 적용해 사용자가 착각하도록 만듦 (1개가 여러개처럼 보이는 환상을 제공)
+- ```CPU```를 추상화한 ```Process```들은 아주 빠르게 번갈아가면서 실행하는데 이는 사용자가 CPU가 여러개가 동시에 처리한다는 착각을 하게 만듦
+- ```RAM```을 추상화한 ```Memeory management```에 대해 각각의 ```Process```가 자신만의 physical memory를 가지고 있다라는 환상을 제공
+
+## Persistence
+
+- ```Disk```는 데이터의 지속적이고 안전한 저장이 최우선이므로 가상화 개념을 도입하지 않음
+- 전원이 꺼지거나 시스템이 손상되어도 데이터는 유지되어야 함
+  - Hardware: 하드 드라이브, SSD(Solid-state Drive) 같은 IO 장치 필요
+  - Software: 파일 시스템은 사용자가 생성한 모든 파일을 안전하게 저장
+
+## Program? Process?
+
+- Disk에 존재하면 Program
+- Memory에 load 되었다면 Process
+
+## Virtualizing memory
+
+- ```CPU가 32비트다.``` == ```Register의 크기가 32비트이다.```
+- 이는 총 2^32개 즉, 4GB의 가상 주소 공간을 갖는다는 의미이다.
+- 현대 OS에선 2^48 까지 사용
+
+## 가상 메모리 vs 가상 메모리 주소 공간
+
+- 가상 메모리 = 실제 메모리 + Swap 영역
+  - Swap 영역은 Disk에 존재 (속도 느림을 해결하기 위해 Linked list로 구현)
+- 가상 메모리 주소 공간은 register 크기에 따라 Process가 주소를 처리할 수 있는 영역의 크기
+- 가상 메모리 주소 공간은 register 크기에 비례하며 2^(register 크기) 값의 가상 주소 공간을 갖게 됨
+<br>
+
+- Process 전체가 Swap 영역에 올라간 경우 -> 해당 프로그램이 실행될 수 없는 상태
+- Process 일부만 Swap 영역에 있는 경우 -> Memory에서 실행하기 위한 Page가 없을 경우 Swap 영역에서 찾는다.(page fault)
+
+## 메모리 영역
+
+- Code: 프로그램 실행 코드, 컴파일때 결정되고 중간에 코드를 바꿀 수 없게 READ-Only
+- Data: 전역변수, static 변수 같은 고정된 데이터가 할당되는 공간
+  - 전역변수, static 값을 참조한 코드는 컴파일 후 Data 영역의 주소 값을 가르키도록 변경
+  - 실행도중 전역변수의 값이 변경될 수 있기 때문에 Read-Write
+  - 초기화되지 않는 전역 변수는 BSS(Block Started by Symbol)에 할당
+- Stack: 함수내의 지역변수, 매개변수, 리턴값 등이 저장되고 함수가 종료되면 해당 데이터도 제거
+  -LIFO 방식을 따름
+  - Low address 방향으로 추가 할당(Heap 쪽으로)
+  - stack이 Heap 영역 침범시 Stack overflow
+- Heap: 런타임에 결정되는 영역으로 malloc(cpp), new 객체(java) 와 같이 동적할당으로 객체를 생성
+  - High address 방향으로 추가 할당 (stack 쪽으로)
+  - Heap이 Stack 영역 침범시 Heap overflow
+  - 포인터로 메모리 영역을 접근하기 때문에 다른 자료구조에 비해 데이터 읽고 쓰는게 느림
+<br>
+
+- Code와 Data 영역은 Compile 시 메모리 할당되어 크기가 고정
+- Heap과 Stack 영역은 Runtime 시 메모리가 할당되어 가변적
+<br>
+
+## PCB (Process Control Block)
+
+- 프로세스의 정보를 저장한 struct형 자료구조
+- 수행 중 Interrupt가 발생해도 프로그램 수행이 제대로 재개할 수 있도록 충분한 정보를 유지
+- PID, state, nice(우선순위), PC(Program counter), Memory pointer, HW Context data 등으로 구성
+- PC(program counter)는 프로세스 실행을 위한 다음 명령의 주소를 표시
+- nice(우선순위)와 PC(program counter)는 ```schedule()``` 에서 사용됨
+- Memory pointer는 메모리 영역에서 struct된 Memory(code, data, stack)을 가리키고 있음
+- HW context data는 현재 프로세스가 어디까지 진행했는지의 정보로 Context switching시 HW context data를 register에 올리고 내림
+
+## Context
+
+- HW(CPU) context: register 정보들
+- Memory context: Memory Pointer가 가리키는 Struct
+- System context: HW와 Memory 문맥을 제외한 모든 것
+
+## Context Switching
+
+- 어떤 프로세스가 수행 중 Interrupt가 발생했다면 Program counter와 Context data인 Register의 현재 값이 해당 프로세스의 PCB의 적절한 field에 저장 (Save the old context)
+- 저장 이후 프로세스의 상태를 Block 또는 Ready로 변경
+- OS는 다른 프로세스를 선택해 수행 상태로 변경하고 해당 프로세스의 PC, Context data를 처리기 Register에 적재하여 새로운 프로세스를 수행시킴 (Execution of the New Context)
+
+## Process state
+
+![png](/Operating_system/_img/process_state_comment.jpg)
+
+## Swap in? out?
+
+- Swapping: **Process 전체**를 주기억장치로부터 디스크로 옮기는 것
+- Swap out: 종료되지 않은 프로세스 전체를 Swap 영역으로 이동
+- Swap in: Disk에 있는 프로세스 전체를 Memory에 load
+
+## Page out
+
+- Page out: **Process의 일부**인 Page Frame의 내용을 Swap 영역으로 방출
+  - 해당 Page frame에 현재 필요로하는 프로그램에게 할당
+
+## Page fault
+
+- 프로그램에 접근하고자 하는 PageFrame이 메모리에 없는 경우 Swap 영역에서 찾음
+- free page(page frame)에 실행해야하는 부분을 올리며 PTE가 만들어진다.
+
+## Kernel mode vs User mode
+
+- Kernel mode: 프로세스가 수행되다가 Interrupt가 걸려 OS가 호출되어 수행되는 mode
+- User mode: 사용자 Application Program이 수행되는 mode
