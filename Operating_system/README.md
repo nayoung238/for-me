@@ -7,7 +7,7 @@
 - ```Disk```를 ```File System```으로 관리
 <br>
 
-# 메모리 영역
+## 메모리 영역
 
 ![png](/Operating_system/_img/memory_structure.png)
 
@@ -58,7 +58,7 @@
 - Next Fit: 현재 Pointer의 밑에 비어있는 곳부
 <br>
 
-# PCB (Process Control Block)
+## PCB (Process Control Block)
 
 - 프로세스의 정보를 저장한 struct형 자료구조
 - 수행 중 Interrupt가 발생해도 프로그램 수행이 제대로 재개할 수 있도록 충분한 정보를 유지
@@ -86,7 +86,7 @@
 - OS는 다른 프로세스를 선택해 수행 상태로 변경하고 해당 프로세스의 PC, Context data를 처리기 Register에 적재하여 새로운 프로세스를 수행시킴 (Execution of the New Context)
 <br>
 
-# Process state
+## Process state
 
 ![png](/Operating_system/_img/process_state_comment.jpg)
 
@@ -164,7 +164,7 @@
   - Hardware의 지원을 받지만 Polling에 비해 신속하게 대응
 <br>
   
-# Scheduling
+## Scheduling
 
 - 다음에 실행할 프로세스와 대기해야할 프로세스를 결정하며 이로인해 시스템의 전체 성능에 영향을 미침
 - 대기 중인 프로세스들에 대해 대기 시간을 줄이는 것이 목표
@@ -226,7 +226,7 @@
   - 너무 짧으면 Schduling하는 시간이 더 소요될 수 있음
 <br>
 
-# Abstraction & Virtualization
+## Abstraction & Virtualization
 
 - Computer Hardware(CPU, RAM, Disk)를 Software로 **abstract**하여 ```Process```, ```Memeory management``` 그리고 ```File System```으로 관리
 - ```CPU```와 ```RAM```에 Virtualization(가상화)를 적용해 사용자가 착각하도록 만듦 (1개가 여러개처럼 보이는 환상을 제공)
@@ -305,7 +305,7 @@
 - Memory에 load 되었다면 Process
 <br>
 
-# 메모리 관리
+## 메모리 관리
 
 - 여러 프로세스를 수용하기 위해 주기억장치를 동적 분할하는 메모리 관리 작업이 필요하며 Paging 과 Segmentation 기법 존재
 - 현재 Paging 과 Segmentation 기법을 합쳐서 사용
@@ -459,7 +459,7 @@
 - 찾는 과정에서 Use bit가 1이라면 0으로 바꿔주고 다음 frame으로 넘어감
 <br>
 
-# Thread
+## Program? Process? Thread?
 
 - Program: 어떤 작업을 위해 실행할 수 있는 파일
 - Process: Memory에서 실행되는 Program의 instance
