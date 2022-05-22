@@ -154,6 +154,16 @@
     - OS 기능에 대한 호출
 <br>
 
+## Polling & Interrupt
+
+- 컨트롤러가 입력을 받아들이는 방법에는 Polling 과 Interrupt 방식
+- Polling 방식: 사용자가 명령어를 사용해 지속적으로 변화를 알아내는 방식
+  - Polling 하는 시간에는 원래 하던 일을 수행하지 못한다는 단점
+  - 우선순위가 가장 높은 Interrupt 자원을 찾아 Interrupt Service routine을 수행
+- Interrupt 방식: MCU(Microcontroller Unit)가 Hardware의 변화를 체크하면서 변화 시에만 일정한 동작을 하는 방식
+  - Hardware의 지원을 받지만 Polling에 비해 신속하게 대응
+<br>
+  
 # Scheduling
 
 - 다음에 실행할 프로세스와 대기해야할 프로세스를 결정하며 이로인해 시스템의 전체 성능에 영향을 미침
@@ -447,3 +457,45 @@
 - 1개의 pointer가 첫 교체 후보를 가르킴
 - 한 페이지를 교체해야 할때 포인터가 가리키는 버퍼부터 시작해 Use bit 가 0인 frame을 찾음
 - 찾는 과정에서 Use bit가 1이라면 0으로 바꿔주고 다음 frame으로 넘어감
+<br>
+
+# Thread
+
+- Program: 어떤 작업을 위해 실행할 수 있는 파일
+- Process: Memory에서 실행되는 Program의 instance
+- Thread: Process 내에서 실행되는 여러 흐름의 단위
+<br>
+
+## Process
+
+- Memory에서 실행되는 Program의 instance
+- 운영체제로부터 시스템 자원을 할당받는 작업의 단위
+- Code, Data, Stack 그리고 Heap 구조인 메모리 영역을 독립적으로 할당받음
+- 자신만의 가상 주소 공간이 존재
+- 다른 프로세스의 변수나 자료구조에 접근할 수 없음
+  - 만약 다른 프로세스의 자원에 접근하려면 프로세스 간의 통신(IPC, Inter-Process communication)이 필요
+<br>
+
+## Thread
+
+- Process 내에서 실행되는 여러 흐름의 단위
+- 프로세스가 할당받은 자원을 이용하는 실행의 단위
+- 한 프로세스에 여러 Thread 존재가 가능
+- 한 프로세스 내의 여러 Thread는 해당 프로세스의 Code, Data 그리고 Heap 영역을 공유하고 Thread 마다 Stack을 할당
+- 한 프로세스 내의 실행 흐름이므로 여러 Thread는 자원을 공유하며 실행
+- 자원을 공유하기 때문에 특정 스레드로 인해 프로세스가 Block 될 가능성 있음
+<br>
+
+## Multi-Process vs Multi-Thread
+
+- 생성
+  - Process 생성 시 Code, Data, Stack 그리고 Heap 영역을 새로 할당
+  - Thread 생성 시 Stack 영역만 할당 -> Process 보다 간단
+- Context switching
+  - Process 는 CPU register 교체, RAM과 CPU 사이의 캐시 메모리에 대한 데이터 초기화 등 Overhead 가 큼
+  - Thread는 Stack 영역만 교체 
+  - 즉, 프로세스 간의 전환 속도보다 스레드 간의 전환 속도가 훨씬 빠름
+- 공유
+  - 프로세스는 자신만의 메모리 영역이 있고 프로세스간의 접근이 불가능
+  - 스레드는 Stack을 제외한 모든 영역을 공유
+  - 하지만 스레드의 경우 Stack을 제외한 모든 영역을 공유하기 떄문에 동기화 문제를 처리해야하며, 특정 스레드로 인해 프로세스 전체가 Block 될 수 있음
