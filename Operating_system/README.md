@@ -299,14 +299,19 @@
 
 - 여러 프로세스를 수용하기 위해 주기억장치를 동적 분할하는 메모리 관리 작업이 필요하며 Paging 과 Segmentation 기법 존재
 - 현재 Paging 과 Segmentation 기법을 합쳐서 사용
+- External fragmentation: 프로세스의 크기와 고정된 사이즈 차이에서 생기는 낭비
+- Internal fragmentation: 프로세스가 끝나고 생긴 빈 공간과 새로 들어갈 프로세스 사이즈 차이에서 생기는 낭비
+<br>
 
 ## Paging
 
-- External fragmentation: 프로세스의 크기와 고정된 사이즈 차이에서 생기는 낭비 
-- Internal fragmentation: 프로세스가 끝나고 생긴 빈 공간과 새로 들어갈 프로세스 사이즈 차이에서 생기는 낭비
 - Page(가상 주소 공간을 일정한 크기로 자른 단위)를 Page Frame(메모리를 일정한 크기로 자른 단위)에 올림
 - Page와 Page frame의 크기는 4KB로 같아 External fragmentation 발생하지 않음
 - 프로세스를 Page 단위로 분할해도 마지막 Page는 4KB를 채우지 못할 수 있으며 이때 4KB 미만의 Internal fragmentation 발생
+<br>
+
+- 프로세스 전체를 메모리에 올리지 않고 필요한 부분만 Page Frame에 올리므로 여러 프로세스를 적재할 수 있음
+- 즉, 임의의 시점에 준비 상태인 프로세스가 많을 가능성이 높아져 CPU utilization 높아
 <br>
 
 ## iOS와 Android 차이
@@ -338,6 +343,7 @@
 ![png](/Operating_system/_img/address_translation.png)
 
 - Logical address(논리 주소): 프로그램의 시작위치로부터 상대적인 값으로 MMU가 논리주소를 물리주소로 변환함 
+  - MMU의 도움을 받아 주소를 변경하는 것을 Dynamic relocation 이라고 함
 - 프로그램 안에서 각 논리주소는 Page 번호와 offset으로 구성
 - Page 번호로 Page table의 해당 PTE 를 찾고
 - PTE의 Page frame 번호와 offset으로 Main memory에 접근
@@ -351,3 +357,40 @@
 - Page와 Page frame의 크기 offset에 비례
   - offset 12bit -> Page 크기 2^12 = 4096 = 4KB
   - 즉, Page 크기가 4KB이면 Offset은 12bit
+<br>
+
+## Dynamic relocation
+
+- Base, Limit register 를 사용해 가상 주소를 물리 주소로 변환
+- 물리 주소 = 가상 주소 + base 
+- 이 방식은 메모리 중간에 빈공간이 생김 -> Segmentation 기법이 해결
+<br>
+
+## Segmentation
+
+- 프로세스는 여러 Segment로 나뉨
+- Segment는 연관된 기능을 수행하는 하나의 모듈 프로그램을 다루며 Code, Data, Stack 그리고 Heap 을 Segment라고 함
+  - 정적 세그먼트: Code, Data(+BSS)는 컴파일 시 사이즈가 정해지며 변경이 불가능
+  - 동적 세그먼트: Stack, Heap은 Runtime 과정에서 메모리 할당이 이루어짐
+- 현재 사용하는 방식이 Paged Segmentation으로 먼저 Segmentation을 수행하고 각 Segment별로 Paging 수행
+- 즉, Code, Data, Stack 그리고 Heap을 나누는 방식이 Segmentation 이므로 모두 크기가 다르고 모든 Segment가 메모리 내에서 Paging 방식으로 처리
+<br>
+
+- Segment는 의미 단위로 나눠지기 때문에 공유와 보안에 있어서 Paging 기법보다 훨씬 효과적
+  - Protection: 각 Segment 별로 Protection bit가 존재해 의미 단위별로 Read/Write 권한 부여
+  - Sharing: 의미 단위로 공유하는 것이 훨씬 효과적
+- 가변 분할이므로 Internal fragmentation 발생하지 않음
+- 가변 분할이므로 Swapping이 힘듦
+- 프로세스마다 크기가 다르므로 Segment 크기도 달라 External fragmentation 발
+- 평균 Segmentation 크기가 작을수록 External fragmentation 적음
+<br>
+
+## Address translation
+
+- 왼쪽 n비트를 세그먼트 번호로, 나머지 오른쪽 비트를 Offset 으로 사용
+- 왼쪽 비트로 세그먼트 번호를 추출해 Segment table에서 Segment의 물리 주소를 찾음
+  - 세그먼트 번호로 Code, Data, Stack 그리고 Heap 을 구분
+- 나머지 오른쪽 비트인 Offset으로 세그먼트의 길이와 비교
+  - 만약 offset이 세그먼트의 길이보다 크거나 같다면 해당 주소는 유효하지 않음 -> Trap (addressing error, Segmentation fault)
+- 접근하고자 하는 물리주소는 세그먼트의 시작물리주소와 offset의 합
+- STBR(Segment Table Base Register) 와 STLR(Segment Table Length Register) 2개의 Register 사용
