@@ -7,90 +7,7 @@
 - ```Disk```를 ```File System```으로 관리
 <br>
 
-## Kernel
-
-- 기본적으로 메모리에 상주하는 Core가 되는 Software
-- Hardware를 Software적으로 Abstraction 하여 개발자가 programming 또는 HW에 쉽게 접근하도록 도와줌
-<br>
-
-## Abstraction? Virtualization?
-
-- Computer Hardware(CPU, RAM, Disk)를 Software로 **abstract**하여 ```Process```, ```Memeory management``` 그리고 ```File System```으로 관리
-- ```CPU```와 ```RAM```에 Virtualization(가상화)를 적용해 사용자가 착각하도록 만듦 (1개가 여러개처럼 보이는 환상을 제공)
-- ```CPU```를 추상화한 ```Process```들은 아주 빠르게 번갈아가면서 실행하는데 이는 사용자가 CPU가 여러개가 동시에 처리한다는 착각을 하게 만듦
-- ```RAM```을 추상화한 ```Memeory management```에 대해 각각의 ```Process```가 자신만의 physical memory를 가지고 있다라는 환상을 제공
-<br>
-
-## Persistence
-
-- ```Disk```는 데이터의 지속적이고 안전한 저장이 최우선이므로 가상화 개념을 도입하지 않음
-- 전원이 꺼지거나 시스템이 손상되어도 데이터는 유지되어야 함
-  - Hardware: 하드 드라이브, SSD(Solid-state Drive) 같은 IO 장치 필요
-  - Software: 파일 시스템은 사용자가 생성한 모든 파일을 안전하게 저장
-<br>
-
-## Program? Process?
-
-- Disk에 존재하면 Program
-- Memory에 load 되었다면 Process
-<br>
-
-## CPU virtualization
-
-- 여러 프로세스가 번갈아가며 CPU를 차지 (Interleaved execution)
-- OS가 시스템에 대한 제어를 유지하면서 효율적인 방식으로 CPU를 가상화하는 것이 목표 -> HW와 OS의 지원이 필요
-<br>
-
-## Memory virtualization
-
-- ```CPU가 32비트``` == ```Register의 크기가 32비트```
-- 이는 총 2^32개 즉, 4GB의 가상 주소 공간을 갖는다는 의미이다.
-- 현대 OS에선 2^48 까지 사용
-<br>
-
-## 주소 공간
-
-- 가상 주소 공간: Register 크기에 비례
-- 실제 주소 공간(물리적): Memory에서 줄 수 있는 모든 주소 공간으로 Page frame 개수
-- 주소 공간은 실행 프로그램의 모든 메모리 상태를 포함
-
-## 가상 메모리 vs 가상 메모리 주소 공간
-
-- 가상 메모리 = 실제 메모리 + Swap 영역
-  - Swap 영역은 Disk에 존재 (속도 느림을 해결하기 위해 Linked list로 구현)
-- 가상 메모리 주소 공간은 register 크기에 따라 Process가 주소를 처리할 수 있는 영역의 크기
-- 가상 메모리 주소 공간은 register 크기에 비례하며 2^(register 크기) 값의 가상 주소 공간을 갖게 됨
-<br>
-
-- Process 전체가 Swap 영역에 올라간 경우 -> 해당 프로그램이 실행될 수 없는 상태
-- Process 일부만 Swap 영역에 있는 경우 -> Memory에서 실행하기 위한 Page가 없을 경우 Swap 영역에서 찾는다.(page fault)
-- P(present bit): 0(swap 영역에 존재) /  1(memory에 존재)
-<br>
-
-## 가상 주소 공간 왜쓰는데?
-
-- 자원 낭비 최소화: 프로세스 전체를 올리지 않고 필요한 부분만 올렸다 내렸다하며 자원 낭비를 최소화
-- 프로세스 보호: 가상 주소 공간을 통해 Physical memory로 mapping 되는데 프로세스 간의 침범 방지
-  - 만약 가상 주소 공간을 사용하지 않고 바로 Physical memory로 프로세스를 올리면 프로세스간의 경계 지점을 계속 확인해야 함
-
-## Page? Page Frame?
-
-- Page: Virtual address space를 일정한 크기(4KB)로 분할한 단위
-- Page Frame: Main memory를 일정한 크기(4KB)로 분할한 단위
-- Page와 Page Frame의 크기가 4KB로 같음 -> 서로 matching 해야하기 때문
-<br>
-
-## Page -> Page Frame
-
-- 가상 주소 공간에 있는 특정 Page를 실행하고 싶다면 해당 Page에 있는 내용을 Main memory의 비어있는 Page frame에 올리면 됨
-- Main memory에 존재하는 Page table에서 해당 Page가 어디있는지 파악
-  - P(present bit) 가 1이면 해당 Page가 Memory에 있고
-  - P(present bit) 가 0이면 Swap 영역에 존재있으니 Swap 영역에서 가져옴 (page fault)
-- Page table에서 해당 Page의 가상주소를 찾고 MMU(memory management unit)의 도움을 받아 가상주소를 물리주소로 변경
-- 물리주소로 Main memory에서 해당 Page의 내용이 있는 Page frame을 찾아 실행
-<br>
-
-## 메모리 영역
+# 메모리 영역
 
 ![png](/Operating_system/_img/memory_structure.png)
 
@@ -113,7 +30,7 @@
 - Heap과 Stack 영역은 Runtime 시 메모리가 할당되어 가변적
 <br>
 
-## 메모리 관리: 고정 분할
+## 메모리 고정 분할
 
 - Internal fragmentation 발생
 - 절대 번역: 고정된 크기에 따른 여러 큐 존재 
@@ -123,7 +40,7 @@
   - 절대 번역의 문제를 해결할 수 있지만 여전히 Internal fragmentation 발생
 <br>
 
-## 메모리 관리: 가변 분할
+## 메모리 가변 분할
 
 - External fragmentation 발생
 - 특정 프로세스가 끝나면 그만큼의 공간이 생김
@@ -141,7 +58,7 @@
 - Next Fit: 현재 Pointer의 밑에 비어있는 곳부
 <br>
 
-## PCB (Process Control Block)
+# PCB (Process Control Block)
 
 - 프로세스의 정보를 저장한 struct형 자료구조
 - 수행 중 Interrupt가 발생해도 프로그램 수행이 제대로 재개할 수 있도록 충분한 정보를 유지
@@ -169,7 +86,7 @@
 - OS는 다른 프로세스를 선택해 수행 상태로 변경하고 해당 프로세스의 PC, Context data를 처리기 Register에 적재하여 새로운 프로세스를 수행시킴 (Execution of the New Context)
 <br>
 
-## Process state
+# Process state
 
 ![png](/Operating_system/_img/process_state_comment.jpg)
 
@@ -190,6 +107,12 @@
 
 - 프로그램에 접근하고자 하는 PageFrame이 메모리에 없는 경우 Swap 영역에서 찾음
 - free page(page frame)에 실행해야하는 부분을 올리며 PTE(Page table entry)가 만들어진다.
+<br>
+
+## Kernel
+
+- 기본적으로 메모리에 상주하는 Core가 되는 Software
+- Hardware를 Software적으로 Abstraction 하여 개발자가 programming 또는 HW에 쉽게 접근하도록 도와줌
 <br>
 
 ## Kernel mode vs User mode
@@ -231,7 +154,7 @@
     - OS 기능에 대한 호출
 <br>
 
-## Scheduling
+# Scheduling
 
 - 다음에 실행할 프로세스와 대기해야할 프로세스를 결정하며 이로인해 시스템의 전체 성능에 영향을 미침
 - 대기 중인 프로세스들에 대해 대기 시간을 줄이는 것이 목표
@@ -291,4 +214,140 @@
 - Time Slicing의 길이 중요
   - 너무 길면 Non-preemption
   - 너무 짧으면 Schduling하는 시간이 더 소요될 수 있음
+<br>
 
+# Abstraction & Virtualization
+
+- Computer Hardware(CPU, RAM, Disk)를 Software로 **abstract**하여 ```Process```, ```Memeory management``` 그리고 ```File System```으로 관리
+- ```CPU```와 ```RAM```에 Virtualization(가상화)를 적용해 사용자가 착각하도록 만듦 (1개가 여러개처럼 보이는 환상을 제공)
+- ```CPU```를 추상화한 ```Process```들은 아주 빠르게 번갈아가면서 실행하는데 이는 사용자가 CPU가 여러개가 동시에 처리한다는 착각을 하게 만듦
+- ```RAM```을 추상화한 ```Memeory management```에 대해 각각의 ```Process```가 자신만의 physical memory를 가지고 있다라는 환상을 제공
+<br>
+
+## Persistence
+
+- ```Disk```는 데이터의 지속적이고 안전한 저장이 최우선이므로 가상화 개념을 도입하지 않음
+- 전원이 꺼지거나 시스템이 손상되어도 데이터는 유지되어야 함
+  - Hardware: 하드 드라이브, SSD(Solid-state Drive) 같은 IO 장치 필요
+  - Software: 파일 시스템은 사용자가 생성한 모든 파일을 안전하게 저장
+<br>
+
+## CPU virtualization
+
+- 여러 프로세스가 번갈아가며 CPU를 차지 (Interleaved execution)
+- OS가 시스템에 대한 제어를 유지하면서 효율적인 방식으로 CPU를 가상화하는 것이 목표 -> HW와 OS의 지원이 필요
+<br>
+
+## Memory virtualization
+
+- ```CPU가 32비트``` == ```Register의 크기가 32비트```
+- 이는 총 2^32개 즉, 4GB의 가상 주소 공간을 갖는다는 의미이다.
+- 현대 OS에선 2^48 까지 사용
+<br>
+
+## 주소 공간
+
+- 가상 주소 공간: Register 크기에 비례
+- 실제 주소 공간(물리적): Memory에서 줄 수 있는 모든 주소 공간으로 Page frame 개수
+- 주소 공간은 실행 프로그램의 모든 메모리 상태를 포함
+<br>
+
+## 가상 메모리 vs 가상 메모리 주소 공간
+
+- 가상 메모리 = 실제 메모리 + Swap 영역
+  - Swap 영역은 Disk에 존재 (속도 느림을 해결하기 위해 Linked list로 구현)
+- 가상 메모리 주소 공간은 register 크기에 따라 Process가 주소를 처리할 수 있는 영역의 크기
+- 가상 메모리 주소 공간은 register 크기에 비례하며 2^(register 크기) 값의 가상 주소 공간을 갖게 됨
+<br>
+
+- Process 전체가 Swap 영역에 올라간 경우 -> 해당 프로그램이 실행될 수 없는 상태
+- Process 일부만 Swap 영역에 있는 경우 -> Memory에서 실행하기 위한 Page가 없을 경우 Swap 영역에서 찾는다.(page fault)
+- P(present bit): 0(swap 영역에 존재) /  1(memory에 존재)
+<br>
+
+## 가상 주소 공간 왜쓰는데?
+
+- 자원 낭비 최소화: 프로세스 전체를 올리지 않고 필요한 부분만 올렸다 내렸다하며 자원 낭비를 최소화
+- 프로세스 보호: 가상 주소 공간을 통해 Physical memory로 mapping 되는데 프로세스 간의 침범 방지
+  - 만약 가상 주소 공간을 사용하지 않고 바로 Physical memory로 프로세스를 올리면 프로세스간의 경계 지점을 계속 확인해야 함
+<br>
+
+## Page? Page Frame?
+
+- Page: Virtual address space를 일정한 크기(4KB)로 분할한 단위
+- Page Frame: Main memory를 일정한 크기(4KB)로 분할한 단위
+- Page와 Page Frame의 크기가 4KB로 같음 -> 서로 matching 해야하기 때문
+<br>
+
+## Page -> Page Frame
+
+- 가상 주소 공간에 있는 특정 Page를 실행하고 싶다면 해당 Page에 있는 내용을 Main memory의 비어있는 Page frame에 올리며 이 방식을 Paging 기법이라 함
+- Main memory에 존재하는 Page table에서 해당 Page가 어디있는지 파악
+  - P(present bit) 가 1이면 해당 Page가 Memory에 있고
+  - P(present bit) 가 0이면 Swap 영역에 존재있으니 Swap 영역에서 가져옴 (page fault)
+- Page table에서 해당 Page의 가상주소를 찾고 MMU(memory management unit)의 도움을 받아 가상주소를 물리주소로 변경
+- 물리주소로 Main memory에서 해당 Page의 내용이 있는 Page frame을 찾아 실행
+<br>
+
+## Program? Process?
+
+- Disk에 존재하면 Program
+- Memory에 load 되었다면 Process
+<br>
+
+# 메모리 관리
+
+- 여러 프로세스를 수용하기 위해 주기억장치를 동적 분할하는 메모리 관리 작업이 필요하며 Paging 과 Segmentation 기법 존재
+- 현재 Paging 과 Segmentation 기법을 합쳐서 사용
+
+## Paging
+
+- External fragmentation: 프로세스의 크기와 고정된 사이즈 차이에서 생기는 낭비 
+- Internal fragmentation: 프로세스가 끝나고 생긴 빈 공간과 새로 들어갈 프로세스 사이즈 차이에서 생기는 낭비
+- Page(가상 주소 공간을 일정한 크기로 자른 단위)를 Page Frame(메모리를 일정한 크기로 자른 단위)에 올림
+- Page와 Page frame의 크기는 4KB로 같아 External fragmentation 발생하지 않음
+- 프로세스를 Page 단위로 분할해도 마지막 Page는 4KB를 채우지 못할 수 있으며 이때 4KB 미만의 Internal fragmentation 발생
+<br>
+
+## iOS와 Android 차이
+
+- OS
+  - iOS: BSD
+  - Android: Linux
+- Block의 default size
+  - iOS: 16KB
+  - Android: 4KB
+<br>
+
+- iOS는 block의 default size가 16KB
+- 즉, Android 보다 더 많은 양을 읽어올 수 있어 사용자는 상대적으로 속도가 빠르다고 느낄 수 있음
+- 하지만 Internal fragmentation 으로 Memory 낭비가 심함
+<br>
+
+## Page table
+
+- 프로세스마다 Page table을 가지고 있음
+- Page table은 메모리에 존재하며 Page table로 Page frame에 할당
+- Page table로 각 Page가 어느 Page frame에 할당되었는지 체크 (Frame 번호를 가지고 있음)
+- 그렇기 떄문에 한 프로세스의 여러 Page는 연속적인 Page frame에 할당될 필요 없음
+- 하지만 한 프로세스의 Page table의 크기가 커서 여러 Page frame이 필요하다면 이는 연속적으로 할당됨
+<br>
+
+## Address translation
+
+![png](/Operating_system/_img/address_translation.png)
+
+- Logical address(논리 주소): 프로그램의 시작위치로부터 상대적인 값으로 MMU가 논리주소를 물리주소로 변환함 
+- 프로그램 안에서 각 논리주소는 Page 번호와 offset으로 구성
+- Page 번호로 Page table의 해당 PTE 를 찾고
+- PTE의 Page frame 번호와 offset으로 Main memory에 접근
+- 가상주소를 물리주소로 바꿀때마다 위 과정이 일어나는데 OS가 처리하면 느리므로 MMU가 처리
+<br>
+
+## Offset
+
+![png](/Operating_system/_img/offset.png)
+
+- Page와 Page frame의 크기 offset에 비례
+  - offset 12bit -> Page 크기 2^12 = 4096 = 4KB
+  - 즉, Page 크기가 4KB이면 Offset은 12bit
