@@ -1,19 +1,20 @@
 # Computer science
 
-- [Operating system](#operating-system)
-- [Network](#network)
-  - [Socket](#socket-programming)
-- [Server](#server)
-  - [Web](#web)
-  - [SQL](#spring-sql)
-  - [Proxy](#spring-proxy)
-  - [Pattern](#pattern)
-- [Language](#language)
-  - [Java](#java)
+1. [Operating system](#operating-system)
+2. [Network](#network)
+   1. [Socket](#socket-programming)
+3. [Server](#server)
+   1. [Web](#web)
+   2. [SQL](#spring-sql)
+   3. [Proxy](#spring-proxy)
+   4. [Pattern](#pattern)
+4. [Language](#language)
+   1. [Java](#java)
 <br>
 
 # Operating system
 
+- [For interview](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/README.md)
 - [Operating system](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/introduction_to_os.md)
 - [process status](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process_state.md)
 - [virtual address space](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/virtual_address_space.md)
