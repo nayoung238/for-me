@@ -43,10 +43,16 @@
 
 ## Memory virtualization
 
-- ```CPU가 32비트다.``` == ```Register의 크기가 32비트이다.```
+- ```CPU가 32비트``` == ```Register의 크기가 32비트```
 - 이는 총 2^32개 즉, 4GB의 가상 주소 공간을 갖는다는 의미이다.
 - 현대 OS에선 2^48 까지 사용
 <br>
+
+## 주소 공간
+
+- 가상 주소 공간: Register 크기에 비례
+- 실제 주소 공간(물리적): Memory에서 줄 수 있는 모든 주소 공간으로 Page frame 개수
+- 주소 공간은 실행 프로그램의 모든 메모리 상태를 포함
 
 ## 가상 메모리 vs 가상 메모리 주소 공간
 
@@ -58,27 +64,81 @@
 
 - Process 전체가 Swap 영역에 올라간 경우 -> 해당 프로그램이 실행될 수 없는 상태
 - Process 일부만 Swap 영역에 있는 경우 -> Memory에서 실행하기 위한 Page가 없을 경우 Swap 영역에서 찾는다.(page fault)
+- P(present bit): 0(swap 영역에 존재) /  1(memory에 존재)
+<br>
+
+## 가상 주소 공간 왜쓰는데?
+
+- 자원 낭비 최소화: 프로세스 전체를 올리지 않고 필요한 부분만 올렸다 내렸다하며 자원 낭비를 최소화
+- 프로세스 보호: 가상 주소 공간을 통해 Physical memory로 mapping 되는데 프로세스 간의 침범 방지
+  - 만약 가상 주소 공간을 사용하지 않고 바로 Physical memory로 프로세스를 올리면 프로세스간의 경계 지점을 계속 확인해야 함
+
+## Page? Page Frame?
+
+- Page: Virtual address space를 일정한 크기(4KB)로 분할한 단위
+- Page Frame: Main memory를 일정한 크기(4KB)로 분할한 단위
+- Page와 Page Frame의 크기가 4KB로 같음 -> 서로 matching 해야하기 때문
+<br>
+
+## Page -> Page Frame
+
+- 가상 주소 공간에 있는 특정 Page를 실행하고 싶다면 해당 Page에 있는 내용을 Main memory의 비어있는 Page frame에 올리면 됨
+- Main memory에 존재하는 Page table에서 해당 Page가 어디있는지 파악
+  - P(present bit) 가 1이면 해당 Page가 Memory에 있고
+  - P(present bit) 가 0이면 Swap 영역에 존재있으니 Swap 영역에서 가져옴 (page fault)
+- Page table에서 해당 Page의 가상주소를 찾고 MMU(memory management unit)의 도움을 받아 가상주소를 물리주소로 변경
+- 물리주소로 Main memory에서 해당 Page의 내용이 있는 Page frame을 찾아 실행
 <br>
 
 ## 메모리 영역
 
-- Code: 프로그램 실행 코드, 컴파일때 결정되고 중간에 코드를 바꿀 수 없게 READ-Only
+![png](/Operating_system/_img/memory_structure.png)
+
+- Code: 프로그램 실행 코드로 메모리에 반드시 존재, 컴파일 시 크기가 결정되고 중간에 코드를 바꿀 수 없게 READ-Only
 - Data: 전역변수, static 변수 같은 고정된 데이터가 할당되는 공간
   - 전역변수, static 값을 참조한 코드는 컴파일 후 Data 영역의 주소 값을 가르키도록 변경
   - 실행도중 전역변수의 값이 변경될 수 있기 때문에 Read-Write
   - 초기화되지 않는 전역 변수는 BSS(Block Started by Symbol)에 할당
 - Stack: 함수내의 지역변수, 매개변수, 리턴값 등이 저장되고 함수가 종료되면 해당 데이터도 제거
   -LIFO 방식을 따름
-  - Low address 방향으로 추가 할당(Heap 쪽으로)
+  - Heap 영역이 있는 방향으로 추가 할당
   - stack이 Heap 영역 침범시 Stack overflow
 - Heap: 런타임에 결정되는 영역으로 malloc(cpp), new 객체(java) 와 같이 동적할당으로 객체를 생성
-  - High address 방향으로 추가 할당 (stack 쪽으로)
+  - Stack 영역이 있는 방향으로 추가 할당
   - Heap이 Stack 영역 침범시 Heap overflow
   - 포인터로 메모리 영역을 접근하기 때문에 다른 자료구조에 비해 데이터 읽고 쓰는게 느림
 <br>
 
 - Code와 Data 영역은 Compile 시 메모리 할당되어 크기가 고정
 - Heap과 Stack 영역은 Runtime 시 메모리가 할당되어 가변적
+<br>
+
+## 메모리 관리: 고정 분할
+
+- Internal fragmentation 발생
+- 절대 번역: 고정된 크기에 따른 여러 큐 존재 
+  - 특정 큐에는 계속 프로세스가 들어와 대기하고, 다른 큐에는 들어오지 않는 경우 효율성 떨어짐
+- 재배치: 큐 1개 존재
+  - 비어있는 메모리를 계속 체크하며 대기 중인 프로세스 중 1개를 선택
+  - 절대 번역의 문제를 해결할 수 있지만 여전히 Internal fragmentation 발생
+<br>
+
+## 메모리 관리: 가변 분할
+
+- External fragmentation 발생
+- 특정 프로세스가 끝나면 그만큼의 공간이 생김
+- 생긴 공간보다 작거나 같은 크기를 가진 프로세스가 들어가면 됨
+- 생긴 공간보다 작은 크기의 프로세스가 들어갈 경우 공간이 남는 External fragmentation 발생
+- 이를 Compaction(메모리를 쭉 올림) 또는 Coalescing(생긴 공간의 인접한 것만 붙임) 으로 해결
+<br>
+
+## 재배치
+
+- 비어있는 공간 중 어디로 들어갈 것인가?
+- First Fit: 비어있는 위쪽부터
+- Best Fit: Size가 가장 잘 맞는 곳부터
+- Worst Fit: 비어있는 공간이 가장 큰 곳부터
+- Next Fit: 현재 Pointer의 밑에 비어있는 곳부
 <br>
 
 ## PCB (Process Control Block)
@@ -129,7 +189,7 @@
 ## Page fault
 
 - 프로그램에 접근하고자 하는 PageFrame이 메모리에 없는 경우 Swap 영역에서 찾음
-- free page(page frame)에 실행해야하는 부분을 올리며 PTE가 만들어진다.
+- free page(page frame)에 실행해야하는 부분을 올리며 PTE(Page table entry)가 만들어진다.
 <br>
 
 ## Kernel mode vs User mode
