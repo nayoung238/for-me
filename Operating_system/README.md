@@ -180,6 +180,14 @@
   - FIFO, SJF, RR, HRRN, MLFQ 의 scheduling이 단기 스케줄링
 <br>
 
+## Dispatcher
+
+- schedular는 다음으로 CPU 제어권을 갖게할 프로세스를 선택
+- Dispatcher는 선택된 프로세스에게 CPU 제어권을 넘김
+- 프로세스의 Register를 적재(Context switching)
+- Scheduling의 넓은 의미에 Schedular와 Dispatcher 이 포함
+<br>
+
 ## FIFO 
 
 - First In First Out으로 FCFS(First Come First Service)라고도 함
@@ -482,11 +490,20 @@
 - 프로세스가 할당받은 자원을 이용하는 실행의 단위
 - 한 프로세스에 여러 Thread 존재가 가능
 - 한 프로세스 내의 여러 Thread는 해당 프로세스의 Code, Data 그리고 Heap 영역을 공유하고 Thread 마다 Stack을 할당
+- 자신만의 TCB(Thread Control Block)를 가지고 있고 각 Thread의 실행 상태를 저장 (Process의 PCB와 비슷)
 - 한 프로세스 내의 실행 흐름이므로 여러 Thread는 자원을 공유하며 실행
-- 자원을 공유하기 때문에 특정 스레드로 인해 프로세스가 Block 될 가능성 있음
 <br>
 
-## Multi-Process vs Multi-Thread
+- 자원을 공유하기 때문에 특정 스레드의 장애로 인해 프로세스가 Block 될 가능성 있음
+- 특정 스레드가 Block 되어도 같은 프로세스내의 다른 스레드가 Block 되지 않음
+- 스레드에 suspend 상태를 적용하지 않음
+  - 프로세스가 suspend 상태가 되었다는 것은 프로세스 전체가 Swap out 된 상태
+  - 해당 프로세스 내의 모든 스레드가 실행될 수 없음
+  - 프로세스 내의 특정 스레드에만 suspend 상태가 되는 것은 아무런 의미가 없음
+  - 즉, suspend 상태는 프로세스에만 적용
+<br>
+
+## Process vs Thread
 
 - 생성
   - Process 생성 시 Code, Data, Stack 그리고 Heap 영역을 새로 할당
@@ -497,5 +514,20 @@
   - 즉, 프로세스 간의 전환 속도보다 스레드 간의 전환 속도가 훨씬 빠름
 - 공유
   - 프로세스는 자신만의 메모리 영역이 있고 프로세스간의 접근이 불가능
-  - 스레드는 Stack을 제외한 모든 영역을 공유
-  - 하지만 스레드의 경우 Stack을 제외한 모든 영역을 공유하기 떄문에 동기화 문제를 처리해야하며, 특정 스레드로 인해 프로세스 전체가 Block 될 수 있음
+    - 프로세스 간의 통신을 하기 위해서 Kernel 개입 
+    - 특정 프로세스의 장애가 다른 프로세스에게 영향을 미치지 않음
+  - 스레드는 Stack을 제외한 모든 영역을 공유하므로 Kernel이 개입하지 않음
+    - Stack을 제외한 모든 영역을 공유하기 떄문에 동기화 문제를 처리
+    - 특정 스레드로 인해 프로세스 전체가 Block 될 수 있음
+<br>
+
+## Multi Thread
+
+- 하나의 프로세스 내에서 수행되는 여러 개의 스레드를 지원
+- Multi-thread 환경에서 Process는 자원을 할당하고 보호하는 단위
+- Multi-thread 환경에서 Context switching 단위는 Thread
+<br>
+
+## ULT vs KLT
+
+- https://velog.io/@evelyn82ny/concurrency-thread#ult-vs-klt
