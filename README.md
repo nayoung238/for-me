@@ -41,9 +41,9 @@
 # Network
 
 - [OSI 7계층](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/OSI-7-layer.md)
-- review [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/unicast_BUM_traffic.md)
-- review [MAC address](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/MAC-address.md)
-- review [IP address](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/IP-address.md)
+- [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/unicast_BUM_traffic.md)
+- [MAC address](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/MAC-address.md)
+- [IP address](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/IP-address.md)
 <br>
 
 - [4-way handshake & half close](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/4-way-handshake.md)
