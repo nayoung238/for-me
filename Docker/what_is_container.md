@@ -59,9 +59,7 @@ Redis server를 실행하고 redis-cli에서 명령어를 실행해본다.<br>
 
 <br>
 
-```command not found: redis-cli``` 오류가 뜬 이유는 Redis-cli가 Redis-server가 있는 Container 밖에서 실행하기 때문에 Server에 접근할 수 없어 에러가 난다.
-<br>
-
+```command not found: redis-cli``` 오류가 뜬 이유는 Redis-cli가 Redis-server가 있는 Container 밖에서 실행하기 때문에 Server에 접근할 수 없어 에러가 난다. 
 이를 해결하기 위해선 Redis-cli 를 Redis-server가 있는 Container 안에서 실행시켜야 한다.
 
 ![png](/Docker/_img/container(2).png)

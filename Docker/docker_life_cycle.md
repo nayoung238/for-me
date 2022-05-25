@@ -15,11 +15,17 @@
 
 ![png](/Docker/_img/docker_start.png)
 
+> 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
+
 <br>
 
 ## Stopped
 
 ![png](/Docker/_img/docker_stop_and_kill.png)
+
+> 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
+
+<br>
 
 실행중인 Container를 중지하는 방법엔 ```stop``` 과 ```kill``` 2가지가 있다.
 둘다 Container를 중지시키지만 차이가 있다.

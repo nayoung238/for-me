@@ -8,6 +8,10 @@
 
 ![png](/Docker/_img/create_container.png)
 
+> 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
+
+<br>
+
 1. Docker-Cli 에 ```docker run 이미지``` 를 입력하면 Docker-server에 전달
 2. Docker-server에 Container를 위한 Image가 이미 Cache 되어있는지 확인
 3. Cache에 없다면 Docker-Hub에서 가져옴
@@ -25,6 +29,10 @@ Docker-Cli 에 ```docker run alpine ls``` 으로 작성하면 아래 과정이 �
 <br>
 
 ![png](/Docker/_img/alpain_ls_command_process.png)
+
+> 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
+
+<br>
 
 - Alpine Image에 대한 Container를 생성할 때 해당 Image에 있던 File snapshots(bin, dev, etc 등)이 Container 안에 있는 Hard disk로 다운됨
 - Image 이름 뒤에 다른 명령어(ls)가 있기 때문에 기본 명령어는 무시되고 ls 명령어가 실행됨
@@ -94,6 +102,7 @@ Docker-Cli 에 ```docker run alpine ls``` 으로 작성하면 아래 과정이 �
 ![png](/Docker/_img/docker_ps_format_command.png)
 
 많은 항목중 ```NAMES``` 와 ```STATUS``` 만 보고싶다면 ```docker ps --format 'table{{.Names}}\t{{.Status}}'``` 로 작성한다.
+
 <br>
 
 ## 모든 Container 나열
