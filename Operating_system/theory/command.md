@@ -10,7 +10,7 @@ top 실행중 `h` 입력시 관련 명령어 출력<br>
 
 ## 상단
 
-![png](/Operating_system/_img/commend(1).png) <br>
+![png](/Operating_system/_img/command(1).png) <br>
 
 - uptime : 시간정보(현재 시간, 컴퓨터 실행시간)
 - load average : 시스템 부하평균값(EMA, 지수 이동 평균값)
@@ -22,22 +22,22 @@ cpu 싱글코어 기준으로 시스템 상태 확인하는 법은 다음과 같
  
 ### task(process) 정보
 
-![png](/Operating_system/_img/commend_task.png) <br>
+![png](/Operating_system/_img/command_task.png) <br>
 
 state `i` 는 counting 안됨 ( `idle` user, kernel task가 멈춰있는 상태 )<br>
 `ps -eo comm,state`모든 프로세스의 이름과 상태 출력(i까지 포함)<br>
 `ps --no-headers -eo comm,state | grep I | wc -l`  상태가 i인 개수출력<br><br>
 `ctrl + z` stopped상태로 변경<br>
 
-![png](/Operating_system/_img/commend_stop.png) <br>
+![png](/Operating_system/_img/command_stop.png) <br>
 
 `fg` 작성시 stop된 것 풀림(foreground)<br>
 
-![png](/Operating_system/_img/commend_foreground.png) <br>
+![png](/Operating_system/_img/command_foreground.png) <br>
 
 ### cpu 사용비율
 
-![png](/Operating_system/_img/commend_cpu.png) <br>
+![png](/Operating_system/_img/command_cpu.png) <br>
 
 - us(user-model) : 높은 우선순위의 cpu 점유율(nice 0 또는 음수)
 - sy(system-mode) : kernel mode를 의미
@@ -50,7 +50,7 @@ state `i` 는 counting 안됨 ( `idle` user, kernel task가 멈춰있는 상태 
 
 ### MEM 사용률
 
-![png](/Operating_system/_img/commend_memory.png) <br>
+![png](/Operating_system/_img/command_memory.png) <br>
 
 memory 사용률 모두 KB단위는 다음과 같다.<br>
 
@@ -66,7 +66,7 @@ memory 사용률 모두 KB단위는 다음과 같다.<br>
 
 ```free``` 명령어로도 사용률을 확인할 수 있음<br>
 
-![png](/Operating_system/_img/commend_free.png) <br>
+![png](/Operating_system/_img/command_free.png) <br>
 
 <br>
 
@@ -74,7 +74,7 @@ memory 사용률 모두 KB단위는 다음과 같다.<br>
 
 ### 프로세스 세부정보
 
-![png](/Operating_system/_img/commend(2).png) <br>
+![png](/Operating_system/_img/command(2).png) <br>
 
 - PID : process ID
 - PR : nice + 20

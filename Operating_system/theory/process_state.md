@@ -114,7 +114,7 @@ Sleep 시간이 길어 Disk에 존재한 프로세스가 Wake up 하면 swapper�
 
 ```top``` 명령어로 프로세스의 상태를 확인할 수 있다.
 
-> top 대한 자세한 설명 : https://github.com/evelyn82ny/Computer_science/Operating_System/blob/main/theory/commend.md
+> top 대한 자세한 설명 : https://github.com/evelyn82ny/Computer_science/Operating_System/blob/main/theory/command.md
 
 
 ### S(state) 종류
