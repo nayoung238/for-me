@@ -151,3 +151,4 @@
 - [Container 생성](https://github.com/evelyn82ny/Computer-science/blob/master/Docker/create_container.md)
 - [Docker's OS: Linux](https://github.com/evelyn82ny/Computer-science/blob/master/Docker/docker_os_linux.md)
 - [Docker's life cycle](https://github.com/evelyn82ny/Computer-science/blob/master/Docker/docker_life_cycle.md)
+- [Docker Image 생성](https://github.com/evelyn82ny/Computer-science/blob/master/Docker/create_docker_image.md)
