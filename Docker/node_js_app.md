@@ -156,3 +156,27 @@ Node.js에서 진입점이 되는 ```server.js```를 위와 같이 작성한다.
 - client가 5050번 port로 접속하면 Container 속 8080번 Port에 접속되도록 Port mapping 필요
 - docker run -p ```localhost의 network(port)```:```server.js에 설정한 port``` ```이미지 이름``` 형식으로 작성
 - ```docker run -p 5050:8080 nayoung82/nodejs``` 로 작성하면 web에서 ```http://localhost:5050```로 요청해도 정상적으로 처리됨
+
+<br>
+
+## WORKDIR
+
+![png](/Docker/_img/use_workdir_before.png)
+
+- ```COPY ./ ./``` 작성했기 때문에 로컬의 모든 파일이 Container에 copy
+- ```ls``` 명령어로 container의 목록을 보면 ```Dockerfile```, ```package.json``` 등 로컬에서 생성한 5가지가 Container의 최상단에 위치되어 있음
+- 만약 container 기존에 있던 파일과 이름이 같다면 container에 있던 기존 파일에 copy 되므로 큰 문제가 발생
+- 이를 해결하기 위해 **WORKDIR** 사용
+<br>
+
+![png](/Docker/_img/use_workdir_after.png)
+
+- ```COPY``` 위에 ```WORKDIR /usr/src/app``` 을 작성
+- 로컬에 있는 파일들이 ```/usr/src/app``` 경로에 copy 됨
+
+![png](/Docker/_img/use_workdir_structure.png)
+
+> 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
+
+<br>
+
