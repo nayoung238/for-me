@@ -88,11 +88,7 @@ CMD ["node", "server.js"]
 
 ### COPY package.json ./
 
-```text
-nayoung@nayoungui-MacBookPro nodejs-app % docker build ./
-Sending build context to Docker daemon  4.096kB
-Error response from daemon: dial unix docker.raw.sock: connect: no such file or directory
-```
+![png](/Docker/_img/error_no_such_file_of_directory.png)
 
 - 위 Dockerfile을 build 했지만 **no such file or directory** 오류가 발생
 - ```package.json```이 없다는 오류
