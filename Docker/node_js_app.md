@@ -34,24 +34,7 @@ Node.js로 App을 만들기 위해 ```package.json``` 와 ```server.js```가 필
 
 ```
 - ```npm i express```: express 모듈 설치
-- Express: 웹 및 모바일 애플리케이션을 위한 편리 기능을 제공하는 Node.js 웹 애플리케이션 프레임웤,
-
-```js
-// Express 모듈 불러오기
-const express = require('express');
-
-const PORT = 8080;       // Express server를 위한 PORT 설정
-const HOST = '0.0.0.0';  // HOST 지정
-
-const app = express();   // 새로운 Express application 생성
-app.get('/', (req, res) => {   // '/' 이 경로로 요청이 오면
-    res.send('Hello world');   // Hello world 를 결과값 전달
-});
-
-app.listen(PORT, HOST);  // 해당 PORT와 HOST에서 HTTP 서버 시작
-console.log("Server is running");
-```
-
+- Express: 웹 및 모바일 애플리케이션을 위한 편리 기능을 제공하는 Node.js 웹 애플리케이션 프레임워크
 <br>
 
 ## Dockerfile 생성
@@ -142,3 +125,34 @@ CMD ["node", "server.js"]
 ![png](/Docker/_img/solution_cannot_find_module_server_js.png)
 
 - 모든 파일을 COPY 하기 위해서 ```COPY ./ ./``` 를 추가하면 성공적으로 Build 됨
+
+<br>
+
+## server.js 생성
+
+```js
+// Express 모듈 불러오기
+const express = require('express');
+
+const PORT = 8080;       // Express server를 위한 PORT 설정
+
+const app = express();   // 새로운 Express application 생성
+app.get('/', (req, res) => {   // '/' 이 경로로 요청이 오면
+    res.send('Hello world');   // Hello world 를 결과값 전달
+});
+
+app.listen(PORT);  // 해당 PORT와 HOST에서 HTTP 서버 시작
+console.log("Server is running");
+```
+Node.js에서 진입점이 되는 ```server.js```를 위와 같이 작성한다.
+<br>
+
+### Port mapping
+
+![png](/Docker/_img/port_mapping.png)
+
+![png](/Docker/_img/port_mapping(2).png)
+
+- client가 5050번 port로 접속하면 Container 속 8080번 Port에 접속되도록 Port mapping 필요
+- docker run -p ```localhost의 network(port)```:```server.js에 설정한 port``` ```이미지 이름``` 형식으로 작성
+- ```docker run -p 5050:8080 nayoung82/nodejs``` 로 작성하면 web에서 ```http://localhost:5050```로 요청해도 정상적으로 처리됨
