@@ -1,15 +1,15 @@
 ## 파일 디스크립터
 
-- 리눅스는 소켓도 파일로 간주
-- 저 수준 파일 입출력 함수를 기반으로 소켓 기반의 데이터 송수신 가능
-- 파일 디스크립터 : os가 만든 파일(소켓) 을 구분하기 위한 숫자
-- 저 수준 파일 입출력 함수는 입출력을 목적으로 파일 디스크립터를 요구
-- 저 수준 파일 입출력 함수에게 소켓의 파일 디스크립터를 전달하면 해당 소켓의 입출력을 진행
+- 리눅스는 **소켓도 파일로 간주**
+- 저수준 파일 입출력 함수를 기반으로 소켓 기반의 데이터 송수신 가능
+- 파일 디스크립터 : OS가 만든 파일(소켓) 을 구분하기 위한 숫자
+- 저수준 파일 입출력 함수는 입출력을 목적으로 파일 디스크립터를 요구
+- 저수준 파일 입출력 함수에게 소켓의 파일 디스크립터를 전달하면 해당 소켓의 입출력을 진행
 <br>
 
-- 0 : standard input
-- 1 : standard output
-- 2 : standard error
+- 0 : Standard Input
+- 1 : Standard Output
+- 2 : Standard Error
 <br>
 
 ## 파일 open
@@ -31,7 +31,9 @@ int open(const char *path, int flag);
 - O_APPEND : 기존 데이터 모두 보존하고 이어서 저장
 - O_RDONLY : 읽기 전용으로 파일 오픈
 - O_WRONLY : 쓰기 전용으로 파일 오픈
-- O_RDWR : 읽기, 쓰기 겸용으로 파일 오픈
+- O_RDWR : 읽기, 쓰기 전용으로 파일 오픈
+
+<br>
 
 ```c
 int fd = open("data.txt", O_CREAT | O_WRONLY | O_TRUNC)
@@ -83,4 +85,4 @@ ssize_t read(int fd, void *buf, size_t nbytes);
 
 ## 실습
 
-코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/fileopen/fileopen.c
+- 코드: https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/fileopen/fileopen.c

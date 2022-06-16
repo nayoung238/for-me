@@ -1,7 +1,7 @@
 # 4-way handshake
 
-TCP 통신에서 데이터 송수신 전에 서로 데이터를 주고 받을 수 있는 상태인지 체크하는 것을 **3-way handshake**라고 한다.<br>
-**4-way handshake**는 서로간의 연결을 종료하기 위한 방식이다.
+- **3-way handshake**: TCP 통신에서 데이터 송수신 전에 서로 데이터를 주고 받을 수 있는 상태인지 체크하는 것
+- **4-way handshake**: 서로간의 연결을 종료하기 위한 방식
 
 <br>
 
