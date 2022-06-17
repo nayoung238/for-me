@@ -1,10 +1,15 @@
 # pipe
 
-IPC (Inter Process Communication) 이란 프로세스간 데이터를 주고받는 방식을 말한다. 주고 받는 방식에는 메모리 공간을 공유하거나 일반 파일, 파이프 파일로 공유하는 방법이 존재한다.<br>
+IPC (Inter Process Communication) 이란 프로세스간 데이터를 주고받는 방식을 말한다. 
+주고 받는 방식에는 메모리 공간을 공유하거나 일반 파일, 파이프 파일로 공유하는 방법이 존재한다.<br>
 
-모든 프로세스는 자신만의 가상주소공간을 갖기 때문에 프로세스 A가 프로세스 B의 메모리 공간에 접근이 불가능하다. 접근하기 위해선 OS가 별도의 메모리 공간을 마련해 줘야 프로세스 통신이 가능하다.<br>
+모든 프로세스는 자신만의 가상주소공간을 갖기 때문에 프로세스 A가 프로세스 B의 메모리 공간에 접근이 불가능하다. 
+접근하기 위해선 OS가 별도의 메모리 공간을 마련해 줘야 프로세스 통신이 가능하다.<br>
 
-일반 파일로 공유하면 데이터가 계속 쌓여 용량이 커지는 문제가 발생한다. 이와 다르게 파이프 파일은 읽으면 지워지기 때문에 일반 파일의 단점을 해결할 수 있다.<br>
+일반 파일로 공유하면 데이터가 계속 쌓여 용량이 커지는 문제가 발생한다. 
+이와 다르게 파이프 파일은 읽으면 지워지기 때문에 일반 파일의 단점을 해결할 수 있다.
+
+<br>
 
 ## 파이프 기반의 통신
 
@@ -18,13 +23,15 @@ int pipe(int filedes[2]);
 - filedes[0] : 데이터를 수신하는데 사용되는 파일 디스크립터가 저장 (파이프의 출구)
 - filedes[1] : 데이터를 전송하는데 사용되는 파일 디스크립터가 저장 (파이프의 입구)
 
-pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근할 수 있는 메모리 공간을 만든다.**<br><br>
+pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근할 수 있는 메모리 공간을 만든다.**
+
+<br>
 
 ## 파이프 1개로 통신
 
-![png](/Network/_img/single_pipe.png) <br>
+![png](/Network/_img/single_pipe.png) 
 
-1개의 파이프를 부모와 자식 프로세스가 함께 사용하며, 자식 프로세스가 파이프에 데이터를 작성하면 부모 프로세스가 읽고 출력하는 코드이다.<br>
+1개의 파이프를 부모와 자식 프로세스가 함께 사용하며, 자식 프로세스가 파이프에 데이터를 작성하면 부모 프로세스가 읽고 출력하는 코드이다.
 
 ```c
 1  int main(){
@@ -44,14 +51,16 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 15     }return 0;
 16 }
 ```
-> 전제 코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/pipe/single_pipe.c
+- 전제 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/single_pipe.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/single_pipe.c)
 
 자식 프로세스가 먼저 실행된다는 보장이 없으니 line 12에 ```wait(NULL)``` 코드를 추가해 자식 프로세스가 죽으면 부모 프로세스가 실행되도록 작성했다.<br>
-만약 의도와 다르게 부모 프로세스가 먼저 실행되면 읽을 데이터가 없어 block 상태로 변한다. 즉, read()에서 block 된 상태이므로 부모 프로세스는 새로운 write()를 시도할 수 없어 문제가 된다.<br>
 
+만약 의도와 다르게 부모 프로세스가 먼저 실행되면 읽을 데이터가 없어 block 상태로 변한다. 즉, ```read()```에서 block 된 상태이므로 부모 프로세스는 새로운 ```write()```를 시도할 수 없어 문제가 된다.<br>
 
-이번엔 1개의 파이프로 ```자식 -> 부모``` -> ```부모 -> 자식``` 와 같이 서로가 대화를 주고 받는 것처럼 구현해봤다.<br>
-![png](/Network/_img/single_pipe_issue.png) <br>
+이번엔 1개의 파이프로 ```자식 -> 부모``` -> ```부모 -> 자식``` 와 같이 서로가 대화를 주고 받는 것처럼 구현해봤다.
+
+![png](/Network/_img/single_pipe_issue.png) 
+
 ```c
 1  int fds[2];
 2  pipe(fds);
@@ -79,7 +88,11 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 - line 15 : CPU 권한이 자식 프로세스에게 넘어가도록 3초간 sleep
 - line 8 : 부모 프로세스가 작성한 데이터를 읽는다.
 
-위와 같은 순서로 실행되면 서로간의 통신에 문제 없다. 하지만 실제로는 context switching 이 어느 시점에 일어나는지 예상할 수 없어 위와 같은 순서를 보장할 수 없다. 즉, 1개의 파이프로 양방향 통신하는 것은 적절한 방법이 아니다.<br><br>
+위와 같은 순서로 실행되면 서로간의 통신에 문제 없다. 
+하지만 실제로는 context switching 이 어느 시점에 일어나는지 예상할 수 없어 위와 같은 순서를 보장할 수 없다. 
+즉, 1개의 파이프로 양방향 통신하는 것은 적절한 방법이 아니다.
+
+<br>
 
 ## 파이프 2개로 통신
 
@@ -110,19 +123,24 @@ else {
 }
 return 0;
 ```
-> 전제 코드 : https://github.com/evelyn82ny/Computer-science/network/tree/master/code/pipe/double_pipe.c
+- 전제 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/double_pipe.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/double_pipe.c
+<br>
 
-- fds1는 자식이 전송하고 부모가 수신하는 파이프이다. 그러므로 자식은 수신 역할인 fds1[0] 를 닫고 부모는 발신 역할인 fds1[1] 를 닫는다.
-- fds2는 부모가 전송하고 자식이 수신하는 파이프이다. 그러므로 자식은 발신 역할인 fds2[1] 를 닫고 부모는 수신 역할인 fds2[0] 을 닫는다.
+- fds1는 자식이 전송하고 부모가 수신하는 파이프이다. 그러므로 자식은 수신 역할인 **fds1[0]** 를 닫고 부모는 발신 역할인 **fds1[1]** 를 닫는다.
+- fds2는 부모가 전송하고 자식이 수신하는 파이프이다. 그러므로 자식은 발신 역할인 **fds2[1]** 를 닫고 부모는 수신 역할인 **fds2[0]** 을 닫는다.
 
-파이프 1개로 양방향 통신을 구현할 땐 wait(NULL), sleep() 으로 CPU 권한을 어느 정도 조절했지만 이는 사실상 정확한 컨트롤이 불가능했다.<br>
-하지만 파이프 2개로 양방향 통신을 하면 데이터의 입출력의 타이밍에 따라서 데이터의 흐름이 영향 받지 않는다.<br><br>
+파이프 1개로 양방향 통신을 구현할 땐 ```wait(NULL)```, ```sleep()``` 으로 CPU 권한을 어느 정도 조절했지만 이는 사실상 정확한 컨트롤이 불가능했다.<br>
+하지만 파이프 2개로 양방향 통신을 하면 데이터의 입출력의 타이밍에 따라서 데이터의 흐름이 영향 받지 않는다.
+
+<br>
 
 ## pipe 사용하는 echo server 구현
 
-- pipe 사용하는 echo server 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/pipe/pipe_echo_serv.c
-- pipe 사용하는 echo client 코드 : https://github.com/evelyn82ny/Computer-science/network/blob/master/code/pipe/pipe_echo_client.c
+- pipe 사용하는 echo server 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/pipe_echo_serv.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/pipe_echo_serv.c)
+- pipe 사용하는 echo client 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/pipe_echo_client.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/pipe_echo_client.c)
 
 echo server 는 10개의 메시지만 받도록 설정했다. 여러 client 가 10개 이상의 메시지를 보내도 10개의 메시지만 저장한다.<br>
+
 만약 여러 client 가 총 10개의 메시지를 보내기 전에 모두 종료했다면 해당 파일에는 메시지가 **아직 저장되지 않는 상태**이다.<br>
-lose()가 호출될 때 파일에 메시지가 저장되므로 10개 이상을 보내야 파일에 저장할 수 있다.<br>
+
+```close()```가 호출될 때 파일에 메시지가 저장되므로 10개 이상을 보내야 파일에 저장할 수 있다.

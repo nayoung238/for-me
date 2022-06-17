@@ -29,7 +29,7 @@ struct hostent* gethostbyname(const char* hostname);
 ```
 
 ```gethostbyname()``` 에 도메인 이름 정보를 string으로 전달하면 해당 도메인의 서버 정보가 ```hostent``` 구조체 변수에 채워 반환한다.
-정상적으로 채워졌을 경우 ```hostent````` **구조체의 주소 값**이 리턴되고, 그렇지 않을 경우 NULL 포인터가 반환된다.<br>
+정상적으로 채워졌을 경우 ```hostent``` **구조체의 주소 값**이 리턴되고, 그렇지 않을 경우 NULL 포인터가 반환된다.<br>
 
 도메인의 서버 정보가 담기는 ```hostent``` 구조체는 다음과 같다.<br>
 
