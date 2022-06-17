@@ -52,11 +52,11 @@ int main(int argc, char *argv[]){
             printf("Peer's Port : %d\n", ntohs(client_addr.sin_port));
         }
 
-        printf("read result: %s\n", buf);
+        printf("\nread result: %s\n", buf);
         send_len = sendto(server_sock, buf, sizeof(buf), 0, (struct sockaddr*) &client_addr, client_addr_len);
         if(send_len == -1)
             error_handling("sendto() error");
-        printf("Disconnected...\n");
+        printf("Disconnected...\n\n");
     }
     close(server_sock);
     return 0;
