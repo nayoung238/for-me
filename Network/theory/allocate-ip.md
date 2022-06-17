@@ -43,7 +43,7 @@
 - unsigned long **ntohl**(unsigned long);
 <br>
 
-- host cpu 기준으로 변환하는 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/addr-conv/cpu_conv.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/addr-conv/cpu_conv.c)
+- host cpu 기준으로 변환하는 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/convert-address/htons.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/convert-address/htons.c)
 
 ```c
 unsigned short host_port = 0x1234;
