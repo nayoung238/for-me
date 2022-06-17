@@ -21,12 +21,12 @@ while(read_len = read(sock, &message[idx++], 1)) {
 }
 ```
 
-- ```tcp_client.c``` 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_client_read_1byte.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_client_read_1byte.c)
-- ```tcp_server.c``` 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_server.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_server.c)
+- client 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_client_read_1byte.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_client_read_1byte.c)
+- server 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_server.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_server.c)
 
 <br>
 
-```tcp_client.c``` 의 일부코드이다. 해당 클라이언트는 전달받은 데이터를 **1byte** 씩 읽는 방식이다.<br>
+```tcp_client_read_1byte.c``` 의 일부코드이다. 해당 클라이언트는 전달받은 데이터를 **1byte** 씩 읽는 방식이다.<br>
 
 ![png](/Network/_img/tcp_result.png)<br>
 
@@ -43,10 +43,10 @@ char message[30];
 str_len = read(sock, message, sizeof(message) - 1);
 ```
 
-- ```tcp_client2.c``` 전체 코드 :[https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_client_read_buffer_size.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_client_read_buffer_size.c)
-- ```tcp_server2.c``` 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_server.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_server.c)
+- client 전체 코드 :[https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_client_read_buffer_size.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_client_read_buffer_size.c)
+- server 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_server.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/tcp-data-boundary/tcp_server.c)
 
-```tcp_client2.c``` 의 일부코드이다. 해당 클라이언트는 전달받고자 하는 크기인 30 보다 1개 적은 **29** 만큼만 1번 읽는다.<br>
+```tcp_client_read_buffer_size.c``` 의 일부코드이다. 해당 클라이언트는 전달받고자 하는 크기인 30 보다 1개 적은 **29** 만큼만 1번 읽는다.<br>
 여기서 1을 제외한 이유는 **null 을 처리해야 되기 때문**이다.<br>
 
 ```c
