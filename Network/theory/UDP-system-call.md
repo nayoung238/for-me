@@ -67,7 +67,7 @@ if(send_len == -1) error_handling("sendto() error");
 close(from_sock);
 ```
 
-- 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/udp/to_client.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/udp/to_client.c)
+- 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/udp/server.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/udp/server.c)
 
 TCP는 데이터의 경계가 없어 받고 싶은 만큼만 받아도 되지만 UDP는 데이터의 경계가 존재한다. 
 즉, ```sendto()``` 1번 호출하면  ```recvfrom()``` 1번 호출로 모든 데이터를 받아야 한다.
@@ -97,7 +97,7 @@ while(1) {
 close(from_sock);
 ```
 
-- 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/udp/from_client.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/udp/from_client.c)
+- 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/udp/client.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/udp/client.c)
 
 UDP는 소켓끼리 1대 1 연결이 아니므로 데이터를 전송하기 위해 ```sendto()```를 호출할 때마다 **상대방 주소를 설정**해야한다.<br>
 UDP 통신에서 보내는 입장의 **IP**와 **Port** 번호는 ```sendto()``` **첫 호출 때 OS가 알아서 할당**해준다.<br>
