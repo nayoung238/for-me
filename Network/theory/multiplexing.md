@@ -117,7 +117,7 @@ struct timeval{
 25    }
 26 }return 0;
 ```
-- 전제 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/multiplexing/select_stdin.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/multiplexing/select_stdin.c)
+> 전제 코드 : https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/multiplexing/select_stdin.c
 
 - line 3 : 키보드 입력을 관심 대상으로 설정한다.
 - line 6 : ```select()``` 의 readset은 reference를 전달하므로 값이 계속 바뀐다. 이를 방지하기 위해 temps에 copy해 전달한다.
