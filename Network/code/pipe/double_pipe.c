@@ -23,15 +23,15 @@ int main(){
         write(fds1[1], str_child, sizeof(str_child));
         read(fds2[0], buf, BUF_SIZE);
         printf("Child proc output : %s\n", buf);
-	}
-	else {
-	    close(fds1[1]);
-	    close(fds2[0]);
+    }
+    else {
+        close(fds1[1]);
+        close(fds2[0]);
 
-	    read(fds1[0], buf, BUF_SIZE);
-	    printf("Parent proc output : %s\n", buf);
-	    write(fds2[1], str_parent, sizeof(str_parent));
-	    sleep(2);
-	}
-	return 0;
+        read(fds1[0], buf, BUF_SIZE);
+        printf("Parent proc output : %s\n", buf);
+        write(fds2[1], str_parent, sizeof(str_parent));
+        sleep(2);
+    }
+    return 0;
 }
