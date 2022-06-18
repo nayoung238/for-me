@@ -11,19 +11,18 @@
 void error_handling(const char *message);
 void read_childproc(int sig);
 
-int main(int argc, char *argv[])
-{
-	int serv_sock, clnt_sock;
+int main(int argc, char *argv[]) {
+    int serv_sock, clnt_sock;
 	struct sockaddr_in serv_adr, clnt_adr;
 	int fds[2];
-	
+
 	pid_t pid;
 	struct sigaction act;
-    
+
 	socklen_t adr_sz;
 	int read_len, state;
 	char buf[BUF_SIZE];
-    
+
 	if(argc != 2) {
 		printf("Usage : %s <port>\n", argv[0]);
 		exit(1);
@@ -39,21 +38,20 @@ int main(int argc, char *argv[])
 	serv_adr.sin_family = AF_INET;
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
 	serv_adr.sin_port = htons(atoi(argv[1]));
-	
+
 	if(bind(serv_sock, (struct sockaddr*) &serv_adr, sizeof(serv_adr)) == -1)
 		error_handling("bind() error");
-    
+
 	if(listen(serv_sock, 5) == -1)
 		error_handling("listen() error");
-	
+
 	pipe(fds);
 	pid=fork();
-	if(pid == 0)
-	{
-        FILE * fp = fopen("msg.txt", "wt");
+	if(pid == 0) {
+	    FILE * fp = fopen("msg.txt", "wt");
         char msgbuf[BUF_SIZE];
         int i, len;
-        
+
         for(i = 0; i < 10; ++i) {
             len = read(fds[0], msgbuf, BUF_SIZE);
             fwrite((void*)msgbuf, 1, len, fp);
@@ -62,9 +60,8 @@ int main(int argc, char *argv[])
 		return 7;
 	}
 
-	while(1)
-	{
-		adr_sz = sizeof(clnt_adr);
+	while(1) {
+	    adr_sz = sizeof(clnt_adr);
 		clnt_sock = accept(serv_sock, (struct sockaddr*)&clnt_adr, &adr_sz);
 		if(clnt_sock == -1)
 			continue;
@@ -72,16 +69,13 @@ int main(int argc, char *argv[])
 			puts("new client connected...");
 
 		pid = fork();
-		if(pid == 0)
-		{
-			close(serv_sock);
-			while((read_len = read(clnt_sock, buf, BUF_SIZE)) != 0)
-            {
+		if(pid == 0) {
+		    close(serv_sock);
+			while((read_len = read(clnt_sock, buf, BUF_SIZE)) != 0) {
                 printf("read : %s", buf);
                 write(clnt_sock, buf, read_len);
 				write(fds[1], buf, read_len);
             }
-            
 			close(clnt_sock);
 			puts("client disconnected...");
 			return 8;
@@ -93,18 +87,16 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void read_childproc(int sig)
-{
+void read_childproc(int sig) {
 	pid_t pid;
 	int status;
     while(!(pid = waitpid(-1, &status, WNOHANG)));
-    
+
     printf("removed proc id: %d \n", pid);
     if(WIFEXITED(status))
         printf("removed proc status : %d\n", WEXITSTATUS(status));
 }
-void error_handling(const char *message)
-{
+void error_handling(const char *message) {
 	fputs(message, stderr);
 	fputc('\n', stderr);
 	exit(1);
