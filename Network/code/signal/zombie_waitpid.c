@@ -4,10 +4,10 @@
 #include <sys/wait.h>
 
 int main(){
-    
+
     pid_t pid = fork();
     int state;
-    
+
     if(pid == 0) {
         puts("Hi! im child");
         sleep(8);
