@@ -14,33 +14,29 @@
 6. [Docker](#docker)
 <br>
 
-# Operating system
+## Operating system
 
 - [For interview](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/README.md)
 - [Operating system](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/introduction_to_os.md)
 - [process status](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process_state.md)
-- [virtual address space](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/virtual_address_space.md)
-  - velog: https://velog.io/@evelyn82ny/virtual-address-space
-<br>
+- [virtual address space](https://velog.io/@evelyn82ny/virtual-address-space)
   
-## Scheduling
+### Scheduling
 
 - [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/MLFQ.md)
-<br>
 
-## Concurrency & Synchronization
+### Concurrency & Synchronization
 
 - [Thread](https://velog.io/@evelyn82ny/concurrency-thread)
 - [Lock](https://velog.io/@evelyn82ny/concurrency-lock)
 - [Semaphore](https://velog.io/@evelyn82ny/synchronization-semaphore)
+
+> Reference
+> - [operating systems: three easy pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+
 <br>
 
-### reference
-
-- [operating systems: three easy pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
-<br>
-
-# Network
+## Network
 
 - [OSI 7계층](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/OSI-7-layer.md)
 - [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/unicast_BUM_traffic.md)
@@ -57,7 +53,7 @@
 - [Nagle algorithm](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/nagle-algorithm.md)
 <br>
 
-## Socket programming
+### Socket programming
 
 - [socket, bind, listen, accept, connect](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/socket.md)
 - [file descriptor, open, close, read, write](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/file-descriptor.md)
@@ -82,18 +78,15 @@
 - [multiplexing](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/multiplexing.md)
 - [pipe](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/pipe.md)
 
-<br>
-
-### reference
-
-- [TCP에 우아한 종료란 없다?](https://sunyzero.tistory.com/269)
-- [ssize_t](https://lacti.github.io/2011/01/08/different-between-size-t-ssize-t/)
+> Reference
+> - [TCP에 우아한 종료란 없다?](https://sunyzero.tistory.com/269)
+> - [ssize_t](https://lacti.github.io/2011/01/08/different-between-size-t-ssize-t/)
 
 <br>
 
-# Server
+## Server
 
-## web
+### web
 
 - [쿠키와 세션](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/cookie_and_session.md)
 - [request mapping](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/request_mapping.md)
@@ -105,19 +98,18 @@
 - [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/httpServletResponse.md)
 - [http request: query](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/http_request_query.md)
 - [http request: JSON](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/http_request_json.md)
-<br>
 
-## Spring: SQL
+### Spring: SQL
 
 - [PK mapping](https://velog.io/@evelyn82ny/primary-key-mapping)
-<br>
 
-## Spring: Proxy
+### Spring: Proxy
 
 - [ProxyFactory](https://github.com/evelyn82ny/Computer-science/blob/master/Server/proxy/ProxyFactory.md)
 - [BeanPostProcessor 기본 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/proxy/BeanPostProcessor_basic.md)
 - [BeanPostProcessor - Pointcut 적용 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/proxy/BeanPostProcessor_pointcut.md)
 - [@Aspect](https://velog.io/@evelyn82ny/Spring-AOP-Aspect)
+
 <br>
 
 ## Pattern
@@ -131,27 +123,27 @@
 
 <br>
 
-# Database
+## Database
 
 - [Join](https://github.com/evelyn82ny/Computer-science/blob/master/Database/Join.md)
 
 <br>
 
-# Language
+## Language
 
-## Java
+### Java
 
 - [Inheritance](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/Inheritance.md)
 - [Abstract class](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/AbstractClass.md)
 - [Data type](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/DataType.md)
 - [CallByValue](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/CallByValue.md)
+
+> Reference
+> - [Garbage Collection](https://d2.naver.com/helloworld/1329)
+
 <br>
 
-- [Garbage Collection](https://d2.naver.com/helloworld/1329)
-
-<br>
-
-# Docker
+## Docker
 
 - [Docker가 뭔데?](https://github.com/evelyn82ny/Computer-science/blob/master/Docker/what_is_docker.md)
 - [Container는 뭔데?](https://github.com/evelyn82ny/Computer-science/blob/master/Docker/what_is_container.md)
