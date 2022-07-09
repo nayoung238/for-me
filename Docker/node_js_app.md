@@ -128,6 +128,48 @@ CMD ["node", "server.js"]
 
 <br>
 
+### COPY ./ ./ 문제점
+
+```dockerfile
+FROM node:10
+
+WORKDIR /usr/src/app
+
+COPY ./ ./
+
+RUN npm install
+
+CMD ["node", "server.js"]
+```
+
+- ```COPY ./ ./```으로 작성하면 ```server.js``` 의 코드를 수정해도 의존된 모든 모듈을 다시 다운 받아야 함
+
+![png](/Docker/_img/cache_use_before.png)
+
+- ```server.js```의 일부분을 수정해 다시 Build 하면 이전에 다운받은 의존성을 다시 받아 효율적이지 못함
+
+<br>
+
+```dockerfile
+FROM node:10
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY ./ ./
+
+CMD ["node", "server.js"]
+```
+![png](/Docker/_img/cache_use_after.png)
+
+- 의존성을 작성한 ```package.json```을 ```RUN npm install``` 위에서 copy 시킴
+- ```server.js```의 일부분을 수정해 다시 Build 하면 
+
+<br>
+
 ## server.js 생성
 
 ```js
@@ -173,10 +215,3 @@ Node.js에서 진입점이 되는 ```server.js```를 위와 같이 작성한다.
 
 - ```COPY``` 위에 ```WORKDIR /usr/src/app``` 을 작성
 - 로컬에 있는 파일들이 ```/usr/src/app``` 경로에 copy 됨
-
-![png](/Docker/_img/use_workdir_structure.png)
-
-> 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
-
-<br>
-
