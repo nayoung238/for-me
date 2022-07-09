@@ -16,13 +16,22 @@
 
 ## Operating system
 
-- [For interview](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/README.md)
-- [Operating system](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/introduction_to_os.md)
-- [process status](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process_state.md)
+- [OS란](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/what_is_OS.md)
+- [Process](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process.md)
+- [process state](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process_state.md)
+- [Kernel mode & Interrupt](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/interrupt.md)
+
+### Memory
+
+- [Memory](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory.md)
 - [virtual address space](https://velog.io/@evelyn82ny/virtual-address-space)
+- [Memory management](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_management.md)
+- [Page Placement Policy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_placement_policy.md)
+- [참고: iOS와 Android 차이](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/difference_between_iOS_and_Android.md)
   
 ### Scheduling
 
+- [FIFO, SJF, RR, HRRN, MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/scheduling.md)
 - [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/MLFQ.md)
 
 ### Concurrency & Synchronization
