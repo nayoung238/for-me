@@ -414,7 +414,7 @@
 - STBR(Segment Table Base Register) 와 STLR(Segment Table Length Register) 2개의 Register 사용
 <br>
 
-# Page Placement Policy
+## Page Placement Policy
 
 - Page fault: Data가 Main memory의 Page frame에 적재되지 않아 실행할 수 없음
 - 해당 Data를 Main memory에 올리기 위해서 Free page frame이 필요
