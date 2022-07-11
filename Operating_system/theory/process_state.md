@@ -16,7 +16,7 @@ CPU utilization을 올리기 위해선 메모리에 일부분만 load 한다. I/
 
 ## Process state
 
-PCB의 program counter(PC register) 값에 의해 결정된 순서에 따라 CPU가 명령어를 수행한다. 개별 프로세스 행위의 특성은 해당 프로세스를 위해 수행되는 일련의 명렁어 리스트로 표현하는데 이를 **프로세스의 궤적(trace)**이라고 한다.
+PCB의 program counter(PC register) 값에 의해 결정된 순서에 따라 CPU가 명령어를 수행한다. 개별 프로세스 행위의 특성은 해당 프로세스를 위해 수행되는 일련의 명렁어 리스트로 표현하는데 이를 **프로세스의 궤적(trace)** 이라고 한다.
 
 ![png](/Operating_system/_img/process_state.png)
 
@@ -31,9 +31,9 @@ PCB의 program counter(PC register) 값에 의해 결정된 순서에 따라 CPU
 
 ## Ready
 
-- ```TQ(Time Quantum)``` 에 의해 Context switching 되었다면 해당 Process는 Ready 상태 
+-  실행중인 프로세스가 ```TQ(Time Quantum)``` 에 의해 Context switching 되었다면 해당 Process는 Ready 상태 
 - memory가 부족하면 Swap 상태 (suspend 상태)
-
+- 대기큐에 있던 프로세스 중 Scheduler에 의해 선택된 프로세스는 Running 상태가 되면서 CPU를 할당하는데 이를 Dispatcher가 수행
 <br>
 
 ### Swap In / Out (Swapping)
@@ -60,12 +60,6 @@ PCB의 program counter(PC register) 값에 의해 결정된 순서에 따라 CPU
 - 메모리에 프로세스의 일부만 올렸을 경우 CPU가 접근하려고 하는 부분이 메모리가 아닌 swap 영역에 존재하는 경우에 발생
   - 디스크에 존재하면 실행할 수 없음
 - 이때 free page를 제공해 swap 영역에서 프로세스를 가져와 PTE(page table entry) 생성
-
-<br>
-
-## Ready to Run
-
-Ready Queue에 있던 프로세스가 Scheduler에 의해 CPU 권한을 받게 되면 Running 상태로 변경
 
 <br>
 
