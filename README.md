@@ -2,14 +2,10 @@
 
 🖥 [Operating system](#operating-system)<br>
 ⚡️ [Network](#network)<br>
-💌 [Server](#server)
-   * [Web](#web)
-   * [SQL](#spring-sql)
-   * [Proxy](#spring-proxy)<br>
+💌 [Server](#server)<br>
 🛠 [Design Pattern](#design-pattern)<br>
 📈 [Database](#database)<br>
-⌨️ [Language](#language)
-   * [Java](#java)
+⌨️ [Language](#language)<br>
 🗄 [Docker](#docker)
 <br>
 
