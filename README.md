@@ -1,16 +1,16 @@
 # Computer science
 
-1. [Operating system](#operating-system)
-2. [Network](#network)
-3. [Server](#server)
-   1. [Web](#web)
-   2. [SQL](#spring-sql)
-   3. [Proxy](#spring-proxy)
-   4. [Pattern](#pattern)
-4. [Database](#database)
-5. [Language](#language)
-   1. [Java](#java)
-6. [Docker](#docker)
+🖥 [Operating system](#operating-system)
+⚡️ [Network](#network)
+💌 [Server](#server)
+   * [Web](#web)
+   * [SQL](#spring-sql)
+   * [Proxy](#spring-proxy)
+🛠 [Design Pattern](#design-pattern)
+📈 [Database](#database)
+⌨️ [Language](#language)
+   * [Java](#java)
+🗄 [Docker](#docker)
 <br>
 
 ## Operating system
@@ -117,7 +117,7 @@
 
 <br>
 
-## Pattern
+## Design Pattern
 
 - [Singleton pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/singleton_pattern.md)
 - [MVC pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/spring_mvc.md)
