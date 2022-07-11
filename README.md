@@ -2,7 +2,6 @@
 
 1. [Operating system](#operating-system)
 2. [Network](#network)
-   1. [Socket](#socket-programming)
 3. [Server](#server)
    1. [Web](#web)
    2. [SQL](#spring-sql)
@@ -27,11 +26,13 @@
 - [virtual address space](https://velog.io/@evelyn82ny/virtual-address-space)
 - [Memory management](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_management.md)
 - [Page Placement Policy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_placement_policy.md)
+- [Paging](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/paging.md)
+- [Segmentation](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/segmentation.md)
 - [참고: iOS와 Android 차이](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/difference_between_iOS_and_Android.md)
   
 ### Scheduling
 
-- [FIFO, SJF, RR, HRRN, MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/scheduling.md)
+- [FIFO, SJF, RR, HRRN](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/scheduling.md)
 - [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/MLFQ.md)
 
 ### Concurrency & Synchronization
@@ -51,35 +52,30 @@
 - [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/unicast_BUM_traffic.md)
 - [MAC address](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/MAC-address.md)
 - [IP address](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/IP-address.md)
-<br>
-
-- [4-way handshake & half close](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/4-way-handshake.md)
-- [TCP 와 UDP](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/TCP-VS-UDP.md)
 - [TCP / IP protocol](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/TCP-IP-protocol.md)
-<br>
-
-- [blocking vs non-blocking](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/blocking-vs-non-blocking.md)
-- [Nagle algorithm](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/nagle-algorithm.md)
-<br>
-
-### Socket programming
-
-- [socket, bind, listen, accept, connect](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/socket.md)
-- [file descriptor, open, close, read, write](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/file-descriptor.md)
-- [TCP의 데이터 경계](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/boundary-of-tcp-transmission-data.md)
-- [127.0.0.1](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/localhost.md)
-<br>
-
 - [IPv4 기반의 주소표현 sockaddr_in 구조체](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/sockaddr.md)
 - [IP 주소 할당하기](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/allocate-ip.md)
 <br>
 
+- [127.0.0.1](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/localhost.md)
+- [4-way handshake & half close](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/4-way-handshake.md)
+- [TCP 와 UDP](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/TCP-VS-UDP.md)
+- [TCP / IP protocol](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/TCP-IP-protocol.md)
+- [TCP의 데이터 경계](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/boundary-of-tcp-transmission-data.md)
 - [TCP 함수호출 과정](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/TCP-system-call.md)
 - [UDP 는 연결이라는 개념이 존재하지 않는다.](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/UDP-system-call.md)
 <br>
 
+- [socket, bind, listen, accept, connect](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/socket.md)
+- [file descriptor, open, close, read, write](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/file-descriptor.md)
+<br>
+
 - [Iterative server & Echo client](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/iterative-server-and-echo-client.md)
 - [DNS - gethostbyname()으로 서버 정보 요청하기](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/dns.md)
+<br>
+
+- [blocking vs non-blocking](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/blocking-vs-non-blocking.md)
+- [Nagle algorithm](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/nagle-algorithm.md)
 <br>
 
 - [자식 프로세스의 종료를 체크하는 wait, signal](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/zombie-check.md)
@@ -135,6 +131,7 @@
 ## Database
 
 - [Join](https://github.com/evelyn82ny/Computer-science/blob/master/Database/Join.md)
+- [ACID](https://hanamon.kr/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%EC%9D%98-acid-%EC%84%B1%EC%A7%88/)
 
 <br>
 
