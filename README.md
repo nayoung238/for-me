@@ -1,13 +1,13 @@
 # Computer science
 
-🖥 [Operating system](#operating-system)
-⚡️ [Network](#network)
+🖥 [Operating system](#operating-system)<br>
+⚡️ [Network](#network)<br>
 💌 [Server](#server)
    * [Web](#web)
    * [SQL](#spring-sql)
-   * [Proxy](#spring-proxy)
-🛠 [Design Pattern](#design-pattern)
-📈 [Database](#database)
+   * [Proxy](#spring-proxy)<br>
+🛠 [Design Pattern](#design-pattern)<br>
+📈 [Database](#database)<br>
 ⌨️ [Language](#language)
    * [Java](#java)
 🗄 [Docker](#docker)
