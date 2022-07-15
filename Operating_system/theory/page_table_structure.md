@@ -14,6 +14,8 @@
 
 ![jpeg](/Operating_system/_img/n_level_page_table.jpeg)
 
+> 출처: 운영체제 - 구현회
+
 - 4GB 중 실제 참조할 페이지가 있는 영역에만 단계별 페이지 테이블을 설정해 메모리 낭비를 줄일 수 있음
 - 2단계라면 첫번째 단계인 루트를 디렉터리 테이블, 두번째 단계를 Page table로 구성
 

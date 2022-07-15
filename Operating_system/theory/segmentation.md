@@ -36,6 +36,8 @@
 
 ![jpeg](/Operating_system/_img/segmentation_address_translation.jpeg)
 
+> 출처: 운영체제 - 구현회
+
 - 왼쪽 n비트를 세그먼트 번호로, 나머지 오른쪽 비트를 Offset으로 사용
 - 왼쪽 비트로 세그먼트 번호를 추출해 Segment table에서 Segment의 물리 주소를 찾음
   - 세그먼트 번호로 Code, Data, Stack 그리고 Heap 을 구분
