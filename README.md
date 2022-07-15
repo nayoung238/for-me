@@ -24,6 +24,7 @@
 - [Memory management](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_management.md)
 - [Page Placement Policy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_placement_policy.md)
 - [Paging](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/paging.md)
+- [Page table 구조](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_table_structure.md)
 - [Segmentation](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/segmentation.md)
 - [참고: iOS와 Android 차이](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/difference_between_iOS_and_Android.md)
   
