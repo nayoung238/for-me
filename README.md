@@ -36,7 +36,7 @@
 ### Concurrency & Synchronization
 
 - [Thread](https://velog.io/@evelyn82ny/concurrency-thread)
-- [Lock](https://velog.io/@evelyn82ny/concurrency-lock)
+- [Lock](https://velog.io/@evelyn82ny/synchronization-lock)
 - [Semaphore](https://velog.io/@evelyn82ny/synchronization-semaphore)
 
 > Reference
