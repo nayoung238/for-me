@@ -91,7 +91,7 @@
 
 ### web
 
-- [handler_mapping_and_adapter](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/handler_mapping_and_adapter.md)
+- [HandlerMapping, HandlerAdapter](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/handler_mapping_and_adapter.md)
 - [HTTP method](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/http_method.md)
 - [httpServletRequest](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/httpServletRequest.md)
 - [httpServletResponse](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/httpServletResponse.md)
