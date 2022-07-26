@@ -4,25 +4,33 @@ Handler(Controller)가 호출되기 위해선 HandlerMapping 과 HandlerAdapter 
 
 ![png](/Server/_img/mvc_architecture.png)
 
+Spring MVC는 Web 요청을 처리할 수 있는 범용적인 프레임워크를 제공한다. 이런 이유로 Spring MVC에서 Web 요청을 처리하는 ```@Controller``` 적용 객체나 ```Controller Interface```를 구현한 객체가 Handler이다. 그래서 ControllerMapping이 아닌 HandlerMapping이라고 한다.
+
+<br>
+
 ## HandlerMapping
 
-handlerMapping 에서 Handler (실제로는 Controller) 를 찾는다. 우선순위는 다음과 같다.
+handlerMapping에서 요청을 처리할 수 있는 Handler를 찾는다. 더 정확히 말하면 HandlerMethod 객체를 찾는다. HandlerMapping의 우선순위는 다음과 같다.
 
-0. RequestMappingHandlerMapping : annotation 기반의 controller 인 @RequestMapping 에서 사용
-1. BeanNameUrlHandlerMapping : spring Bean 의 이름으로 handler 를 찾는다.
+0. RequestMappingHandlerMapping : **annotation** 기반의 controller 인 @RequestMapping 에서 사용
+1. BeanNameUrlHandlerMapping : spring Bean의 이름으로 handler 를 찾는다.
+
+> RequestMappingHandlerMapping: 모든 Controller Bean을 파싱하여 HashMap으로 (요청 정보, 처리할 대상)을 관리한다. 처리할 대상을 정확히 말하면 요청에 매핑되는 Controller와 해당 메서드를 갖는 HandlerMethod 객체를 찾는다. 즉, HandlerMapping은 요청이 오면 Http Method, URL 등으로 Key인 요청 정보를 만들고 Value인 요청을 처리할 HandlerMethod를 찾아 HandlerMethodExecutionChain으로 감싸 반환한다. HandlerMethodExecutionChain으로 감싸는 이유는 Controller의 요청을 넘겨주기 전에 처리해야하는 Interceptor를 포함하기 위해서이다.
 
 <br>
 
 ## HandlerAdapter
 
-HandlerMapping 을 통해 찾은 Handler 를 실행할 수 있는 Handler Adapter 가 필요하다. 우선순위는 다음과 같다.
+HandlerMapping에서 요청을 처리할 수 있는 Handler를 찾으면 DispatcherServlet이 직접 Controller를 호출하지 않는다. Controller 호출에 대한 전후처리를 진행해야하는데 이를 HandlerAdapter가 담당한다. 예를 들면 Controller 호출 전에 @RequestParam, @RequestBody를 처리하기 위한 ArgumentResolver를 호출해 처리한다. 그 후 Controller가 ResponseEntity로 응답하면 HttpEntityMethodProcessor가 MessageConverter를 사용해 ResponseEntity를 직렬화하고 응답 상태(HttpStatus)를 설정한다. 모든 후처리가 끝나면 DispatcherServlet에게 돌려준다.
+<br>
 
-0. RequestMappingHandlerAdapter : annotation 기반의 controller 인 @RequestMapping 에서 사용
+정리하자면 Annotation을 처리하고 Dispatcher가 응답할 수 있는 타입으로 바꿔주는 (공통적인)처리를 하기 위해 HandlerAdapter를 거쳐야 한다. HandlerAdapter의 우선순위는 다음과 같다.
+
+0. RequestMappingHandlerAdapter : **annotation** 기반의 controller 인 @RequestMapping 에서 사용
 1. HttpRequestHandlerAdapter : HttpRequestHandler 처리
-2. SimpleControllerHandlerAdapter : Controller Interface (annotation 이 아닌 web.servlet.mvc 에 정의된 Interface Controller)
+2. SimpleControllerHandlerAdapter : Controller Interface (annotation이 아닌 web.servlet.mvc에 정의된 Controller Interface)
 
-HandlerMapping 과 HandlerAdapter 에서 가장 우선순위가 높은 것은 **RequestMappingHandlerMapping**, **RequestMappingHandlerAdapter** 이다. 
-@RequestMapping 의 앞글자를 따서 만든 이름이며 현재 가장 많이 사용되는 방식이다.
+HandlerMapping 과 HandlerAdapter 에서 가장 우선순위가 높은 것은 **RequestMappingHandlerMapping** 과 **RequestMappingHandlerAdapter** 이다. @RequestMapping 의 앞글자를 따서 만든 이름이며 현재 가장 많이 사용되는 방식이다.
 
 <br>
 
@@ -30,7 +38,7 @@ HandlerMapping 과 HandlerAdapter 에서 가장 우선순위가 높은 것은 **
 - Interface Controller 를 구현한 controller
 - Interface HttpRequestHandler 를 구현한 controller
 
-3가지 controller 에 대해 알아볼 것이며 @RequestMapping 기반의 controller 을 주로 사용한다.
+3가지 controller 에 대해 알아볼 것이며 **@RequestMapping** 기반의 controller 을 주로 사용한다.
 
 <br>
 
@@ -56,8 +64,8 @@ public @interface Controller {
 }
 ```
 
-@Controller 은 스프링이 자동으로 Spring Bean 으로 등록하며 @Component 를 포함하고 있어서 스캔대상이 된다.<br>
-spring MVC 에서 RequestMappingHandlerMapping 이 @Controller 가 있는 클래스를 Handler 로 인식한다.<br>
+@Controller 은 스프링이 자동으로 Spring Bean 으로 등록하며 @Component 를 포함하고 있어서 스캔대상이 된다.
+spring MVC 에서 RequestMappingHandlerMapping 이 @Controller 가 있는 클래스를 Handler 로 인식한다.
 
 <br>
 
@@ -87,13 +95,15 @@ public class MemberController {
 
 @RequestMapping 은 요청 정보를 매핑한다.
 **RequestMappingHandlerMapping**은 spring Bean 중 **@RequestMapping** 또는 **@Controller**가 클래스 레벨에 있는 경우를 mapping 정보로 인식한다.
-또한, RequestMappingHandlerMapping 이 @RequestMapping 과 요청 정보가 동일한 것을 찾아 해당 메소드를 호출한다.<br>
+또한, RequestMappingHandlerMapping 이 @RequestMapping 과 요청 정보가 동일한 것을 찾아 해당 메소드를 호출한다.
+<br>
 
 데이터 처리를 위해 **Spring Framework 에 Interface 로 정의된 Model 을 사용**한다. 
-데이터는 파라미터로 넘어온 model 에 저장하고 View 논리 이름만 반환한다.<br>
+데이터는 파라미터로 넘어온 model 에 저장하고 View 논리 이름만 반환한다.
+<br>
 
 class 레벨에 @RequestMapping 을 두는 경우 모든 method 레벨의 중복을 처리하며 method 레벨과 조합해서 사용된다. 
-```/new-form``` 과 ```/new-form/``` 는 다른 url 이지만, 같은 ```/new-form``` 으로 mapping 된다.<br>
+```/new-form``` 과 ```/new-form/``` 는 다른 url 이지만, 같은 ```/new-form``` 으로 mapping 된다.
 
 <br>
 
@@ -133,11 +143,12 @@ public String save(@RequestParam("username") String username,
 
 ## @RestController
 
-@Controller 는 **반환 타입이 String 이면 view 이름으로 인식**하므로 view 를 찾고 렌더링된다.<br>
+@Controller 는 **반환 타입이 String 이면 view 이름으로 인식**하므로 view 를 찾고 렌더링된다.
 @RestController 는 view 이름으로 인식하지 않고 data 자체를 return 하는 목적으로 **HTTP message body**에 해당 data 를 추가한다.
-즉, view 가 필요없고 API 만을 지원하는 서비스에 사용한다.<br>
+즉, view 가 필요없고 API 만을 지원하는 서비스에 사용한다.
+<br>
 
-@RestController 를 클래스 레벨에 작성시 모든 메소드가 적용되므로, 일부 메소드에만 적용시키려면 해당 메소드에 **@ResponseBody**를 작성한다.<br>
+@RestController 를 클래스 레벨에 작성시 모든 메소드가 적용되므로, 일부 메소드에만 적용시키려면 해당 메소드에 **@ResponseBody**를 작성한다.
 
 <br>
 
@@ -150,9 +161,10 @@ public String save(@RequestParam("username") String username,
 ```
 
 하지만 위 코드를 **@GetMapping("/save")** 으로 간단하게 사용할 수 있다. 
-GET, POST, PUT, PATCH, DELETE 모두 annotation 이 존재한다.<br>
+GET, POST, PUT, PATCH, DELETE 모두 annotation 이 존재한다.
+<br>
 
-@GetMapping 에 GET 에 아닌 다른 method 를 요청하면 **405(Method Not Allowed)** 상태코드를 반환한다.<br>
+@GetMapping 에 GET 에 아닌 다른 method 를 요청하면 **405(Method Not Allowed)** 상태코드를 반환한다.
 
 <br>
 
@@ -187,8 +199,7 @@ public String updateUser(@PathVarialbe String userId, @PathVariable Long orderId
 
 # Controller Interface 구현한 controller
 
-> 여기서 설명하는 Controller 는 controller annotation 이 아니라 web.servlet.mvc 에 정의된 interface controller 이다.<br>
-@Controller 와 interface Controller 는 다르다.
+> 여기서 설명하는 Controller 는 controller annotation 이 아니라 web.servlet.mvc 에 정의된 interface controller 이다. @Controller 와 interface Controller 는 다르다.
 
 ```java
 @FunctionalInterface
@@ -222,9 +233,10 @@ public class controller implements Controller {
 ```
 
 해당 controller 는 @Component 에 의해 "/springmvc/controller" 라는 이름의 spring Bean 으로 등록된다.
-handlerMapping 에서 해당 controller 를 **Bean 이름으로 URL 을 mapping** 하므로 **BeanNameUrlHandlerMapping** 이 처리한다.<br>
+handlerMapping 에서 해당 controller 를 **Bean 이름으로 URL 을 mapping** 하므로 **BeanNameUrlHandlerMapping** 이 처리한다.
+<br>
 
-interface Controller 를 처리하는 HandlerAdapter 는 **SimpleControllerHandlerAdapter** 이다. SimpleControllerHandlerAdapter 는 handlerMapping 에 의해 반환된 handler(controller)를 내부에서 실행한 뒤 결과를 반환한다.<br>
+interface Controller 를 처리하는 HandlerAdapter 는 **SimpleControllerHandlerAdapter** 이다. SimpleControllerHandlerAdapter 는 handlerMapping 에 의해 반환된 handler(controller)를 내부에서 실행한 뒤 결과를 반환한다.
 
 <br>
 
@@ -258,6 +270,12 @@ public class httpRequestHandler implements HttpRequestHandler {
 ```
 
 해당 handler 는 @Component 에 의해 "/springmvc/request-handler" 라는 이름의 spring Bean 으로 등록된다.
-handlerMapping 에서 해당 handler 를 **Bean 이름으로 URL 을 mapping**하므로 **BeanNameUrlHandlerMapping**이 처리한다.<br>
+handlerMapping 에서 해당 handler 를 **Bean 이름으로 URL 을 mapping**하므로 **BeanNameUrlHandlerMapping**이 처리한다.
+<br>
 
 **HttpRequestHandlerAdapter** 가 HttpRequestHandler interface 를 지원한다.
+
+<br>
+
+> Reference
+- https://mangkyu.tistory.com/18?category=761302 
