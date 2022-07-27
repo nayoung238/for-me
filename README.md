@@ -102,8 +102,9 @@
 - [view resolver](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/view_resolver.md)
 - [Redirect 와 Forward 차이](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/redirect_forward.md)
 - [쿠키와 세션](https://github.com/evelyn82ny/Computer-science/blob/master/Server/Web/cookie_and_session.md)
-
 <br>
+
+- Ref [Filter, Interceptor, AOP](https://popo015.tistory.com/116?category=902728)
 
 ### Spring: SQL
 
@@ -116,12 +117,17 @@
 - [BeanPostProcessor - Pointcut 적용 원리](https://github.com/evelyn82ny/Computer-science/blob/master/Server/proxy/BeanPostProcessor_pointcut.md)
 - [@Aspect](https://velog.io/@evelyn82ny/Spring-AOP-Aspect)
 
+### JPA
+
+- Ref [Optimisstic Lock, Pessimistic Lock](https://reiphiel.tistory.com/entry/understanding-jpa-lock)
+
 <br>
 
 ## Design Pattern
 
 - [Singleton pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/singleton_pattern.md)
 - [MVC pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/spring_mvc.md)
+- Ref [MVC Docs](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-servlet)
 - [Template method pattern](https://velog.io/@evelyn82ny/template-method-pattern)
 - [Strategy pattern](https://velog.io/@evelyn82ny/strategy-pattern)
 - [Template callback pattern](https://velog.io/@evelyn82ny/template-callback-pattern)
@@ -132,7 +138,8 @@
 ## Database
 
 - [Join](https://github.com/evelyn82ny/Computer-science/blob/master/Database/Join.md)
-- [ACID](https://hanamon.kr/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%EC%9D%98-acid-%EC%84%B1%EC%A7%88/)
+- Ref [ACID](https://hanamon.kr/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%EC%9D%98-acid-%EC%84%B1%EC%A7%88/)
+- Ref [Recovery](https://victorydntmd.tistory.com/130)
 
 <br>
 
@@ -144,9 +151,7 @@
 - [Abstract class](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/AbstractClass.md)
 - [Data type](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/DataType.md)
 - [CallByValue](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/CallByValue.md)
-
-> Reference
-> - [Garbage Collection](https://d2.naver.com/helloworld/1329)
+- Ref [Garbage Collection](https://d2.naver.com/helloworld/1329)
 
 <br>
 
