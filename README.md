@@ -140,6 +140,9 @@
 - [Join](https://github.com/evelyn82ny/Computer-science/blob/master/Database/Join.md)
 - Ref [ACID](https://hanamon.kr/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%EC%9D%98-acid-%EC%84%B1%EC%A7%88/)
 - Ref [Recovery](https://victorydntmd.tistory.com/130)
+- [Transaction Isolation Levels](https://github.com/evelyn82ny/Computer-science/blob/master/Database/transation_isolation_levels.md)
+- [Pessimistic Lock, Optimistic Lock](https://github.com/evelyn82ny/Computer-science/blob/master/Database/optimistic_lock_pessimistic_lock.md)
+- Ref [MVCC](https://mangkyu.tistory.com/53)
 
 <br>
 
@@ -151,6 +154,7 @@
 - [Abstract class](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/AbstractClass.md)
 - [Data type](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/DataType.md)
 - [CallByValue](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/CallByValue.md)
+- [SOLID](https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/SOLID.md)
 - Ref [Garbage Collection](https://d2.naver.com/helloworld/1329)
 
 <br>
