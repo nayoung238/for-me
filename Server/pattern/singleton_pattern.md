@@ -1,15 +1,25 @@
 ## Singleton pattern
 
-- 1개의 객체만 생성 어디서든 참조할 수 있는 상태로 만드는 패턴
-- 같은 instacne을 만들어내지 않고 동일한 instacne를 사용하게 함
-- getInstance method로 모든 client에게 같은 instance을 반환
-- new로 1번만 생성하기 때문에 메모리 낭비를 방지
-- 메모리 낭비를 막기 위해 사용하거나 데이터 공유를 위해 사용
-- Spring은 기본적으로 Bean을 Singleton으로 생성 및 관리
+- 객체의 인스턴스를 1개만 생성하여 같은 인스턴스를 여러 곳애서 참조할 수 있는 상태로 만드는 패턴
+- new로 1번만 생성하기 때문에 고정된 메모리 영역을 사용하며 메모리 낭비를 방지
+- 메모리 낭비를 막거나 데이터 공유를 위해 사용하며 공유로 발생하는 동시성 문제를 해결해야함
+- 주로 공통된 객체를 여러개 생성해서 사용하는 상황에서 싱글톤 패턴을 적용
+    - 데이터베이스에서 커넥션풀, 스레드풀, 로그 기록 객체 등에 싱글톤 패턴 적용
 <br>
 
-- 많은 데이터를 공유할 경우 다른 클래스의 instance 간의 결합도가 높아지는 문제
-  - SOLID 원칙 중 DIP(Dependency inversion principle)과 OCP(open/closed principle) 을 위반
+### Stateless 
+
+- getInstance method로 모든 client에게 같은 instance을 반환
+- Spring Container은 싱글톤 패턴을 적용하지 않아도 Bean을 Singleton으로 생성 및 관리 (대규모 트래픽을 처리하기 위해)
+    - 스프링 컨테이너가 싱글톤 객체를 생성하고 관리하는 기능을 Singleton Registry라고도 함
+- 싱글톤 패턴에서 객체의 상태를 유지(stateful)하는 설계를 피해야함
+- 멀티 스레드 환경에서 여러 스레드가 동시에 상태에 접근해 수정하면 안되기 떄문
+- 즉, Stateless를 유지해야 하는데 **Stateless란 상태를 공유하는 필드 변수가 없는 것**을 의미
+- 필드 변수 대신 지역 변수, 파라미터, ThreadLocal 등을 사용해 공유를 최대한 방지
+
+### OCP 위반
+
+- 많은 데이터를 공유할 경우 다른 클래스의 instance 간의 결합도가 높아져 SOLID 원칙 중 DIP(Dependency inversion principle)과 OCP(open/closed principle) 을 위반
 - 데이터 공유이므로 Synchronization 문제를 해결해야 함
 
 <br>
