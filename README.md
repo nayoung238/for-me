@@ -47,6 +47,7 @@
 ## Network
 
 - [OSI 7계층](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/OSI-7-layer.md)
+- [Encapsulation & Decapsulation](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/encapsulation.md)
 - [unicast, broadcast, multicast, anycast](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/unicast_BUM_traffic.md)
 - [MAC address](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/MAC-address.md)
 - [IP address](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/IP-address.md)
