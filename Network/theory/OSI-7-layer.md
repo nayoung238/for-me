@@ -43,8 +43,10 @@
 - NIC(Network Interface Controller): 컴퓨터를 네트워크에 연결하여 통신하기 위해 사용하는 하드웨어 장치
   - network card, LAN card, network adapter... 모두 같은 용어
 - MAC 주소는 NIC 제조업체가 할당하며 하드웨어에 저장
-- 하나의 네트워크 노드는 여러개의 NIC 를 가질 수 있고
-- 각 NIC 는 고유한 MAC 주소 할당 
+- 하나의 네트워크 노드는 여러개의 NIC 를 가질 수 있고, 각 NIC 는 고유한 MAC 주소 할당 
+- MAC 주소는 단말에 종속되지 않고 NIC에 종속
+- 단말은 여러개의 NIC가질 수 있으므로 MAC 주소도 여러개 가질 수 있다.
+- 멀티레이어 스위치, 라우터와 같은 복잡한 네트워크 장비는 NIC가 여러개이고 MAC 주소도 여러개이다.
 <br>
 
 - NIC(Network Interface Card) 동작방식은 다음과 같다.
