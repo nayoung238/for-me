@@ -1,4 +1,4 @@
-Spring Boot는 ```AnnotationAwareAspectJAutoProxyCreater```라는 BeanPostProcessor가 Spring bean에 자동 등록된다.
+Spring Boot는 ```AnnotationAwareAspectJAutoProxyCreator```라는 BeanPostProcessor가 Spring bean에 자동 등록된다.
 
 - 자동으로 Proxy 생성
 - Spring bean으로 등록된 Advisor들을 자동으로 찾아 Proxy가 필요한 곳에 적용
@@ -26,7 +26,7 @@ Spring Boot는 ```AnnotationAwareAspectJAutoProxyCreater```라는 BeanPostProces
 ```java
 public class PackageLogTraceProxyPostProcessor implements BeanPostProcessor {...}
 ```
-이전에는 Spring이 제공하는 BeanPostProcessor interface를 구현했지만 Spring Boot는 ```AnnotationAwareAspectJAutoProxyCreater```이 알아서 다 해주기 때문에 더 이상 직접 구현할 필요가 없다.
+이전에는 Spring이 제공하는 BeanPostProcessor interface를 구현했지만 Spring Boot는 ```AnnotationAwareAspectJAutoProxyCreator```이 알아서 다 해주기 때문에 더 이상 직접 구현할 필요가 없다.
 
 <br>
 
