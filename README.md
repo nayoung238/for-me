@@ -20,7 +20,6 @@
 ### Memory
 
 - [Memory Structure](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_structure.md)
-- [Memory hierarchy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_hierarchy.md)
 - [virtual address space](https://velog.io/@evelyn82ny/virtual-address-space)
 - [Memory management](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_management.md)
 - [Page Replacement Policy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_replacement_policy.md)
