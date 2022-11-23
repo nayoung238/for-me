@@ -2,10 +2,11 @@
 
 - 여러 프로세스를 수용하기 위해 주기억장치를 동적 분할하는 메모리 관리 작업이 필요하며 **Paging**과 **Segmentation** 기법 존재
 - 현재 Paging과 Segmentation 기법을 합쳐서 사용
-- External fragmentation: 프로세스의 크기와 **고정된 사이즈 차이**에서 생기는 낭비
-- Internal fragmentation: 프로세스가 끝나고 생긴 **빈 공간과 새로 들어갈 프로세스 사이즈 차이**에서 생기는 낭비
+- Internal fragmentation: 프로세스의 크기와 **고정된 사이즈 차이**에서 생기는 낭비
+- External fragmentation: 프로세스가 끝나고 생긴 **빈 공간과 새로 들어갈 프로세스 사이즈 차이**에서 생기는 낭비
 
 <br>
+
 ## 메모리 정책
 
 ### 적재 정책(fetch policy)
