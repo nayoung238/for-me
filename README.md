@@ -12,17 +12,18 @@
 
 ## Operating system
 
-- [OS란](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/what_is_OS.md)
+- [OS란 (추상화 & 가상화)](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/what_is_OS.md)
 - [Process](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process.md)
 - [process state](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process_state.md)
 - [Kernel mode & Interrupt](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/interrupt.md)
 
 ### Memory
 
-- [Memory](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory.md)
+- [Memory Structure](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_structure.md)
+- [Memory hierarchy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_hierarchy.md)
 - [virtual address space](https://velog.io/@evelyn82ny/virtual-address-space)
 - [Memory management](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_management.md)
-- [Page Placement Policy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_placement_policy.md)
+- [Page Replacement Policy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_replacement_policy.md)
 - [Paging](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/paging.md)
 - [Page table 구조](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_table_structure.md)
 - [Segmentation](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/segmentation.md)
