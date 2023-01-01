@@ -64,7 +64,7 @@
 
 ## RR
 
-![png](/Operating_system/_img/round_robin.png)
+![png](/Operating-system/_img/round_robin.png)
 
 - Round Robin
 - Preemption

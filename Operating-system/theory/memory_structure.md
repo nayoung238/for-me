@@ -1,6 +1,6 @@
 ## 메모리 영역
 
-![png](/Operating_system/_img/memory_structure.png)
+![png](/Operating-system/_img/memory_structure.png)
 
 <br>
 

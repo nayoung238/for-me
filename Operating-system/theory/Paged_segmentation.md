@@ -14,7 +14,7 @@
 - 페이지 번호는 해당 세그먼트의 페이지 테이블에서 인덱스로 사용
 <br>
 
-![jpeg](/Operating_system/_img/paged_segmentation.jpeg)
+![jpeg](/Operating-system/_img/paged_segmentation.jpeg)
 
 - 18비트 세그먼트 번호와 세그먼트 테이블 기준 레지스터(STBR)로 **세그먼트 테이블**을 확인
 - 각 세그먼트는 자신의 페이지 테이블이 존재

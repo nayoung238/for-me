@@ -65,7 +65,7 @@
 
 ## Clock
 
-![png](/Operating_system/_img/clock.png)
+![png](/Operating-system/_img/clock.png)
 
 - Use bit 사용하며 해당 Page가 참조될 때마다 Use bit 1로 설정
 - 1개의 pointer가 첫 교체 후보를 가르킴
