@@ -1,37 +1,37 @@
 # Computer science
 
-🖥 [Operating system](#operating-system)<br>
-⚡️ [Network](#network)<br>
-💌 [Server](#server)<br>
-🛠 [Design Pattern](#design-pattern)<br>
-📈 [Database](#database)<br>
-⌨️ [Language](#language)<br>
-🗄 [Docker](#docker)<br>
+- 🖥 [Operating system](#operating-system)
+- ⚡️ [Network](#network)
+- 💌 [Server](#server)
+- 🛠 [Design Pattern](#design-pattern)
+- 📈 [Database](#database)
+- ⌨️ [Language](#language)
+- 🗄 [Docker](#docker)
 
 <br>
 
 ## Operating system
 
-- [OS란 (추상화 & 가상화)](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/what_is_OS.md)
-- [Process](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process.md)
-- [process state](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/process_state.md)
-- [Kernel mode & Interrupt](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/interrupt.md)
+- [OS란 (추상화 & 가상화)](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/what_is_OS.md)
+- [Process](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/process.md)
+- [process state](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/process_state.md)
+- [Kernel mode & Interrupt](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/interrupt.md)
 
 ### Memory
 
-- [Memory Structure](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_structure.md)
+- [Memory Structure](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/memory_structure.md)
 - [virtual address space](https://velog.io/@evelyn82ny/virtual-address-space)
-- [Memory management](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/memory_management.md)
-- [Page Replacement Policy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_replacement_policy.md)
-- [Paging](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/paging.md)
-- [Page table 구조](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/page_table_structure.md)
-- [Segmentation](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/segmentation.md)
-- [참고: iOS와 Android 차이](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/difference_between_iOS_and_Android.md)
+- [Memory management](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/memory_management.md)
+- [Page Replacement Policy](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/page_replacement_policy.md)
+- [Paging](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/paging.md)
+- [Page table 구조](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/page_table_structure.md)
+- [Segmentation](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/segmentation.md)
+- [참고: iOS와 Android 차이](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/difference_between_iOS_and_Android.md)
   
 ### Scheduling
 
-- [FIFO, SJF, RR, HRRN](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/scheduling.md)
-- [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating_system/theory/MLFQ.md)
+- [FIFO, SJF, RR, HRRN](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/scheduling.md)
+- [MLFQ](https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/MLFQ.md)
 
 ### Concurrency & Synchronization
 
