@@ -129,10 +129,13 @@
 - [Singleton pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/singleton_pattern.md)
 - [MVC pattern](https://github.com/evelyn82ny/Computer-science/blob/master/Server/pattern/spring_mvc.md)
 - Ref [MVC Docs](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-servlet)
-- [Template method pattern](https://velog.io/@evelyn82ny/template-method-pattern)
-- [Strategy pattern](https://velog.io/@evelyn82ny/strategy-pattern)
-- [Template callback pattern](https://velog.io/@evelyn82ny/template-callback-pattern)
-- [Proxy & Decorator pattern](https://velog.io/@evelyn82ny/proxy-pattern-decorator-pattern)
+- [PRG pattern](https://github.com/evelyn82ny/Computer-science/blob/master/design-pattern/PRG_pattern.md)
+- [Template method pattern](https://github.com/evelyn82ny/Computer-science/blob/master/design-pattern/template_method_pattern.md)
+- [Strategy pattern](https://github.com/evelyn82ny/Computer-science/blob/master/design-pattern/strategy_pattern.md)
+- [Template callback pattern](https://github.com/evelyn82ny/Computer-science/blob/master/design-pattern/template_callback_pattern.md)
+- [Proxy & Decorator pattern](https://github.com/evelyn82ny/Computer-science/blob/master/design-pattern/proxy_and_decorator_pattern.md)
+- [JDK Dynamic proxy](https://github.com/evelyn82ny/Computer-science/blob/master/design-pattern/JDK_dynamic_proxy.md)
+- [CGLIB](https://github.com/evelyn82ny/Computer-science/blob/master/design-pattern/CGLIB.md)
 
 <br>
 
