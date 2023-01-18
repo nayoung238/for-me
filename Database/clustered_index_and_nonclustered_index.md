@@ -69,7 +69,7 @@ Clustered Index는 **리프 노드에 레코드의 모든 칼럼을 저장**하�
 
 MyISAM이나 MEMORY 테이블은 클러스터링되지 않기 때문에 레코드가 INSERT될 때 처음 저장된 공간에서 절대 이동하지 않는다. 그러므로 MyISAM 테이블은 리프 노드에 데이터 파일 내의 **위치(Offset)** 을 저장한다.
 
-![png](/Database/_img/Innodb_data_record.png)
+![png](/Database/_img/innoDB_data_record.png)
 
 InnoDB 테이블은 리프 노드에 레코드의 **PK 값**을 저장한다.
 
