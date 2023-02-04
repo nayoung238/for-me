@@ -14,30 +14,31 @@
 
 ## Operating system
 
-- [OS란 (추상화 & 가상화)](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/what_is_OS.md)
-- [Process](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/process.md)
-- [process state](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/process_state.md)
-- [Kernel mode & Interrupt](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/interrupt.md)
+- [OS란 (추상화 & 가상화)](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/what_is_OS.md)
+- [Process](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/process.md)
+- [process state](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/process_state.md)
+- [Kernel mode & Interrupt](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/interrupt.md)
 
 ### Memory
 
-- [Memory Structure](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/memory_structure.md)
-- [virtual address space](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/virtual_address_space.md)
-- [Memory management](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/memory_management.md)
-- [Page Replacement Policy](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/page_replacement_policy.md)
-- [Paging](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/paging.md)
-- [Page table 구조](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/page_table_structure.md)
-- [Segmentation](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/segmentation.md)
-- [참고: iOS와 Android 차이](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/difference_between_iOS_and_Android.md)
+- [Memory Structure](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/memory_structure.md)
+- [virtual address space](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/virtual_address_space.md)
+- [Memory management](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/memory_management.md)
+- [Page Replacement Policy](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/page_replacement_policy.md)
+- [Paging](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/paging.md)
+- [Page table 구조](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/page_table_structure.md)
+- [Segmentation](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/segmentation.md)
+- [참고: iOS와 Android 차이](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/difference_between_iOS_and_Android.md)
   
 ### Scheduling
 
-- [FIFO, SJF, RR, HRRN](https://github.com/evelyn82ny/for-developere/blob/master/Operating-system/theory/scheduling.md)
-- [MLFQ](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/theory/MLFQ.md)
+- [FIFO, SJF, RR, HRRN](https://github.com/evelyn82ny/for-developere/blob/master/Operating-system/scheduling.md)
+- [MLFQ](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/MLFQ.md)
 
 ### Concurrency & Synchronization
 
-- [Thread](https://velog.io/@evelyn82ny/concurrency-thread)
+- [Thread](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/thread.md)
+- [ULT & KLT](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/ULT_and_KLT.md)
 - [Lock](https://velog.io/@evelyn82ny/synchronization-lock)
 - [Semaphore](https://velog.io/@evelyn82ny/synchronization-semaphore)
 
