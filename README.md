@@ -39,7 +39,7 @@
 
 - [Thread](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/thread.md)
 - [ULT & KLT](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/ULT_and_KLT.md)
-- [Lock](https://velog.io/@evelyn82ny/synchronization-lock)
+- [Lock](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/lock.md)
 - [Semaphore](https://velog.io/@evelyn82ny/synchronization-semaphore)
 
 > Reference
