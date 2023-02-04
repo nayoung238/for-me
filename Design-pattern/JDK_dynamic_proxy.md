@@ -9,7 +9,7 @@
 
 # JDK Dynamic Proxy
 
-![png](/Design-pattern/_img/JDK_dynamic_proxy(2).png)
+![png](/_img/Design-pattern/JDK_dynamic_proxy(2).png)
 
 Proxy 객체를 Runtime에 동적으로 만들어주기 때문에 개발자가 직접 작성하지 않아도 된다. JDK Dynamic proxy는 **Interface 기반**으로 proxy를 만들기 때문에 Interface를 구현한 객체에 적용된다.
 
@@ -132,7 +132,7 @@ public class JdkDynamicProxyConfig {
 
 JDK Dynamic proxy가 적용되어 처리되는 과정은 다음과 같다.
 
-![png](/Design-pattern/_img/JDK_dynamic_proxy(1).png)
+![png](/_img/Design-pattern/JDK_dynamic_proxy(1).png)
 
 1. client 는 주문을 처리하고 Log 를 출력하기 위해 ```orderAndPrintLog()``` 를 호출한다.
 2. ServiceV1Impl에 JDK dynamic proxy를 적용했기 때문에 Proxy가 존재한다. 이 JDK dynamic proxy는 ```InvocationHandler.invoke()``` 를 호출하고 LogTraceHandler 구현체의 ```LogTraceHandler.invoke()``` 가 호출된다.

@@ -75,7 +75,7 @@ public class OrderController {
 
 log 추적 기능을 적용한 OrderController 와 OrderService 의 주문을 처리하는 order method 는 다음과 같다.
 
-![png](/Design-pattern/_img/before_applying_template_method_pattern.png)
+![png](/_img/Design-pattern/before_applying_template_method_pattern.png)
 
 OrderController 의 order method 에서 핵심 기능은 **OrderService 의 order(itemId) 를 호출하는 것** 이고, 나머지 부분은 log 를 추적하기 위한 코드다. OrderSerive 도 마찬가지로 **ItemRepository 의 order(itemId) 를 호출하는 것**만 핵심 기능이다. 즉, 핵심 기능보다 부가 기능을 처리하기 위한 코드가 더 길어졌다.
 
@@ -96,7 +96,7 @@ OrderController 의 order method 에서 핵심 기능은 **OrderService 의 orde
 
 템플릿은 어느정도 정해진 형식을 말한다. 템플릿 메소드 패턴에서 템플릿도 **기준이 되는 틀**을 의미한다. **템플릿에 변하지 않는 부분**을 두고, **변하는 부분을 별도로 호출**하는 방식이다.
 
-![png](/Design-pattern/_img/template_method_pattern.png)
+![png](/_img/Design-pattern/template_method_pattern.png)
 
 즉, **부모 클래스에 변하지 않는 템플릿 코드인 log 추적 기능을 정의**하고, 객체에 따라 **변하는 코드인 핵심 기능 코드는 부모 클래스를 상속하는 자식 클래스**에서 오버라이딩하여 정의한다.
 
@@ -172,7 +172,7 @@ public class OrderService {
 
 ## 나아진점
 
-![png](/Design-pattern/_img/apply_template_method_pattern.png)
+![png](/_img/Design-pattern/apply_template_method_pattern.png)
 
 이전에 작성했던 왼쪽 코드는 핵심 기능과 부가 기능이 함께 있다. template method pattern 을 적용한 오른쪽 코드는 부가 기능을 처리하는 템플릿을 호출하는 코드와 핵심 기능 코드만 있다.
 
@@ -183,7 +183,7 @@ public class OrderService {
 
 ## 문제점
 
-![png](/Design-pattern/_img/template_method_pattern.png)
+![png](/_img/Design-pattern/template_method_pattern.png)
 
 부모 클래스에 변경되지 않는 템플릿 코드를 정의하고, 변경되는 로직은 자식 클래스에 정의했다. 즉, template method pattern 은 상속을 사용한다. 
 
