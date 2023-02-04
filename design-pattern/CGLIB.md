@@ -6,7 +6,7 @@ CGLIB(Code Generator Library)는 바이트코드를 조작해서 동적으로 �
 
 ## MethodInterceptor
 
-> CGLIB test 커밋: https://github.com/evelyn82ny/design-pattern/commit/dbc5a27970a4bfb3950ca8c813e7dac1d5df6353
+> CGLIB test 커밋: https://github.com/evelyn82ny/Design-pattern/commit/dbc5a27970a4bfb3950ca8c813e7dac1d5df6353
 
 JDK Dynamic proxy에 실행 로직을 적용하기 위해 ```InvocationHandler```를 구현한다. 같은 원리로 CGLIB도 ```MethodInterceptor```를 구현한다.
 

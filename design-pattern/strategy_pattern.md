@@ -1,4 +1,4 @@
-![png](/design-pattern/_img/template_method_vs_strategy_pattern.png)
+![png](/Design-pattern/_img/template_method_vs_strategy_pattern.png)
 
 template method pattern 은 ```변하지 않는 부분``` 을 부모 클래스에 정의하고 ```변하는 부분``` 을 자식 클래스에 정의한다. 하지만 상속을 사용하기 때문에 부모의 기능을 사용하지 않더라도 부모와 자식이 강하게 의존한다는 문제가 있다. 이를 해결하기 위한 Strategy pattern 은 ```변하지 않는 부분``` 과 ```변하는 부분``` 에 상속이 아닌 **위임**이라는 개념을 사용한다. 
 
@@ -13,7 +13,7 @@ GOF 디자인 패턴에서 정의한 전략 패턴은 다음과 같다.
 
 # Dependency Injection 방식
 
->* DI 방식 코드 커밋: https://github.com/evelyn82ny/design-pattern/commit/c3b376760783892f6c5484749177eec73cad7fd6
+>* DI 방식 코드 커밋: https://github.com/evelyn82ny/Design-pattern/commit/c3b376760783892f6c5484749177eec73cad7fd6
 
 ```text
 [88e439e9] OrderController.order()
@@ -87,7 +87,7 @@ public class Context {
 ```
 Context 는 Strategy 필드를 가지고 있으며 원하는 Strategy 구현체를 주입하면 된다. ```strategy.call();``` 에서 해당 interface 구현체가 오버라이딩하여 구현한 메서드가 실행된다.
 
-![png](/design-pattern/_img/strategy_pattern_dependency_injection.png)
+![png](/Design-pattern/_img/strategy_pattern_dependency_injection.png)
 
 ``` java
 Context context1 = new Context(new StrategyOrder());
@@ -125,7 +125,7 @@ context.execute();
 
 ## lambda
 
->* lambda 코드 커밋: https://github.com/evelyn82ny/design-pattern/commit/4dff702a727b4a9065529f7c94738692abe6f516
+>* lambda 코드 커밋: https://github.com/evelyn82ny/Design-pattern/commit/4dff702a727b4a9065529f7c94738692abe6f516
 
 JAVA8 부터 anonymous inner class 를 lambda 로 변경할 수 있다.
 
@@ -141,7 +141,7 @@ context2.execute();
 
 ## template method 패턴과의 차이
 
-![png](/design-pattern/_img/template_method_vs_strategy_pattern.png)
+![png](/Design-pattern/_img/template_method_vs_strategy_pattern.png)
 
 template method pattern 은 abstract class 인 부모 클래스에 변하지 않는 템플릿 코드 (context) 를 메서드에 정의하고 **변하는 부분 (strategy) 을 추상 메서드로 설정**한다. 부모 클래스를 상속하는 자식 클래스가 추상 메서드를 override 하여 구현한다. 즉, Context 와 Strategy 가 분리되지 않고 의존적이다.
 
@@ -154,7 +154,7 @@ Context 에 원하는 Strategy 을 주입한 후 실행한다. 즉, 주입이 �
 
 # parameter 전달 방식
 
->- parameter 전달 방식 커밋: https://github.com/evelyn82ny/design-pattern/commit/b895165a39aaf50ea51aa091cc4a23b5cae2e154
+>- parameter 전달 방식 커밋: https://github.com/evelyn82ny/Design-pattern/commit/b895165a39aaf50ea51aa091cc4a23b5cae2e154
 
 ```java
 @Slf4j
@@ -172,7 +172,7 @@ public class Context {
 ```
 DI 방식에서 사용한 strategy field 를 갖지말고 Strategy 를 parameter 로 전달받는다.
 
-![png](/design-pattern/_img/strategy_pattern_dependency_injection_vs_parameter.png)
+![png](/Design-pattern/_img/strategy_pattern_dependency_injection_vs_parameter.png)
 
 ```java
 Context context = new Context();
@@ -199,7 +199,7 @@ Strategy pattern 에도 익명 내부 클래스 (anonymous inner class) 를 사�
 
 ## lambda
 
->- lambda 적용 커밋: https://github.com/evelyn82ny/design-pattern/commit/236c285828a55ce86626788828898370202e8040
+>- lambda 적용 커밋: https://github.com/evelyn82ny/Design-pattern/commit/236c285828a55ce86626788828898370202e8040
 
 ```java
 Context context = new Context();
@@ -212,7 +212,7 @@ Strategy interface 는 1개의 메서드만 있기 때문에 lambda 를 사용�
 
 # 정리
 
-![png](/design-pattern/_img/strategy_pattern_dependency_injection_vs_parameter.png)
+![png](/Design-pattern/_img/strategy_pattern_dependency_injection_vs_parameter.png)
 
 Strategy pattern 에서는 변하지 않는 템플릿 코드를 Context 에 작성하고, 변하는 코드를 Strategy Interface 에 구현한다.
 

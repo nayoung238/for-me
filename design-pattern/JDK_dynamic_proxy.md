@@ -9,12 +9,12 @@
 
 # JDK Dynamic Proxy
 
-![png](/design-pattern/_img/JDK_dynamic_proxy(2).png)
+![png](/Design-pattern/_img/JDK_dynamic_proxy(2).png)
 
 Proxy 객체를 Runtime에 동적으로 만들어주기 때문에 개발자가 직접 작성하지 않아도 된다. JDK Dynamic proxy는 **Interface 기반**으로 proxy를 만들기 때문에 Interface를 구현한 객체에 적용된다.
 
-> * Interface 기반으로 객체를 생성한 커밋: https://github.com/evelyn82ny/design-pattern/commit/429b35433a43fe36a8f787459692904f16869c2b
-* JDK Dynamic proxy test 커밋: https://github.com/evelyn82ny/design-pattern/commit/22c29fda2f0d2119d383aa53f046cc79c8348401
+> * Interface 기반으로 객체를 생성한 커밋: https://github.com/evelyn82ny/Design-pattern/commit/429b35433a43fe36a8f787459692904f16869c2b
+* JDK Dynamic proxy test 커밋: https://github.com/evelyn82ny/Design-pattern/commit/22c29fda2f0d2119d383aa53f046cc79c8348401
 
 
 ```java
@@ -99,7 +99,7 @@ public class LogTraceHandler implements InvocationHandler {
 
 ## Dynamic Proxy 생성
 
->- newProxyInstance 커밋: https://github.com/evelyn82ny/design-pattern/commit/dbae9c6adb8f28a25fcd423a6e8d00a75fe2fd0f
+>- newProxyInstance 커밋: https://github.com/evelyn82ny/Design-pattern/commit/dbae9c6adb8f28a25fcd423a6e8d00a75fe2fd0f
 
 ```java
 @Configuration
@@ -132,7 +132,7 @@ public class JdkDynamicProxyConfig {
 
 JDK Dynamic proxy가 적용되어 처리되는 과정은 다음과 같다.
 
-![png](/design-pattern/_img/JDK_dynamic_proxy(1).png)
+![png](/Design-pattern/_img/JDK_dynamic_proxy(1).png)
 
 1. client 는 주문을 처리하고 Log 를 출력하기 위해 ```orderAndPrintLog()``` 를 호출한다.
 2. ServiceV1Impl에 JDK dynamic proxy를 적용했기 때문에 Proxy가 존재한다. 이 JDK dynamic proxy는 ```InvocationHandler.invoke()``` 를 호출하고 LogTraceHandler 구현체의 ```LogTraceHandler.invoke()``` 가 호출된다.
@@ -156,7 +156,7 @@ JDK Dynamic proxy가 적용되어 처리되는 과정은 다음과 같다.
 
 ## log 출력하지 않는 API 생성
 
->- 해당 커밋: https://github.com/evelyn82ny/design-pattern/commit/c30e104512896baa5be0b2e2a8eb6086f3f26800
+>- 해당 커밋: https://github.com/evelyn82ny/Design-pattern/commit/c30e104512896baa5be0b2e2a8eb6086f3f26800
 
 ```java
 public interface OrderControllerV1 {
@@ -190,7 +190,7 @@ JDK dynamic proxy가 모든 Method에 적용되기 때문에 noLog 전용으로 
 
 ### 필터 설정
 
->- 해당 커밋: https://github.com/evelyn82ny/design-pattern/commit/3f94842723ead39662c9e17640da0f2b71a3eee3
+>- 해당 커밋: https://github.com/evelyn82ny/Design-pattern/commit/3f94842723ead39662c9e17640da0f2b71a3eee3
 
 
 ```java

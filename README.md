@@ -2,10 +2,10 @@
 
 - 🖥 [Operating system](#operating-system)
 - ⚡️ [Network](#network)
-- 💌 [Server](#server)
-- 🛠 [Design Pattern](#design-pattern)
 - 📈 [Database](#database)
 - ⌨️ [Language](#language)
+- 💌 [Server](#server)
+- 🛠 [Design Pattern](#design-pattern)
 - 🗄 [Docker](#docker)
 
 <br>
@@ -88,57 +88,6 @@
 
 <br>
 
-## Server
-
-### web
-
-- [HandlerMapping, HandlerAdapter](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/handler_mapping_and_adapter.md)
-- [HTTP method](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/http_method.md)
-- [httpServletRequest](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/httpServletRequest.md)
-- [httpServletResponse](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/httpServletResponse.md)
-- [http request: query](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/http_request_query.md)
-- [http request: JSON](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/http_request_json.md)
-<br>
-
-- [view resolver](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/view_resolver.md)
-- [Redirect 와 Forward 차이](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/redirect_forward.md)
-- [쿠키와 세션](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/cookie_and_session.md)
-<br>
-
-- Ref [Filter, Interceptor, AOP](https://popo015.tistory.com/116?category=902728)
-
-### Spring: SQL
-
-- [PK mapping](https://velog.io/@evelyn82ny/primary-key-mapping)
-
-### Spring: Proxy
-
-- [ProxyFactory](https://github.com/evelyn82ny/for-developer/blob/master/Server/proxy/ProxyFactory.md)
-- [BeanPostProcessor 기본 원리](https://github.com/evelyn82ny/for-developer/blob/master/Server/proxy/BeanPostProcessor_basic.md)
-- [BeanPostProcessor - Pointcut 적용 원리](https://github.com/evelyn82ny/for-developer/blob/master/Server/proxy/BeanPostProcessor_pointcut.md)
-- [@Aspect](https://velog.io/@evelyn82ny/Spring-AOP-Aspect)
-
-### JPA
-
-- Ref [Optimisstic Lock, Pessimistic Lock](https://reiphiel.tistory.com/entry/understanding-jpa-lock)
-
-<br>
-
-## Design Pattern
-
-- [Singleton pattern](https://github.com/evelyn82ny/for-developer/blob/master/Server/pattern/singleton_pattern.md)
-- [MVC pattern](https://github.com/evelyn82ny/for-developer/blob/master/Server/pattern/spring_mvc.md)
-- Ref [MVC Docs](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-servlet)
-- [PRG pattern](https://github.com/evelyn82ny/for-developer/blob/master/design-pattern/PRG_pattern.md)
-- [Template method pattern](https://github.com/evelyn82ny/for-developer/blob/master/design-pattern/template_method_pattern.md)
-- [Strategy pattern](https://github.com/evelyn82ny/for-developer/blob/master/design-pattern/strategy_pattern.md)
-- [Template callback pattern](https://github.com/evelyn82ny/for-developer/blob/master/design-pattern/template_callback_pattern.md)
-- [Proxy & Decorator pattern](https://github.com/evelyn82ny/for-developer/blob/master/design-pattern/proxy_and_decorator_pattern.md)
-- [JDK Dynamic proxy](https://github.com/evelyn82ny/for-developer/blob/master/design-pattern/JDK_dynamic_proxy.md)
-- [CGLIB](https://github.com/evelyn82ny/for-developer/blob/master/design-pattern/CGLIB.md)
-
-<br>
-
 ## Database
 
 - [Join](https://github.com/evelyn82ny/for-developer/blob/master/Database/Join.md)
@@ -161,6 +110,55 @@
 - [CallByValue](https://github.com/evelyn82ny/for-developer/blob/master/Language/Java/CallByValue.md)
 - [SOLID](https://github.com/evelyn82ny/for-developer/blob/master/Language/Java/SOLID.md)
 - Ref [Garbage Collection](https://d2.naver.com/helloworld/1329)
+
+<br>
+
+## Server
+
+- [HandlerMapping, HandlerAdapter](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/handler_mapping_and_adapter.md)
+- [HTTP method](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/http_method.md)
+- [httpServletRequest](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/httpServletRequest.md)
+- [httpServletResponse](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/httpServletResponse.md)
+- [http request: query](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/http_request_query.md)
+- [http request: JSON](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/http_request_json.md)
+<br>
+
+- [view resolver](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/view_resolver.md)
+- [Redirect 와 Forward 차이](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/redirect_forward.md)
+- [쿠키와 세션](https://github.com/evelyn82ny/for-developer/blob/master/Server/Web/cookie_and_session.md)
+<br>
+
+- Ref [Filter, Interceptor, AOP](https://popo015.tistory.com/116?category=902728)
+
+## Spring
+
+- [PK mapping](https://velog.io/@evelyn82ny/primary-key-mapping)
+
+### Proxy
+
+- [ProxyFactory](https://github.com/evelyn82ny/for-developer/blob/master/Spring/proxy/ProxyFactory.md)
+- [BeanPostProcessor 기본 원리](https://github.com/evelyn82ny/for-developer/blob/master/Spring/proxy/BeanPostProcessor_basic.md)
+- [BeanPostProcessor - Pointcut 적용 원리](https://github.com/evelyn82ny/for-developer/blob/master/Spring/proxy/BeanPostProcessor_pointcut.md)
+- [@Aspect](https://velog.io/@evelyn82ny/Spring-AOP-Aspect)
+
+### JPA
+
+- Ref [Optimisstic Lock, Pessimistic Lock](https://reiphiel.tistory.com/entry/understanding-jpa-lock)
+
+<br>
+
+## Design Pattern
+
+- [Singleton pattern](https://github.com/evelyn82ny/for-developer/blob/master/Server/pattern/singleton_pattern.md)
+- [MVC pattern](https://github.com/evelyn82ny/for-developer/blob/master/Server/pattern/spring_mvc.md)
+- Ref [MVC Docs](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-servlet)
+- [PRG pattern](https://github.com/evelyn82ny/for-developer/blob/master/Design-pattern/PRG_pattern.md)
+- [Template method pattern](https://github.com/evelyn82ny/for-developer/blob/master/Design-pattern/template_method_pattern.md)
+- [Strategy pattern](https://github.com/evelyn82ny/for-developer/blob/master/Design-pattern/strategy_pattern.md)
+- [Template callback pattern](https://github.com/evelyn82ny/for-developer/blob/master/Design-pattern/template_callback_pattern.md)
+- [Proxy & Decorator pattern](https://github.com/evelyn82ny/for-developer/blob/master/Design-pattern/proxy_and_decorator_pattern.md)
+- [JDK Dynamic proxy](https://github.com/evelyn82ny/for-developer/blob/master/Design-pattern/JDK_dynamic_proxy.md)
+- [CGLIB](https://github.com/evelyn82ny/for-developer/blob/master/Design-pattern/CGLIB.md)
 
 <br>
 

@@ -5,7 +5,7 @@ strategy pattern 에서 strategy 를 anonymous inner class 로 전달받아 사�
 
 # log 추적 기능 구현
 
->- log 추적기 구현 커밋: https://github.com/evelyn82ny/design-pattern/commit/935d6fb498de743f1fc48fc47e24aa22dad6dd84
+>- log 추적기 구현 커밋: https://github.com/evelyn82ny/Design-pattern/commit/935d6fb498de743f1fc48fc47e24aa22dad6dd84
 
 상품을 주문하기 위해 HTTP GET 요청을 하면 처리되는 로직을 파악하기 위해 다음과 같이 log 를 출력하는 추적기를 적용시키려 한다. 동기화를 위해 ThreadLocal 로 구현한다.
 
@@ -34,7 +34,7 @@ InitDB 클래스로 ```apple: 34개```, ```candy: 56개``` 를 ItemRepository �
 
 # Template callback pattern
 
->- 템플릿 콜백 패턴 커밋: https://github.com/evelyn82ny/design-pattern/commit/ea1a9b2277844b601c404dc0164e3bbd4974043c
+>- 템플릿 콜백 패턴 커밋: https://github.com/evelyn82ny/Design-pattern/commit/ea1a9b2277844b601c404dc0164e3bbd4974043c
 
 위에서 본 HTTP 요청 처리 과정을 log 로 출력하는 기능을 Template callback pattern 으로 Controller, Service, Repository 에 적용한다.
 
@@ -73,7 +73,7 @@ public class TraceTemplate {
     }
 }
 ```
-![png](/design-pattern/_img/template_callback_pattern.png)
+![png](/Design-pattern/_img/template_callback_pattern.png)
 
 템플릿 역할인 TraceTemplate 클래스이다. execute 메서드에서 변경되는 코드인 interface 구현체를 parameter 로 전달받는다. 로직을 실행하다가 ```T result = callback.order();``` 지점에 오면 interface 구현체의 메서드를 실행시킨다.
 
@@ -118,12 +118,12 @@ public class OrderService {
 
 # Template method 패턴과의 차이
 
-![png](/design-pattern/_img/template_method_vs_callback_structure.png)
+![png](/Design-pattern/_img/template_method_vs_callback_structure.png)
 
 Template **method** pattern 은 **변경되지 않는 템플릿 코드**는 abstract class 인 부모 클래스에 정의하고, **변경되는 부분**은 상속을 통해 오버라이딩으로 자식 클래스에서 구현한다. 상속을 사용하기 때문에 부모 클래스가 변경되면 자식 클래스도 영향을 받는다는 단점이 있다.
 
 Template **callback** pattern 은 **변경되지 않는 템플릿 코드**는 template class 에 작성하고, **변경되는 부분**은 interface 로 정의해 원하는 interface 구현체를 template 에 전달하는 방식이다. **변경되지 않는 템플릿 코드**와 **변경되는 코드**를 완벽히 분리했기 때문에 서로에게 영향을 주지 않는다는 장점이 있다.
 
-![png](/design-pattern/_img/template_method_vs_callback_code.png)
+![png](/Design-pattern/_img/template_method_vs_callback_code.png)
 
 template callback pattern 을 적용해 조금 더 간결하게 작성할 수 있었다. 하지만 log 추적 기능을 application 에 적용하기 위해 controller, service, repository 코드를 수정해야 한다는 문제가 있다.
