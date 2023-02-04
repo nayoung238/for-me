@@ -1,8 +1,8 @@
-> 실행코드: https://github.com/evelyn82ny/Computer-science/blob/master/Language/Java/code/CallByValue.java
+> 실행코드: https://github.com/evelyn82ny/for-developer/blob/master/Language/Java/code/CallByValue.java
 
 ## Constant pool
 
-![png](/Language/_img/java_string_literal_vs_string_object.png)
+![png](/_img/Language/java_string_literal_vs_string_object.png)
 
 > 출처: https://madplay.github.io/post/java-string-literal-vs-string-object
 
