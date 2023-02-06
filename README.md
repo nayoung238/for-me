@@ -2,13 +2,13 @@
 
 - 🖥 [Operating system](#operating-system)
 - ⚡️ [Network](#network)
-- 📈 [Database](#database)
+- 📚 [Database](#database)
 - ⌨️ [Language](#language)
 - 💌 [Server](#server)
 - 🌱 [Spring](#spring)
 - 🌱 [Spring Cloud](#spring-cloud)
 - 🛠 [Design Pattern](#design-pattern)
-- 🗄 [Docker](#docker)
+- 🐳 [Docker](#docker)
 
 <br>
 
