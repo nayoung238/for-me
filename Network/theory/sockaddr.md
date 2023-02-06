@@ -124,4 +124,4 @@ if(bind(serv_addr, (struct sockaddr*) &serv_addr, sizeof(serv_addr)) == -1)
 ```
 
 소켓을 생성했다면 주소까지 할당하기 위해 ```bind()```를 호출한다.<br>
-여러 기반의 주소체계를 처리하기 위해 ```sockaddr``` 구조체로 casting 한 다음 소켓에 ```sockaddr``` 구조체의 시작 주소를 연결해준다.<br>
+여러 기반의 주소체계를 처리하기 위해 ```sockaddr``` 구조체로 casting 한 다음 소켓에 ```sockaddr``` 구조체의 시작 주소를 연결해준다.

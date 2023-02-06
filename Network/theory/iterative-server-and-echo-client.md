@@ -31,7 +31,7 @@
 13 }
 ```
 
-- 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/iterative-server/iterative-server.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/iterative-server/iterative-server.c)
+- 전체 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/iterative-server/iterative-server.c
 
 클라이언트가 보낸 데이터가 서버의 입력버퍼에 계속 쌓이고 서버는 입력버퍼를 일정 크기로 읽으며 출력버퍼에 쌓는다.
 
@@ -67,7 +67,7 @@ echo client란 클라이언트에서 write 한 것을 server에 보내고 server
 15 }
 ```
 
-- 전체 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/iterative-server/echo-client.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/iterative-server/echo-client.c)
+- 전체 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/iterative-server/echo-client.c
 
 - line 6 : TCP echo client 는 **q** 나 **Q**가 입력을 들어올 때까지 read
 - line 9 : ```write()```를 호출해 읽은 데이터를 클라이언트 출력버퍼에 쌓으면 서버의 입력버퍼로 이동

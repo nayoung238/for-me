@@ -85,4 +85,4 @@ ssize_t read(int fd, void *buf, size_t nbytes);
 
 ## 실습
 
-- 코드: https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/fileopen/fileopen.c
+- 코드: https://github.com/evelyn82ny/for-developer/blob/master/Network/code/fileopen/fileopen.c

@@ -43,7 +43,7 @@
 - unsigned long **ntohl**(unsigned long);
 <br>
 
-- host cpu 기준으로 변환하는 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/convert-address/htons.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/convert-address/htons.c)
+- host cpu 기준으로 변환하는 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/convert-address/htons.c
 
 ```c
 unsigned short host_port = 0x1234;
@@ -97,13 +97,13 @@ struct in_addr {
 - ```in_addr``` 구조체의 ```s_addr``` 에 32비트 IPv4 인터넷 주소를 저장하는데 ```s_addr``` 의 타입은 ```in_addr_t``` 이다.
 - ```in_addr_t``` 는 unsigned_int 32비트이다.
 
-> sockaddr_in 에 대한 내용 : https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/sockaddr.md
+> sockaddr_in 에 대한 내용 : https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/sockaddr.md
 
 <br>
 
 주소를 입력하고 네트워크 주소로 제대로 변환되는지 확인해봤다.
 
-- 네트워크 주소로 변환하는 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/addr-conv/inet_addr.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/addr-conv/inet_addr.c)
+- 네트워크 주소로 변환하는 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/addr-conv/inet_addr.c
 
 ```c
 char *addr = "1.2.3.4";
@@ -149,7 +149,7 @@ int inet_aton(const char *string, struct in_addr *addr);
 
 <br>
 
-- ```inet_aton()```으로 변환하는 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/addr-conv/inet_aton.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/addr-conv/inet_aton.c)
+- ```inet_aton()```으로 변환하는 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/addr-conv/inet_aton.c
 
 ```c
 char *addr = "127.232.124.79";
@@ -179,7 +179,7 @@ char* inet_ntoa(struct in_addr adr);
 
 <br>
 
-- ```inet_ntoa()``` 에 대한 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/addr-conv/inet_ntoa.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/addr-conv/inet_ntoa.c)
+- ```inet_ntoa()``` 에 대한 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/addr-conv/inet_ntoa.c
 
 ```c
 struct sockaddr_int addr;

@@ -76,7 +76,7 @@ int result = setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (void*)&opt, sizeof(op
 
 printf("Nagle status: %d\n", opt_val);
 ```
-- nagle 설정 전체 코드: https://github.com/evelyn82/network/blob/master/code/sock-option/nagle_check.c
+- nagle 설정 전체 코드: https://github.com/evelyn82ny/for-developer/blob/master/Network/code/sock-option/nagle_check.c
 
 ![png](/Network/_img/nagle_result.png)
 

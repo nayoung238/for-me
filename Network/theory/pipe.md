@@ -51,7 +51,7 @@ pipe 함수를 호출하면 **os는 서로 다른 프로세스가 함께 접근�
 15     }return 0;
 16 }
 ```
-> 전제 코드 : https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/single_pipe.c
+> 전제 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/pipe/single_pipe.c
 
 자식 프로세스가 먼저 실행된다는 보장이 없으니 line 12에 ```wait(NULL)``` 코드를 추가해 자식 프로세스가 죽으면 부모 프로세스가 실행되도록 작성했다.<br>
 
@@ -126,7 +126,7 @@ else {
 }
 return 0;
 ```
-> 전제 코드 : https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/double_pipe.c
+> 전제 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/pipe/double_pipe.c
 
 
 - fds1는 자식이 전송하고 부모가 수신하는 파이프이다. 그러므로 자식은 수신 역할인 **fds1[0]** 를 닫고 부모는 발신 역할인 **fds1[1]** 를 닫는다.
@@ -139,8 +139,8 @@ return 0;
 
 ## pipe 사용하는 echo server 구현
 
-- pipe 사용하는 echo server 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/pipe_echo_serv.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/pipe_echo_serv.c)
-- pipe 사용하는 echo client 코드 : [https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/pipe_echo_client.c](https://github.com/evelyn82ny/Computer-science/blob/master/Network/code/pipe/pipe_echo_client.c)
+- pipe 사용하는 echo server 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/pipe/pipe_echo_serv.c
+- pipe 사용하는 echo client 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/pipe/pipe_echo_client.c
 
 echo server 는 10개의 메시지만 받도록 설정했다. 즉, 여러 client 가 10개 이상의 메시지를 보내도 10개의 메시지만 저장한다.<br>
 

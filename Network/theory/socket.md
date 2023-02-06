@@ -64,7 +64,7 @@ int udp_socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
 - 전송 중간에 발생하는 **데이터 소멸을 막고 전송 순서를 보장**
 - 데이터의 경계가 존재하지 않아 receiver 입장에선 **받는 단위 지정이 가능**
-  - 자세한 내용: [https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/boundary-of-tcp-transmission-data.md](https://github.com/evelyn82ny/Computer-science/blob/master/Network/theory/boundary-of-tcp-transmission-data.md)
+  - 자세한 내용: https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/boundary-of-tcp-transmission-data.md
 - 소켓끼리의 연결은 1 대 1 구조
 - 주로 FTP(File Transfer Protocol)에 사용
 
