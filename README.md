@@ -152,7 +152,11 @@
 
 ## Spring Cloud
 
+- [Spring CLoud Docs](https://spring.io/projects/spring-cloud)
 - [Random Port](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/random_port.md)
+- Filter
+  - [Filter using Java Code (RouteLocator)](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/filter_using_java_code.md)
+  - [Filter using Property (application.yml)](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/filter_using_property.md)
 
 <br>
 
