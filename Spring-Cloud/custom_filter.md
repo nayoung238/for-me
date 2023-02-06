@@ -40,7 +40,11 @@ public class CustomFilter extends AbstractGatewayFilterFactory<CustomFilter.Conf
 ```
 
 ```AbstractGatewayFilterFactory```의 ```apply()```를 작성하면 CustomFilter를 생성할 수 있다. 위 코드는 Pre와 Post 시점에 간단한 로그를 출력하는 CustomFilter이다.
+<br>
 
+Netty를 사용하므로 비동기 처리를 수행하는 ```ServerHttpRequest```와 ```ServerHttpResponse```를 사용한다.
+
+<br>
 
 ```yml
 server:
@@ -60,7 +64,7 @@ spring:
             - CustomFilter
 ```
 
-특정 Microservice에 CustomFilter를 적용하기 위해 ```application.yml```에 ```spring:cloud:gateway:routes:filters```에 CustomFilter를 추가한다.
+특정 Microservice에 CustomFilter를 적용하기 위해 ```application.yml```에 ```spring:cloud:gateway:routes:filters```에 CustomFilter를 추가한다. 즉, Filter를 적용하고자 하는 라우터에 수동으로 추가해야 한다.
 
 <br>
 
