@@ -17,7 +17,7 @@ Gateway와 모든 Microservice의 ```application.yml```에 위 내용을 추가�
 
 ![](/_img/Spring-Cloud/instances_currently_registered_with_eureka.png)
 
-```MY-FIRST-SERVICE``` 라는 Application을 2개 실행했으며, 랜덤 포트로 설정해 61302. 61307 포트 번호가 할당되었다.
+```MY-FIRST-SERVICE``` 라는 Application을 2개 실행했으며, 랜덤 포트로 설정해 61302와 61307 포트 번호가 할당되었다.
 
 <br>
 

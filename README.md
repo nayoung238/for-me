@@ -159,6 +159,7 @@
   - [Filter using Property (application.yml)](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/filter_using_property.md)
 - [Custom Filter Using AbstractGatewayFilterFactory](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/custom_filter.md)
 - [Global Filter Using AbstractGatewayFilterFactory](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/global_filter.md)
+- [Spring Cloud Gateway (Load Balancer)](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/spring-cloud-gateway.md)
 
 <br>
 
