@@ -85,7 +85,7 @@ spring:
 - ```second-service```라는 라우터에는 GlobalFilter만 적용된다.
 
 
-## GlobalFilter와 CustomFilter 순사
+## GlobalFilter와 CustomFilter 순서
 
 GlobalFilter와 CustomFilter가 적용된다면 무조건 GlobalFilter가 가정 먼저 실행되고, CustomFilter가 모두 종료된 후에 GlobalFilter가 종료된다. 
 
