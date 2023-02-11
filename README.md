@@ -152,6 +152,13 @@
 
 ## Spring Cloud
 
+- MSA Project: [api-gateway-service repo](https://github.com/evelyn82ny/api-gateway-service)
+- MSA Project: [service-discovery repo](https://github.com/evelyn82ny/service-discovery)
+- MSA Project: [item-service repo](https://github.com/evelyn82ny/MSA-item-service)
+- MSA Project: [account-service repo](https://github.com/evelyn82ny/MSA-account-service)
+- MSA Project: [order-service](https://github.com/evelyn82ny/MSA-order-service)
+<br>
+
 - [Spring CLoud Docs](https://spring.io/projects/spring-cloud)
 - [Random Port](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/random_port.md)
 - Filter
