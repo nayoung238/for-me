@@ -165,11 +165,11 @@
 
 ### Project: MSA with Spring Cloud
 
-- [api-gateway-service repo](https://github.com/evelyn82ny/api-gateway-service)
-- [service-discovery repo](https://github.com/evelyn82ny/service-discovery)
-- [item-service repo](https://github.com/evelyn82ny/MSA-item-service)
-- [account-service repo](https://github.com/evelyn82ny/MSA-account-service)
-- [order-service repo](https://github.com/evelyn82ny/MSA-order-service)
+- Repo: [api-gateway-service](https://github.com/evelyn82ny/api-gateway-service)
+- Repo: [service-discovery](https://github.com/evelyn82ny/service-discovery)
+- Repo: [item-service](https://github.com/evelyn82ny/MSA-item-service)
+- Repo: [account-service](https://github.com/evelyn82ny/MSA-account-service)
+- Repo: [order-service](https://github.com/evelyn82ny/MSA-order-service)
 
 <br>
 
