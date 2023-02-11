@@ -7,7 +7,7 @@
 - 💌 [Server](#server)
 - 🌱 [Spring](#spring)
 - 🌱 [Spring Cloud](#spring-cloud)
-  - ⌨️ [MSA with Spring Cloud Project](#msa-with-spring-cloud-project)
+  - ⌨️ [Project: MSA with Spring Cloud](#project-msa-with-spring-cloud)
 - 🛠 [Design Pattern](#design-pattern)
 - 🐳 [Docker](#docker)
 
@@ -163,7 +163,7 @@
 - [Spring Cloud Gateway (Load Balancer)](https://github.com/evelyn82ny/for-developer/blob/master/Spring-Cloud/spring-cloud-gateway.md)
 <br>
 
-### MSA with Spring Cloud Project
+### Project: MSA with Spring Cloud
 
 - [api-gateway-service repo](https://github.com/evelyn82ny/api-gateway-service)
 - [service-discovery repo](https://github.com/evelyn82ny/service-discovery)
