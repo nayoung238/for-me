@@ -135,7 +135,7 @@
 
 ## Spring
 
-- [PK mapping](https://velog.io/@evelyn82ny/primary-key-mapping)
+- [PK mapping](https://github.com/evelyn82ny/for-developer/blob/master/Spring/PK_mapping.md)
 - Ref [Filter, Interceptor, AOP](https://popo015.tistory.com/116?category=902728)
 
 ### Proxy
