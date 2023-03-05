@@ -7,9 +7,11 @@
 - 💌 [Server](#server)
 - 🌱 [Spring](#spring)
 - 🌱 [Spring Cloud](#spring-cloud)
-  - ⌨️ [Project: MSA with Spring Cloud](#project-msa-with-spring-cloud)
 - 🛠 [Design Pattern](#design-pattern)
 - 🐳 [Docker](#docker)
+<br>
+
+- ⌨️ Project: [MSA with Spring Cloud](#project-msa-with-spring-cloud)
 
 <br>
 
