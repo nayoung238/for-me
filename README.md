@@ -97,12 +97,15 @@
 ## Database
 
 - [Join](https://github.com/evelyn82ny/for-developer/blob/master/Database/Join.md)
-- Ref [ACID](https://hanamon.kr/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%EC%9D%98-acid-%EC%84%B1%EC%A7%88/)
-- Ref [Recovery](https://victorydntmd.tistory.com/130)
 - [Transaction Isolation Levels](https://github.com/evelyn82ny/for-developer/blob/master/Database/transation_isolation_levels.md)
 - [Pessimistic Lock, Optimistic Lock](https://github.com/evelyn82ny/for-developer/blob/master/Database/optimistic_lock_pessimistic_lock.md)
 - Ref [MVCC](https://mangkyu.tistory.com/53)
 - [Clustered Index & Nonclustered Index](https://github.com/evelyn82ny/for-developer/blob/master/Database/clustered_index_and_nonclustered_index.md)
+- Test [Record Lock](https://github.com/evelyn82ny/for-developer/blob/master/Database/record_lock.md)
+- Test [Next-key lock vs Insert-intention](https://github.com/evelyn82ny/for-developer/blob/master/Database/next_key_lock_and_insert_intention_test.md)
+- Test [Next-key lock 테스트 1](https://github.com/evelyn82ny/for-developer/blob/master/Database/next_key_lock_test.md) : 이미 존재하는 레코드 수정, 중복 ID로 INSERT 시도, 존재하지 않는 ID에 UPDATE 시도
+- Test [Next-key lock 테스트 2](https://github.com/evelyn82ny/for-developer/blob/master/Database/next_key_lock_between_test.md) : Between
+- Test [Next-key lock 테스트 3](https://github.com/evelyn82ny/for-developer/blob/master/Database/composite_key_test.md) : Composite Key
 
 <br>
 
