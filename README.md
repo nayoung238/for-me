@@ -43,7 +43,7 @@
 - [Thread](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/thread.md)
 - [ULT & KLT](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/ULT_and_KLT.md)
 - [Lock](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/lock.md)
-- [Semaphore](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/semaphore.md)
+- [Semaphore](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/semaphore.md) (생산자 & 소비자 문제 구현)
 
 > Reference
 > - [operating systems: three easy pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
@@ -69,6 +69,7 @@
 - [TCP의 데이터 경계](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/boundary-of-tcp-transmission-data.md)
 - [TCP 함수호출 과정](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/TCP-system-call.md)
 - [UDP 는 연결이라는 개념이 존재하지 않는다.](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/UDP-system-call.md)
+- Test [TCP와 UDP 기반의 server,client 구현](https://velog.io/@evelyn82ny/TCP-and-UDP-based-on-server-and-client)
 <br>
 
 - [socket, bind, listen, accept, connect](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/socket.md)
@@ -106,6 +107,9 @@
 - Test [Next-key lock 테스트 1](https://github.com/evelyn82ny/for-developer/blob/master/Database/next_key_lock_test.md) : 이미 존재하는 레코드 수정, 중복 ID로 INSERT 시도, 존재하지 않는 ID에 UPDATE 시도
 - Test [Next-key lock 테스트 2](https://github.com/evelyn82ny/for-developer/blob/master/Database/next_key_lock_between_test.md) : Between
 - Test [Next-key lock 테스트 3](https://github.com/evelyn82ny/for-developer/blob/master/Database/composite_key_test.md) : Composite Key
+<br>
+
+- [cursor-based-pagination](https://velog.io/@evelyn82ny/cursor-based-pagination)
 
 <br>
 
@@ -141,6 +145,8 @@
 ## Spring
 
 - [PK mapping](https://github.com/evelyn82ny/for-developer/blob/master/Spring/PK_mapping.md)
+- Test [데이터가 DB에 반영되는 시점 (feat. Persistence Context, Transaction, OSIV)](https://velog.io/@evelyn82ny/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80-DB%EC%97%90-%EB%B0%98%EC%98%81%EB%90%98%EB%8A%94-%EC%8B%9C%EC%A0%90-feat-Persistence-Context-Transaction)
+- [@RestControllerAdvice](https://velog.io/@evelyn82ny/Exception-handling-using-RestControllerAdvice)
 - Ref [Filter, Interceptor, AOP](https://popo015.tistory.com/116?category=902728)
 
 ### Proxy
@@ -152,7 +158,9 @@
 
 ### JPA
 
-- Ref [Optimisstic Lock, Pessimistic Lock](https://reiphiel.tistory.com/entry/understanding-jpa-lock)
+- [JPA와 Spring Data JPA의 차이 (feat. Hibernate)](https://velog.io/@evelyn82ny/JPA-vs-Spring-Data-JPA)
+- [JPA Persistence Context 1차 캐시의 식별 방법 (feat.OSIV)](https://velog.io/@evelyn82ny/how-to-identify-a-first-level-cache)
+- Test [Pessimistic Lock 적용하기](https://velog.io/@evelyn82ny/when-to-use-a-pessimistic-lock-feat-2PL)
 
 <br>
 
