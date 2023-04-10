@@ -31,7 +31,7 @@
 - [Paging](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/paging.md)
 - [Page table 구조](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/page_table_structure.md)
 - [Segmentation](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/segmentation.md)
-- [참고: iOS와 Android 차이](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/difference_between_iOS_and_Android.md)
+- Ref [iOS와 Android 차이](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/difference_between_iOS_and_Android.md)
   
 ### Scheduling
 
@@ -43,10 +43,10 @@
 - [Thread](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/thread.md)
 - [ULT & KLT](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/ULT_and_KLT.md)
 - [Lock](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/lock.md)
-- [Semaphore](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/semaphore.md) (생산자 & 소비자 문제 구현)
+- Test [Semaphore](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/semaphore.md) : 생산자 & 소비자 문제 구현
+<br>
 
-> Reference
-> - [operating systems: three easy pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
+- Ref [operating systems: three easy pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
 
 <br>
 
@@ -66,9 +66,9 @@
 - [4-way handshake & half close](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/4-way-handshake.md)
 - [TCP 와 UDP](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/TCP-VS-UDP.md)
 - [TCP / IP protocol](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/TCP-IP-protocol.md)
-- [TCP의 데이터 경계](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/boundary-of-tcp-transmission-data.md)
+- Test [TCP의 데이터 경계](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/boundary-of-tcp-transmission-data.md)
 - [TCP 함수호출 과정](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/TCP-system-call.md)
-- [UDP 는 연결이라는 개념이 존재하지 않는다.](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/UDP-system-call.md)
+- Test [UDP 는 연결이라는 개념이 존재하지 않는다.](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/UDP-system-call.md)
 - Test [TCP와 UDP 기반의 server,client 구현](https://velog.io/@evelyn82ny/TCP-and-UDP-based-on-server-and-client)
 <br>
 
@@ -76,8 +76,8 @@
 - [file descriptor, open, close, read, write](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/file-descriptor.md)
 <br>
 
-- [Iterative server & Echo client](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/iterative-server-and-echo-client.md)
-- [DNS - gethostbyname()으로 서버 정보 요청하기](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/dns.md)
+- Test [Iterative server & Echo client](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/iterative-server-and-echo-client.md)
+- Test [DNS - gethostbyname()으로 서버 정보 요청하기](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/dns.md)
 <br>
 
 - [blocking vs non-blocking](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/blocking-vs-non-blocking.md)
@@ -85,13 +85,13 @@
 <br>
 
 - [자식 프로세스의 종료를 체크하는 wait, signal](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/zombie-check.md)
-- [multiprocess](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/multiprocess.md)
-- [multiplexing](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/multiplexing.md)
-- [pipe](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/pipe.md)
+- Test [multiprocess](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/multiprocess.md)
+- Test [multiplexing](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/multiplexing.md)
+- Test [pipe](https://github.com/evelyn82ny/for-developer/blob/master/Network/theory/pipe.md)
+<br>
 
-> Reference
-> - [TCP에 우아한 종료란 없다?](https://sunyzero.tistory.com/269)
-> - [ssize_t](https://lacti.github.io/2011/01/08/different-between-size-t-ssize-t/)
+- Ref [TCP에 우아한 종료란 없다?](https://sunyzero.tistory.com/269)
+- Ref [ssize_t](https://lacti.github.io/2011/01/08/different-between-size-t-ssize-t/)
 
 <br>
 
