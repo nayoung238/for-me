@@ -178,11 +178,11 @@
 
 ### Project: MSA with Spring Cloud
 
-- Repo: [api-gateway-service](https://github.com/evelyn82ny/api-gateway-service)
-- Repo: [service-discovery](https://github.com/evelyn82ny/service-discovery)
-- Repo: [item-service](https://github.com/evelyn82ny/MSA-item-service)
-- Repo: [account-service](https://github.com/evelyn82ny/MSA-account-service)
-- Repo: [order-service](https://github.com/evelyn82ny/MSA-order-service)
+- Repo [api-gateway-service](https://github.com/evelyn82ny/api-gateway-service)
+- Repo [service-discovery](https://github.com/evelyn82ny/service-discovery)
+- Repo [item-service](https://github.com/evelyn82ny/MSA-item-service)
+- Repo [order-service](https://github.com/evelyn82ny/MSA-order-service)
+- Repo [account-service](https://github.com/evelyn82ny/MSA-account-service)
 
 <br>
 
@@ -203,8 +203,8 @@
 
 ## Docker
 
-- [Docker가 뭔데?](https://github.com/evelyn82ny/for-developer/blob/master/Docker/what_is_docker.md)
-- [Container는 뭔데?](https://github.com/evelyn82ny/for-developer/blob/master/Docker/what_is_container.md)
+- [Docker란](https://github.com/evelyn82ny/for-developer/blob/master/Docker/what_is_docker.md)
+- [Container란](https://github.com/evelyn82ny/for-developer/blob/master/Docker/what_is_container.md)
 - [Container 생성](https://github.com/evelyn82ny/for-developer/blob/master/Docker/create_container.md)
 - [Docker's OS: Linux](https://github.com/evelyn82ny/for-developer/blob/master/Docker/docker_os_linux.md)
 - [Docker's life cycle](https://github.com/evelyn82ny/for-developer/blob/master/Docker/docker_life_cycle.md)
