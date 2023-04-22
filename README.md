@@ -17,7 +17,7 @@
 
 ## Operating system
 
-- [OS란 (추상화 & 가상화)](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/what_is_OS.md)
+- [OS란 (추상화 & 가상화)](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/operating_system.md)
 - [Process](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/process.md)
 - [process state](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/process_state.md)
 - [Kernel mode & Interrupt](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/interrupt.md)
