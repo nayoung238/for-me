@@ -32,11 +32,11 @@
 - [Page table 구조](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/page_table_structure.md)
 - [Segmentation](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/segmentation.md)
 - Ref [iOS와 Android 차이](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/difference_between_iOS_and_Android.md)
-  
+
 ### Scheduling
 
-- [FIFO, SJF, RR, HRRN](https://github.com/evelyn82ny/for-developere/blob/master/Operating-system/scheduling.md)
-- [MLFQ](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/MLFQ.md)
+- [FIFO, SJF, RR, HRRN](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/scheduling.md)
+- [MLFQ](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/multi_level_feedback_queue.md)
 
 ### Concurrency & Synchronization
 
