@@ -1,4 +1,4 @@
-# Multi-Level Feedback Queue (MLFQ)
+# Multi Level Feedback Queue (MLFQ)
 
 Round Robin(RR, Time slicing)은 응답시간을 단축시키지만 service time인 긴 프로세스의 경우 최악의 turn around time(반환 시간)을 얻게될 수 있다.
 이를 해결하고자 나온 MLFQ는 대화식 사용자에게 응답 시간을 최소화해 빠른 시스템인 것처럼 느끼게 해준다.
@@ -9,16 +9,16 @@ Round Robin(RR, Time slicing)은 응답시간을 단축시키지만 service time
 
 - 여러개의 큐를 사용하며 각각의 큐에게 우선순위 지정
 - 1개의 큐에는 여러 프로세스가 존재할 수 있음
-- 같은 큐에 있는 여러 프로세스는 우선순위가 모두 동일하며 FIFO로 동작
+- 같은 큐에 있는 여러 프로세스는 우선순위가 모두 동일하며 Round Robin 형태로 scheduling
 - 여러 큐 중 우선순위가 높은 큐부터 수행
 
 프로세스에게 우선순위 큐를 지정해주는 방식은 ```I/O bound job``` 과 ```CPU bound job``` 이 있다.
 
-- I/O bound job : I/O 를 하면서 다른 프로세스에게 CPU를 양보하면 해당 프로세스의 우선순위를 올려준다. 현대 OS에서 사용하는 방식이다.
-- CPU bound job : CPU를 집중적으로 사용해 차지하는 시간이 길어지는 프로세스의 우선순위를 낮춘다.
+- I/O bound job: I/O를 하면서 다른 프로세스에게 CPU를 양보하면 해당 프로세스의 우선순위를 올림 (현대 OS에서 사용하는 방식)
+- CPU bound job: CPU를 집중적으로 사용해 차지하는 시간이 길어지는 프로세스의 우선순위를 낮춤
 
-우선 순위가 높은 큐에 있는 경우 빠르게 처리되지만, CPU를 차지할 수 있는 시간이 짧다.<br>
-반대로 우선 순위가 낮은 큐에 있는 경우 CPU를 차지할 수 있는 시간이 길어져 오래 연산할 수 있지만, 우선순위가 낮기 때문에 CPU를 차지할 확률이 낮다.
+우선 순위가 높은 큐에 있는 경우 빠르게 처리되지만, CPU를 차지할 수 있는 시간이 짧다. 반대로 우선 순위가 낮은 큐에 있는 경우 CPU를 차지할 수 있는 시간이 길어져 오래 연산할 수 있지만, 우선순위가 낮기 때문에 CPU를 차지할 확률이 낮다.<br>
+프로세스의 수행 시간을 예측할 수 없기 때문에 일단 우선 순위가 높은 큐에 푸쉬한다. 만약 짧은 작업이라면 빠르게 종료되고, 그렇지 않은 경우 우선순위가 낮은 큐에서 머무를 것이다.
 
 <br>
 
@@ -46,9 +46,13 @@ Rule 4b 의 특성을 이용해 TQ의 99%만 사용하고 CPU를 양도하면 �
 
 일정 시간이 지나면 시스템의 모든 작업을 최상위 큐로 옮긴다. 이로 인해 starvation 현상을 해결하고, CPU bound 작업이 대화형이나 I/O 작업으로 바뀌는 경우 우선 순위가 다시 올라가면서 CPU를 차지하는 가능성이 높아진다.<br>
 
-하지만 gaming의 문제는 해결할 수 없다. voodoo constants(black magic)는 얼마나 자주 우선순위에 올리는지 나타내는 상수이다. voodoo constants이 너무 크면 starvation 현상이 그대로, 너무 작으면 I/O 위주 작업과 대화형 작업이 분리해 적절한 접점을 찾아야 한다.<br>
+하지만 gaming의 문제는 해결할 수 없다. voodoo constants(john ousterhout, black magic)는 얼마나 자주 우선순위에 올리는지 나타내는 상수이다. voodoo constants이 너무 크면 starvation 현상이 그대로, 너무 작으면 I/O 위주 작업과 대화형 작업이 상대적으로 분리해져 적절한 접점을 찾아야 한다.<br>
 
 결국 boosting도 rule 4b의 문제를 완전히 해결하지 못한다.
+
+### I/O 위주 작업과 대화형 작업이 분리하다?
+
+현대 OS에서 우선순위를 지정하는 방식으로 I/O bound job(I/O를 하면서 다른 프로세스에게 CPU를 양보하면 해당 프로세스의 우선순위를 올림)을 사용한다. 하지만 voodoo constants를 작게 잡으면 모든 작업이 우선순위가 높은 큐로 빠르게 올라오므로 I/O bound job을 사용하는 효과를 보지 못한다라고 이해하면 될 것 같다.
 
 <br>
 
@@ -56,7 +60,7 @@ Rule 4b 의 특성을 이용해 TQ의 99%만 사용하고 CPU를 양도하면 �
 
 프로그램을 재작성하여 scheduler를 자신에게 유리하게 동작하는 gaming 조작을 막는 것을 Gaming tolerance라고 한다.<br>
 
-Round Robin(RR, Time slicing)은 응답시간을 단축시키지만 service time인 긴 프로세스의 경우 최악의 turn around time(반환 시간)을 얻게되는 문제는 CPU를 중간에 양도할 수 있다는 점에서 발생하는 문제다. 그러므로 해당 프로세스가 주어진 TQ를 다쓰면 CPU를 몇번 양도했는지 상관 없이 우선 순위를 낮춰 다음 큐로 이동시켜 Gaming 조작을 막을 수 있다.<br>
+Round Robin(RR, Time slicing)은 응답시간을 단축시키지만 service time인 긴 프로세스의 경우 최악의 turn around time(반환 시간)을 얻게되는 문제는 CPU를 중간에 양도할 수 있다는 점과 TQ이 끝나기 전에 CPU를 양보하면 우선순쉬가 유지된다는 점에서 발생하는 문제다. 그러므로 해당 프로세스가 주어진 TQ를 다쓰면 CPU를 몇번 양도했는지 상관 없이 우선순위를 낮춰 다음 큐로 이동시켜 Gaming 조작을 막을 수 있다.<br>
 
 하지만 모든 프로세스가 사용한 TQ를 계산해야 하므로 overhead가 발생하는 새로운 문제가 생긴다. 
 
