@@ -43,7 +43,8 @@
 - [Thread](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/thread.md)
 - [ULT & KLT](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/ULT_and_KLT.md)
 - [Lock](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/lock.md)
-- Test [Semaphore](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/semaphore.md) : 생산자 & 소비자 문제 구현
+- Test [Semaphore](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/semaphore.md)
+- Test [생산자 & 소비자 문제 구현](https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/producer_consumer_problem.md)
 <br>
 
 - Ref [operating systems: three easy pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
