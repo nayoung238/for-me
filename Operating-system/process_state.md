@@ -106,7 +106,7 @@ PCB의 program counter(PC register) 값에 의해 결정된 순서에 따라 CPU
 ## top 명령어
 
 - ```top``` 명령어로 프로세스의 상태를 확인할 수 있다.
-- top 대한 자세한 설명 : https://github.com/evelyn82ny/Computer-science/blob/master/Operating-system/theory/command.md
+- https://github.com/evelyn82ny/for-developer/blob/master/Operating-system/top_command.md
 
 
 ### S(state) 종류
