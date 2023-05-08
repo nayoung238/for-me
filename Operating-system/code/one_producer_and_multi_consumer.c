@@ -4,7 +4,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-#include "common_threads.h"
 
 int *buffer;
 int loops;
@@ -25,76 +24,76 @@ void fill(int value) {
     printf("PUT -> [0x%lx]: %d\n", (unsigned long)pthread_self(), value);
 }
 int get(void *arg) {
-    int tmp = buffer[get_ptr];
-    printf("GET -> [0x%lx]: %d\n", (unsigned long)pthread_self(), tmp);
+    int temp = buffer[get_ptr];
+    printf("GET -> [0x%lx]: %d\n", (unsigned long)pthread_self(), temp);
     get_ptr = (get_ptr + 1) % max;
     buffer_full--;
-    return tmp;
+    return temp;
 }
 void *producer(void *arg) {
     for(int i = 0; i < loops; i++) {
-        Mutex_lock(&mutex);
+        assert(pthread_mutex_lock(&mutex) == 0);
         while(buffer_full == max) {
-            Cond_wait(&cond, &mutex);
+            assert(pthread_cond_wait(&cond, &mutex) == 0);
         }
         fill(i);
-        Cond_signal(&cond);
-        Mutex_unlock(&mutex);
+        assert(pthread_cond_signal(&cond) == 0);
+        assert(pthread_mutex_unlock(&mutex) == 0);
     }
-
-    for(int i = 0; i < consumers; i++) {
-        Mutex_lock(&mutex);
+    for(int i = 0; i < loops; i++) {
+        assert(pthread_mutex_lock(&mutex) == 0);
         while(buffer_full == max) {
-            Cond_wait(&cond, &mutex);
+            assert(pthread_cond_wait(&cond, &mutex) == 0);
         }
         fill(-1);
-        Cond_signal(&cond);
-        Mutex_unlock(&mutex);
+        assert(pthread_cond_signal(&cond) == 0);
+        assert(pthread_mutex_unlock(&mutex) == 0);
     }
     return NULL;
 }
 void *consumer(void *arg) {
     int tmp = 0;
     while(tmp != -1) {
-        Mutex_lock(&mutex);
+        assert(pthread_mutex_lock(&mutex) == 0);
         while(buffer_full == 0) {
-            Cond_wait(&cond, &mutex);
+            assert(pthread_cond_wait(&cond, &mutex) == 0);
         }
         tmp = get(NULL);
-        Cond_signal(&cond);
-        Mutex_unlock(&mutex);
+        assert(pthread_cond_signal(&cond) == 0);
+        assert(pthread_mutex_unlock(&mutex) == 0);
     }
     return NULL;
 }
-int main(int argc, char *argv[]) {
 
+int main(int argc, char *argv[]) {
     if(argc != 4) {
         fprintf(stderr, "usage: %s <buffersize> <loops> <consumers>\n", argv[0]);
         exit(1);
     }
-
+    
     max = atoi(argv[1]);
     loops = atoi(argv[2]);
     consumers = atoi(argv[3]);
-
-    buffer = (int *)malloc(max * sizeof(int));
+    
+    buffer = (int*)malloc(max * sizeof(int));
     assert(buffer != NULL);
+    
     int i;
-    for(i = 0; i < max; i++) {
+    for(int i = 0; i < max; i++) {
         buffer[i] = 0;
     }
-
-    pthread_t tp; // thread_producer
-    pthread_t tc[consumers]; // thread_consumer
-
-    Pthread_create(&tp, NULL, producer, NULL);
+    
+    pthread_t tp;
+    pthread_t tc[consumers];
+    
+    assert(pthread_create(&tp, NULL, producer, NULL) == 0);
     for(int i = 0; i < consumers; i++) {
-        Pthread_create(&tc[i], NULL, consumer, NULL);
+        assert(pthread_create(&tc[i], NULL, consumer, NULL) == 0);
     }
-
-    Pthread_join(tp, NULL);
+    
+    assert(pthread_join(tp, NULL) == 0);
     for(int i = 0; i < consumers; i++) {
-        Pthread_join(tc[i], NULL);
+        assert(pthread_join(tc[i], NULL) == 0);
     }
     return 0;
 }
