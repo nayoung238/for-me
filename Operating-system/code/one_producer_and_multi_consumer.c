@@ -1,85 +1,84 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <assert.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <string.h>
 
 int *buffer;
-int loops;
-int max;
+int buffer_size;
+int number_of_productions;
 int consumers = 1;
 
 int buffer_full = 0;
 int fill_ptr = 0;
 int get_ptr = 0;
 
-pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 
 void fill(int value) {
     buffer[fill_ptr] = value;
-    fill_ptr = (fill_ptr + 1) % max;
+    fill_ptr = (fill_ptr + 1) % buffer_size;
     buffer_full++;
     printf("PUT -> [0x%lx]: %d\n", (unsigned long)pthread_self(), value);
 }
 int get(void *arg) {
-    int temp = buffer[get_ptr];
-    printf("GET -> [0x%lx]: %d\n", (unsigned long)pthread_self(), temp);
-    get_ptr = (get_ptr + 1) % max;
+    int value = buffer[get_ptr];
+    printf("GET -> [0x%lx]: %d\n", (unsigned long)pthread_self(), value);
+    
+    get_ptr = (get_ptr + 1) % buffer_size;
     buffer_full--;
-    return temp;
+    return value;
 }
 void *producer(void *arg) {
-    for(int i = 0; i < loops; i++) {
+    for(int i = 0; i < number_of_productions; i++) {
         assert(pthread_mutex_lock(&mutex) == 0);
-        while(buffer_full == max) {
+        while(buffer_full == buffer_size) {
             assert(pthread_cond_wait(&cond, &mutex) == 0);
         }
         fill(i);
-        assert(pthread_cond_signal(&cond) == 0);
         assert(pthread_mutex_unlock(&mutex) == 0);
+        assert(pthread_cond_signal(&cond) == 0);
     }
-    for(int i = 0; i < loops; i++) {
+    
+    // 소비자가 -1 값을 읽으면 소비자 작업 종료
+    for(int i = 0; i < consumers; i++) {
         assert(pthread_mutex_lock(&mutex) == 0);
-        while(buffer_full == max) {
+        while(buffer_full == buffer_size) {
             assert(pthread_cond_wait(&cond, &mutex) == 0);
         }
         fill(-1);
-        assert(pthread_cond_signal(&cond) == 0);
         assert(pthread_mutex_unlock(&mutex) == 0);
+        assert(pthread_cond_signal(&cond) == 0);
     }
     return NULL;
 }
 void *consumer(void *arg) {
-    int tmp = 0;
-    while(tmp != -1) {
+    int value = 0;
+    while(value != -1) {
         assert(pthread_mutex_lock(&mutex) == 0);
         while(buffer_full == 0) {
             assert(pthread_cond_wait(&cond, &mutex) == 0);
         }
-        tmp = get(NULL);
-        assert(pthread_cond_signal(&cond) == 0);
+        value = get(NULL);
         assert(pthread_mutex_unlock(&mutex) == 0);
+        assert(pthread_cond_signal(&cond) == 0);
     }
     return NULL;
 }
-
-int main(int argc, char *argv[]) {
+int main(int argc, const char *argv[]) {
     if(argc != 4) {
-        fprintf(stderr, "usage: %s <buffersize> <loops> <consumers>\n", argv[0]);
+        fprintf(stderr, "usage: %s <buffer size> <number of productions> <consumers>\n", argv[0]);
         exit(1);
     }
     
-    max = atoi(argv[1]);
-    loops = atoi(argv[2]);
+    buffer_size = atoi(argv[1]);
+    number_of_productions = atoi(argv[2]);
     consumers = atoi(argv[3]);
     
-    buffer = (int*)malloc(max * sizeof(int));
+    buffer = (int*)malloc(buffer_size * sizeof(int));
     assert(buffer != NULL);
     
-    int i;
-    for(int i = 0; i < max; i++) {
+    for(int i = 0; i < buffer_size; i++) {
         buffer[i] = 0;
     }
     
