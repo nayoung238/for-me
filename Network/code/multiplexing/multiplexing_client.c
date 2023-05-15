@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
         if(!strcmp(buffer, "q\n") || !strcmp(buffer, "Q\n"))
             break;
 
-        str_len = write(sock, buffer, sizeof(buffer));
+        str_len = write(sock, buffer, sizeof(buffer) - 1);
         if(str_len == -1)
             error_handling("write() error");
 

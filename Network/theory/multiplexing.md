@@ -121,12 +121,13 @@ struct timeval{
 
 - line 3 : 키보드 입력을 관심 대상으로 설정한다.
 - line 6 : ```select()``` 의 readset은 reference를 전달하므로 값이 계속 바뀐다. 이를 방지하기 위해 temps에 copy해 전달한다.
-- line 7 ~ 8 : ```select()``` 호출 후에는 타임아웃 발생 직전의 시간이 담기므로 초기화한다고 하는데 -> 아무런 변동 없음 (해결 못함)
+- line 7, 8 : ```select()``` 호출 후에는 타임아웃 발생 직전의 시간이 담기므로 초기화한다고 하는데 -> 아무런 변동 없음 (해결 못함)
 - line 9 : 지금은 수신된 데이터의 존재 유무만 확인할 것이므로 readset만 설정하고 writeset과 exceptset은 NULL로 설정한다.
 - line 15 : 지정된 시간만큼 아무런 변화가 없으면 0 이 리턴된다.
 - line 20 : 관심 대상 범위내이고 파일 디스크립터 0 에서 변화가 일어났다면 read해 출력한다.
 <br>
 
-## multiplexing 기반 echo server
+## multiplexing 기반 server & client
 
-- 전체 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/multiplexing/multiplexing_server.c
+- server 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/multiplexing/multiplexing_server.c
+- client 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/multiplexing/multiplexing_client.c
