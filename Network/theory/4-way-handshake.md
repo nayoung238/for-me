@@ -1,7 +1,7 @@
 # 4-way handshake
 
 - **3-way handshake**: TCP 통신에서 데이터 송수신 전에 서로 데이터를 주고 받을 수 있는 상태인지 체크하는 것
-- **4-way handshake**: 서로간의 연결을 종료하기 위한 방식
+- **4-way handshake**: 서로 간 연결을 종료하기 위한 방식
 
 <br>
 
@@ -11,19 +11,18 @@ TCP 소켓마다 입출력 버퍼가 존재하는데 이는 소켓 생성시 자
 
 ![png](/Network/_img/tcp_buffer.png) 
 
-- read(입력) buffer 에 있는 데이터를 read()로 읽고, write()하면 write(출력) buffer 에 쌓인다.
-- write buffer 에 쌓인 데이터가 상대방의 read buffer 에 쌓이는 방식이다.
+- read(입력) buffer에 있는 데이터를 read()로 읽고 write()하면 write(출력) buffer에 쌓인다.
+- write buffer에 쌓인 데이터가 상대방의 read buffer에 쌓이는 방식이다.
 
 하지만 입출력 버퍼에 데이터가 있는 상태로 close()를 호출하면 어떻게 될까?
 
 - 입력 버퍼에 데이터가 있는 상태에서 close()로 소켓을 닫으면 **입력버퍼에 있는 데이터는 소멸**된다.
-- 출력 버퍼에 데이터가 있는 상태에서 close()로 소켓을 닫아도 일단 **데이터를 모두 전송한 다음 버퍼를 닫는다**.
+- 출력 버퍼에 데이터가 있는 상태에서 close()로 소켓을 닫아도 ~~일단 데이터를 모두 전송한 다음 버퍼를 닫는다~~ 라고 배웠는데, 실제 구현해보면 전송되지 않음
 
-즉, close()를 호출해도 write buffer 에 있는 데이터(전송해야하는 데이터)를 상대방에게 전달하는 것을 보장한다.<br>
-하지만 상대방에게 전달하는 것을 보장하는 것이지 **상대방이 받았다는 것을 보장하지 않는다**.<br>
+~~즉, close()를 호출해도 write buffer 에 있는 데이터(전송해야하는 데이터)를 상대방에게 전달하는 것을 보장한다.~~ 하지만 상대방에게 전달하는 것을 보장하는 것이지 **상대방이 받았다는 것을 보장하지 않는다**.<br>
 
-만약 상대가 나보다 먼저 소켓을 닫은 경우 이미 입력 버퍼가 닫혀있기 때문에 내가 데이터를 보냈다해도 받을 방법이 없다. 정말 전송의 의무만 다하는 것이다.<br>
-물론 이 경우는 효율적인 방법이 아니다.
+만약 상대가 나보다 먼저 소켓을 닫은 경우 이미 입력 버퍼(stdin)가 닫혀있기 때문에 내가 데이터를 보냈다해도 받을 방법이 없다.
+정말 전송의 의무만 다하는 것이다. 물론 이 경우는 효율적인 방법이 아니다.
 
 <br>
 
@@ -90,7 +89,7 @@ host B의 경우 half-close 가 아닌 close() 호출로 입출력 버퍼를 둘
 
 ## shutdown()
 
-half-close 하기 위해 shutdown() 을 호출한다.<br>
+half-close 하기 위해 shutdown() 을 호출한다.
 
 ```c
 #include <sys/socket.h>
@@ -127,9 +126,9 @@ int shutdown(int sock, int howto);
 17 close(serv_sd);
 ```
 
-- line 10 : write buffer 를 먼저 닫는다.
-- line 16 : connect()에서 리턴한 데이터 소켓을 닫는데 이때 read buffer 를 닫는다.
-- line 18 : 연결을 기다리는 서버소켓을 닫는다.
+- line 10 : write buffer를 먼저 닫는다.
+- line 16 : connect()에서 리턴한 데이터 소켓을 닫는데 이때 read buffer를 닫는다.
+- line 17 : 연결을 기다리는 서버소켓을 닫는다.
 
 <br>
 
