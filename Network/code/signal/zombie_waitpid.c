@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h> // fork
 #include <stdlib.h> // exit
-#include <sys/wait.h>
+#include <sys/wait.h> // waitpid
 
 int main(){
 
@@ -15,11 +15,19 @@ int main(){
     }
     else {
         while(!waitpid(-1, &state, WNOHANG)) {
-            sleep(3);
-            puts("sleep 3sec");
+            sleep(2);
+            puts("sleep 2sec");
         }
         if(WIFEXITED(state))
             printf("child return value : %d\n", WEXITSTATUS(state));
     }
     return 0;
 }
+/*
+Hi! im child
+sleep 2sec
+sleep 2sec
+sleep 2sec
+sleep 2sec
+child return value : 3
+*/

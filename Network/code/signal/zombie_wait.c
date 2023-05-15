@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <unistd.h> // fork
 #include <stdlib.h> // exit
-#include <sys/wait.h>
 
 int main(){
 
@@ -17,10 +16,10 @@ int main(){
 
         pid = fork();
         if(pid == 0) {
+            puts("Hi! im child2");
             exit(7);
         }
         else {
-            puts("Hi! im child2");
             printf("child2 id : %d\n", pid);
 
             wait(&state);
@@ -34,3 +33,11 @@ int main(){
     }
     return 0;
 }
+/*
+child1 id : 5935
+Hi! im child1
+child2 id: 5936
+child return : 3
+Hi! im child2
+child return : 7
+*/
