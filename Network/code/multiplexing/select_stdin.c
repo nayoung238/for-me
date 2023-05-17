@@ -1,14 +1,11 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <arpa/inet.h>
-#include <sys/select.h>
+#include <unistd.h>  // read
+#include <sys/select.h>  // select
 #include <sys/time.h>
 
 #define BUF_SIZE 1024
 
-int main(){
+int main(int argc, char *argv[]) {
     
     char buf[BUF_SIZE];
 
@@ -38,7 +35,7 @@ int main(){
         else {
             if(FD_ISSET(0, &temps)){
                 str_len = read(0, buf, BUF_SIZE);
-                buf[str_len] = 0;
+                buf[str_len] = 0;  // null (ASCII)
                 printf("message from console : %s", buf);
             }
         }
