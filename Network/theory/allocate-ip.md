@@ -61,7 +61,8 @@ printf("Network ordered port : %#x\n", net_port);
 Host ordered port : 0x1234
 Network ordered port : 0x3412
 ```
-<br><br>
+
+<br>
 
 ## inet_addr()
 
@@ -74,7 +75,7 @@ in_addr_t inet_addr(const char* string);
 // 성공 시 big-endian으로 변환한 32비트 정수 값, 실패 시 INADDR_NONE return 
 ```
 
-string 으로 넘져준 IP 주소를 제대로 변환했다면 **32비트 정수** 값을 리턴하고, 변환에 실패했다면 ```INADDR_NONE``` 을 반환한다.<br>
+string 으로 넘겨준 IP 주소를 제대로 변환했다면 **32비트 정수** 값을 리턴하고, 변환에 실패했다면 ```INADDR_NONE``` 을 반환한다.
 정상적인 32비트를 받았다면 ```in_addr``` 구조체의 ```s_addr``` 에 저장한다.
 
 ```c
@@ -103,7 +104,7 @@ struct in_addr {
 
 주소를 입력하고 네트워크 주소로 제대로 변환되는지 확인해봤다.
 
-- 네트워크 주소로 변환하는 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/addr-conv/inet_addr.c
+- 네트워크 주소로 변환하는 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/convert-address/inet_addr.c
 
 ```c
 char *addr = "1.2.3.4";
@@ -119,10 +120,10 @@ Network ordered integer addr : 0x4030201  // 04에서 0 생략 가능
 
 ```c
 char *addr = "1.2.3.256";
-unsigned long conv_addr = inet_addr(addr);  -> INADDR_NONE return
+unsigned long conv_addr = inet_addr(addr);  // return INADDR_NONE
 ```
 
-```1.2.3.256```를 변환하도록 전달했다면 **네트워크 주소로 변환할 수 없다.**<br>
+```1.2.3.256```를 변환하도록 전달했다면 **네트워크 주소로 변환할 수 없다.**
 IP는 32비트이므로 ```.``` 을 기준으로 1바이트로 변환된다. 즉, 1바이트가 표현할 수 있는 **0부터 255까지** 범위 내에서 작성해야 한다.<br>
 
 ```inet_addr()``` 은 ```in_addr_t``` 타입인 **32비트 정수**를 반환만 해준다.<br>
@@ -149,7 +150,7 @@ int inet_aton(const char *string, struct in_addr *addr);
 
 <br>
 
-- ```inet_aton()```으로 변환하는 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/addr-conv/inet_aton.c
+- ```inet_aton()```으로 변환하는 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/convert-address/inet_aton.c
 
 ```c
 char *addr = "127.232.124.79";
@@ -176,10 +177,9 @@ char* inet_ntoa(struct in_addr adr);
 ```
 
 ```inet_aton()```의 반대 기능으로 네트워크 바이트 순서로 정렬된 IP 주소를 우리가 보기 편한 **문자열의 형태로 변환**한다.
-
 <br>
 
-- ```inet_ntoa()``` 에 대한 코드 : https://github.com/evelyn82ny/for-developer/blob/master/Network/code/addr-conv/inet_ntoa.c
+- ```inet_ntoa()``` 에 대한 코드 : hhttps://github.com/evelyn82ny/for-developer/blob/master/Network/code/convert-address/inet_ntoa.c
 
 ```c
 struct sockaddr_int addr;
