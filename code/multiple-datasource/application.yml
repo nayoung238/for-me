@@ -1,0 +1,19 @@
+spring:
+  item-datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://127.0.0.1:3306/db_1
+    hikari:
+      pool-name: item-HikariPool
+      maximum-pool-size: 3
+      connection-timeout: 20000
+      minimum-idle: 3
+  user-datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://127.0.0.1:3306/db_0
+    hikari:
+      pool-name: user-HikariPool
+      maximum-pool-size: 5
+      connection-timeout: 20000
+      minimum-idle: 5
