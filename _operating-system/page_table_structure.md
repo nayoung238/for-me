@@ -11,7 +11,7 @@
 
 ## N 단계 페이지 테이블
 
-![jpeg](/Operating-system/_img/n_level_page_table.jpeg)
+![jpeg](/_operating-system/_img/n_level_page_table.jpeg)
 
 > 출처: 운영체제 - 구현회
 

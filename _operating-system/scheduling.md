@@ -65,7 +65,7 @@
 
 ## Round Robin
 
-![png](/Operating-system/_img/round_robin.png)
+![png](/_operating-system/_img/round_robin.png)
 
 - 실제 Scheduler 기반
 - Preemption (작업 도중에 다른 프로세스에게 권한을 넘겨줌)

@@ -7,9 +7,9 @@
 
 ## Kernel mode vs User mode
 
-![png](/Operating-system/_img/modes_of_execution(1).png)
+![png](/_operating-system/_img/modes_of_execution(1).png)
 
-![png](/Operating-system/_img/modes_of_execution(2).png)
+![png](/_operating-system/_img/modes_of_execution(2).png)
 
 - 사용자 프로그램의 간섭으로부터 OS 및 PCB와 같은 주요 운영체제 테이블을 보호할 필요가 있고 이를 위해 2가지 모드로 나뉨
 - User mode(mode bit = 1) : 사용자 Application Program이 대부분 수행되는 모드

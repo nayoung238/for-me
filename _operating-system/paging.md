@@ -30,7 +30,7 @@ Page와 Page Frame 단위의 크기를 더 줄이면 내부 단편화를 줄일 
 
 ## Address translation
 
-![png](/Operating-system/_img/address_translation.png)
+![png](/_operating-system/_img/address_translation.png)
 
 - Logical address(논리 주소)란 프로그램의 시작위치로부터 상대적인 값으로, MMU가 논리주소를 물리주소로 변환
 - 이처럼 MMU의 도움을 받아 주소를 변경하는 것을 **Dynamic relocation**이라고 함
@@ -57,7 +57,7 @@ Page와 Page Frame 단위의 크기를 더 줄이면 내부 단편화를 줄일 
 
 ## Offset
 
-![png](/Operating-system/_img/offset.png)
+![png](/_operating-system/_img/offset.png)
 
 - Page의 크기는 offset에 비례
 - offset 12비트이면 Page 크기 2^12 = 4096 = 4KB
