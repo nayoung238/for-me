@@ -9,7 +9,7 @@ PK 값에 의해 레코드의 위치가 결정되며 이는 PK 변경 시 레코
 
 > B-Tree 인덱스도 인덱스 값으로 정렬되어있으므로 인덱스로 클러스터링되었다고 생각할 수 있지만, 이는 클러스터링 인덱스라고 하지 않는다. 테이블의 레코드가 PK 값으로 정렬된 경우만 클러스터링 인덱스 또는 클러스터링 테이블이라고 한다. - Real MySQL 8.0
 
-![png](/Database/_img/clustered_index.png)
+![png](/database/_img/clustered_index.png)
 
 위 구조는 클러스터링 테이블의 구조이며 B-Tree와 비슷하다. Secondary Index를 위한 B-Tree의 리프 노드에는 RowID가 저장되어있지만, **클러스터링 인덱스의 리프 노드에는 레코드의 모든 칼럼이 저장**되어있다. 즉, 클러스터링 테이블은 그 자체가 하나의 인덱스 구조로 관리된다.
 
@@ -19,7 +19,7 @@ PK 값에 의해 레코드의 위치가 결정되며 이는 PK 변경 시 레코
 
 클러스터링 인덱스는 PK 값으로 테이블의 레코드가 정렬되므로 **PK에 의존**하는 것을 알 수 있다. 만약 PK를 변경하거나 새로운 PK를 추가한다면 페이지 이동 또는 분할이 발생한다.
 
-![png](/Database/_img/page_split.png)
+![png](/database/_img/page_split.png)
 
 PK 값을 변경하면 PK를 기준으로 다시 재정렬이 일어나 위 그림과 같이 다른 페이지(리프 노드)로 이동해야한다. 물론 실제 서비스에서 PK 값이 변경되는 경우가 거의 없다고 한다. 
 
@@ -40,7 +40,7 @@ PK 값을 변경하면 PK를 기준으로 다시 재정렬이 일어나 위 그�
 
 ## 공간 지역성의 효율이 높아짐
 
-![png](/Database/_img/space_efficiency.png)
+![png](/database/_img/space_efficiency.png)
 
 위 테이블은 ```from_user``` 와 ```to_user``` 칼럼으로 복합키를 생성한 결과이다. 두 칼럼을 알파벳 순서로 나열하면 ```from_user``` 칼럼이 빠르기 때문에 ```from_user``` 칼럼을 기준으로 정렬된다. 
 
@@ -60,17 +60,17 @@ Clustered Index는 리프 노드에 실제 데이터가 존재하며 1개의 특
 
 username 컬럼 값으로 Non-Clustered Index를 만들면 username 값으로도 O(logN) 시간복잡도만으로 레코드를 찾을 수 있다.
 
-![png](/Database/_img/nonclustered_index.png)
+![png](/database/_img/nonclustered_index.png)
 
 Clustered Index는 **리프 노드에 레코드의 모든 칼럼을 저장**하므로 리프 노드까지 내려가면 바로 데이터를 읽을 수 있다. 이와 다르게 Non-Clustered Index는 **리프노드에 레코드의 물리적 위치인 RowID를 저장**한다. RowID를 통해 데이터 파일에서 레코드를 다시 한번 찾아야 하므로 조회 시 Non-Clustered Index가 상대적으로 느리다.
 
 즉, Non-Clustered Index와 실제 데이터는 독립적이므로 Clustered Index와 다르게 인덱스 페이지를 따로 만들어야 한다. 또한 리프 노드에는 레코드의 물리적 위치인 RowID가 저장된다고 했는데 정확히 말하면 스토리지 엔진마다 차이가 있다.
 
-![png](/Database/_img/MyISAM_data_record.png)
+![png](/database/_img/MyISAM_data_record.png)
 
 MyISAM이나 MEMORY 테이블은 클러스터링되지 않기 때문에 레코드가 INSERT될 때 처음 저장된 공간에서 절대 이동하지 않는다. 그러므로 MyISAM 테이블은 리프 노드에 데이터 파일 내의 **위치(Offset)** 을 저장한다.
 
-![png](/Database/_img/InnoDB_data_record.png)
+![png](/database/_img/InnoDB_data_record.png)
 
 InnoDB 테이블은 리프 노드에 레코드의 **PK 값**을 저장한다.
 

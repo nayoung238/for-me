@@ -96,18 +96,10 @@
 
 ## Database
 
-- [Join](https://github.com/nayoung8142/for-developer/blob/master/Database/Join.md)
-- [Transaction Isolation Levels](https://github.com/nayoung8142/for-developer/blob/master/Database/transation_isolation_levels.md)
-- [Pessimistic Lock, Optimistic Lock](https://github.com/nayoung8142/for-developer/blob/master/Database/optimistic_lock_pessimistic_lock.md)
-- [Clustered Index & Nonclustered Index](https://github.com/nayoung8142/for-developer/blob/master/Database/clustered_index_and_nonclustered_index.md)
-- Test [Record Lock](https://github.com/nayoung8142/for-developer/blob/master/Database/record_lock.md)
-- Test [Next-key lock vs Insert-intention](https://github.com/nayoung8142/for-developer/blob/master/Database/next_key_lock_and_insert_intention_test.md)
-- Test [Next-key lock 테스트 1](https://github.com/nayoung8142/for-developer/blob/master/Database/next_key_lock_test.md) : 이미 존재하는 레코드 수정, 중복 ID로 INSERT 시도, 존재하지 않는 ID에 UPDATE 시도
-- Test [Next-key lock 테스트 2](https://github.com/nayoung8142/for-developer/blob/master/Database/next_key_lock_between_test.md) : Between
-- Test [Next-key lock 테스트 3](https://github.com/nayoung8142/for-developer/blob/master/Database/composite_key_test.md) : Composite Key
-<br>
-
-- [cursor-based-pagination](https://velog.io/@evelyn82ny/cursor-based-pagination)
+- [Clustered Index & Nonclustered Index](https://github.com/imzero238/for-interview/blob/master/database/clustered_index_and_nonclustered_index.md)
+- [Non-unique Index & Next Key Lock](https://medium.com/@im_zero/non-unique-index%EC%99%80-next-key-lock-b314379d9b0f)
+- [MySQL InnoDB 락 테스트(트랜잭션 격리 수준별 비교)](https://medium.com/@im_zero/innodb-%EB%9D%BD-%ED%85%8C%EC%8A%A4%ED%8A%B8-ab712d19b74f)
+- [cursor-based-pagination](https://medium.com/@im_zero/infinite-scroll-encountered-two-children-with-the-same-key-%EC%97%90%EB%9F%AC-48c62db262e1)
 
 <br>
 
