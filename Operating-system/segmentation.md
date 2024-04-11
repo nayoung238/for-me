@@ -34,7 +34,7 @@
 
 ## 하드웨어 구조
 
-![jpeg](/_operating-system/_img/segmentation_address_translation.jpeg)
+![jpeg](/operating-system/_img/segmentation_address_translation.jpeg)
 
 > 출처: 운영체제 - 구현회
 

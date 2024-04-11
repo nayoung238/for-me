@@ -18,7 +18,7 @@ CPU utilization을 올리기 위해선 메모리에 일부분만 load 한다. I/
 
 PCB의 program counter(PC register) 값에 의해 결정된 순서에 따라 CPU가 명령어를 수행한다. 개별 프로세스 행위의 특성은 해당 프로세스를 위해 수행되는 일련의 명렁어 리스트로 표현하는데 이를 **프로세스의 궤적(trace)** 이라고 한다.
 
-![png](/_operating-system/_img/process_state.png)
+![png](/operating-system/_img/process_state.png)
 
 ### Create
 
