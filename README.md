@@ -9,9 +9,6 @@
 - 🌱 [Spring Cloud](#spring-cloud)
 - 🛠 [Design Pattern](#design-pattern)
 - 🐳 [Docker](#docker)
-<br>
-
-- ⌨️ Project: [MSA with Spring Cloud](#project-msa-with-spring-cloud)
 
 <br>
 
@@ -160,16 +157,6 @@
 - [Custom Filter Using AbstractGatewayFilterFactory](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/custom_filter.md)
 - [Global Filter Using AbstractGatewayFilterFactory](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/global_filter.md)
 - [Spring Cloud Gateway (Load Balancer)](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/spring-cloud-gateway.md)
-<br>
-
-### Project: MSA with Spring Cloud
-
-- Repo [api-gateway-service](https://github.com/nayoung8142/api-gateway-service)
-- Repo [service-discovery](https://github.com/nayoung8142/service-discovery)
-- Repo [item-service](https://github.com/nayoung8142/MSA-item-service)
-- Repo [order-service](https://github.com/nayoung8142/MSA-order-service)
-- Repo [account-service](https://github.com/nayoung8142/MSA-account-service)
-
 <br>
 
 ## Design Pattern
