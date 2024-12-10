@@ -37,11 +37,11 @@
 
 ### Concurrency & Synchronization
 
-- [Thread](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/thread.md)
-- [ULT & KLT](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/ULT_and_KLT.md)
-- [Lock](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/lock.md)
-- Test [Semaphore](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/semaphore.md)
-- Test [생산자 & 소비자 문제 구현](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/producer_consumer_problem.md)
+- [Thread](https://github.com/nayoung8142/for-developer/blob/master/operating-system/docs/thread.md)
+- [ULT & KLT](https://github.com/nayoung8142/for-developer/blob/master/operating-system/docs/ult_and_klt.md)
+- [Lock](https://github.com/nayoung8142/for-developer/blob/master/operating-system/docs/lock.md)
+- Test [Semaphore](https://github.com/nayoung8142/for-developer/blob/master/operating-system/docs/semaphore.md)
+- Test [생산자 & 소비자 문제 구현](https://github.com/nayoung8142/for-developer/blob/master/operating-system/docs/producer_consumer_problem.md)
 <br>
 
 - Ref [operating systems: three easy pieces](https://pages.cs.wisc.edu/~remzi/OSTEP/)
