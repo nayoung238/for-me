@@ -1,10 +1,12 @@
+# BeanPostProcessor - pointcut
+
 Spring Boot는 ```AnnotationAwareAspectJAutoProxyCreator```라는 BeanPostProcessor가 Spring bean에 자동 등록된다.
 
 - 자동으로 Proxy 생성
 - Spring bean으로 등록된 Advisor들을 자동으로 찾아 Proxy가 필요한 곳에 적용
 - ```@AspectJ```와 관련된 AOP 기능도 자동으로 처리
 
-![png](/_server/_img/BeanPostProcessor/BeanPostProcessor(3).png)
+![png](/spring/img/bean_post_processor_3.png)
 
 > 출처: 스프링 핵심 원리 -고급편(김영한)
 
@@ -21,7 +23,7 @@ Spring Boot는 ```AnnotationAwareAspectJAutoProxyCreator```라는 BeanPostProces
 
 <br>
 
-> BeanPostProcessor interface를 구현 커밋: https://github.com/evelyn82ny/design-pattern/commit/b3428a9de932d9a02935927a3c8100387aa8f23e
+> BeanPostProcessor interface를 구현 커밋: https://github.com/imzero238/design-pattern/commit/b3428a9de932d9a02935927a3c8100387aa8f23e
 
 ```java
 public class PackageLogTraceProxyPostProcessor implements BeanPostProcessor {...}
@@ -32,7 +34,7 @@ public class PackageLogTraceProxyPostProcessor implements BeanPostProcessor {...
 
 ## Pointcut
 
-> Proxy 자동 적용 커밋: https://github.com/evelyn82ny/design-pattern/commit/567198f919eb3818c0c164da7fc2e13635678ff7
+> Proxy 자동 적용 커밋: https://github.com/imzero238/design-pattern/commit/567198f919eb3818c0c164da7fc2e13635678ff7
 
 ```java
 @Bean
@@ -56,14 +58,14 @@ Pointcut은 2번 사용된다.
 
 ### 해당 객체가 Proxy 적용 대상인지 판단 (생성 단계)
 
-해당 객체를 빈 저장소에 저장하기 전 BeanPostProcessor에 넘겨 Proxy 적용 대상여부를 판단한다.
+해당 객체를 빈 저장소에 저장하기 전 BeanPostProcessor에 넘겨 Proxy 적용 대상 여부를 판단한다.
 클래스와 모든 Method에 Spring container에 있는 모든 Advisor를 매칭한다.
 <br>
 
 ### Advice 적용 여부 (사용 단계)
 
 해당 객체 중 특정 Method가 Advisor를 매칭되어 Proxy 적용 대상이 되었다. 
-이는 특정 Method가 아닌 다른 Method를 사용할 때는 Advice를 적용하면 안된다는 뜻이다.
+이는 특정 Method가 아닌 다른 Method를 사용할 때는 Advice를 적용하면 안 된다는 뜻이다.
 
 <br>
 
@@ -72,7 +74,7 @@ Pointcut은 2번 사용된다.
 Advice를 적용하기 위해 Proxy 객체를 생성하는 것은 결국 자원을 사용한다는 의미이다. 
 즉, Pointcut으로 적용 범위를 조율하는 것이 중요한다.
 
-> execution 사용 커밋: https://github.com/evelyn82ny/design-pattern/commit/fa6dc11c3018009eab646f7ad38853448f2e4528
+> execution 사용 커밋: https://github.com/imzero238/design-pattern/commit/fa6dc11c3018009eab646f7ad38853448f2e4528
 
 Pointcut을 설정할때 ```setExpression(execution)``` 으로 자세한 범위 설정을 할 수 있다.
 
@@ -96,8 +98,9 @@ public Advisor setExecutionAdvisor(LogTrace logTrace) {
 @Bean
 public Advisor setExecutionAdvisor2(LogTrace logTrace) {
 	AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-    pointcut.setExpression("execution(* nayoung.designpattern.app..*(..)) 
-    						&& !execution(* nayoung.designpattern.app..*NoLog(..))");
+    pointcut.setExpression(
+        "execution(* nayoung.designpattern.app..*(..)) 
+    	&& !execution(* nayoung.designpattern.app..*NoLog(..))");
     LogTraceAdvice advice = new LogTraceAdvice(logTrace);
     return new DefaultPointcutAdvisor(pointcut, advice);
 }

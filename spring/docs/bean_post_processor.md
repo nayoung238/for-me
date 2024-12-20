@@ -3,49 +3,57 @@
 Spring이 빈 저장소에 등록하기 위해 생성한 객체를 빈 저장소에 등록하기 전에 조작하고 싶다면 BeanPostProcessor를 사용하면 된다.
 BeanPostProcessor로 객체를 조작할수도 있고, 다른 객체로 변경할수도 있다.
 
-![png](/_server/_img/BeanPostProcessor/BeanPostProcessor(1).png)
+![png](/spring/img/bean_post_processor_1.png)
 
 > 출처: 스프링 핵심 원리 -고급편(김영한)
+
+<br>
 
 1. 생성: Spring Bean 대상이 되는 Bean 객체를 생성
 2. 전달: Bean 객체를 빈 저장소에 등록하기 전에 BeanPostProcessor에 전달
 3. 작업: 전달된 Bean 객체를 조작 또는 다른 객체로 변경
 4. 등록: BeanPostProcessor는 Bean을 반환해 빈 저장소에 등록
 
-BeanPostProcessor에서 Bean이 조작되거나 변경되지 않았다면 Bean 원본 객체가 그대로 등록되고, 그게 아니면 변경된 상태로 빈 저장소에 등록된다. 만약 원본 객체가 변경되었다면 원본 객체는 Spring Bean 으로 아예 등록되지 않는다.
+<br>
 
-> * BeanPostProcessor test 커밋: https://github.com/evelyn82ny/design-pattern/commit/d4b31c4b6c0d8709eaa7b6a52543c4ae8d5fa725
+- BeanPostProcessor에서 Bean이 조작되거나 변경되지 않았다면 Bean 원본 객체가 그대로 등록되고
+- 그게 아니면 변경된 상태로 빈 저장소에 등록된다. ~~만약 원본 객체가 변경되었다면 원본 객체는 Spring Bean 으로 아예 등록되지 않는다.~~
+
+<br>
+
+> BeanPostProcessor test 커밋: https://github.com/imzero238/design-pattern/commit/d4b31c4b6c0d8709eaa7b6a52543c4ae8d5fa725
 
 위 BeanPostProcessor를 A, B객체로 비슷하게 구현해보자.
 
 ```java
 static class A {
-        public void helloA() {
-            log.info("class A");
-        }
+    public void helloA() {
+        log.info("class A");
+    }
 }
 
 static class B {
-        public void helloB() {
-            log.info("class B");
-        }
+    public void helloB() {
+        log.info("class B");
+    }
 }
 ```
 A, B 객체는 자신만의 Method를 가지고 있다.
 
 ```java
 static class BeanPostProcessorConfig {
-        @Bean(name = "beanA")
-        public A a() {
-            A objectA = new A();
-            log.info("object A = " + objectA);
-            return objectA;
-        }
 
-        @Bean
-        public AtoBPostProcessor postProcessor() {
-            return new AtoBPostProcessor();
-        }
+    @Bean(name = "beanA")
+    public A a() {
+        A objectA = new A();
+        log.info("object A = " + objectA);
+        return objectA;
+    }
+
+    @Bean
+    public AtoBPostProcessor postProcessor() {
+        return new AtoBPostProcessor();
+    }
 }
 ```
 A 객체를 **beanA**라는 이름으로 Bean으로 등록하려고 한다.
@@ -106,7 +114,7 @@ BeanPostProcessorTest$B - class B
 
 이렇게 생성한 객체를 빈 저장소에 저장하기 전에 완전히 다른 객체로 바꿀 수 있다. 즉, 아래와 같이 프록시 객체로 변경할 수 있다는 의미이다.
 
-![png](/_server/_img/BeanPostProcessor/BeanPostProcessor(2).png)
+![png](/spring/img/bean_post_processor_2.png)
 
 > 출처: 스프링 핵심 원리 -고급편(김영한)
 
@@ -138,7 +146,7 @@ public interface BeanPostProcessor {
 
 ## 적용
 
-> PackageLogTraceProxyPostProcessor 생성 커밋: https://github.com/evelyn82ny/design-pattern/commit/b3428a9de932d9a02935927a3c8100387aa8f23e
+> PackageLogTraceProxyPostProcessor 생성 커밋: https://github.com/imzero238/design-pattern/commit/b3428a9de932d9a02935927a3c8100387aa8f23e
 
 핵심 기능을 처리하며 Log를 찍는 ```xxPrintLog``` mehotd에만 Proxy를 적용하기 위해 PackageLogTraceProxyPostProcessor를 생성했다.
 
