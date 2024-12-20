@@ -161,7 +161,7 @@
 
 ## Design Pattern
 
-- [Singleton pattern](https://github.com/nayoung8142/for-developer/blob/master/Server/pattern/singleton_pattern.md)
+- [Singleton pattern](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/docs/singleton_pattern.md)
 - [MVC pattern](https://github.com/nayoung8142/for-developer/blob/master/Server/pattern/spring_mvc.md)
 - Ref [MVC Docs](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-servlet)
 - [PRG pattern](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/post_redirect_get_pattern.md)
