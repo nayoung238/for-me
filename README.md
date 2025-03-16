@@ -47,44 +47,40 @@
 
 ## Network
 
-- [OSI 7계층](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/OSI-7-layer.md)
-- [Encapsulation & Decapsulation](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/encapsulation.md)
-- [unicast, broadcast, multicast, anycast](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/unicast_BUM_traffic.md)
-- [MAC address](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/MAC-address.md)
-- [IP address](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/IP-address.md)
-- [TCP / IP protocol](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/TCP-IP-protocol.md)
-- [IPv4 기반의 주소표현 sockaddr_in 구조체](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/sockaddr.md)
-- [IP 주소 할당하기](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/allocate-ip.md)
+- [OSI 7계층](https://github.com/nayoung238/for-me/blob/main/network/docs/OSI-7-layer.md)
+- [Encapsulation & Decapsulation](https://github.com/nayoung238/for-me/blob/main/network/docs/encapsulation.md)
+- [unicast, broadcast, multicast, anycast](https://github.com/nayoung238/for-me/blob/main/network/docs/unicast_BUM_traffic.md)
+- [MAC address](https://github.com/nayoung238/for-me/blob/main/network/docs/MAC-address.md)
+- [IP address](https://github.com/nayoung238/for-me/blob/main/network/docs/IP-address.md)
+- [TCP / IP protocol](https://github.com/nayoung238/for-me/blob/main/network/docs/TCP-IP-protocol.md)
+- [IPv4 기반의 주소표현 sockaddr_in 구조체](https://github.com/nayoung238/for-me/blob/main/network/docs/sockaddr.md)
+- [IP 주소 할당하기](https://github.com/nayoung238/for-me/blob/main/network/docs/allocate-ip.md)
 <br>
 
-- [4-way handshake & half close](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/4-way-handshake.md)
-- [TCP 와 UDP](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/TCP-VS-UDP.md)
-- [TCP / IP protocol](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/TCP-IP-protocol.md)
-- Test [TCP의 데이터 경계](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/boundary-of-tcp-transmission-data.md)
-- [TCP 함수호출 과정](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/TCP-system-call.md)
-- Test [UDP 는 연결이라는 개념이 존재하지 않는다.](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/UDP-system-call.md)
+- [4-way handshake & half close](https://github.com/nayoung238/for-me/blob/main/network/docs/4-way-handshake.md)
+- [TCP 와 UDP](https://github.com/nayoung238/for-me/blob/main/network/docs/TCP-VS-UDP.md)
+- [TCP / IP protocol](https://github.com/nayoung238/for-me/blob/main/network/docs/TCP-IP-protocol.md)
+- Test [TCP의 데이터 경계](https://github.com/nayoung238/for-me/blob/main/network/docs/boundary-of-tcp-transmission-data.md)
+- [TCP 함수호출 과정](https://github.com/nayoung238/for-me/blob/main/network/docs/TCP-system-call.md)
+- Test [UDP 는 연결이라는 개념이 존재하지 않음](https://github.com/nayoung238/for-me/blob/main/network/docs/UDP-system-call.md)
 <br>
 
-- [socket, bind, listen, accept, connect](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/socket.md)
-- [file descriptor, open, close, read, write](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/file-descriptor.md)
+- [socket, bind, listen, accept, connect](https://github.com/nayoung238/for-me/blob/main/network/docs/socket.md)
+- [file descriptor, open, close, read, write](https://github.com/nayoung238/for-me/blob/main/network/docs/file-descriptor.md)
 <br>
 
-- Test [Iterative server & Echo client](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/iterative-server-and-echo-client.md)
-- Test [DNS - gethostbyname()으로 서버 정보 요청하기](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/dns.md)
+- Test [Iterative server & Echo client](https://github.com/nayoung238/for-me/blob/main/network/docs/iterative-server-and-echo-client.md)
+- Test [DNS - gethostbyname()으로 서버 정보 요청하기](https://github.com/nayoung238/for-me/blob/main/network/docs/dns.md)
 <br>
 
-- [blocking vs non-blocking](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/blocking-vs-non-blocking.md)
-- [Nagle algorithm](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/nagle-algorithm.md)
+- [blocking vs non-blocking](https://github.com/nayoung238/for-me/blob/main/network/docs/blocking-vs-non-blocking.md)
+- [Nagle algorithm](https://github.com/nayoung238/for-me/blob/main/network/docs/nagle-algorithm.md)
 <br>
 
-- [자식 프로세스의 종료를 체크하는 wait, signal](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/zombie-check.md)
-- Test [multiprocess](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/multiprocess.md)
-- Test [multiplexing](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/multiplexing.md)
-- Test [pipe](https://github.com/nayoung8142/for-developer/blob/master/Network/theory/pipe.md)
-<br>
-
-- Ref [TCP에 우아한 종료란 없다?](https://sunyzero.tistory.com/269)
-- Ref [ssize_t](https://lacti.github.io/2011/01/08/different-between-size-t-ssize-t/)
+- [자식 프로세스의 종료를 체크하는 wait, signal](https://github.com/nayoung238/for-me/blob/main/network/docs/zombie-check.md)
+- Test [multiprocessing](https://github.com/nayoung238/for-me/blob/main/network/docs/multiprocess.md)
+- Test [multiplexing](https://github.com/nayoung238/for-me/blob/main/network/docs/multiplexing.md)
+- Test [pipe](https://github.com/nayoung238/for-me/blob/main/network/docs/pipe.md)
 
 <br>
 
