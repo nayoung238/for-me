@@ -14,9 +14,9 @@
 
 ## Operating system
 
-- [OS란 (추상화 & 가상화)](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/operating_system.md)
-- [Process](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/process.md)
-- [process state](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/process_state.md)
+- [OS](https://github.com/nayoung238/for-me/blob/master/Operating-system/operating_system.md)
+- [프로세스 & 스레드](https://github.com/nayoung238/for-me/blob/master/operating-system/process_and_thread.md)
+- [process state](https://github.com/nayoung238/for-me/blob/master/operating-system/process_state.md)
 - [Kernel mode & Interrupt](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/interrupt.md)
 
 ### Memory
@@ -93,10 +93,12 @@
 
 ## Database
 
-- [Clustered Index & Nonclustered Index](https://github.com/imzero238/for-interview/blob/master/database/clustered_index_and_nonclustered_index.md)
-- [Non-unique Index & Next Key Lock](https://medium.com/@im_zero/non-unique-index%EC%99%80-next-key-lock-b314379d9b0f)
-- [MySQL InnoDB 락 테스트(트랜잭션 격리 수준별 비교)](https://medium.com/@im_zero/innodb-%EB%9D%BD-%ED%85%8C%EC%8A%A4%ED%8A%B8-ab712d19b74f)
-- [cursor-based-pagination](https://medium.com/@im_zero/infinite-scroll-encountered-two-children-with-the-same-key-%EC%97%90%EB%9F%AC-48c62db262e1)
+- [ACID & 트랜잭션 격리 수준](https://github.com/nayoung238/for-me/blob/main/database/docs/acid_transaction_isolation_level.md)
+- [Clustered Index & Non-clustered Index](https://github.com/nayoung238/for-me/blob/main/database/docs/clustered_index_and_nonclustered_index.md)
+- [MySQL 복제](https://github.com/nayoung238/for-me/blob/main/database/docs/replication.md)
+<br>
+
+- [Lost Update, Write Skew and Phantom](https://medium.com/@nayoung238/lost-update-write-skew-and-phantom-test-aa31887fdfb2) 이상 현상 테스트
 
 <br>
 
