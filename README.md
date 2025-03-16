@@ -153,16 +153,15 @@ r>
 
 ## Design Pattern
 
-- [Singleton pattern](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/docs/singleton_pattern.md)
-- [MVC pattern](https://github.com/nayoung8142/for-developer/blob/master/Server/pattern/spring_mvc.md)
-- Ref [MVC Docs](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-servlet)
-- [PRG pattern](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/post_redirect_get_pattern.md)
-- [Template method pattern](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/template_method_pattern.md)
-- [Strategy pattern](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/strategy_pattern.md)
-- [Template callback pattern](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/template_callback_pattern.md)
-- [Proxy & Decorator pattern](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/proxy_and_decorator_pattern.md)
-- [JDK Dynamic proxy](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/JDK_dynamic_proxy.md)
-- [CGLIB](https://github.com/nayoung8142/for-developer/blob/master/design-pattern/CGLIB.md)
+- [Singleton pattern](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/singleton_pattern.md)
+- [MVC pattern](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/spring_mvc.md)
+- [PRG pattern](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/post_redirect_get_pattern.md)
+- [Template method pattern](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/template_method_pattern.md)
+- [Strategy pattern](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/strategy_pattern.md)
+- [Template callback pattern](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/template_callback_pattern.md)
+- [Proxy & Decorator pattern](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/proxy_and_decorator_pattern.md)
+- [JDK Dynamic proxy](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/JDK_dynamic_proxy.md)
+- [CGLIB](https://github.com/nayoung238/for-me/blob/main/design-pattern/docs/CGLIB.md)
 
 <br>
 

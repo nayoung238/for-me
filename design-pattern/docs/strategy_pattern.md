@@ -1,4 +1,4 @@
-![png](/_img/Design-pattern/template_method_vs_strategy_pattern.png)
+![png](/design-pattern/img/template_method_vs_strategy_pattern.png)
 
 template method pattern 은 ```변하지 않는 부분``` 을 부모 클래스에 정의하고 ```변하는 부분``` 을 자식 클래스에 정의한다. 하지만 상속을 사용하기 때문에 부모의 기능을 사용하지 않더라도 부모와 자식이 강하게 의존한다는 문제가 있다. 이를 해결하기 위한 Strategy pattern 은 ```변하지 않는 부분``` 과 ```변하는 부분``` 에 상속이 아닌 **위임**이라는 개념을 사용한다. 
 
@@ -87,7 +87,7 @@ public class Context {
 ```
 Context 는 Strategy 필드를 가지고 있으며 원하는 Strategy 구현체를 주입하면 된다. ```strategy.call();``` 에서 해당 interface 구현체가 오버라이딩하여 구현한 메서드가 실행된다.
 
-![png](/_img/Design-pattern/strategy_pattern_dependency_injection.png)
+![png](/design-pattern/img/strategy_pattern_dependency_injection.png)
 
 ``` java
 Context context1 = new Context(new StrategyOrder());
@@ -141,7 +141,7 @@ context2.execute();
 
 ## template method 패턴과의 차이
 
-![png](/_img/Design-pattern/template_method_vs_strategy_pattern.png)
+![png](/design-pattern/img/template_method_vs_strategy_pattern.png)
 
 template method pattern 은 abstract class 인 부모 클래스에 변하지 않는 템플릿 코드 (context) 를 메서드에 정의하고 **변하는 부분 (strategy) 을 추상 메서드로 설정**한다. 부모 클래스를 상속하는 자식 클래스가 추상 메서드를 override 하여 구현한다. 즉, Context 와 Strategy 가 분리되지 않고 의존적이다.
 
@@ -172,7 +172,7 @@ public class Context {
 ```
 DI 방식에서 사용한 strategy field 를 갖지말고 Strategy 를 parameter 로 전달받는다.
 
-![png](/_img/Design-pattern/strategy_pattern_dependency_injection_vs_parameter.png)
+![png](/design-pattern/img/strategy_pattern_dependency_injection_vs_parameter.png)
 
 ```java
 Context context = new Context();
@@ -212,7 +212,7 @@ Strategy interface 는 1개의 메서드만 있기 때문에 lambda 를 사용�
 
 # 정리
 
-![png](/_img/Design-pattern/strategy_pattern_dependency_injection_vs_parameter.png)
+![png](/design-pattern/img/strategy_pattern_dependency_injection_vs_parameter.png)
 
 Strategy pattern 에서는 변하지 않는 템플릿 코드를 Context 에 작성하고, 변하는 코드를 Strategy Interface 에 구현한다.
 

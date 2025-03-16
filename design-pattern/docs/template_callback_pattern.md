@@ -73,7 +73,7 @@ public class TraceTemplate {
     }
 }
 ```
-![png](/_img/Design-pattern/template_callback_pattern.png)
+![png](/design-pattern/img/template_callback_pattern.png)
 
 템플릿 역할인 TraceTemplate 클래스이다. execute 메서드에서 변경되는 코드인 interface 구현체를 parameter 로 전달받는다. 로직을 실행하다가 ```T result = callback.order();``` 지점에 오면 interface 구현체의 메서드를 실행시킨다.
 
@@ -118,12 +118,12 @@ public class OrderService {
 
 # Template method 패턴과의 차이
 
-![png](/_img/Design-pattern/template_method_vs_callback_structure.png)
+![png](/design-pattern/img/template_method_vs_callback_structure.png)
 
 Template **method** pattern 은 **변경되지 않는 템플릿 코드**는 abstract class 인 부모 클래스에 정의하고, **변경되는 부분**은 상속을 통해 오버라이딩으로 자식 클래스에서 구현한다. 상속을 사용하기 때문에 부모 클래스가 변경되면 자식 클래스도 영향을 받는다는 단점이 있다.
 
 Template **callback** pattern 은 **변경되지 않는 템플릿 코드**는 template class 에 작성하고, **변경되는 부분**은 interface 로 정의해 원하는 interface 구현체를 template 에 전달하는 방식이다. **변경되지 않는 템플릿 코드**와 **변경되는 코드**를 완벽히 분리했기 때문에 서로에게 영향을 주지 않는다는 장점이 있다.
 
-![png](/_img/Design-pattern/template_method_vs_callback_code.png)
+![png](/design-pattern/img/template_method_vs_callback_code.png)
 
 template callback pattern 을 적용해 조금 더 간결하게 작성할 수 있었다. 하지만 log 추적 기능을 application 에 적용하기 위해 controller, service, repository 코드를 수정해야 한다는 문제가 있다.

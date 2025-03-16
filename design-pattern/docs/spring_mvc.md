@@ -1,11 +1,11 @@
 # Spring MVC
 
-![png](/_server/_img/Spring_MVC/springmvc_architecture.png)
+![png](/design-pattern/img/spring_mvc_architecture.png)
 
 > 출처: https://gmlwjd9405.github.io/2018/12/20/spring-mvc-framework.html
 <br>
 
-![png](/_server/_img/DispatcherServlet2.png)
+![png](/design-pattern/img/DispatcherServlet2.png)
 
 > 출처: https://mangkyu.tistory.com/18
 
@@ -23,11 +23,11 @@
 
 # DispatcherServlet
 
-![png](/_server/_img/Spring_MVC/springmvc_architecture_dispatcher_servlet.png)
+![png](/design-pattern/img/spring_mvc_architecture.png)
 
 SpringBoot에서 제공하는 기술로 모든 HTTP 요청이 일단 DispatcherServlet으로 들어간다. 그리고 요청에 맞는 적절한 Controller를 찾아 요청을 위임한다. 즉, 핵심 기능을 처리하는 Controller 앞에서 처리하기 때문에 Front Controller라고도 한다. 
 
-![png](/_server/_img/Spring_MVC/DispatcherServlet_diagram.png)
+![png](/design-pattern/img/DispatcherServlet_diagram.png)
 
 - HTTP Request handlers/controllers를 위한 central dispatcher
 - Web Request를 처리하기 위해 등록된 handler를 보냄
@@ -176,7 +176,7 @@ HTTP Request Message를 기반으로 HttpServletRequest와 HttpServletResponse �
 
 ## HandlerMapping
 
-![png](/_server/_img/Spring_MVC/springmvc_architecture_handler_mapping.png)
+![png](/design-pattern/img/spring_mvc_architecture_handler_mapping.png)
 
 ```java
 package org.springframework.web.servlet;
@@ -268,7 +268,7 @@ public class ModelAndView {
 
 # ViewResolver
 
-![png](/_server/_img/Spring_MVC/springmvc_architecture_ViewResolver.png)
+![png](/design-pattern/img/spring_mvc_architecture_ViewResolver.png)
 
 ```java
 package org.springframework.web.servlet;

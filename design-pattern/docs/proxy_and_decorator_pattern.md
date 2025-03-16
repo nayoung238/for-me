@@ -2,7 +2,7 @@
 
 클라이언트는 서버에게 원하는 것을 **직접 호출**할 수 있다. 이말은 **간접 호출**도 가능하다는 것이다.
 
-![png](/_img/Design-pattern/proxy.png)
+![png](/design-pattern/img/proxy.png)
 
 클라이언트는 대리자를 통해 서버에게 간접적으로 요청할 수 있는데 이 대리자를 **proxy** 라고 한다. 프록시 객체로 다음과 같은 기능을 구현할 수 있다.
 
@@ -19,7 +19,7 @@ proxy pattern 과 decorator patter 은 둘다 proxy 사용하지만 두 패턴�
 
 # interface 기반
 
-![png](/_img/Design-pattern/based_on_interface(1).png)
+![png](/design-pattern/img/based_on_interface(1).png)
 
 클라이언트가 서버에게 요청했는지, 프록시에게 요청했는지 구분가지 않게 하려면 **서버와 프록시는 같은 interface 를 사용**해야 한다. 그렇기 때문에 DI (dependency injection) 로 서로가 대체 가능하며, 이는 서버 객체를 프록시 객체로 변경해도 서비스 동작 방식에 아무런 문제가 발생하지 않음을 의미한다. 
 
@@ -29,7 +29,7 @@ Runtime 시점에 DI (dependency injection) 를 통해 객체를 주입하므로
 
 >- interface 기반 구현 커밋 : https://github.com/evelyn82ny/Design-pattern/commit/429b35433a43fe36a8f787459692904f16869c2b
 
-![png](/_img/Design-pattern/based_on_interface(2).png)
+![png](/design-pattern/img/based_on_interface(2).png)
 
 ```java
 @RequestMapping
@@ -65,11 +65,11 @@ public class OrderControllerV1Impl implements OrderControllerV1 {
 
 >- interface 기반에 proxy 적용 커밋: https://github.com/evelyn82ny/Design-pattern/commit/6258cb3ea5b41d2492475ef356d94e237710d367
 
-![png](/_img/Design-pattern/based_on_interface(3).png)
+![png](/design-pattern/img/based_on_interface(3).png)
 
 Interface 기반으로 만든 구현 클래스에 프록시를 적용하려면 Controller, Service, Repository 객체에 대해 각각의 Proxy 를 만든다.
 
-![png](/_img/Design-pattern/based_on_interface(4).png)
+![png](/design-pattern/img/based_on_interface(4).png)
 
 Runtime 시점에 클라이언트가 프록시를 사용하도록 DI 를 설정한다. OrderController 에 대한 Proxy 인 ```OrderControllerInterfaceProxy``` 는 다음과 같다.
 
@@ -97,7 +97,7 @@ public class OrderControllerInterfaceProxy implements OrderControllerV1 {
 ```
 ```OrderControllerInterfaceProxy``` 로 부가 기능인 **로그 추적** 기능을 수행하고, 실제 주문하는 비즈니스 로직은 Proxy 객체가 아닌 ```OrderControllerV1``` 구현 객체에서 수행된다.
 
-![png](/_img/Design-pattern/based_on_interface(5).png)
+![png](/design-pattern/img/based_on_interface(5).png)
 
 그러므로 ```OrderControllerInterfaceProxy``` 는 ```OrderControllerV1``` 객체를 **target** 으로 참조해 비즈니스 로직을 수행하는 시점에 **target 을 호출**한다.
 
@@ -129,7 +129,7 @@ public class AppV1InterfaceConfig {
     }
 }
 ```
-![png](/_img/Design-pattern/proxy_pattern_bean.p)
+![png](/design-pattern/img/proxy_pattern_bean.png)
 
 ```OrderControllerV1Impl```, ```OrderServiceV1Impl``` 같은 비지니스 로직을 처리하는 객체를 Spring bean 으로 등록하지 않고, 프록시 객체로 생성한 ```OrderControllerInterfaceProxy```, ```OrderServiceInterfaceProxy``` 등 을 실제 **Spring bean 으로 등록**하는 구조이다. 즉, 구현 객체와 프록시 객체 모두 자바 heap 메모리에 올라가지만 프록시 객체만 스프링 컨테이너가 관리한다.
 
@@ -165,14 +165,14 @@ public class InitDB2 {
 
 ## 문제점
 
-![png](/_img/Design-pattern/proxy_pattern_based_on_interface_structure.png)
+![png](/design-pattern/img/proxy_pattern_based_on_interface_structure.png)
 
 Proxy 객체를 사용해 ```주문을 처리하는 비즈니스 기능``` 과 ```로그를 남기는 부가 기능``` 을 완벽히 분리했다. 하지만 모든 객체에 대한 Proxy 객체를 만들어야 한다는 단점이 있다. 이는 **JDK Dynamic proxy** 로 해결가능하다.
 <br>
 
 # concrete class 기반
 
-![png](/_img/design-pattern/based_on_concrete_class(1).png)
+![png](/design-pattern/img/based_on_concrete_class(1).png)
 
 Concrete class (구체 클래스) 를 상속해 Proxy 객체를 만든다. Interface 기반과 다른점은 interface 구현이 아닌 상속을 해야하며 다른 것은 모두 동일하다.
 
@@ -271,11 +271,11 @@ public class AppV2ConcreteProxyConfig {
 }
 ```
 
-![png](/_img/Design-pattern/based_on_concrete_class(1).png)
+![png](/design-pattern/img/based_on_concrete_class(1).png)
 <br>
 
 ## 결과
 
-![png](/_img/Design-pattern/based_on_concrete_class(2).png)
+![png](/design-pattern/img/based_on_concrete_class(2).png)
 
 Concrete class 를 상속해 만든 Proxy 객체를 통해 ```주문을 처리하는 비즈니스 기능``` 과 ```로그를 남기는 부가 기능``` 이 완벽히 분리했다. Interface 기반과 다른점은 interface 구현이 아닌 상속을 해야하며 다른 것은 모두 동일하다. 즉, 클래스를 상속하기 때문에 부모 객체의 기능을 사용하지 않아도 가지고 있어야 한다는 단점이 존재한다.
