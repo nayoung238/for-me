@@ -6,7 +6,6 @@
 - ⌨️ [Language](#language)
 - 💌 [Server](#server)
 - 🌱 [Spring](#spring)
-- 🌱 [Spring Cloud](#spring-cloud)
 - 🛠 [Design Pattern](#design-pattern)
 - 🐳 [Docker](#docker)
 
@@ -17,18 +16,17 @@
 - [OS](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/operating_system.md)
 - [프로세스 & 스레드](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/process_and_thread.md)
 - [process state](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/process_state.md)
-- [Kernel mode & Interrupt](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/interrupt.md)
+- [Kernel mode & Interrupt](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/interrupt.md)
 
 ### Memory
 
-- [Memory Structure](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/memory_structure.md)
+- [Memory Structure](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/memory_structure.md)
 - [virtual address space](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/virtual_address_space.md)
 - [Memory management](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/memory_management.md)
 - [Page Replacement Policy](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/page_replacement_policy.md)
 - [Paging](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/paging.md)
 - [Page table 구조](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/page_table_structure.md)
 - [Segmentation](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/segmentation.md)
-- Ref [iOS와 Android 차이](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/difference_between_iOS_and_Android.md)
 
 ### Scheduling
 
@@ -133,32 +131,24 @@
 
 ## Spring
 
-- [PK mapping](https://github.com/nayoung8142/for-developer/blob/master/Spring/PK_mapping.md)
-- Ref [Filter, Interceptor, AOP](https://popo015.tistory.com/116?category=902728)
-
-### Proxy
-
-- [ProxyFactory](https://github.com/nayoung8142/for-developer/blob/master/Spring/proxy/ProxyFactory.md)
-- [BeanPostProcessor 기본 원리](https://github.com/nayoung8142/for-developer/blob/master/Spring/proxy/BeanPostProcessor_basic.md)
-- [BeanPostProcessor - Pointcut 적용 원리](https://github.com/nayoung8142/for-developer/blob/master/Spring/proxy/BeanPostProcessor_pointcut.md)
+- [PK mapping](https://github.com/nayoung238/for-me/blob/main/spring/docs/pk_mapping.md)
+- [AOP - aspect](https://github.com/nayoung238/for-me/blob/main/spring/docs/aop_aspect.md)
+- [ProxyFactory](https://github.com/nayoung238/for-me/blob/main/spring/docs/proxy_factory.md)
+- [BeanPostProcessor](https://github.com/nayoung238/for-me/blob/main/spring/docs/bean_post_processor.md)
+- [BeanPostProcessor - Pointcut](https://github.com/nayoung238/for-me/blob/main/spring/docs/bean_post_processor_pointcut.md)
 
 ### JPA
 
-- [JPA와 Spring Data JPA의 차이 (feat. Hibernate)](https://velog.io/@evelyn82ny/JPA-vs-Spring-Data-JPA)
-- [JPA Persistence Context 1차 캐시의 식별 방법 (feat.OSIV)](https://velog.io/@evelyn82ny/how-to-identify-a-first-level-cache)
+- [JPA vs Spring Data JPA vs Hibernate](https://medium.com/@nayoung238/jpa-vs-spring-data-jpa-vs-hibernate-5657f21f2e18)
+- [JPA Persistence Context 1차 캐시의 식별 방법 (feat.OSIV)](https://medium.com/@nayoung238/jpa-persistence-context%EC%97%90%EC%84%9C-entity-%EC%8B%9D%EB%B3%84-%EB%B0%A9%EB%B2%95-feat-osiv-d6b85bb53713)
+r>
 
-<br>
+### Spring Cloud
 
-## Spring Cloud
+- [Random Port](https://github.com/nayoung238/for-me/blob/main/spring/docs/random_port.md)
+- [Custom Filter Using AbstractGatewayFilterFactory](https://github.com/nayoung238/for-me/blob/main/spring/docs/custom_filter.md)
+- [Global Filter Using AbstractGatewayFilterFactory](https://github.com/nayoung238/for-me/blob/main/spring/docs/global_filter.md)
 
-- [Spring CLoud Docs](https://spring.io/projects/spring-cloud)
-- [Random Port](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/random_port.md)
-- Filter
-  - [Filter using Java Code (RouteLocator)](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/filter_using_java_code.md)
-  - [Filter using Property (application.yml)](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/filter_using_property.md)
-- [Custom Filter Using AbstractGatewayFilterFactory](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/custom_filter.md)
-- [Global Filter Using AbstractGatewayFilterFactory](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/global_filter.md)
-- [Spring Cloud Gateway (Load Balancer)](https://github.com/nayoung8142/for-developer/blob/master/Spring-Cloud/spring-cloud-gateway.md)
 <br>
 
 ## Design Pattern

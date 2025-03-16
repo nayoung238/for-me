@@ -8,7 +8,7 @@
 
 ## Configurations 수정
 
-![png](/_img/Spring-Cloud/copy_configuration.png)
+![](/spring/img/copy_configuration.png)
 
 같은 서비스를 추가 실행하기 위해 ```Run/Debug Configuration```에서 Configuration을 복사한다.
 그 후 2개의 인스턴스를 실행하면 1개의 인스턴스에서 에러가 발생하는데, 2개의 인스턴스가 같은 포트번호를 사용하기 때문이다.

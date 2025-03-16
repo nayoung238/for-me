@@ -40,7 +40,7 @@ values (?, ?, ?, ?, ?)
 insert into users (id, email, name, password, username)
 values ('1', 'apple123@gmail.com', 'lee', 'password123', 'id123');
 ```
-![](/_img/Spring/pk_mapping_result.png)
+![](/spring/img/pk_mapping_result.png)
 
 요청한대로 잘 설정됨을 알 수 있다. 하지만 PK 를 지정하지 않을 경우 다음과 같은 예외가 발생한다.
 <br>
@@ -117,7 +117,7 @@ values (null, ?, ?, ?, ?)
 insert into users (id, email, name, password, username)
 values (null, 'apple123@gmail.com', 'lee', 'password123', 'id123');
 ```
-![](/_img/Spring/pk_mapping_result.png)
+![](/spring/img/pk_mapping_result.png)
 
 @Id 필드를 **35** 로 요청했지만 **query 에 반영되지 않고 실제 DB 에도 반영되지 않는다.** 그러므로 ```@GeneratedValue``` 설정 시 @Id 필드를 직접 지정하지 않아도 된다.
 
@@ -143,7 +143,7 @@ public class User {
 
 User Entity 의 **id 필드가 PK** 이며 ```@GeneratedValue``` 을 설정했기 때문에 개발자가 직접 입력하지 않는다. 그러므로 나머지 필드만 채워 요청하면 된다.
 
-![](/_img/Spring/pk_mapping_identity_result.png)
+![](/spring/img/pk_mapping_identity_result.png)
 
 위와 같이 PK 인 ID 필드가 중복되지 않고 **auto-increment** 으로 채워진다.
 <br>
@@ -234,11 +234,11 @@ public class Post {
 - 2개의 Post 를 저장하고
 - username 이 ```id456``` 인 User 를 저장했을 때 할당받는 PK 는 다음과 같다.
 
-![](/_img/Spring/pk_mapping_sequence1.png)
+![](/spring/img/pk_mapping_sequence1.png)
 
 ```insta_eneity``` 라는 이름을 갖는 시퀀스의 initialValue 속성을 3 으로 설정했기 때문에 처음 저장된 ```User(id456)``` 는 3 을 할당받는다. 그다음 저장된 Post 는 4, 5 를 할당받는다. 마지막으로 저장된 ```User(id123)``` 은 6 을 할당받는다. 서로 다른 객체가 같은 시퀀스를 사용해도 중복되지 않고 할당되는 것을 알 수 있다.
 
-![](/_img/Spring/pk_mapping_sequence2.png)
+![](/spring/img/pk_mapping_sequence2.png)
 
 ```Current value``` 는 마지막으로 할당한 수이다.
 <br>
@@ -319,7 +319,7 @@ public class Post {
 
 ```sequenceName``` 속성을 서로 다르게 설정하면 서로 다른 시퀀스가 생성된다. 
 
-![](/_img/Spring/pk_mapping_sequence3.png)
+![](/spring/img/pk_mapping_sequence3.png)
 
 ```User Entity``` 는 **3** 부터, ```Post Entity``` 는 **8** 부터 할당되는 것을 알 수 있다.
 <br>
@@ -357,7 +357,7 @@ SEQUENCE 전략은 매핑한 **sequence 에서 PK 를 얻어온다**. ```persist
 
 PK 값을 받아올 때마다 sequence 에 접근하지 말고, allocationSize 에 설정한 크기만큼 **sequence 에서 미리 받아와 메모리에 저장**한다. default 값이 50 이므로 미리 50 개를 가져오기 때문에 **50 개를 모두 사용하기 전까지 쿼리를 발생하지 않고도 메모리에만 접근해 PK 값을 얻을 수 있다**.
 
-![](/_img/Spring/pk_mapping_allocation_size.png)
+![](/spring/img/pk_mapping_allocation_size.png)
 
 sequence 에서 50 을 미리 가져왔다면 현재 값은 51 로 설정된다. 이는 다음 증가 시작점을 의미한다.
 

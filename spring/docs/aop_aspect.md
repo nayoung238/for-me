@@ -21,8 +21,6 @@ Proxy pattern과 Decorator pattern은 Proxy를 사용하지만 사용 의도가 
 
 즉, 두 패턴은 프록시를 사용하지만 의도가 다르다. 두 패턴에 대한 자세한 내용은 아래 링크에서 자세히 파악할 수 있다.
 
-> 자세한 내용: https://velog.io/@evelyn82ny/proxy-pattern-decorator-pattern
-
 <br>
 
 ## JDK 동적 프록시와 CGLIB 프록시
@@ -47,8 +45,6 @@ public class UserService {}
 class com.gokimpark.instaclone.domain.user.UserService$$EnhancerBySpringCGLIB$$f1bed78
 ```
 UserService 는 Concrete class 이므로 CGLIB 프록시가 적용된다.
-
-> 자세한 내용: https://velog.io/@evelyn82ny/JDK-Dynamic-Proxy-CGLIB
 
 <br>
 
@@ -99,11 +95,9 @@ Pointcut과 Advice를 정의한 클래스에 ```@Aspect```를 추가한다. 작�
 
 # 📍프로젝트에 적용하기
 
-![](/_img/Spring/aop_aspect_result.png)
+![](/spring/img/aop_aspect_result.png)
 
-- AOP 적용 커밋: https://github.com/evelyn82ny/instagram-api/commit/ba14a69be6be85de3273b1229255aa3a93ca001f
-
-기존 프로젝트 부가 기능을 추가하면 위와 같이 어떤 메소드를 실행했을 때 쿼리가 발생했는지 알 수 있다.
+부가 기능을 추가하면 위와 같이 어떤 메소드를 실행했을 때 쿼리가 발생했는지 알 수 있다.
 
 # Advice: 부가 기능 작성하기
 
@@ -143,7 +137,7 @@ return 값이 존재하기 때문에 이를 반환하거나 **조작**할 수 �
 
 Advice 적용 범위를 지정하는 기능인 Pointcut 을 작성하는 방법은 여러가지가 존재한다.
 
-![](/_img/Spring/aop_aspect_file_structure.png)
+![](/spring/img/aop_aspect_file_structure.png)
 
 ## @Around
 
