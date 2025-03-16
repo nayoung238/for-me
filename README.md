@@ -99,12 +99,11 @@
 
 ### Java
 
-- [Inheritance](https://github.com/nayoung8142/for-developer/blob/master/Language/Java/Inheritance.md)
-- [Abstract class](https://github.com/nayoung8142/for-developer/blob/master/Language/Java/AbstractClass.md)
-- [Data type](https://github.com/nayoung8142/for-developer/blob/master/Language/Java/DataType.md)
-- [CallByValue](https://github.com/nayoung8142/for-developer/blob/master/Language/Java/CallByValue.md)
-- [SOLID](https://github.com/nayoung8142/for-developer/blob/master/Language/Java/SOLID.md)
-- Ref [Garbage Collection](https://d2.naver.com/helloworld/1329)
+- [Inheritance](https://github.com/nayoung238/for-me/blob/main/java/docs/Inheritance.md)
+- [Abstract class](https://github.com/nayoung238/for-me/blob/main/java/docs/AbstractClass.md)
+- [Data type](https://github.com/nayoung238/for-me/blob/main/java/docs/DataType.md)
+- [CallByValue](https://github.com/nayoung238/for-me/blob/main/java/docs/CallByValue.md)
+- [SOLID](https://github.com/nayoung238/for-me/blob/main/java/docs/SOLID.md)
 
 <br>
 
