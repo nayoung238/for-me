@@ -14,9 +14,9 @@
 
 ## Operating system
 
-- [OS](https://github.com/nayoung238/for-me/blob/master/Operating-system/operating_system.md)
-- [프로세스 & 스레드](https://github.com/nayoung238/for-me/blob/master/operating-system/process_and_thread.md)
-- [process state](https://github.com/nayoung238/for-me/blob/master/operating-system/process_state.md)
+- [OS](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/operating_system.md)
+- [프로세스 & 스레드](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/process_and_thread.md)
+- [process state](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/process_state.md)
 - [Kernel mode & Interrupt](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/interrupt.md)
 
 ### Memory
