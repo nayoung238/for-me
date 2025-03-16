@@ -2,7 +2,7 @@
 
 HTTP response message 의 구조는 다음과 같다.
 
-![png](/_server/_img/http_response_message.png)
+![png](/spring/img/http_response_message.png)
 
 - start line : HTTP method, protocol 등
 - header : host, content type 등
@@ -42,7 +42,7 @@ HttpServletResponse 에 여러 상태가 정의되어있다.
 - SC_FOUND = 302 (the resource reside temporarily under a different URI)
 - SC_NOT_FOUND = 404 (he requested resource is not available)
 
-![png](/_server/_img/http_servlet_response_result.png)
+![png](/spring/img/http_servlet_response_result.png)
 
 <br>
 

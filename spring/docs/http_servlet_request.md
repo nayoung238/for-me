@@ -30,7 +30,7 @@ response 객체에 response message를 담아 client에게 보내면 **WAS가 HT
 request.getParameter 로 원하는 쿼리를 파싱 가능하다.<br>
 response.set 으로 원하는 content type 을 response header 에 설정 가능하다.
 
-![png](/_server/_img/http_servlet_request_result.png) <br>
+![png](/spring/img/http_servlet_request_result.png)
 
 ```localhost:8080/hello?username=kim``` 작성시 content type 원하는 설정으로 되었으며 query string 이 파싱된 것을 볼 수 있다.
 
@@ -69,11 +69,11 @@ String[] usernames = request.getParameterValues("username"); // 중복 파라미
 
 ## POST - HTML Form
 
-![png](/_server/_img/username_age_input_form.png) <br>
+![png](/spring/img/username_age_input_form.png)
 
 회원가입, 상품주문 같은 형식에 HTML Form 이 주로 사용된다.
 
-![png](/_server/_img/http_request_message_for_input_form.png) <br>
+![png](/spring/img/http_request_message_for_input_form.png)
 
 HTTP request message 의 content-type 은 HTTP message body 의 데이터 형식을 지정한다.<br>
 **Content-Type: application/x-www-form-urlencoded**이면 **HTML Form으로 전달**한다는 의미이다.<br>

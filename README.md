@@ -4,7 +4,6 @@
 - ⚡️ [Network](#network)
 - 📚 [Database](#database)
 - ⌨️ [Language](#language)
-- 💌 [Server](#server)
 - 🌱 [Spring](#spring)
 - 🛠 [Design Pattern](#design-pattern)
 - 🐳 [Docker](#docker)
@@ -113,23 +112,22 @@
 
 <br>
 
-## Server
-
-- [HandlerMapping, HandlerAdapter](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/handler_mapping_and_adapter.md)
-- [HTTP method](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/http_method.md)
-- [httpServletRequest](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/httpServletRequest.md)
-- [httpServletResponse](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/httpServletResponse.md)
-- [http request: query](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/http_request_query.md)
-- [http request: JSON](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/http_request_json.md)
-<br>
-
-- [view resolver](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/view_resolver.md)
-- [Redirect 와 Forward 차이](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/redirect_forward.md)
-- [쿠키와 세션](https://github.com/nayoung8142/for-developer/blob/master/Server/Web/cookie_and_session.md)
-
-<br>
-
 ## Spring
+
+- [DispatcherServlet](https://github.com/nayoung238/for-me/blob/main/spring/docs/dispatcher_servlet.md)
+- [HandlerMapping, HandlerAdapter](https://github.com/nayoung238/for-me/blob/main/spring/docs/handler_mapping_and_adapter.md)
+- [httpServletRequest](https://github.com/nayoung238/for-me/blob/main/spring/docs/http_servlet_request.md)
+- [httpServletResponse](https://github.com/nayoung238/for-me/blob/main/spring/docs/http_servlet_response.md)
+- [http request: query](https://github.com/nayoung238/for-me/blob/main/spring/docs/http_request_query.md)
+- [http request: JSON](https://github.com/nayoung238/for-me/blob/main/spring/docs/http_request_json.md)
+
+<br>
+
+- [view resolver](https://github.com/nayoung238/for-me/blob/main/spring/docs/view_resolver.md)
+- [Redirect 와 Forward 차이](https://github.com/nayoung238/for-me/blob/main/spring/docs/redirect_forward.md)
+- [쿠키와 세션](https://github.com/nayoung238/for-me/blob/main/spring/docs/cookie_and_session.md)
+
+<br>
 
 - [PK mapping](https://github.com/nayoung238/for-me/blob/main/spring/docs/pk_mapping.md)
 - [AOP - aspect](https://github.com/nayoung238/for-me/blob/main/spring/docs/aop_aspect.md)

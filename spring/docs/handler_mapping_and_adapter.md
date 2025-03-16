@@ -2,7 +2,7 @@
 
 Handler(Controller)가 호출되기 위해선 HandlerMapping 과 HandlerAdapter 가 필요하다.
 
-![png](/_server/_img/mvc_architecture.png)
+![png](/spring/img/mvc_architecture.png)
 
 Spring MVC는 Web 요청을 처리할 수 있는 범용적인 프레임워크를 제공한다. 이런 이유로 Spring MVC에서 Web 요청을 처리하는 ```@Controller``` 적용 객체나 ```Controller Interface```를 구현한 객체가 Handler이다. 그래서 ControllerMapping이 아닌 HandlerMapping이라고 한다.
 

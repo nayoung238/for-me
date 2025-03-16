@@ -1,4 +1,4 @@
-## DispathcerServlet
+## dispatcher servlet
 
 - Spring MVC is designed the front controller pattern where a central servlet
 - DispatcherServlet uses Spring configuration to discover the delegate components it needs for request mapping, view resolution, exception handling and more
