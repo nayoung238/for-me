@@ -6,7 +6,7 @@ Docker Hub에 있는 Image를 가져와 사용해도 되고 직접 Image를 만�
 
 ## Docker Image & File
 
-![png](/_docker/_img/docker_image_creation_process.png)
+![png](/docker/img/docker_image_creation_process.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -19,7 +19,7 @@ Docker Hub에 있는 Image를 가져와 사용해도 되고 직접 Image를 만�
 
 ### Base Image
 
-![png](/_docker/_img/base_image.png)
+![png](/docker/img/base_image.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -80,7 +80,7 @@ CMD ["echo", "hello"]
 - ```docker build ./``` 또는 ```docker build .``` 를 작성하면 되는데 ```./```를 권장
   - ```./``` 와 ```.``` 는 현재 Directory를 가리킴
 
-![png](/_docker/_img/create_docker_image.png)
+![png](/docker/img/create_docker_image.png)
 
 - 여러 과정을 거쳐 Docker Server가 인식하면 맨 마지막 줄에 해당 Image에 대한 Id 값을 넘겨줌
 - 넘겨준 ID 앞부분을 Copy하여 ```docker run ID앞부분(일부)``` 를 작성하면 ```hello``` 가 출력
@@ -88,7 +88,7 @@ CMD ["echo", "hello"]
 
 <br>
 
-![png](/_docker/_img/build_previous_versions_result.png)
+![png](/docker/img/build_previous_versions_result.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -98,9 +98,9 @@ CMD ["echo", "hello"]
 - 처리되는 과정은 똑같을 것
 - Step 2를 보면 임시 Container를 생성하고 다시 지움
 
-![png](/_docker/_img/build_process(1).png)
+![png](/docker/img/build_process(1).png)
 
-![png](/_docker/_img/build_process(2).png)
+![png](/docker/img/build_process(2).png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -113,7 +113,7 @@ CMD ["echo", "hello"]
 - 그리고 임시 Container 삭제
 <br>
 
-![png](/_docker/_img/docker_image_creation_process(2).png)
+![png](/docker/img/docker_image_creation_process(2).png)
 
 Base Image에 다른 종속성이나 새로운 명령어를 추가하면 임시 Container를 만든 후 해당 Container를 토대로 새로운 Image를 생성한다.
 
@@ -121,7 +121,7 @@ Base Image에 다른 종속성이나 새로운 명령어를 추가하면 임시 
 
 ## Docker Image에 이름 설정
 
-![png](/_docker/_img/set_docker_image_name.png)
+![png](/docker/img/set_docker_image_name.png)
 
 새로 생성된 Docker Image의 ID를 기억하기 쉽게 이름을 설정할 수 있다.
 

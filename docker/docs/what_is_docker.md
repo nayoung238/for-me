@@ -18,7 +18,7 @@
 
 ## Container image
 
-![png](/_docker/_img/docker_image_container.png)
+![png](/docker/img/docker_image_container.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -35,7 +35,7 @@
 
 터미널에 ```docker run hello-world```를 입력하면 ID가 ```a6db7d75181d``` 인 Container가 생성된다.
 
-![png](/_docker/_img/create_container_result.png)
+![png](/docker/img/create_container_result.png)
 
  1. The Docker client contacted the Docker daemon.
  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
@@ -59,7 +59,7 @@
 - Hypervisor: Host 컴퓨터에서 다수의 OS(Guest)를 동시에 실행하기 위한 논리적 Platform이며 HW를 가상화하면서 HW와 각각의 VM을 모니터링하는 중간 관리자
 - Virtual machine monitor 또는 Virtual machine manager 줄여서 VMM 라고도 부름
 
-![png](/_docker/_img/two_types_of_hypervisors.png)
+![png](/docker/img/two_types_of_hypervisors.png)
 
 > 출처: 위키 백과
 
@@ -86,7 +86,7 @@
 
 ## Docker 구조
 
-![png](/_docker/_img/hypervisor_based_VM_structure.png)
+![png](/docker/img/hypervisor_based_VM_structure.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -96,7 +96,7 @@
 - 논리적으로 분리되어 있어서 특정 VM의 오류가 다른 VM에게 영향을 미치지 않음
 <br>
 
-![png](/_docker/_img/docker_structure.png)
+![png](/docker/img/docker_structure.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -118,7 +118,7 @@
 
 ## C group & namespaces
 
-![png](/_docker/_img/container_isolation.png)
+![png](/docker/img/container_isolation.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 

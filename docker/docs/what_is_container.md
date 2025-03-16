@@ -12,7 +12,7 @@
 
 ## Container image
 
-![png](/_docker/_img/docker_image_container.png)
+![png](/docker/img/docker_image_container.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -29,7 +29,7 @@
 
 터미널에 ```docker run hello-world```를 입력하면 ID가 ```a6db7d75181d``` 인 Container가 생성된다.
 
-![png](/_docker/_img/create_container_result.png)
+![png](/docker/img/create_container_result.png)
 
  1. The Docker client contacted the Docker daemon.
  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
@@ -48,12 +48,12 @@
 
 ## Container 확인
 
-![png](/_docker/_img/redis_cil.png)
+![png](/docker/img/redis_cil.png)
 
 Redis server를 실행하고 redis-cli에서 명령어를 실행해본다.<br>
 다른 터미널에서 redis-cli 를 입력했지만 알 수 없는 명령어라고 뜬다.
 
-![png](/_docker/_img/container(1).png)
+![png](/docker/img/container(1).png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -62,7 +62,7 @@ Redis server를 실행하고 redis-cli에서 명령어를 실행해본다.<br>
 ```command not found: redis-cli``` 오류가 뜬 이유는 Redis-cli가 Redis-server가 있는 Container 밖에서 실행하기 때문에 Server에 접근할 수 없어 에러가 난다. 
 이를 해결하기 위해선 Redis-cli 를 Redis-server가 있는 Container 안에서 실행시켜야 한다.
 
-![png](/_docker/_img/container(2).png)
+![png](/docker/img/container(2).png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 

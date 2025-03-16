@@ -165,9 +165,9 @@ r>
 
 ## Docker
 
-- [Docker란](https://github.com/nayoung8142/for-developer/blob/master/Docker/what_is_docker.md)
-- [Container란](https://github.com/nayoung8142/for-developer/blob/master/Docker/what_is_container.md)
-- [Container 생성](https://github.com/nayoung8142/for-developer/blob/master/Docker/create_container.md)
-- [Docker's OS: Linux](https://github.com/nayoung8142/for-developer/blob/master/Docker/docker_os_linux.md)
-- [Docker's life cycle](https://github.com/nayoung8142/for-developer/blob/master/Docker/docker_life_cycle.md)
-- [Docker Image 생성](https://github.com/nayoung8142/for-developer/blob/master/Docker/create_docker_image.md)
+- [Docker](https://github.com/nayoung238/for-me/blob/main/docker/docs/what_is_docker.md)
+- [Container](https://github.com/nayoung238/for-me/blob/main/docker/docs/what_is_container.md)
+- [Container 생성](https://github.com/nayoung238/for-me/blob/main/docker/docs/create_container.md)
+- [Docker's OS: Linux](https://github.com/nayoung238/for-me/blob/main/docker/docs/docker_os_linux.md)
+- [Docker's life cycle](https://github.com/nayoung238/for-me/blob/main/docker/docs/docker_life_cycle.md)
+- [Docker Image 생성](https://github.com/nayoung238/for-me/blob/main/docker/docs/create_docker_image.md)

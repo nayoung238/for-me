@@ -1,6 +1,6 @@
 ## C group & namespaces
 
-![png](/_docker/_img/container_isolation.png)
+![png](/docker/img/container_isolation.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -21,10 +21,10 @@ Linux Kernel 기능인 **C group** 과 **namespaces** 로 Container와 Host에�
 
 **C group** 과 **namespaces** 은 Linux 기능이다. 하지만 MAC OS 에서 돌려도 잘돌아간다. 
 
-![png](/_docker/_img/docker_os.png)
+![png](/docker/img/docker_os.png)
 
 터미널에 ```docker version``` 을 작성해 OS를 확인하니 linux 였다. 즉, MAC OS에서 Docker를 사용하면 다음과 같은 구조가 된다.
 
-![png](/_docker/_img/docker_os_linux.png)
+![png](/docker/img/docker_os_linux.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)

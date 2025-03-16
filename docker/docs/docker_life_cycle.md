@@ -1,6 +1,6 @@
 ## 생명 주기
 
-![png](/_docker/_img/docker_life_cycle.png)
+![png](/docker/img/docker_life_cycle.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -11,9 +11,9 @@
 - ```docker run 이미지이름``` 을 싱행하면 Container가 생성 및 실행됨
 - 즉, ```docker create 이미지이름``` 과 ```docker start 이미지이름``` 이 둘다 처리됨
 
-![png](/_docker/_img/docker_create.png)
+![png](/docker/img/docker_create.png)
 
-![png](/_docker/_img/docker_start.png)
+![png](/docker/img/docker_start.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -21,7 +21,7 @@
 
 ## Stopped
 
-![png](/_docker/_img/docker_stop_and_kill.png)
+![png](/docker/img/docker_stop_and_kill.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 

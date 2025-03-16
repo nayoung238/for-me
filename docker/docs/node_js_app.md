@@ -7,7 +7,7 @@ Node.js로 App을 만들기 위해 ```package.json``` 와 ```server.js```가 필
 
 ## package.json 생성
 
-![png](/_docker/_img/create_package_json.png)
+![png](/docker/img/create_package_json.png)
 
 - ```npm init```: customizing 가능
 - ```npm init -y```: 모든 것을 default로 설정후 생성
@@ -39,7 +39,7 @@ Node.js로 App을 만들기 위해 ```package.json``` 와 ```server.js```가 필
 
 ## Dockerfile 생성
 
-![png](/_docker/_img/create_nodejs_app_dockerfile_structure.png)
+![png](/docker/img/create_nodejs_app_dockerfile_structure.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -71,13 +71,13 @@ CMD ["node", "server.js"]
 
 ### COPY package.json ./
 
-![png](/_docker/_img/error_no_such_file_of_directory.png)
+![png](/docker/img/error_no_such_file_of_directory.png)
 
 - 위 Dockerfile을 build 했지만 **no such file or directory** 오류가 발생
 - ```package.json```이 없다는 오류
 <br>
 
-![png](/_docker/_img/error_no_such_file_package_json.png)
+![png](/docker/img/error_no_such_file_package_json.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -104,7 +104,7 @@ CMD ["node", "server.js"]
 
 <br>
 
-![png](/_docker/_img/error_cannot_find_module_server_js.png)
+![png](/docker/img/error_cannot_find_module_server_js.png)
 
 - 로컬에 있는 ```server.js```도 Docker container로 Copy 해야됨
 
@@ -115,14 +115,14 @@ CMD ["node", "server.js"]
 ```dockerfile
 FROM node:10
 
-COPY ./ ./
+COPY .. ./
 
 RUN npm install
 
 CMD ["node", "server.js"]
 ```
 
-![png](/_docker/_img/solution_cannot_find_module_server_js.png)
+![png](/docker/img/solution_cannot_find_module_server_js.png)
 
 - 모든 파일을 COPY 하기 위해서 ```COPY ./ ./``` 를 추가하면 성공적으로 Build 됨
 
@@ -144,7 +144,7 @@ CMD ["node", "server.js"]
 
 - ```COPY ./ ./```으로 작성하면 ```server.js``` 의 코드를 수정해도 의존된 모든 모듈을 다시 다운 받아야 함
 
-![png](/_docker/_img/cache_use_before.png)
+![png](/docker/img/cache_use_before.png)
 
 - ```server.js```의 일부분을 수정해 다시 Build 하면 이전에 다운받은 의존성을 다시 받아 효율적이지 못함
 
@@ -163,7 +163,7 @@ COPY ./ ./
 
 CMD ["node", "server.js"]
 ```
-![png](/_docker/_img/cache_use_after.png)
+![png](/docker/img/cache_use_after.png)
 
 - 의존성을 작성한 ```package.json```을 ```RUN npm install``` 위에서 copy 시킴
 - ```server.js```의 일부분을 수정해 다시 Build 하면 
@@ -191,9 +191,9 @@ Node.js에서 진입점이 되는 ```server.js```를 위와 같이 작성한다.
 
 ### Port mapping
 
-![png](/_docker/_img/port_mapping.png)
+![png](/docker/img/port_mapping.png)
 
-![png](/_docker/_img/port_mapping(2).png)
+![png](/docker/img/port_mapping(2).png)
 
 - client가 5050번 port로 접속하면 Container 속 8080번 Port에 접속되도록 Port mapping 필요
 - docker run -p ```localhost의 network(port)```:```server.js에 설정한 port``` ```이미지 이름``` 형식으로 작성
@@ -203,7 +203,7 @@ Node.js에서 진입점이 되는 ```server.js```를 위와 같이 작성한다.
 
 ## WORKDIR
 
-![png](/_docker/_img/use_workdir_before.png)
+![png](/docker/img/use_workdir_before.png)
 
 - ```COPY ./ ./``` 작성했기 때문에 로컬의 모든 파일이 Container에 copy
 - ```ls``` 명령어로 container의 목록을 보면 ```Dockerfile```, ```package.json``` 등 로컬에서 생성한 5가지가 Container의 최상단에 위치되어 있음
@@ -211,7 +211,7 @@ Node.js에서 진입점이 되는 ```server.js```를 위와 같이 작성한다.
 - 이를 해결하기 위해 **WORKDIR** 사용
 <br>
 
-![png](/_docker/_img/use_workdir_after.png)
+![png](/docker/img/use_workdir_after.png)
 
 - ```COPY``` 위에 ```WORKDIR /usr/src/app``` 을 작성
 - 로컬에 있는 파일들이 ```/usr/src/app``` 경로에 copy 됨

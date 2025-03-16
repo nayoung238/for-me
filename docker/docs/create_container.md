@@ -6,7 +6,7 @@
    - File Snapshot: 컴퓨터 파일과 Directory를 Copy한 것
 <br>
 
-![png](/_docker/_img/create_container.png)
+![png](/docker/img/create_container.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -22,13 +22,13 @@
 
 ## Alpine Image : ls commend
 
-![png](/_docker/_img/alpine_ls_command.png)
+![png](/docker/img/alpine_ls_command.png)
 
 Docker-Cli 에 ```docker run alpine ls``` 으로 작성하면 아래 과정이 이루어지고 현재 Directory의 파일 리스트가 출력된다.
 
 <br>
 
-![png](/_docker/_img/alpain_ls_command_process.png)
+![png](/docker/img/alpain_ls_command_process.png)
 
 > 출처: 따라하며 배우는 도커와 CI환경(John Ahn)
 
@@ -40,7 +40,7 @@ Docker-Cli 에 ```docker run alpine ls``` 으로 작성하면 아래 과정이 �
 
 ## hello-world : ls commend
 
-![png](/_docker/_img/hello_world_ls_command.png)
+![png](/docker/img/hello_world_ls_command.png)
 
 - Docker-Cli 에 ```docker run hello-world ls``` 를 입력했더니 ```exec: "ls": executable file not found``` 오류 출력
 - Alpine Image에 대해 ls 명령어를 실행하면 오류가 발생하지 않음
@@ -53,7 +53,7 @@ Docker-Cli 에 ```docker run alpine ls``` 으로 작성하면 아래 과정이 �
 - ```docker ps``` 는 Container list를 반환해주는 명령어로 현재 가동중인 Container만 출력됨
 - 여기서 ps 는 Process status
 
-![png](/_docker/_img/alpine_ping.png)
+![png](/docker/img/alpine_ping.png)
 
 - ```docker run alpine ping localhost```으로 alpine Image를 실행시키고
 - ```docker ps``` 로 가동중인 Container를 확인
@@ -99,7 +99,7 @@ Docker-Cli 에 ```docker run alpine ls``` 으로 작성하면 아래 과정이 �
 
 ## 원하는 항목만 보기
 
-![png](/_docker/_img/docker_ps_format_command.png)
+![png](/docker/img/docker_ps_format_command.png)
 
 많은 항목중 ```NAMES``` 와 ```STATUS``` 만 보고싶다면 ```docker ps --format 'table{{.Names}}\t{{.Status}}'``` 로 작성한다.
 
@@ -113,7 +113,7 @@ Docker-Cli 에 ```docker run alpine ls``` 으로 작성하면 아래 과정이 �
 
 ## 실행중인 Container에 명령어 전달
 
-![png](/_docker/_img/docker_exec_ls_command.png)
+![png](/docker/img/docker_exec_ls_command.png)
 
 이미 실행중인 Container에 명령어를 전달할 땐 ```exec``` 사용한다.
 
@@ -121,7 +121,7 @@ Docker-Cli 에 ```docker run alpine ls``` 으로 작성하면 아래 과정이 �
 
 ## sh command
 
-![png](/_docker/_img/exec_it_sh.png)
+![png](/docker/img/exec_it_sh.png)
 
 실행중인 Container에 명령어를 전달할 때 ```docker exec -it 컨테이너아이디 명령어``` 으로 매번 작성하기 번거롭다면 ```sh``` 를 사용한다.<br>
 ```docker exec -it 컨테이너아이디 sh``` 로 작성하면 실행중인 Container안에서 터미널 환경을 구축한다.
