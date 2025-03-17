@@ -47,7 +47,7 @@
 
 ## Network
 
-- [OSI 7계층](https://github.com/nayoung238/for-me/blob/main/network/docs/OSI-7-layer.md)
+- [OSI 7계층](https://github.com/nayoung238/for-me/blob/main/network/docs/osi-7-layer.md)
 - [Encapsulation & Decapsulation](https://github.com/nayoung238/for-me/blob/main/network/docs/encapsulation.md)
 - [unicast, broadcast, multicast, anycast](https://github.com/nayoung238/for-me/blob/main/network/docs/unicast_BUM_traffic.md)
 - [MAC address](https://github.com/nayoung238/for-me/blob/main/network/docs/MAC-address.md)
