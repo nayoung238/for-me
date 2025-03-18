@@ -29,8 +29,7 @@
 
 ### Scheduling
 
-- [FIFO, SJF, RR, HRRN](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/scheduling.md)
-- [MLFQ](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/multi_level_feedback_queue.md)
+- [FIFO, SJF, RR, HRRN & MLFQ](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/scheduling.md)
 
 ### Concurrency & Synchronization
 
