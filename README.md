@@ -22,7 +22,6 @@
 - [Memory Structure](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/memory_structure.md)
 - [virtual address space](https://github.com/nayoung8142/for-developer/blob/master/Operating-system/virtual_address_space.md)
 - [Memory management](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/memory_management.md)
-- [Page Replacement Policy](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/page_replacement_policy.md)
 - [Paging](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/paging.md)
 - [Page table 구조](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/page_table_structure.md)
 - [Segmentation](https://github.com/nayoung238/for-me/blob/main/operating-system/docs/segmentation.md)
