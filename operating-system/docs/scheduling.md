@@ -66,7 +66,7 @@
 
 <br>
 
-# Multi Level Feedback Queue (MLFQ)
+## Multi Level Feedback Queue (MLFQ)
 
 - 여러 큐를 사용하며 각 큐에 우선순위 지정
 - 1개의 큐에는 여러 프로세스 존재 가능
