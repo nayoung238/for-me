@@ -71,7 +71,6 @@
 - Test [DNS - gethostbyname()으로 서버 정보 요청하기](https://github.com/nayoung238/for-me/blob/main/network/docs/dns.md)
 <br>
 
-- [blocking vs non-blocking](https://github.com/nayoung238/for-me/blob/main/network/docs/blocking-vs-non-blocking.md)
 - [Nagle algorithm](https://github.com/nayoung238/for-me/blob/main/network/docs/nagle-algorithm.md)
 <br>
 
