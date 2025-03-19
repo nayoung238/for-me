@@ -12,8 +12,6 @@
 - ACK 받으면 쌓아둔 데이터와 각 계층의 헤더를 추가해 전송
 - 앞으로 보내야 할 데이터가 max packet size 에 도달하면 전송
 
-<br>
-
 ### Nagle OFF
 
 Nagle 설정을 OFF 하면 앞서 전송한 데이터에 대한 ACK을 기다리지 않고 버퍼에 쌓이는 즉시 데이터를 전송한다. 
@@ -68,7 +66,7 @@ int result = setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (void*)&opt, sizeof(op
 
 printf("Nagle status: %d\n", opt_val);
 ```
-- nagle 설정 전체 코드: (https://github.com/nayoung238/for-me/blob/main/network/code/sock-option/nagle_check.c
+- https://github.com/nayoung238/for-me/blob/main/network/code/sock-option/nagle_check.c
 
 ![png](/network/img/nagle_result.png)
 
